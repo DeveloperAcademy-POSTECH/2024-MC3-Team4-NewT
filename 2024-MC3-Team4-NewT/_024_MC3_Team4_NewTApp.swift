@@ -11,7 +11,9 @@ import SwiftUI
 struct _024_MC3_Team4_NewTApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack{
+                TestView()
+            }
         }
     }
 }

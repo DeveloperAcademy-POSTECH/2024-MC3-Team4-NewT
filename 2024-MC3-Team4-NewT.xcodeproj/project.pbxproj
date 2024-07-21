@@ -8,17 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		21B0802D2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */; };
-		21B0802F2C4D0834007BC655 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0802E2C4D0834007BC655 /* ContentView.swift */; };
 		21B080312C4D0836007BC655 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B080302C4D0836007BC655 /* Assets.xcassets */; };
 		21B080342C4D0836007BC655 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B080332C4D0836007BC655 /* Preview Assets.xcassets */; };
+		21B0803B2C4D087F007BC655 /* PiriView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0803A2C4D087F007BC655 /* PiriView.swift */; };
+		21B0803D2C4D0888007BC655 /* JaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0803C2C4D0888007BC655 /* JaneView.swift */; };
+		21B0803F2C4D089F007BC655 /* SisiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0803E2C4D089F007BC655 /* SisiView.swift */; };
+		21B080412C4D08B2007BC655 /* NadaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B080402C4D08B2007BC655 /* NadaView.swift */; };
+		21B080432C4D08C2007BC655 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B080422C4D08C2007BC655 /* TestView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		21B080292C4D0834007BC655 /* 2024-MC3-Team4-NewT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "2024-MC3-Team4-NewT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _024_MC3_Team4_NewTApp.swift; sourceTree = "<group>"; };
-		21B0802E2C4D0834007BC655 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		21B080302C4D0836007BC655 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21B080332C4D0836007BC655 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		21B0803A2C4D087F007BC655 /* PiriView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiriView.swift; sourceTree = "<group>"; };
+		21B0803C2C4D0888007BC655 /* JaneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JaneView.swift; sourceTree = "<group>"; };
+		21B0803E2C4D089F007BC655 /* SisiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SisiView.swift; sourceTree = "<group>"; };
+		21B080402C4D08B2007BC655 /* NadaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NadaView.swift; sourceTree = "<group>"; };
+		21B080422C4D08C2007BC655 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +60,9 @@
 			isa = PBXGroup;
 			children = (
 				21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */,
-				21B0802E2C4D0834007BC655 /* ContentView.swift */,
+				21B080442C4D08D3007BC655 /* View */,
+				21B080462C4D08E2007BC655 /* ViewModel */,
+				21B080452C4D08DB007BC655 /* Model */,
 				21B080302C4D0836007BC655 /* Assets.xcassets */,
 				21B080322C4D0836007BC655 /* Preview Content */,
 			);
@@ -65,6 +75,32 @@
 				21B080332C4D0836007BC655 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		21B080442C4D08D3007BC655 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				21B0803C2C4D0888007BC655 /* JaneView.swift */,
+				21B080402C4D08B2007BC655 /* NadaView.swift */,
+				21B0803A2C4D087F007BC655 /* PiriView.swift */,
+				21B0803E2C4D089F007BC655 /* SisiView.swift */,
+				21B080422C4D08C2007BC655 /* TestView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		21B080452C4D08DB007BC655 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		21B080462C4D08E2007BC655 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +173,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				21B0802F2C4D0834007BC655 /* ContentView.swift in Sources */,
+				21B080432C4D08C2007BC655 /* TestView.swift in Sources */,
+				21B080412C4D08B2007BC655 /* NadaView.swift in Sources */,
+				21B0803F2C4D089F007BC655 /* SisiView.swift in Sources */,
 				21B0802D2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift in Sources */,
+				21B0803D2C4D0888007BC655 /* JaneView.swift in Sources */,
+				21B0803B2C4D087F007BC655 /* PiriView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
