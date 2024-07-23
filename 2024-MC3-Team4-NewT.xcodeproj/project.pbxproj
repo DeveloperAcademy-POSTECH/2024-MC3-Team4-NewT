@@ -59,11 +59,9 @@
 		21B0802B2C4D0834007BC655 /* 2024-MC3-Team4-NewT */ = {
 			isa = PBXGroup;
 			children = (
-				21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */,
-				21B080442C4D08D3007BC655 /* View */,
-				21B080462C4D08E2007BC655 /* ViewModel */,
-				21B080452C4D08DB007BC655 /* Model */,
-				21B080302C4D0836007BC655 /* Assets.xcassets */,
+				21B080672C4F345D007BC655 /* Resource */,
+				21B080682C4F3472007BC655 /* Supporting File */,
+				21B080692C4F347A007BC655 /* Source */,
 				21B080322C4D0836007BC655 /* Preview Content */,
 			);
 			path = "2024-MC3-Team4-NewT";
@@ -101,6 +99,64 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		21B080662C4F3433007BC655 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		21B080672C4F345D007BC655 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				21B080302C4D0836007BC655 /* Assets.xcassets */,
+				21B0806B2C4F355A007BC655 /* Constant */,
+				21B080662C4F3433007BC655 /* Extension */,
+				21B0806A2C4F354D007BC655 /* Font */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		21B080682C4F3472007BC655 /* Supporting File */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Supporting File";
+			sourceTree = "<group>";
+		};
+		21B080692C4F347A007BC655 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				21B0806C2C4F358D007BC655 /* App */,
+				21B080442C4D08D3007BC655 /* View */,
+				21B080462C4D08E2007BC655 /* ViewModel */,
+				21B080452C4D08DB007BC655 /* Model */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		21B0806A2C4F354D007BC655 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		21B0806B2C4F355A007BC655 /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		21B0806C2C4F358D007BC655 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
