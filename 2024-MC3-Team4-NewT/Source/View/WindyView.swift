@@ -44,8 +44,8 @@ struct WindyView: View {
             "lat": lat,
             "lon": lon,
             "model": "gfs", // global ver
-            "parameters": ["wind", "dewpoint", "rh", "pressure"],
-            "levels": ["surface", "800h", "300h"],
+            "parameters": ["wind","windGust", "temp", "ptype","waves"],
+            "levels": ["surface"],
             
             "key": apiKey
         ]
