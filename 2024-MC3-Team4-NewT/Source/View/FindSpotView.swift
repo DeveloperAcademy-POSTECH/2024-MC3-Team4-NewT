@@ -106,7 +106,7 @@ struct APIView: View {
     }
 
     func fetchData() {
-        let spotID = "kr207" // 실제 스팟 ID로 대체하세요
+        let spotID = "kr25" // 실제 스팟 ID로 대체하세요
         guard let encodedSpotID = spotID.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else {
             self.rawData = "Invalid spot ID"
             return

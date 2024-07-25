@@ -16,6 +16,8 @@
 		21B080412C4D08B2007BC655 /* NadaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B080402C4D08B2007BC655 /* NadaView.swift */; };
 		21B080432C4D08C2007BC655 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B080422C4D08C2007BC655 /* TestView.swift */; };
 		21B0806E2C516248007BC655 /* FindSpotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0806D2C516248007BC655 /* FindSpotView.swift */; };
+		21B080702C52844C007BC655 /* EmbededView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0806F2C52844C007BC655 /* EmbededView.swift */; };
+		21B080722C52890A007BC655 /* WindyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B080712C52890A007BC655 /* WindyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		21B080402C4D08B2007BC655 /* NadaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NadaView.swift; sourceTree = "<group>"; };
 		21B080422C4D08C2007BC655 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		21B0806D2C516248007BC655 /* FindSpotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindSpotView.swift; sourceTree = "<group>"; };
+		21B0806F2C52844C007BC655 /* EmbededView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbededView.swift; sourceTree = "<group>"; };
+		21B080712C52890A007BC655 /* WindyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,12 +84,14 @@
 		21B080442C4D08D3007BC655 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				21B0806F2C52844C007BC655 /* EmbededView.swift */,
 				21B0806D2C516248007BC655 /* FindSpotView.swift */,
 				21B0803C2C4D0888007BC655 /* JaneView.swift */,
 				21B080402C4D08B2007BC655 /* NadaView.swift */,
 				21B0803A2C4D087F007BC655 /* PiriView.swift */,
 				21B0803E2C4D089F007BC655 /* SisiView.swift */,
 				21B080422C4D08C2007BC655 /* TestView.swift */,
+				21B080712C52890A007BC655 /* WindyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -237,8 +243,10 @@
 				21B0803F2C4D089F007BC655 /* SisiView.swift in Sources */,
 				21B0802D2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift in Sources */,
 				21B0803D2C4D0888007BC655 /* JaneView.swift in Sources */,
+				21B080702C52844C007BC655 /* EmbededView.swift in Sources */,
 				21B0803B2C4D087F007BC655 /* PiriView.swift in Sources */,
 				21B0806E2C516248007BC655 /* FindSpotView.swift in Sources */,
+				21B080722C52890A007BC655 /* WindyView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

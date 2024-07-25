@@ -17,6 +17,13 @@ struct PiriView: View {
             NavigationLink(destination: APIView()){
                 Text("API")
             }
+            NavigationLink(destination: EmbededView()){
+                Text("Embeded")
+            }
+            NavigationLink(destination: WindyView()){
+                Text("Windy")
+            }
+            
         }
     }
 
