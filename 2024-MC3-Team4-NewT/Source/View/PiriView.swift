@@ -8,7 +8,7 @@ import SwiftUI
 
 struct PiriView: View {
     
-
+    
     var body: some View {
         VStack(spacing:20){
             NavigationLink(destination: FindSpotView()){
@@ -26,7 +26,7 @@ struct PiriView: View {
             
         }
     }
-
+    
 }
 
 
