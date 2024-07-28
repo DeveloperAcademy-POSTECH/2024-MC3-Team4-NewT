@@ -4,6 +4,12 @@
 //
 //  Created by ram on 7/25/24.
 //
+//
+//  WindyView.swift
+//  2024-MC3-Team4-NewT
+//
+//  Created by ram on 7/25/24.
+//
 
 import SwiftUI
 
@@ -44,18 +50,32 @@ struct WindyView: View {
             "lat": lat,
             "lon": lon,
             "model": "gfs", // global ver
-            "parameters": ["wind","windGust", "temp", "ptype","waves"],
+            "parameters": ["wind", "windGust", "temp", "ptype"],
             "levels": ["surface"],
-            
             "key": apiKey
         ]
         
-        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
+        let waveParameters: [String: Any] = [
+            "lat": lat,
+            "lon": lon,
+            "model": "gfsWave", // global wave model
+            "parameters": ["waves"],
+            "levels": ["surface"],
+            "key": apiKey
+        ]
+        
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []),
+              let waveHttpBody = try? JSONSerialization.data(withJSONObject: waveParameters, options: []) else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = httpBody
+        
+        var waveRequest = URLRequest(url: url)
+        waveRequest.httpMethod = "POST"
+        waveRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        waveRequest.httpBody = waveHttpBody
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let data = data {
@@ -71,9 +91,23 @@ struct WindyView: View {
                 }
             }
         }.resume()
+        
+        URLSession.shared.dataTask(with: waveRequest) { data, response, error in
+            if let data = data {
+                if let jsonResponse = String(data: data, encoding: .utf8) {
+                    DispatchQueue.main.async {
+                        self.apiResponse += "\n\nWave Data:\n" + jsonResponse
+                        print(apiResponse)
+                    }
+                }
+            } else if let error = error {
+                DispatchQueue.main.async {
+                    self.apiResponse = "Error: \(error.localizedDescription)"
+                }
+            }
+        }.resume()
     }
 }
-
 
 #Preview {
     WindyView()
