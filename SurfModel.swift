@@ -12,17 +12,10 @@ import SwiftData
 final class ChartRow: Identifiable{
     @Attribute(.unique) var day: Date
     var surfingValues: SurfingValues
-    var isHighTide: Bool
-    var isLowTide: Bool
+    var isHighTide: Bool?
+    var isLowTide: Bool?
     
-    //    init(day: Date, surfingValues: SurfingValues, isHighTide: Bool, isLowTide: Bool) {
-    //        self.day = Date()
-    //        self.surfingValues =
-    //        SurfingValues(waveDirection: 0.0, waveHeight: 0.0, wavePeriod: 0.0, windDirection: 0.0, windSpeed: 0.0, weather: "", airTemperature: 0.0, waterTemperature: 0.0)
-    //        self.isHighTide = false
-    //        self.isLowTide = false
-    //    }
-    init(day: Date = Date(), surfingValues: SurfingValues = SurfingValues(waveDirection: 0.0, waveHeight: 0.0, wavePeriod: 0.0, windDirection: 0.0, windSpeed: 0.0, weather: "", airTemperature: 0.0, waterTemperature: 0.0), isHighTide: Bool = false, isLowTide: Bool = false) {
+    init(day: Date = Date(), surfingValues: SurfingValues = SurfingValues(waveDirection: 0.0, waveHeight: 0.0, wavePeriod: 0.0, windDirection: 0.0, windSpeed: 0.0, weather: "", airTemperature: 0.0, waterTemperature: 0.0), isHighTide: Bool? = nil, isLowTide: Bool? = nil) {
             self.day = day
             self.surfingValues = surfingValues
             self.isHighTide = isHighTide
@@ -57,3 +50,4 @@ var dummySurfingValues =
 let dummyChartRows: [ChartRow] = dummySurfingValues.map { surfingValue in
     ChartRow(surfingValues: surfingValue)
 }
+
