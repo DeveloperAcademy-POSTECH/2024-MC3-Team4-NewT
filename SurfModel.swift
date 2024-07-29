@@ -9,19 +9,25 @@ import Foundation
 import SwiftData
 
 @Model
-final class ChartRow{
+final class ChartRow: Identifiable{
     @Attribute(.unique) var day: Date
     var surfingValues: SurfingValues
     var isHighTide: Bool
     var isLowTide: Bool
     
-    init(day: Date, surfingValues: SurfingValues, isHighTide: Bool, isLowTide: Bool) {
-        self.day = Date()
-        self.surfingValues =
-        SurfingValues(waveDirection: 0.0, waveHeight: 0.0, wavePeriod: 0.0, windDirection: 0.0, windSpeed: 0.0, weather: "", airTemperature: 0.0, waterTemperature: 0.0)
-        self.isHighTide = false
-        self.isLowTide = false
-    }
+    //    init(day: Date, surfingValues: SurfingValues, isHighTide: Bool, isLowTide: Bool) {
+    //        self.day = Date()
+    //        self.surfingValues =
+    //        SurfingValues(waveDirection: 0.0, waveHeight: 0.0, wavePeriod: 0.0, windDirection: 0.0, windSpeed: 0.0, weather: "", airTemperature: 0.0, waterTemperature: 0.0)
+    //        self.isHighTide = false
+    //        self.isLowTide = false
+    //    }
+    init(day: Date = Date(), surfingValues: SurfingValues = SurfingValues(waveDirection: 0.0, waveHeight: 0.0, wavePeriod: 0.0, windDirection: 0.0, windSpeed: 0.0, weather: "", airTemperature: 0.0, waterTemperature: 0.0), isHighTide: Bool = false, isLowTide: Bool = false) {
+            self.day = day
+            self.surfingValues = surfingValues
+            self.isHighTide = isHighTide
+            self.isLowTide = isLowTide
+        }
 }
 
 struct SurfingValues: Codable {
@@ -47,3 +53,7 @@ var dummySurfingValues =
  SurfingValues(waveDirection: 139.38, waveHeight: 0.19, wavePeriod: 4.78, windDirection: 220.04, windSpeed: 5.0, weather: "no", airTemperature: 25.45, waterTemperature: 20.5),
  SurfingValues(waveDirection: 94.81, waveHeight: 0.14, wavePeriod: 5.33, windDirection: 220.32, windSpeed: 5.0, weather: "ra", airTemperature: 24.32, waterTemperature: 18.5)
     ]
+
+let dummyChartRows: [ChartRow] = dummySurfingValues.map { surfingValue in
+    ChartRow(surfingValues: surfingValue)
+}

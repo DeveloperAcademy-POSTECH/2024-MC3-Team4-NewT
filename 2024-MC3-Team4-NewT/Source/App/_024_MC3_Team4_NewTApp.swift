@@ -11,12 +11,11 @@ import SwiftData
 @main
 struct _024_MC3_Team4_NewTApp: App {
     var body: some Scene {
-        var sharedModelContainer: ModelContainer = {
+        let sharedModelContainer: ModelContainer = {
             let schema = Schema([
                 ChartRow.self,
             ])
             let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
             do {
                 return try ModelContainer(for: schema, configurations: [modelConfiguration])
             } catch {
@@ -26,7 +25,7 @@ struct _024_MC3_Team4_NewTApp: App {
         
         WindowGroup {
             NavigationStack{
-                TestView()
+                JaneView()
                     .modelContainer(sharedModelContainer)
             }
         }

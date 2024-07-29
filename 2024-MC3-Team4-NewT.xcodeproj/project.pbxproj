@@ -20,6 +20,7 @@
 		21B080702C52844C007BC655 /* EmbededView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0806F2C52844C007BC655 /* EmbededView.swift */; };
 		21B080722C52890A007BC655 /* WindyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B080712C52890A007BC655 /* WindyView.swift */; };
 		21B080742C56DB7A007BC655 /* WindFinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B080732C56DB7A007BC655 /* WindFinderView.swift */; };
+		89A63A112C57839C00787DC4 /* ChartRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A63A102C57839C00787DC4 /* ChartRowViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		21B0806F2C52844C007BC655 /* EmbededView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbededView.swift; sourceTree = "<group>"; };
 		21B080712C52890A007BC655 /* WindyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindyView.swift; sourceTree = "<group>"; };
 		21B080732C56DB7A007BC655 /* WindFinderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindFinderView.swift; sourceTree = "<group>"; };
+		89A63A102C57839C00787DC4 /* ChartRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRowViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,13 +111,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		21B080462C4D08E2007BC655 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		21B080662C4F3433007BC655 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,9 +139,9 @@
 		21B080692C4F347A007BC655 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				89A63A0F2C57838C00787DC4 /* ViewModel */,
 				21B0806C2C4F358D007BC655 /* App */,
 				21B080442C4D08D3007BC655 /* View */,
-				21B080462C4D08E2007BC655 /* ViewModel */,
 				21B080452C4D08DB007BC655 /* Model */,
 			);
 			path = Source;
@@ -172,6 +167,14 @@
 				21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		89A63A0F2C57838C00787DC4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				89A63A102C57839C00787DC4 /* ChartRowViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,6 +255,7 @@
 				0CAF4CFD2C52B29D0054D347 /* SurfModel.swift in Sources */,
 				21B0803D2C4D0888007BC655 /* JaneView.swift in Sources */,
 				21B080702C52844C007BC655 /* EmbededView.swift in Sources */,
+				89A63A112C57839C00787DC4 /* ChartRowViewModel.swift in Sources */,
 				21B0803B2C4D087F007BC655 /* PiriView.swift in Sources */,
 				21B0806E2C516248007BC655 /* FindSpotView.swift in Sources */,
 				21B080722C52890A007BC655 /* WindyView.swift in Sources */,

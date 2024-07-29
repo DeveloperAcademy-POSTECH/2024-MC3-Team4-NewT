@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TestView: View {
+    @Environment(\.modelContext) private var modelContext
+    
     var body: some View {
         VStack(spacing: 20.0){
             NavigationLink(destination: PiriView()){
