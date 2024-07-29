@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CAF4CFD2C52B29D0054D347 /* SurfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF4CFC2C52B29D0054D347 /* SurfModel.swift */; };
 		21B0802D2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */; };
 		21B080312C4D0836007BC655 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B080302C4D0836007BC655 /* Assets.xcassets */; };
 		21B080342C4D0836007BC655 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B080332C4D0836007BC655 /* Preview Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0CAF4CFC2C52B29D0054D347 /* SurfModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfModel.swift; sourceTree = SOURCE_ROOT; };
 		21B080292C4D0834007BC655 /* 2024-MC3-Team4-NewT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "2024-MC3-Team4-NewT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _024_MC3_Team4_NewTApp.swift; sourceTree = "<group>"; };
 		21B080302C4D0836007BC655 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 		21B080452C4D08DB007BC655 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0CAF4CFC2C52B29D0054D347 /* SurfModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				21B080412C4D08B2007BC655 /* NadaView.swift in Sources */,
 				21B0803F2C4D089F007BC655 /* SisiView.swift in Sources */,
 				21B0802D2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift in Sources */,
+				0CAF4CFD2C52B29D0054D347 /* SurfModel.swift in Sources */,
 				21B0803D2C4D0888007BC655 /* JaneView.swift in Sources */,
 				21B0803B2C4D087F007BC655 /* PiriView.swift in Sources */,
 			);
