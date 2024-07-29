@@ -18,6 +18,7 @@
 		21B0806E2C516248007BC655 /* FindSpotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0806D2C516248007BC655 /* FindSpotView.swift */; };
 		21B080702C52844C007BC655 /* EmbededView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0806F2C52844C007BC655 /* EmbededView.swift */; };
 		21B080722C52890A007BC655 /* WindyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B080712C52890A007BC655 /* WindyView.swift */; };
+		21B080742C56DB7A007BC655 /* WindFinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B080732C56DB7A007BC655 /* WindFinderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		21B0806D2C516248007BC655 /* FindSpotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindSpotView.swift; sourceTree = "<group>"; };
 		21B0806F2C52844C007BC655 /* EmbededView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbededView.swift; sourceTree = "<group>"; };
 		21B080712C52890A007BC655 /* WindyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindyView.swift; sourceTree = "<group>"; };
+		21B080732C56DB7A007BC655 /* WindFinderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindFinderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				21B0803A2C4D087F007BC655 /* PiriView.swift */,
 				21B0803E2C4D089F007BC655 /* SisiView.swift */,
 				21B080422C4D08C2007BC655 /* TestView.swift */,
+				21B080732C56DB7A007BC655 /* WindFinderView.swift */,
 				21B080712C52890A007BC655 /* WindyView.swift */,
 			);
 			path = View;
@@ -238,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21B080742C56DB7A007BC655 /* WindFinderView.swift in Sources */,
 				21B080432C4D08C2007BC655 /* TestView.swift in Sources */,
 				21B080412C4D08B2007BC655 /* NadaView.swift in Sources */,
 				21B0803F2C4D089F007BC655 /* SisiView.swift in Sources */,

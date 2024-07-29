@@ -14,7 +14,7 @@ struct PiriView: View {
             NavigationLink(destination: FindSpotView()){
                 Text("spot")
             }
-            NavigationLink(destination: APIView()){
+            NavigationLink(destination: WindFinderView()){
                 Text("API")
             }
             NavigationLink(destination: EmbededView()){

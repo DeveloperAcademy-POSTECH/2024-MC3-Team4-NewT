@@ -4,12 +4,6 @@
 //
 //  Created by ram on 7/25/24.
 //
-//
-//  WindyView.swift
-//  2024-MC3-Team4-NewT
-//
-//  Created by ram on 7/25/24.
-//
 
 import SwiftUI
 

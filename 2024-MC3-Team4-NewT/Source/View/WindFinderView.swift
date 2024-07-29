@@ -1,36 +1,19 @@
 //
-//  FindSpotView.swift
+//  WindFinderView.swift
 //  2024-MC3-Team4-NewT
 //
-//  Created by ram on 7/25/24.
+//  Created by ram on 7/29/24.
 //
 
 import SwiftUI
 
-struct FindSpotView: View {
+struct WindFinderView: View {
     @State private var rawData: String = "Loading..."
-    @State private var query: String = "Wolpo" // 검색할 지역명
     
     var body: some View {
         VStack {
-            TextField("Enter location", text: $query)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-            
-            Button(action: {
-                fetchData()
-            }) {
-                Text("Fetch Data")
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
-            }
-            
             Text("Raw Data")
                 .font(.headline)
-                .padding()
-            
             ScrollView {
                 Text(rawData)
                     .padding()
@@ -40,11 +23,15 @@ struct FindSpotView: View {
             }
             .padding()
         }
+        .onAppear {
+            fetchData()
+        }
     }
     
     func fetchData() {
-        guard let encodedQuery = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
-            self.rawData = "Invalid query"
+        let spotID = "kr25" // 실제 스팟 ID로 대체하세요
+        guard let encodedSpotID = spotID.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) else {
+            self.rawData = "Invalid spot ID"
             return
         }
         
@@ -53,7 +40,7 @@ struct FindSpotView: View {
             "x-rapidapi-host": "api-windfinder-pro.p.rapidapi.com"
         ]
         
-        let urlString = "https://api-windfinder-pro.p.rapidapi.com/search/autocomplete/en/\(encodedQuery)"
+        let urlString = "https://api-windfinder-pro.p.rapidapi.com/spots/\(encodedSpotID)/forecasts?limit=-1"
         guard let url = URL(string: urlString) else {
             self.rawData = "Invalid URL"
             return
@@ -86,5 +73,5 @@ struct FindSpotView: View {
 }
 
 #Preview {
-    FindSpotView()
+    WindFinderView()
 }
