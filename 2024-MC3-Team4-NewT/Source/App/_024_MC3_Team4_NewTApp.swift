@@ -5,11 +5,23 @@
 //  Created by ram on 7/21/24.
 //
 
-import SwiftUI
 import SwiftData
+import SwiftUI
+import FirebaseCore
+
+
+class AppDelegate: NSObject, UIApplicationDelegate {
+  func application(_ application: UIApplication,
+                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    FirebaseApp.configure()
+
+    return true
+  }
+}
 
 @main
 struct _024_MC3_Team4_NewTApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         var sharedModelContainer: ModelContainer = {
             let schema = Schema([
@@ -32,3 +44,4 @@ struct _024_MC3_Team4_NewTApp: App {
         }
     }
 }
+
