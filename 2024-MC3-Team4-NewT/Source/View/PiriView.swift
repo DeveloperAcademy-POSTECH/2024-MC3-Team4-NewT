@@ -4,16 +4,30 @@
 //
 //  Created by ram on 7/21/24.
 //
-
 import SwiftUI
 
 struct PiriView: View {
+    
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing:20){
+            NavigationLink(destination: FindSpotView()){
+                Text("spot")
+            }
+            NavigationLink(destination: WindFinderView()){
+                Text("API")
+            }
+            NavigationLink(destination: EmbededView()){
+                Text("Embeded")
+            }
+            NavigationLink(destination: WindyView()){
+                Text("Windy")
+            }
+            
+        }
     }
+    
 }
 
-#Preview {
-    PiriView()
-}
+
 
