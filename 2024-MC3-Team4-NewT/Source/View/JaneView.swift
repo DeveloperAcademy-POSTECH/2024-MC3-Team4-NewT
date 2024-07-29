@@ -46,30 +46,12 @@ struct JaneView: View {
                     Text("수온")
                     Text("날씨")
                     
-                    ForEach(chartRows) { row in
-                        Text("\(daysFormatter.string(from: row.day))").textScale(.secondary)
-                        HStack(alignment: .center, spacing: 8) {
-                            Image(systemName: "location.north")
-                            Text("\(row.surfingValues.windSpeed, specifier: "%.1f")m/s").textScale(.secondary)
-                        }
-                        HStack(alignment: .center, spacing: 8) {
-                            Image(systemName: "location.north.fill")
-                            VStack {
-                                Text("\(row.surfingValues.waveHeight, specifier: "%.1f")m").textScale(.secondary)
-                                Text("\(row.surfingValues.wavePeriod, specifier: "%.1f")s").textScale(.secondary)
-                            }
-                        }
-                        Text("\(row.surfingValues.waterTemperature, specifier: "%.0f")°C").textScale(.secondary)
-                        HStack(alignment: .center, spacing: 8) {
-                            Text(row.surfingValues.weather).textScale(.secondary)
-                            Text("\(row.surfingValues.airTemperature, specifier: "%.0f")°C").textScale(.secondary)
-                        }
-
-                    }
+                    //한 줄씩 불러오기 위해 함수로 뺌
                 }
                 .padding()
             }.onAppear{
-                addDummyData()
+//                addDummyData()
+    
             }
         }
         
@@ -86,10 +68,32 @@ extension JaneView {
     func addDummyData() {
         let context = modelContext //modelContext 가져옴
         for chartRow in dummyChartRows {
-            context.insert(chartRow) // 데이터베이스에 ChartRow 객체 추가
+//            context.insert(chartRow) // 데이터베이스에 ChartRow 객체 추가
         }
         try? context.save()
     }
     
+//    func ChartRowList() {
+//        var chartRows: [ChartRow] = dummyChartRows
+//        ForEach(chartRows) { row in
+//            Text("\(daysFormatter.string(from: row.day))").textScale(.secondary)
+//            HStack(alignment: .center, spacing: 8) {
+//                Image(systemName: "location.north")
+//                Text("\(row.surfingValues.windSpeed, specifier: "%.1f")m/s").textScale(.secondary)
+//            }
+//            HStack(alignment: .center, spacing: 8) {
+//                Image(systemName: "location.north.fill")
+//                VStack {
+//                    Text("\(row.surfingValues.waveHeight, specifier: "%.1f")m").textScale(.secondary)
+//                    Text("\(row.surfingValues.wavePeriod, specifier: "%.1f")s").textScale(.secondary)
+//                }
+//            }
+//            Text("\(row.surfingValues.waterTemperature, specifier: "%.0f")°C").textScale(.secondary)
+//            HStack(alignment: .center, spacing: 8) {
+//                Text(row.surfingValues.weather).textScale(.secondary)
+//                Text("\(row.surfingValues.airTemperature, specifier: "%.0f")°C").textScale(.secondary)
+//            }
+//        }
+//    }
     
 }

@@ -8,19 +8,11 @@
 import Foundation
 import SwiftData
 
-@Model
-final class ChartRow: Identifiable{
+struct ChartRow: Codable{
     @Attribute(.unique) var day: Date
     var surfingValues: SurfingValues
     var isHighTide: Bool?
     var isLowTide: Bool?
-    
-    init(day: Date = Date(), surfingValues: SurfingValues = SurfingValues(waveDirection: 0.0, waveHeight: 0.0, wavePeriod: 0.0, windDirection: 0.0, windSpeed: 0.0, weather: "", airTemperature: 0.0, waterTemperature: 0.0), isHighTide: Bool? = nil, isLowTide: Bool? = nil) {
-            self.day = day
-            self.surfingValues = surfingValues
-            self.isHighTide = isHighTide
-            self.isLowTide = isLowTide
-        }
 }
 
 struct SurfingValues: Codable {
@@ -48,6 +40,16 @@ var dummySurfingValues =
     ]
 
 let dummyChartRows: [ChartRow] = dummySurfingValues.map { surfingValue in
-    ChartRow(surfingValues: surfingValue)
+    ChartRow(day: Date(), surfingValues: surfingValue)
 }
 
+@Model
+final class DailyWeather {
+    @Attribute(.unique) var day: String
+    var chartCollection: [ChartRow]
+    
+    init(day: String, chartCollection: [ChartRow]) {
+        self.day = day
+        self.chartCollection = chartCollection
+    }
+}
