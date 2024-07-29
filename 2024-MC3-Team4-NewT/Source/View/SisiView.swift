@@ -40,7 +40,7 @@ struct SisiView: View {
                                     .accentColor(.white) // 선택된 날짜의 색상 변경
                                     .background(
                                         RoundedRectangle(cornerRadius: 8)
-                                            .fill(Color("surfBlue"))
+                                            .fill(.white)
                                     )
                             }
                             
@@ -68,7 +68,7 @@ struct SisiView: View {
                                     .accentColor(.white) // 선택된 날짜의 색상 변경
                                     .background(
                                         RoundedRectangle(cornerRadius: 8)
-                                            .fill(Color("surfBlue"))
+                                            .fill(.white)
                                     )
                                     .onChange(of: startTime){ newValue in
                                         if(startTime>stopTime) {
@@ -101,7 +101,7 @@ struct SisiView: View {
                                     .accentColor(.white) // 선택된 날짜의 색상 변경
                                     .background(
                                         RoundedRectangle(cornerRadius: 8)
-                                            .fill(Color("surfBlue"))
+                                            .fill(.white)
                                     )
                                     .onChange(of: stopTime){ newValue in
                                         if(startTime>stopTime) {
