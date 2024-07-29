@@ -11,11 +11,18 @@ import SwiftData
 struct ChartRow: Codable{
     @Attribute(.unique) var day: Date
     var surfingValues: SurfingValues
-    var isHighTide: Bool?
-    var isLowTide: Bool?
+    var isHighTide: Bool
+    var isLowTide: Bool
+    
+    init(day: Date, surfingValues: SurfingValues, isHighTide: Bool, isLowTide: Bool) {
+        self.day = day
+        self.surfingValues = surfingValues
+        self.isHighTide = false
+        self.isLowTide = false
+    }
 }
 
-struct SurfingValues: Codable {
+struct SurfingValues: Codable { // 서핑 수치
     var waveDirection: Float
     var waveHeight: Float
     var wavePeriod: Float
@@ -24,6 +31,57 @@ struct SurfingValues: Codable {
     var weather: String
     var airTemperature: Float
     var waterTemperature: Float
+}
+
+struct ChartRowTmp:Codable{ // 한줄 차트 구조체
+    var day:Date // 날짜
+    var surfingValues:SurfingValues // 수치(파도,바람,수온,날씨)
+    var isHighTide:Bool
+    var isLowTide:Bool
+    
+}
+@Model
+final class DailyWeather{ // 일간 기상 데이터
+    @Attribute(.unique) var day:String
+    var chartCollection:[ChartRowTmp]
+    
+    init(day: String, chartCollection: [ChartRowTmp]) {
+        self.day = day
+        self.chartCollection = chartCollection
+    }
+}
+
+@Model
+final class SurfingRecordOne{ // 단일 서핑 기록
+    @Attribute(.unique) var surfingStartTime: Date
+    var surfingEndTime: Date
+    var charts:[ChartRow]
+    var evaluationValue:Int
+    var memo:String
+    
+    init(surfingStartTime: Date, surfingEndTime: Date, charts: [ChartRow], evaluationValue: Int, memo: String) {
+        self.surfingStartTime = surfingStartTime
+        self.surfingEndTime = surfingEndTime
+        self.charts = charts
+        self.evaluationValue = evaluationValue
+        self.memo = memo
+    }
+}
+
+@Model
+final class Statistics{ // 통계
+    var waveDirection:Float?
+    var waveHeight:Float?
+    var wavePeriod:Float?
+    var windDirection:Float?
+    var windSpeed:Float?
+    
+    // 아래는 혹시 몰라 만들어놓음
+    var weather:String?
+    var temperature:Float?
+    init() {
+        
+    }
 }
 
 var dummySurfingValues =

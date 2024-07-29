@@ -97,3 +97,7 @@ extension JaneView {
 //    }
     
 }
+
+#Preview{
+    JaneView()
+}
