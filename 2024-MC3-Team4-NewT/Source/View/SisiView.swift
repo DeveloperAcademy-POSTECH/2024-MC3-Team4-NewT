@@ -20,16 +20,6 @@ struct SisiView: View {
             VStack(spacing: 15){
                     Section { // 날짜 선택 섹션
                         VStack{
-                            //                        DatePicker(
-                            //                            selection: $selectedDate,
-                            //                            displayedComponents: [.date],
-                            //                            label: {
-                            //                                Text("서핑 한 날짜")
-                            //                                    .foregroundColor(Color("surfBlue"))
-                            //                                    .bold()
-                            //                            }
-                            //                        )
-                            
                             HStack {
                                 Text("서핑 한 날짜")
                                     .foregroundColor(Color("surfBlue"))
@@ -38,6 +28,7 @@ struct SisiView: View {
                                 DatePicker("", selection: $selectedDate, displayedComponents: [.date])
                                     .labelsHidden()
                                     .accentColor(.white) // 선택된 날짜의 색상 변경
+                                    .colorScheme(.dark)
                                     .background(
                                         RoundedRectangle(cornerRadius: 8)
                                             .fill(Color("surfBlue"))
@@ -45,18 +36,6 @@ struct SisiView: View {
                             }
                             
                             Divider()
-                            
-                            //                        DatePicker(
-                            //                            selection: $startTime,
-                            //                            displayedComponents: [.hourAndMinute],
-                            //                            label: {
-                            //                                Text("시작 시간")
-                            //                            }
-                            //                        ).onChange(of: startTime) { newValue in
-                            //                            if newValue > stopTime {
-                            //                                startTime = stopTime
-                            //                            }
-                            //                        }
                             
                             HStack {
                                 Text("시작 시간")
@@ -66,6 +45,7 @@ struct SisiView: View {
                                 DatePicker("", selection: $startTime, displayedComponents: [.hourAndMinute])
                                     .labelsHidden()
                                     .accentColor(.white) // 선택된 날짜의 색상 변경
+                                    .colorScheme(.dark)
                                     .background(
                                         RoundedRectangle(cornerRadius: 8)
                                             .fill(Color("surfBlue"))
@@ -79,18 +59,6 @@ struct SisiView: View {
                             
                             Divider()
                             
-                            //                        DatePicker(
-                            //                            selection: $stopTime,
-                            //                            displayedComponents: [.hourAndMinute],
-                            //                            label: {
-                            //                                Text("종료 시간")
-                            //                            }
-                            //                        ) .onChange(of: stopTime) { newValue in
-                            //                            if newValue < startTime {
-                            //                                stopTime = startTime
-                            //                            }
-                            //                        }
-                            
                             HStack {
                                 Text("종료 시간")
                                     .foregroundColor(Color("surfBlue"))
@@ -99,6 +67,7 @@ struct SisiView: View {
                                 DatePicker("", selection: $stopTime, displayedComponents: [.hourAndMinute])
                                     .labelsHidden()
                                     .accentColor(.white) // 선택된 날짜의 색상 변경
+                                    .colorScheme(.dark)
                                     .background(
                                         RoundedRectangle(cornerRadius: 8)
                                             .fill(Color("surfBlue"))
@@ -111,12 +80,11 @@ struct SisiView: View {
                             }
                             
                             Divider()
-                            
-                            Text(selectedDate, formatter: dateFormatter)
+                            Text(date(from: selectedDate))
+//                            Text(selectedDate, formatter: dateFormatter)
                                 .font(.title3)
                                 .bold()
                                 .foregroundStyle(Color("surfBlue"))
-                            
                             
                             Divider()
                             
@@ -194,13 +162,14 @@ struct SisiView: View {
         
     }
     
-    var dateFormatter: DateFormatter {
+    func date(from date: Date) -> String {
         let formatter = DateFormatter()
-        
-        formatter.dateFormat = "MM월 dd일 (EEEE)" // 요일 전체 이름
-        formatter.locale = Locale(identifier: "ko_kr") // 한국어 로케일 설정
-        return formatter
+        formatter.locale = Locale(identifier: "ko_kr")
+        formatter.dateFormat = "MM월 dd일 (E)"
+        return formatter.string(from: Date.now)
     }
+
+    
     
     
 //    /// 요일 추출
