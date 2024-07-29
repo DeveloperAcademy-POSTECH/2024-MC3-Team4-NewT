@@ -50,3 +50,7 @@ extension JaneView {
         
     }
 }
+
+#Preview{
+    JaneView()
+}
