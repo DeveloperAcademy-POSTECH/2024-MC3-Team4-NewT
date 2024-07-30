@@ -10,6 +10,7 @@ import SwiftUI
 struct TestView: View {
     var body: some View {
         VStack(spacing: 20.0){
+//            FitChartView()
             NavigationLink(destination: PiriView()){
                 Text("파이리")
             }
