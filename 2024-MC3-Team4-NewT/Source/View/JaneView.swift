@@ -67,9 +67,10 @@ struct JaneView: View {
                     }
                 }
             }
-        }.onAppear{
-            addDummyData()
         }
+//        .onAppear{
+//            addDummyData()
+//        }
     }
     
     struct ChartRowView: View {
