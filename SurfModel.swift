@@ -8,6 +8,7 @@
 import Foundation
 import SwiftData
 
+
 struct SurfingValues: Codable, Hashable {
     var waveDirection: Float
     var waveHeight: Float
@@ -27,25 +28,10 @@ struct ChartRowTmp: Codable, Hashable {
 }
 
 @Model
-final class ChartRow {
-    @Attribute(.unique) var day: Date
-    var surfingValues: SurfingValues
-    var isHighTide: Bool
-    var isLowTide: Bool
-
-    init(day: Date, surfingValues: SurfingValues, isHighTide: Bool, isLowTide: Bool) {
-        self.day = day
-        self.surfingValues = surfingValues
-        self.isHighTide = false
-        self.isLowTide = false
-    }
-}
-
-@Model
-final class DailyWeather {
+final class DailyWeather: Identifiable{ // 일간 기상 데이터
     @Attribute(.unique) var day: String
     var chartCollection: [ChartRowTmp]
-
+    
     init(day: String, chartCollection: [ChartRowTmp]) {
         self.day = day
         self.chartCollection = chartCollection
@@ -53,14 +39,14 @@ final class DailyWeather {
 }
 
 @Model
-final class SurfingRecordOne {
+final class SurfingRecordOne { // 단일 서핑 기록
     @Attribute(.unique) var surfingStartTime: Date
     var surfingEndTime: Date
-    var charts: [ChartRow]
+    var charts: [ChartRowTmp]
     var evaluationValue: Int
     var memo: String
-
-    init(surfingStartTime: Date, surfingEndTime: Date, charts: [ChartRow], evaluationValue: Int, memo: String) {
+    
+    init(surfingStartTime: Date, surfingEndTime: Date, charts: [ChartRowTmp], evaluationValue: Int, memo: String) {
         self.surfingStartTime = surfingStartTime
         self.surfingEndTime = surfingEndTime
         self.charts = charts
@@ -70,16 +56,18 @@ final class SurfingRecordOne {
 }
 
 @Model
-final class Statistics {
+final class Statistics{ // 통계
     var waveDirection: Float?
     var waveHeight: Float?
     var wavePeriod: Float?
     var windDirection: Float?
     var windSpeed: Float?
-
+    
+    
     // 아래는 혹시 몰라 만들어놓음
     var weather: String?
     var temperature: Float?
-
-    init() { }
+    init() {
+        
+    }
 }
