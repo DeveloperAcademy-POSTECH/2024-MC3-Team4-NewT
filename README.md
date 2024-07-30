@@ -14,7 +14,7 @@ Attach photos if you are available
 
 Attach videos if you are available
 
-
+## PR은 Diff 200줄 이상
 ## :pushpin: Features
 
 - Feature 1
