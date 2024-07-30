@@ -8,19 +8,15 @@ import SwiftUI
 import FirebaseFirestore
 
 struct FirebaseTestView: View {
-    @State private var items: [[String: Any]] = []
+    @State private var items: [ChartRowTmp] = []
 
     var body: some View {
         NavigationView {
             VStack {
                 List(items, id: \.self) { item in
                     VStack(alignment: .leading) {
-                        if let airTemperature = item["temp"] as? Float {
-                            Text("Air Temperature: \(airTemperature)")
-                        }
-                        if let wavePeriod = item["waves_period"] as? Float {
-                            Text("Wave Period: \(wavePeriod)")
-                        }
+                        Text("Air Temperature: \(item.surfingValues.airTemperature)")
+                        Text("Wave Period: \(item.surfingValues.wavePeriod)")
                     }
                 }
             }
@@ -44,32 +40,38 @@ struct FirebaseTestView: View {
                 return
             }
 
-            var fetchedItems: [[String: Any]] = []
+            var fetchedItems: [ChartRowTmp] = []
 
             for document in documents {
-                var data = document.data()
+                let data = document.data()
+                if let windSouth = data["wind_south"] as? Double,
+                   let timestamp = data["timestamp"] as? Timestamp,
+                   let temp = data["temp"] as? Double,
+                   let wavesHeight = data["waves_height"] as? Double,
+                   let wavesDirection = data["waves_direction"] as? Double,
+                   let wavesPeriod = data["waves_period"] as? Double,
+                   let windNorth = data["wind_north"] as? Double {
 
-                // Double을 Float로 변환
-                if let windSouth = data["wind_south"] as? Double {
-                    data["wind_south"] = Float(windSouth)
-                }
-                if let temp = data["temp"] as? Double {
-                    data["temp"] = Float(temp)
-                }
-                if let wavesHeight = data["waves_height"] as? Double {
-                    data["waves_height"] = Float(wavesHeight)
-                }
-                if let wavesDirection = data["waves_direction"] as? Double {
-                    data["waves_direction"] = Float(wavesDirection)
-                }
-                if let wavesPeriod = data["waves_period"] as? Double {
-                    data["waves_period"] = Float(wavesPeriod)
-                }
-                if let windNorth = data["wind_north"] as? Double {
-                    data["wind_north"] = Float(windNorth)
-                }
+                    let surfingValues = SurfingValues(
+                        waveDirection: Float(wavesDirection),
+                        waveHeight: Float(wavesHeight),
+                        wavePeriod: Float(wavesPeriod),
+                        windDirection: Float(windNorth),
+                        windSpeed: Float(windSouth),
+                        weather: "sunny",
+                        airTemperature: Float(temp),
+                        waterTemperature: Float(temp)
+                    )
 
-                fetchedItems.append(data)
+                    let item = ChartRowTmp(
+                        day: timestamp.dateValue(),
+                        surfingValues: surfingValues,
+                        isHighTide: false,
+                        isLowTide: false
+                    )
+
+                    fetchedItems.append(item)
+                }
             }
 
             self.items = fetchedItems

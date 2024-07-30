@@ -22,24 +22,8 @@ struct SurfingValues: Codable, Hashable {
 struct ChartRowTmp: Codable, Hashable {
     var day: Date
     var surfingValues: SurfingValues
-    var isHighTide: Bool
-    var isLowTide: Bool
-
-    // Equatable 프로토콜 준수를 위한 구현
-    static func == (lhs: ChartRowTmp, rhs: ChartRowTmp) -> Bool {
-        return lhs.day == rhs.day &&
-               lhs.surfingValues == rhs.surfingValues &&
-               lhs.isHighTide == rhs.isHighTide &&
-               lhs.isLowTide == rhs.isLowTide
-    }
-
-    // Hashable 프로토콜 준수를 위한 구현
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(day)
-        hasher.combine(surfingValues)
-        hasher.combine(isHighTide)
-        hasher.combine(isLowTide)
-    }
+    var isHighTide: Bool = false
+    var isLowTide: Bool = false
 }
 
 @Model
@@ -99,5 +83,3 @@ final class Statistics {
 
     init() { }
 }
-
-
