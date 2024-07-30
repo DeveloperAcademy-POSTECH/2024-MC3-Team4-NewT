@@ -8,6 +8,7 @@
 import SwiftUI
 import SwiftData
 
+///'@@시 (24시제)'로 표시해주는 Formatter
 let timeFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateFormat = "HH시"
@@ -15,13 +16,13 @@ let timeFormatter: DateFormatter = {
     return formatter
 }()
 
+///'@월 %일 &요일'로 표시해주는 Formatter
 let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateFormat = "M월 d일 EEEE"
     formatter.locale = Locale(identifier: "ko_kr")
     return formatter
 }()
-
 
 struct JaneView: View {
     @Environment(\.modelContext) private var modelContext
@@ -47,98 +48,102 @@ struct JaneView: View {
                         VStack {
                             Text(date)
                                 .font(.headline)
-                            HStack(alignment: .center, spacing: 8) {
+                            HStack(alignment: .center) {
                                 Text("시간")
                                 Text("바람")
                                 Text("파도")
                                 Text("수온")
                                 Text("날씨")
-                            }
-                        
+                            }.padding(.horizontal, 20)
+                            
                             ForEach(weatherList) { weather in // weather는 이제 Identifiable
                                 ForEach(weather.chartCollection, id: \.self) { chart in // chart도 Identifiable
                                     ChartRowView(chart: chart)
                                 }
                             }
                         }
-                        .padding()
-                        .background(Color.blue.opacity(0.1))
+                        .background(Color.gray.opacity(0.1))
                         .cornerRadius(8)
                     }
                 }
             }
-        }
-//        .onAppear{
-//            addDummyData()
-//        }
+        }.frame(maxWidth: .infinity)
+        //        .onAppear{
+        //            addDummyData()
+        //        }
     }
     
+    ///한 줄 차트 뷰
     struct ChartRowView: View {
         var chart: ChartRowTmp // ChartRowTmp에 맞는 프로퍼티를 정의합니다.
         var body: some View {
-            HStack{
+            HStack(alignment: .center, spacing: 24){
                 Text("\(timeFormatter.string(from: chart.day))").textScale(.secondary)
                 HStack(alignment: .center, spacing: 8) {
-                    Image(systemName: "location.north")
+                    Image(systemName: "location.north").foregroundColor(.iconBlue)
                     Text("\(chart.surfingValues.windSpeed, specifier: "%.1f")m/s").textScale(.secondary)
                 }
                 HStack(alignment: .center, spacing: 8) {
-                    Image(systemName: "location.north.fill")
-                    VStack {
+                    Image(systemName: "location.north.fill").foregroundColor(.surfBlue)
+                    VStack(alignment: .center, spacing: 0) {
                         Text("\(chart.surfingValues.waveHeight, specifier: "%.1f")m").textScale(.secondary)
                         Text("\(chart.surfingValues.wavePeriod, specifier: "%.1f")s").textScale(.secondary)
                     }
                 }
-                Text("\(chart.surfingValues.waterTemperature, specifier: "%.0f")°C").textScale(.secondary)
+                VStack(alignment: .center, spacing: 2) {
+                    Text("\(chart.surfingValues.waterTemperature, specifier: "%.0f")°C").textScale(.secondary)
+                    Image("waterTemperate")
+                }
                 HStack(alignment: .center, spacing: 8) {
                     Text(chart.surfingValues.weather).textScale(.secondary)
                     Text("\(chart.surfingValues.airTemperature, specifier: "%.0f")°C").textScale(.secondary)
                 }
-            }
+            }.frame(maxWidth: .infinity)
+                .padding(.horizontal, 16)
         }
     }
 }
-    
-    extension JaneView {
-        func weatherIcon() {
-            
-        }
-        
-        func addDummyData() {
-            let context = modelContext //modelContext 가져옴
-            let dummyDay = "2024-07-30"
-            let dummyDailyCharts = DailyWeather(day: dummyDay, chartCollection: dummyChartRows)
-            context.insert(dummyDailyCharts)
-            
-            do {
-                try context.save()
-            } catch {
-                print("Failed to save context: \(error)")
-            }
-        }
-        
-        //        func ChartRowList() {
-        //            var chartRows: [ChartRow] = dummyChartRows
-        //            ForEach(chartRows) { row in
-        //                Text("\(daysFormatter.string(from: row.day))").textScale(.secondary)
-        //                HStack(alignment: .center, spacing: 8) {
-        //                    Image(systemName: "location.north")
-        //                    Text("\(row.surfingValues.windSpeed, specifier: "%.1f")m/s").textScale(.secondary)
-        //                }
-        //                HStack(alignment: .center, spacing: 8) {
-        //                    Image(systemName: "location.north.fill")
-        //                    VStack {
-        //                        Text("\(row.surfingValues.waveHeight, specifier: "%.1f")m").textScale(.secondary)
-        //                        Text("\(row.surfingValues.wavePeriod, specifier: "%.1f")s").textScale(.secondary)
-        //                    }
-        //                }
-        //                Text("\(row.surfingValues.waterTemperature, specifier: "%.0f")°C").textScale(.secondary)
-        //                HStack(alignment: .center, spacing: 8) {
-        //                    Text(row.surfingValues.weather).textScale(.secondary)
-        //                    Text("\(row.surfingValues.airTemperature, specifier: "%.0f")°C").textScale(.secondary)
-        //                }
-        //            }
-        //        }
+
+extension JaneView {
+    func weatherIcon() {
         
     }
+    
+    func addDummyData() {
+        let context = modelContext //modelContext 가져옴
+        let dummyDay = "2024-07-30"
+        let dummyDailyCharts = DailyWeather(day: dummyDay, chartCollection: dummyChartRows)
+        context.insert(dummyDailyCharts)
+        
+        do {
+            try context.save()
+        } catch {
+            print("Failed to save context: \(error)")
+        }
+    }
+    
+    //        func ChartRowList() {
+    //            var chartRows: [ChartRow] = dummyChartRows
+    //            ForEach(chartRows) { row in
+    //                Text("\(daysFormatter.string(from: row.day))").textScale(.secondary)
+    //                HStack(alignment: .center, spacing: 8) {
+    //                    Image(systemName: "location.north")
+    //                    Text("\(row.surfingValues.windSpeed, specifier: "%.1f")m/s").textScale(.secondary)
+    //                }
+    //                HStack(alignment: .center, spacing: 8) {
+    //                    Image(systemName: "location.north.fill")
+    //                    VStack {
+    //                        Text("\(row.surfingValues.waveHeight, specifier: "%.1f")m").textScale(.secondary)
+    //                        Text("\(row.surfingValues.wavePeriod, specifier: "%.1f")s").textScale(.secondary)
+    //                    }
+    //                }
+    //                Text("\(row.surfingValues.waterTemperature, specifier: "%.0f")°C").textScale(.secondary)
+    //                HStack(alignment: .center, spacing: 8) {
+    //                    Text(row.surfingValues.weather).textScale(.secondary)
+    //                    Text("\(row.surfingValues.airTemperature, specifier: "%.0f")°C").textScale(.secondary)
+    //                }
+    //            }
+    //        }
+    
+}
 

@@ -32,6 +32,7 @@
 		719EA9C72C57745A0090BAB5 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 719EA9C62C57745A0090BAB5 /* Pretendard-SemiBold.otf */; };
 		719EA9CA2C57B13C0090BAB5 /* SF-Pro-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 719EA9C82C57B13C0090BAB5 /* SF-Pro-Italic.ttf */; };
 		719EA9CB2C57B13C0090BAB5 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 719EA9C92C57B13C0090BAB5 /* SF-Pro.ttf */; };
+		89A63A132C588FD300787DC4 /* waterTemperate.png in Resources */ = {isa = PBXBuildFile; fileRef = 89A63A122C588FD300787DC4 /* waterTemperate.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		719EA9C62C57745A0090BAB5 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		719EA9C82C57B13C0090BAB5 /* SF-Pro-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Italic.ttf"; sourceTree = "<group>"; };
 		719EA9C92C57B13C0090BAB5 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
+		89A63A122C588FD300787DC4 /* waterTemperate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = waterTemperate.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				21B0806D2C516248007BC655 /* FindSpotView.swift */,
 				719EA9BF2C5768580090BAB5 /* FitChartView.swift */,
 				21B0803C2C4D0888007BC655 /* JaneView.swift */,
+				89A63A122C588FD300787DC4 /* waterTemperate.png */,
 				21B080402C4D08B2007BC655 /* NadaView.swift */,
 				21B0803A2C4D087F007BC655 /* PiriView.swift */,
 				21B0803E2C4D089F007BC655 /* SisiView.swift */,
@@ -282,6 +285,7 @@
 				21B080762C578BC6007BC655 /* GoogleService-Info.plist in Resources */,
 				719EA9C72C57745A0090BAB5 /* Pretendard-SemiBold.otf in Resources */,
 				719EA9CA2C57B13C0090BAB5 /* SF-Pro-Italic.ttf in Resources */,
+				89A63A132C588FD300787DC4 /* waterTemperate.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
