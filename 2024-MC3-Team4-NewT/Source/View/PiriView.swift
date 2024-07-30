@@ -23,6 +23,9 @@ struct PiriView: View {
             NavigationLink(destination: WindyView()){
                 Text("Windy")
             }
+            NavigationLink(destination: FirebaseTestView()){
+                Text("FirebaseTest")
+            }
             
         }
     }
