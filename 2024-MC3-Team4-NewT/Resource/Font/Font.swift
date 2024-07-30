@@ -20,6 +20,16 @@ extension Font {
     static let Body2Bold: Font = .custom("Pretendard-Bold", size: 14)
     static let CaptionBold: Font = .custom("Pretendard-Bold", size: 12)
     
+    // SemiBold
+    static let HeroSemiBold: Font = .custom("Pretendard-SemiBold", size: 36)
+    static let Heading1SemiBold: Font = .custom("Pretendard-SemiBold", size: 32)
+    static let Heading2SemiBold: Font = .custom("Pretendard-SemiBold", size: 24)
+    static let Heading3SemiBold: Font = .custom("Pretendard-SemiBold", size: 21)
+    static let SubheadingSemiBold: Font = .custom("Pretendard-SemiBold", size: 18)
+    static let Body1SemiBold: Font = .custom("Pretendard-SemiBold", size: 16)
+    static let Body2SemiBold: Font = .custom("Pretendard-SemiBold", size: 14)
+    static let CaptionSemiBold: Font = .custom("Pretendard-SemiBold", size: 12)
+    
     // Medium
     static let HeroMedium: Font = .custom("Pretendard-Medium", size: 36)
     static let Heading1Medium: Font = .custom("Pretendard-Medium", size: 32)

@@ -37,69 +37,82 @@ struct JaneView: View {
         // 오늘 날짜를 가장 위에 두고 나머지 날짜 정렬
         let sortedKeys = ([today] + groupedWeather.keys.filter { $0 != today }).sorted()
         
-        
+        FitChartView()
+//        Spacer()
         //MARK: MainChartView로 뺄 예정
-        Text("주간 차트").font(.title3)
-        Text("\(dateFormatter.string(from: Date()))")
         ScrollView {
             VStack {
                 ForEach(sortedKeys, id: \.self) { date in
                     if let weatherList = groupedWeather[date] {
-                        VStack {
-                            Text(date)
-                                .font(.headline)
+                        VStack(alignment: .center, spacing: 8) {
+                            Text("\(dateFormatter.string(from: Date()))")
+                                .padding(.vertical, 10)
+                                .font(.SubheadingBold).foregroundColor(.surfBlue)
                             HStack(alignment: .center) {
-                                Text("시간")
-                                Text("바람")
-                                Text("파도")
-                                Text("수온")
-                                Text("날씨")
-                            }.padding(.horizontal, 20)
+                                Text("시간").font(.CaptionSemiBold)
+                                Spacer()
+                                Text("바람").font(.CaptionSemiBold)
+                                Spacer()
+                                Text("파도").font(.CaptionSemiBold)
+                                Spacer()
+                                Text("수온").font(.CaptionSemiBold)
+                                Spacer()
+                                Text("날씨").font(.CaptionSemiBold)
+                            }
+                            .padding(.horizontal, 20)
+                                .background(.brightGray)
+                                
                             
                             ForEach(weatherList) { weather in // weather는 이제 Identifiable
                                 ForEach(weather.chartCollection, id: \.self) { chart in // chart도 Identifiable
                                     ChartRowView(chart: chart)
                                 }
                             }
-                        }
-                        .background(Color.gray.opacity(0.1))
-                        .cornerRadius(8)
+                        }.frame(maxWidth: .infinity)
+                        .background(.white.opacity(0.7))
+                        .cornerRadius(24)
                     }
                 }
             }
         }.frame(maxWidth: .infinity)
-        //        .onAppear{
-        //            addDummyData()
-        //        }
+            .background(.white.opacity(0))
+        Spacer()
     }
     
     ///한 줄 차트 뷰
     struct ChartRowView: View {
         var chart: ChartRowTmp // ChartRowTmp에 맞는 프로퍼티를 정의합니다.
         var body: some View {
-            HStack(alignment: .center, spacing: 24){
-                Text("\(timeFormatter.string(from: chart.day))").textScale(.secondary)
-                HStack(alignment: .center, spacing: 8) {
-                    Image(systemName: "location.north").foregroundColor(.iconBlue)
-                    Text("\(chart.surfingValues.windSpeed, specifier: "%.1f")m/s").textScale(.secondary)
-                }
-                HStack(alignment: .center, spacing: 8) {
-                    Image(systemName: "location.north.fill").foregroundColor(.surfBlue)
-                    VStack(alignment: .center, spacing: 0) {
-                        Text("\(chart.surfingValues.waveHeight, specifier: "%.1f")m").textScale(.secondary)
-                        Text("\(chart.surfingValues.wavePeriod, specifier: "%.1f")s").textScale(.secondary)
+            ZStack(alignment: .bottom){
+                HStack(alignment: .center, spacing: 24){
+                    Text("\(timeFormatter.string(from: chart.day))").font(.Body2Medium)
+                    HStack(alignment: .center, spacing: 8) {
+                        Image("waveDirectionIcon")
+                        Text("\(chart.surfingValues.windSpeed, specifier: "%.1f")m/s").font(.Body1Medium)
                     }
-                }
-                VStack(alignment: .center, spacing: 2) {
-                    Text("\(chart.surfingValues.waterTemperature, specifier: "%.0f")°C").textScale(.secondary)
-                    Image("waterTemperate")
-                }
-                HStack(alignment: .center, spacing: 8) {
-                    Text(chart.surfingValues.weather).textScale(.secondary)
-                    Text("\(chart.surfingValues.airTemperature, specifier: "%.0f")°C").textScale(.secondary)
-                }
-            }.frame(maxWidth: .infinity)
-                .padding(.horizontal, 16)
+                    HStack(alignment: .center, spacing: 8) {
+                        Image("swellDirectionIcon")
+                        VStack(alignment: .center, spacing: 0) {
+                            Text("\(chart.surfingValues.waveHeight, specifier: "%.1f")m").font(.Body1Medium)
+                            Text("\(chart.surfingValues.wavePeriod, specifier: "%.1f")s").font(.CaptionMedium)
+                        }
+                    }
+                    VStack(alignment: .center, spacing: 2) {
+                        Text("\(chart.surfingValues.waterTemperature, specifier: "%.0f")°C").font(.Body1Medium)
+                        Image("waterTemperate")
+                    }
+                    HStack(alignment: .center, spacing: 8) {
+                        Text(chart.surfingValues.weather).font(.Body1Medium)
+                        Text("\(chart.surfingValues.airTemperature, specifier: "%.0f")°C").font(.Body1Medium)
+                    }
+                }.frame(maxWidth: .infinity)
+                    .padding(.horizontal)
+            }
+            Rectangle()
+                .fill(.surfBlue.opacity(0.1)) // 선의 색상
+                .frame(height: 1) // 선의 두께
+                .padding(.horizontal) // 좌우 여백
+            
         }
     }
 }

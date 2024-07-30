@@ -60,6 +60,7 @@
 		719EA9C92C57B13C0090BAB5 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
 		89A63A142C58982A00787DC4 /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
 		89A63A152C58983700787DC4 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		89A63A162C58B36000787DC4 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +190,7 @@
 				719EA9C22C5770660090BAB5 /* Pretendard-Bold.otf */,
 				89A63A152C58983700787DC4 /* Pretendard-Medium.otf */,
 				89A63A142C58982A00787DC4 /* Pretendard-ExtraLight.otf */,
+				89A63A162C58B36000787DC4 /* Pretendard-SemiBold.otf */,
 				719EA9C82C57B13C0090BAB5 /* SF-Pro-Italic.ttf */,
 				719EA9C92C57B13C0090BAB5 /* SF-Pro.ttf */,
 			);
