@@ -11,12 +11,12 @@ import FirebaseCore
 
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-  func application(_ application: UIApplication,
-                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-    FirebaseApp.configure()
-
-    return true
-  }
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        FirebaseApp.configure()
+        
+        return true
+    }
 }
 
 @main
@@ -28,6 +28,7 @@ struct _024_MC3_Team4_NewTApp: App {
                 DailyWeather.self,
             ])
             let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+
             do {
                 return try ModelContainer(for: schema, configurations: [modelConfiguration])
             } catch {

@@ -56,7 +56,7 @@ struct JaneView: View {
                             }
                         
                             ForEach(weatherList) { weather in // weather는 이제 Identifiable
-                                ForEach(weather.chartCollection) { chart in // chart도 Identifiable
+                                ForEach(weather.chartCollection, id: \.self) { chart in // chart도 Identifiable
                                     ChartRowView(chart: chart)
                                 }
                             }
@@ -74,7 +74,7 @@ struct JaneView: View {
     }
     
     struct ChartRowView: View {
-        var chart: ChartRow // ChartRowTmp에 맞는 프로퍼티를 정의합니다.
+        var chart: ChartRowTmp // ChartRowTmp에 맞는 프로퍼티를 정의합니다.
         var body: some View {
             HStack{
                 Text("\(timeFormatter.string(from: chart.day))").textScale(.secondary)
@@ -107,7 +107,7 @@ struct JaneView: View {
         func addDummyData() {
             let context = modelContext //modelContext 가져옴
             let dummyDay = "2024-07-30"
-            let dummyDailyCharts = DailyWeather(id: UUID(), day: dummyDay, chartCollection: dummyChartRows)
+            let dummyDailyCharts = DailyWeather(day: dummyDay, chartCollection: dummyChartRows)
             context.insert(dummyDailyCharts)
             
             do {
