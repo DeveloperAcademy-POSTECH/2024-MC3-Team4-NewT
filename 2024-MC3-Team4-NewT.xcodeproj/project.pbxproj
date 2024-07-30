@@ -104,11 +104,11 @@
 			children = (
 				21B0806F2C52844C007BC655 /* EmbededView.swift */,
 				21B0806D2C516248007BC655 /* FindSpotView.swift */,
+				719EA9BF2C5768580090BAB5 /* FitChartView.swift */,
 				21B0803C2C4D0888007BC655 /* JaneView.swift */,
 				21B080402C4D08B2007BC655 /* NadaView.swift */,
 				21B0803A2C4D087F007BC655 /* PiriView.swift */,
 				21B0803E2C4D089F007BC655 /* SisiView.swift */,
-				719EA9BF2C5768580090BAB5 /* FitChartView.swift */,
 				21B080422C4D08C2007BC655 /* TestView.swift */,
 				21B080732C56DB7A007BC655 /* WindFinderView.swift */,
 				21B080712C52890A007BC655 /* WindyView.swift */,

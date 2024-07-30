@@ -113,6 +113,7 @@ struct FitChartView: View {
                         
                         ZStack{
                             Color.white.opacity(0.8)
+                                .frame(height: 50)
                             HStack(spacing: 20){
                                 VStack(spacing: 0){
                                     Text("7/26")
@@ -156,6 +157,7 @@ struct FitChartView: View {
                        
                         ZStack{
                             Color.white.opacity(0.8)
+                                .frame(height: 50)
                             HStack(spacing: 20){
                                 VStack(spacing: 0){
                                     Text("7/26")
@@ -199,6 +201,7 @@ struct FitChartView: View {
                         
                         ZStack{
                             Color.white.opacity(0.8)
+                                .frame(height: 50)
                             HStack(spacing: 20){
                                 VStack(spacing: 0){
                                     Text("7/26")
@@ -246,15 +249,23 @@ struct FitChartView: View {
                     // MARK: - 고정 차트
                     VStack(spacing: 0){
                         HStack{
-                            Text("고정 차트 기록")
+                            Text("최근 차트 기록")
                                 .font(.pretendardBold21)
                                 .foregroundColor(.white)
-                                .padding(.horizontal)
                             Spacer()
-                        }.padding(.bottom, 12)
+                            Button{
+                                
+                            } label: {
+                                Text("모두보기")
+                                    .font(.pretendardBold12)
+                                    .foregroundColor(.white)
+                            }
+                        }
+                        .padding(.bottom, 12)
                         
                         ZStack{
                             Color.white.opacity(0.8)
+                                .frame(height: 50)
                             HStack(spacing: 20){
                                 VStack(spacing: 0){
                                     Text("7/26")
@@ -294,11 +305,11 @@ struct FitChartView: View {
                             }
                         }
                         .cornerRadius(24)
-                        .padding(.horizontal)
                         .padding(.bottom, 4)
                        
                         ZStack{
                             Color.white.opacity(0.8)
+                                .frame(height: 50)
                             HStack(spacing: 20){
                                 VStack(spacing: 0){
                                     Text("7/26")
@@ -338,11 +349,11 @@ struct FitChartView: View {
                             }
                         }
                         .cornerRadius(24)
-                        .padding(.horizontal)
                         .padding(.bottom, 4)
                         
                         ZStack{
                             Color.white.opacity(0.8)
+                                .frame(height: 50)
                             HStack(spacing: 20){
                                 VStack(spacing: 0){
                                     Text("7/26")
@@ -382,7 +393,6 @@ struct FitChartView: View {
                             }
                         }
                         .cornerRadius(24)
-                        .padding(.horizontal)
                         .padding(.bottom, 4)
                     }
                     .padding(.bottom,34)
