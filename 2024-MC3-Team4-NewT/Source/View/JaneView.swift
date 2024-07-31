@@ -37,45 +37,43 @@ struct JaneView: View {
         // 오늘 날짜를 가장 위에 두고 나머지 날짜 정렬
         let sortedKeys = ([today] + groupedWeather.keys.filter { $0 != today }).sorted()
         
-        FitChartView()
-//        Spacer()
+        //        FitChartView()
         //MARK: MainChartView로 뺄 예정
-        ScrollView {
-            VStack {
-                ForEach(sortedKeys, id: \.self) { date in
-                    if let weatherList = groupedWeather[date] {
-                        VStack(alignment: .center, spacing: 8) {
-                            Text("\(dateFormatter.string(from: Date()))")
-                                .padding(.vertical, 10)
-                                .font(.SubheadingBold).foregroundColor(.surfBlue)
-                            HStack(alignment: .center) {
-                                Text("시간").font(.CaptionSemiBold)
-                                Spacer()
-                                Text("바람").font(.CaptionSemiBold)
-                                Spacer()
-                                Text("파도").font(.CaptionSemiBold)
-                                Spacer()
-                                Text("수온").font(.CaptionSemiBold)
-                                Spacer()
-                                Text("날씨").font(.CaptionSemiBold)
-                            }
-                            .padding(.horizontal, 20)
-                                .background(.brightGray)
-                                
-                            
+        
+        VStack {
+            ForEach(sortedKeys, id: \.self) { date in
+                if let weatherList = groupedWeather[date] {
+                    VStack(alignment: .center, spacing: 8) {
+                        Text("\(dateFormatter.string(from: Date()))")
+                            .padding(.vertical, 10)
+                            .font(.SubheadingBold).foregroundColor(.surfBlue)
+                        HStack(alignment: .center) {
+                            Text("  시간").font(.CaptionSemiBold)
+                            Spacer()
+                            Text(" 바람").font(.CaptionSemiBold)
+                            Spacer()
+                            Text("  파도").font(.CaptionSemiBold)
+                            Spacer()
+                            Text("수온   ").font(.CaptionSemiBold)
+                            Spacer()
+                            Text("날씨    ").font(.CaptionSemiBold)
+                        }
+                        .padding(.horizontal, 20)
+                        .background(.brightGray)
+                        
+                        ScrollView {
                             ForEach(weatherList) { weather in // weather는 이제 Identifiable
                                 ForEach(weather.chartCollection, id: \.self) { chart in // chart도 Identifiable
                                     ChartRowView(chart: chart)
                                 }
                             }
-                        }.frame(maxWidth: .infinity)
-                        .background(.white.opacity(0.7))
-                        .cornerRadius(24)
+                        }
                     }
                 }
             }
         }.frame(maxWidth: .infinity)
-            .background(.white.opacity(0))
+            .background(.white.opacity(0.7))
+            .cornerRadius(24)
         Spacer()
     }
     
@@ -105,14 +103,13 @@ struct JaneView: View {
                         Text(chart.surfingValues.weather).font(.Body1Medium)
                         Text("\(chart.surfingValues.airTemperature, specifier: "%.0f")°C").font(.Body1Medium)
                     }
-                }.frame(maxWidth: .infinity)
+                }.frame(maxWidth: .infinity).frame(height: 63)
                     .padding(.horizontal)
             }
             Rectangle()
                 .fill(.surfBlue.opacity(0.1)) // 선의 색상
                 .frame(height: 1) // 선의 두께
                 .padding(.horizontal) // 좌우 여백
-            
         }
     }
 }
