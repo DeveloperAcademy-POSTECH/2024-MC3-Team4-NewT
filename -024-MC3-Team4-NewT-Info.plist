@@ -4,8 +4,8 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>Pretendard-Bold</string>
-		<string>Pretendard-SemiBold</string>
+		<string>Pretendard-Bold.otf</string>
+		<string>Pretendard-SemiBold.otf</string>
 		<string>SF-Pro</string>
 		<string>SF-Pro-Italic</string>
 	</array>
