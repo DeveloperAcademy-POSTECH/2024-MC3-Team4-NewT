@@ -9,22 +9,24 @@ import SwiftUI
 
 struct TestView: View {
     var body: some View {
-        VStack(spacing: 20.0){
-//            FitChartView()
-            NavigationLink(destination: PiriView()){
-                Text("파이리")
-            }
-            NavigationLink(destination: JaneView()){
-                Text("제인")
-            }
-            NavigationLink(destination: SisiView()){
-                Text("씨씨")
-            }
-            NavigationLink(destination: NadaView()){
-                Text("나다")
-            }
-            NavigationLink(destination: FitChartView()){
-                Text("FitChartView")
+        NavigationStack{
+            VStack(spacing: 20.0){
+                //            FitChartView()
+                NavigationLink(destination: PiriView()){
+                    Text("파이리")
+                }
+                NavigationLink(destination: JaneView()){
+                    Text("제인")
+                }
+                NavigationLink(destination: SisiView()){
+                    Text("씨씨")
+                }
+                NavigationLink(destination: NadaView()){
+                    Text("나다")
+                }
+                NavigationLink(destination: FitChartView()){
+                    Text("FitChartView")
+                }
             }
         }
         

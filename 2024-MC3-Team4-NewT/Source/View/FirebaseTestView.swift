@@ -6,91 +6,58 @@
 //
 import SwiftUI
 import FirebaseFirestore
+import SwiftData
 
 struct FirebaseTestView: View {
-    @State private var items: [ChartRowTmp] = []
+    @Environment(\.modelContext) private var modelContext
+    @StateObject private var viewModel = FirebaseDataViewModel()
     
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack {
-                    Text("데이터 개수: \(items.count)개")
+                    Text("데이터 개수: \(viewModel.items.count)개")
                         .font(.title)
                         .padding()
                     
-                    ForEach(items, id: \.self) { item in
+                    Text(viewModel.dateRange)
+                        .font(.subheadline)
+                        .padding()
+                    
+                    ForEach(viewModel.items, id: \.self) { item in
                         CardView(item: item)
                             .padding(.horizontal)
                             .padding(.bottom, 10) // 카드 사이의 간격을 추가
+                            .onAppear {
+                                insertItem(item)
+                            }
                     }
                 }
                 .padding(.horizontal)
             }
-            .onAppear {
-                fetchItems()
+        }
+        .onAppear {
+            // 초기 데이터 삽입
+            for item in viewModel.items {
+                insertItem(item)
             }
         }
     }
     
-    func fetchItems() {
-        let db = Firestore.firestore()
-        db.collection("pohang").getDocuments { snapshot, error in
-            if let error = error {
-                print("Error getting documents: \(error.localizedDescription)")
-                return
-            }
-            
-            guard let documents = snapshot?.documents else {
-                print("No documents found")
-                return
-            }
-            
-            var fetchedItems: [ChartRowTmp] = []
-            
-            for document in documents {
-                let data = document.data()
-                if let windSouth = data["wind_south"] as? Double,
-                   let timestamp = data["timestamp"] as? Timestamp,
-                   let temp = data["temp"] as? Double,
-                   let wavesHeight = data["waves_height"] as? Double,
-                   let wavesDirection = data["waves_direction"] as? Double,
-                   let wavesPeriod = data["waves_period"] as? Double,
-                   let windNorth = data["wind_north"] as? Double {
-                    
-                    let surfingValues = SurfingValues(
-                        waveDirection: Float(wavesDirection),
-                        waveHeight: Float(wavesHeight),
-                        wavePeriod: Float(wavesPeriod),
-                        windDirection: Float(windNorth),
-                        windSpeed: Float(windSouth),
-                        weather: "sunny",
-                        airTemperature: Float(temp),
-                        waterTemperature: Float(temp)
-                    )
-                    
-                    let item = ChartRowTmp(
-                        day: timestamp.dateValue(),
-                        surfingValues: surfingValues,
-                        isHighTide: false,
-                        isLowTide: false
-                    )
-                    
-                    fetchedItems.append(item)
-                }
-            }
-            
-            self.items = fetchedItems
+    private func insertItem(_ item: ChartRow) {
+        DispatchQueue.main.async {
+//            modelContext.insert(DailyWeather(day: "one", chartCollection: []))
         }
     }
 }
 
 struct CardView: View {
-    let item: ChartRowTmp
+    let item: ChartRow
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("날짜: \(item.day, formatter: dateFormatter)")
-                .font(.headline)
+//            Text("날짜: \(dateFormatter.string(from: item.day))")
+//                .font(.headline)
             Text("기온: \(item.surfingValues.airTemperature)°C")
             Text("파고: \(item.surfingValues.waveHeight)m")
             Text("파주기: \(item.surfingValues.wavePeriod)초")

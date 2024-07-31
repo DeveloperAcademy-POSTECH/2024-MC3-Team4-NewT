@@ -8,7 +8,9 @@
 import Foundation
 import SwiftData
 
-struct SurfingValues: Codable, Hashable {
+@Model
+final class SurfingValues {
+    @Attribute(.unique) var id: UUID
     var waveDirection: Float
     var waveHeight: Float
     var wavePeriod: Float
@@ -17,36 +19,45 @@ struct SurfingValues: Codable, Hashable {
     var weather: String
     var airTemperature: Float
     var waterTemperature: Float
-}
-
-struct ChartRowTmp: Codable, Hashable {
-    var day: Date
-    var surfingValues: SurfingValues
-    var isHighTide: Bool = false
-    var isLowTide: Bool = false
+    
+    init(waveDirection: Float, waveHeight: Float, wavePeriod: Float, windDirection: Float, windSpeed: Float, weather: String, airTemperature: Float, waterTemperature: Float) {
+        self.id = UUID()
+        self.waveDirection = waveDirection
+        self.waveHeight = waveHeight
+        self.wavePeriod = wavePeriod
+        self.windDirection = windDirection
+        self.windSpeed = windSpeed
+        self.weather = weather
+        self.airTemperature = airTemperature
+        self.waterTemperature = waterTemperature
+    }
 }
 
 @Model
 final class ChartRow {
-    @Attribute(.unique) var day: Date
+    @Attribute(.unique) var id: UUID
+    var day: String
     var surfingValues: SurfingValues
     var isHighTide: Bool
     var isLowTide: Bool
 
-    init(day: Date, surfingValues: SurfingValues, isHighTide: Bool, isLowTide: Bool) {
+    init(day: String, surfingValues: SurfingValues, isHighTide: Bool, isLowTide: Bool) {
+        self.id = UUID()
         self.day = day
         self.surfingValues = surfingValues
-        self.isHighTide = false
-        self.isLowTide = false
+        self.isHighTide = isHighTide
+        self.isLowTide = isLowTide
     }
 }
 
 @Model
 final class DailyWeather {
-    @Attribute(.unique) var day: String
-    var chartCollection: [ChartRowTmp]
+    @Attribute(.unique) var id: UUID
+    var day: String
+    var chartCollection: [ChartRow]
 
-    init(day: String, chartCollection: [ChartRowTmp]) {
+    init(day: String, chartCollection: [ChartRow]) {
+        self.id = UUID()
         self.day = day
         self.chartCollection = chartCollection
     }
@@ -54,13 +65,15 @@ final class DailyWeather {
 
 @Model
 final class SurfingRecordOne {
-    @Attribute(.unique) var surfingStartTime: Date
-    var surfingEndTime: Date
+    @Attribute(.unique) var id: UUID
+    var surfingStartTime: String
+    var surfingEndTime: String
     var charts: [ChartRow]
     var evaluationValue: Int
     var memo: String
 
-    init(surfingStartTime: Date, surfingEndTime: Date, charts: [ChartRow], evaluationValue: Int, memo: String) {
+    init(surfingStartTime: String, surfingEndTime: String, charts: [ChartRow], evaluationValue: Int, memo: String) {
+        self.id = UUID()
         self.surfingStartTime = surfingStartTime
         self.surfingEndTime = surfingEndTime
         self.charts = charts
@@ -71,15 +84,16 @@ final class SurfingRecordOne {
 
 @Model
 final class Statistics {
+    @Attribute(.unique) var id: UUID
     var waveDirection: Float?
     var waveHeight: Float?
     var wavePeriod: Float?
     var windDirection: Float?
     var windSpeed: Float?
-
-    // 아래는 혹시 몰라 만들어놓음
     var weather: String?
     var temperature: Float?
 
-    init() { }
+    init() {
+        self.id = UUID()
+    }
 }

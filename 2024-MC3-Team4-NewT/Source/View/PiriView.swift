@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct PiriView: View {
-    
+    @Environment(\.modelContext) var modelContext
     
     var body: some View {
         VStack(spacing:20){
@@ -26,7 +26,13 @@ struct PiriView: View {
             NavigationLink(destination: FirebaseTestView()){
                 Text("FirebaseTest")
             }
+            NavigationLink(destination: SDTestView()){
+                Text("SwiftData 테스트")
+            }
             
+        }
+        .onAppear{
+            print(modelContext.sqliteCommand)
         }
     }
     
