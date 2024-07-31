@@ -62,17 +62,51 @@ struct JaneView: View {
                         .background(.brightGray)
                         
                         ScrollView {
-                            ForEach(weatherList) { weather in // weather는 이제 Identifiable
-                                ForEach(weather.chartCollection, id: \.self) { chart in // chart도 Identifiable
-                                    ChartRowView(chart: chart)
+                            Grid(alignment: .leadingFirstTextBaseline,
+                                 horizontalSpacing: 24) {
+                                
+                                ForEach(weatherList) { weather in // weather는 이제 Identifiable
+                                    ForEach(weather.chartCollection, id: \.self) { chart in // chart도 Identifiable
+                                        //                                    TestView(chart: chart)
+                                        GridRow {
+                                            Text("\(timeFormatter.string(from: chart.day))").font(.Body2Medium)
+                                            HStack(alignment: .center, spacing: 8) {
+                                                Image("waveDirectionIcon")
+                                                Text("\(chart.surfingValues.windSpeed, specifier: "%.1f")m/s").font(.Body1Medium)
+                                            }
+                                            
+                                            HStack(alignment: .center, spacing: 8) {
+                                                Image("swellDirectionIcon")
+                                                VStack(alignment: .center, spacing: 0) {
+                                                    Text("\(chart.surfingValues.waveHeight, specifier: "%.1f")m").font(.Body1Medium)
+                                                    Text("\(chart.surfingValues.wavePeriod, specifier: "%.1f")s").font(.CaptionMedium)
+                                                }
+                                            }
+                                            VStack(alignment: .center, spacing: 2) {
+                                                Text("\(chart.surfingValues.waterTemperature, specifier: "%.0f")°C").font(.Body1Medium)
+                                                Image("waterTemperate")
+                                            }
+                                            HStack(alignment: .center, spacing: 8) {
+                                                Text(chart.surfingValues.weather).font(.Body1Medium)
+                                                Text("\(chart.surfingValues.airTemperature, specifier: "%.0f")°C").font(.Body1Medium)
+                                            }
+                                        }.background {
+                                            Rectangle()
+                                                .fill(.surfBlue.opacity(0.1)) // 선의 색상
+                                                .frame(height: 1) // 선의 두께
+//                                                .padding(.horizontal) // 좌우 여백
+                                        }
+                                        .frame(width: .infinity, height: 50)
+                                    }
                                 }
                             }
-                        }
+                        }.padding(.horizontal)
                     }
                 }
             }
+            
         }.frame(maxWidth: .infinity)
-            .background(.white.opacity(0.7))
+            .background(.white)
             .cornerRadius(24)
         Spacer()
     }
@@ -82,7 +116,7 @@ struct JaneView: View {
         var chart: ChartRowTmp // ChartRowTmp에 맞는 프로퍼티를 정의합니다.
         var body: some View {
             ZStack(alignment: .bottom){
-                HStack(alignment: .center, spacing: 24){
+                HStack(alignment: .center, spacing: 4){
                     Text("\(timeFormatter.string(from: chart.day))").font(.Body2Medium)
                     HStack(alignment: .center, spacing: 8) {
                         Image("waveDirectionIcon")
@@ -112,7 +146,45 @@ struct JaneView: View {
                 .padding(.horizontal) // 좌우 여백
         }
     }
+    
+    struct TestView: View {
+        var chart: ChartRowTmp // ChartRowTmp에 맞는 프로퍼티를 정의합니다.
+        var body: some View {
+            Grid(alignment: .leadingFirstTextBaseline,
+                 horizontalSpacing: 15) {
+                GridRow {
+                    Text("\(timeFormatter.string(from: chart.day))").font(.Body2Medium)
+                    HStack(alignment: .center, spacing: 8) {
+                        Image("waveDirectionIcon")
+                        Text("\(chart.surfingValues.windSpeed, specifier: "%.1f")m/s").font(.Body1Medium)
+                    }
+                    
+                    HStack(alignment: .center, spacing: 8) {
+                        Image("swellDirectionIcon")
+                        VStack(alignment: .center, spacing: 0) {
+                            Text("\(chart.surfingValues.waveHeight, specifier: "%.1f")m").font(.Body1Medium)
+                            Text("\(chart.surfingValues.wavePeriod, specifier: "%.1f")s").font(.CaptionMedium)
+                        }
+                    }
+                    VStack(alignment: .center, spacing: 2) {
+                        Text("\(chart.surfingValues.waterTemperature, specifier: "%.0f")°C").font(.Body1Medium)
+                        Image("waterTemperate")
+                    }
+                    HStack(alignment: .center, spacing: 8) {
+                        Text(chart.surfingValues.weather).font(.Body1Medium)
+                        Text("\(chart.surfingValues.airTemperature, specifier: "%.0f")°C").font(.Body1Medium)
+                    }
+                }.background {
+                    Rectangle()
+                        .fill(.surfBlue.opacity(0.1)) // 선의 색상
+                        .frame(height: 1) // 선의 두께
+                        .padding(.horizontal) // 좌우 여백
+                }
+            }
+        }
+    }
 }
+
 
 extension JaneView {
     func weatherIcon() {
