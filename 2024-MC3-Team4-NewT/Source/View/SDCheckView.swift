@@ -50,7 +50,7 @@ struct SDCheckView: View {
                 case .chartRow:
                     ForEach(chartRowData, id: \.id) { item in
                         VStack(alignment: .leading) {
-                            Text("Day: \(item.day)")
+                            Text("Day: \(item.time)")
                             Text("Is High Tide: \(item.isHighTide ? "Yes" : "No")")
                             Text("Is Low Tide: \(item.isLowTide ? "Yes" : "No")")
                             Text("Wave Direction: \(item.surfingValues.waveDirection)")

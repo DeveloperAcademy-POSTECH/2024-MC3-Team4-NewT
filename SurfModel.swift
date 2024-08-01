@@ -35,14 +35,14 @@ final class SurfingValues2 {
 @Model
 final class ChartRow {
     @Attribute(.unique) var id: UUID
-    var day: String
+    var time: String
     var surfingValues: SurfingValues2
     var isHighTide: Bool
     var isLowTide: Bool
     
-    init(day: String, surfingValues: SurfingValues2, isHighTide: Bool, isLowTide: Bool) {
+    init(time: String, surfingValues: SurfingValues2, isHighTide: Bool, isLowTide: Bool) {
         self.id = UUID()
-        self.day = day
+        self.time = time
         self.surfingValues = surfingValues
         self.isHighTide = isHighTide
         self.isLowTide = isLowTide
@@ -74,9 +74,7 @@ final class SurfingRecordOne {
     init(surfingStartTime: Date, surfingEndTime: Date, charts: [ChartRow], evaluationValue: Int, memo: String) {
         self.id = UUID()
         self.surfingStartTime = surfingStartTime
-        print("surfingStartTime:\(surfingStartTime)")
         self.surfingEndTime = surfingEndTime
-        
         self.charts = charts
         self.evaluationValue = evaluationValue
         self.memo = memo

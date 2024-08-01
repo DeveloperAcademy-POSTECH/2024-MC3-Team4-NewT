@@ -10,7 +10,8 @@ import SwiftData
 struct SDTestView: View {
     @Environment(\.modelContext) private var modelContext
     @State private var selectedDate: Date = Date() // 뷰 내부에서 관리할 State 변수
-    var viewModel = SDTestObservable()
+    @Query var chartRow:[ChartRow]
+    var viewModel = SwiftDataObservable()
 
     var body: some View {
         VStack(spacing: 16) {
@@ -20,9 +21,10 @@ struct SDTestView: View {
 
             Button(action: {
                 viewModel.selectedDate = selectedDate // 선택된 날짜를 뷰 모델로 전달
-                viewModel.saveOrUpdateDailyWeather2(modelContext: modelContext)
+                
+
             }) {
-                Text("Save or Update Daily Weather")
+                Text("Save")
                     .padding()
                     .background(Color.blue)
                     .foregroundColor(.white)
@@ -30,9 +32,7 @@ struct SDTestView: View {
             }
         }
         .padding()
-        .onAppear {
-            viewModel.loadDailyWeathers(modelContext: modelContext)
-        }
+        
     }
 }
 

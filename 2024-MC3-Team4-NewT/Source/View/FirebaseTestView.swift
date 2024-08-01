@@ -5,80 +5,29 @@
 //  Created by ram on 7/29/24.
 //
 import SwiftUI
-import FirebaseFirestore
+import SwiftData
 
 struct FirebaseTestView: View {
-    @State private var items: [ChartRowTmp] = []
-
+    @Environment(\.modelContext) var modelContext
+    var fbo = FirebaseObservable()
+    var sdo = SwiftDataObservable()
+    @Query var chartRow:[ChartRow]
     var body: some View {
         NavigationView {
             VStack {
-                List(items, id: \.self) { item in
+                List(fbo.items, id: \.self) { item in
                     VStack(alignment: .leading) {
-                        Text("Air Temperature: \(item.surfingValues.airTemperature)")
-                        Text("Wave Period: \(item.surfingValues.wavePeriod)")
+                        Text("온도: \(item.surfingValues.airTemperature)")
+                        Text("파주기: \(item.surfingValues.wavePeriod)")
                     }
                 }
             }
-            .navigationTitle("Firebase 데이터")
             .onAppear {
-                fetchItems()
+                fbo.fetchFirebase(modelContext: modelContext, collectionName: "pohang", chartRow: chartRow) //fbo.items에 결과값 생성됨
+                
+
+                
             }
         }
     }
-
-    func fetchItems() {
-        let db = Firestore.firestore()
-        db.collection("pohang").getDocuments { snapshot, error in
-            if let error = error {
-                print("Error getting documents: \(error.localizedDescription)")
-                return
-            }
-
-            guard let documents = snapshot?.documents else {
-                print("No documents found")
-                return
-            }
-
-            var fetchedItems: [ChartRowTmp] = []
-
-            for document in documents {
-                let data = document.data()
-                if let windSouth = data["wind_south"] as? Double,
-                   let timestamp = data["timestamp"] as? Timestamp,
-                   let temp = data["temp"] as? Double,
-                   let wavesHeight = data["waves_height"] as? Double,
-                   let wavesDirection = data["waves_direction"] as? Double,
-                   let wavesPeriod = data["waves_period"] as? Double,
-                   let windNorth = data["wind_north"] as? Double {
-
-                    let surfingValues = SurfingValues(
-                        waveDirection: Float(wavesDirection),
-                        waveHeight: Float(wavesHeight),
-                        wavePeriod: Float(wavesPeriod),
-                        windDirection: Float(windNorth),
-                        windSpeed: Float(windSouth),
-                        weather: "sunny",
-                        airTemperature: Float(temp),
-                        waterTemperature: Float(temp)
-                    )
-
-                    let item = ChartRowTmp(
-                        day: timestamp.dateValue(),
-                        surfingValues: surfingValues,
-                        isHighTide: false,
-                        isLowTide: false
-                    )
-
-                    fetchedItems.append(item)
-                }
-            }
-
-            self.items = fetchedItems
-        }
-    }
-}
-
-#Preview {
-    FirebaseTestView()
 }
