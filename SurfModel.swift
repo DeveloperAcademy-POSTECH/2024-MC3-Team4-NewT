@@ -39,7 +39,7 @@ final class ChartRow {
     var surfingValues: SurfingValues2
     var isHighTide: Bool
     var isLowTide: Bool
-
+    
     init(day: String, surfingValues: SurfingValues2, isHighTide: Bool, isLowTide: Bool) {
         self.id = UUID()
         self.day = day
@@ -54,7 +54,7 @@ final class DailyWeather2 {
     @Attribute(.unique) var id: UUID
     var day: String
     var chartCollection: [ChartRow]
-
+    
     init(day: String, chartCollection: [ChartRow]) {
         self.id = UUID()
         self.day = day
@@ -65,13 +65,13 @@ final class DailyWeather2 {
 @Model
 final class SurfingRecordOne {
     @Attribute(.unique) var id: UUID
-    var surfingStartTime: String
-    var surfingEndTime: String
+    var surfingStartTime: Date
+    var surfingEndTime: Date
     var charts: [ChartRow]
     var evaluationValue: Int
     var memo: String
-
-    init(surfingStartTime: String, surfingEndTime: String, charts: [ChartRow], evaluationValue: Int, memo: String) {
+    
+    init(surfingStartTime: Date, surfingEndTime: Date, charts: [ChartRow], evaluationValue: Int, memo: String) {
         self.id = UUID()
         self.surfingStartTime = surfingStartTime
         self.surfingEndTime = surfingEndTime
@@ -91,7 +91,7 @@ final class Statistics {
     var windSpeed: Float?
     var weather: String?
     var temperature: Float?
-
+    
     init() {
         self.id = UUID()
     }
