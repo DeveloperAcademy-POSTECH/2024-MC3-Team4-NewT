@@ -85,11 +85,13 @@ struct JaneView: View {
                                             VStack(alignment: .center, spacing: 2) {
                                                 Text("\(chart.surfingValues.waterTemperature, specifier: "%.0f")°C").font(.Body1Medium)
                                                 Image("waterTemperate")
-                                            }.frame(width: 56)
+                                            }
+//                                            .frame(width: 56)
                                             HStack(alignment: .center, spacing: 8) {
                                                 Text(chart.surfingValues.weather).font(.Body1Medium)
+                                                Spacer()
                                                 Text("\(chart.surfingValues.airTemperature, specifier: "%.0f")°C").font(.Body1Medium)
-                                            }.frame(width: 56)
+                                            }
                                         }.background {
                                             Rectangle()
                                                 .fill(.surfBlue.opacity(0.1)) // 선의 색상
@@ -134,6 +136,7 @@ struct JaneView: View {
                         Image("waterTemperate")
                     }
                     HStack(alignment: .center, spacing: 8) {
+                        //weather 변수는 사용 API에 따라 String or Int로 변경 가능성. 현재는 String 기준으로 작성
                         Text(chart.surfingValues.weather).font(.Body1Medium)
                         Text("\(chart.surfingValues.airTemperature, specifier: "%.0f")°C").font(.Body1Medium)
                     }
@@ -187,8 +190,8 @@ struct JaneView: View {
 
 
 extension JaneView {
-    func weatherIcon() {
-        
+    func weatherIcon(weather: String) {
+        if weather == ""
     }
     
     func addDummyData() {
