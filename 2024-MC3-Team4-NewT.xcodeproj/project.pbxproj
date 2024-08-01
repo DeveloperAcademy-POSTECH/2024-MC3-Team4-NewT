@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0CAF4CFD2C52B29D0054D347 /* SurfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF4CFC2C52B29D0054D347 /* SurfModel.swift */; };
 		21588AED2C5BA95E003E3489 /* SDCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588AEC2C5BA95E003E3489 /* SDCheckView.swift */; };
 		21588AEF2C5BB312003E3489 /* FirebaseObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588AEE2C5BB312003E3489 /* FirebaseObservable.swift */; };
+		21588AF22C5BDF18003E3489 /* FirebaseTestObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588AF12C5BDF18003E3489 /* FirebaseTestObservable.swift */; };
+		21588AF42C5BDF97003E3489 /* SurfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588AF32C5BDF97003E3489 /* SurfModel.swift */; };
 		21B0802D2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */; };
 		21B080312C4D0836007BC655 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B080302C4D0836007BC655 /* Assets.xcassets */; };
 		21B080342C4D0836007BC655 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B080332C4D0836007BC655 /* Preview Assets.xcassets */; };
@@ -43,9 +44,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0CAF4CFC2C52B29D0054D347 /* SurfModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfModel.swift; sourceTree = SOURCE_ROOT; };
 		21588AEC2C5BA95E003E3489 /* SDCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDCheckView.swift; sourceTree = "<group>"; };
 		21588AEE2C5BB312003E3489 /* FirebaseObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseObservable.swift; sourceTree = "<group>"; };
+		21588AF12C5BDF18003E3489 /* FirebaseTestObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTestObservable.swift; sourceTree = "<group>"; };
+		21588AF32C5BDF97003E3489 /* SurfModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfModel.swift; sourceTree = "<group>"; };
 		21B080292C4D0834007BC655 /* 2024-MC3-Team4-NewT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "2024-MC3-Team4-NewT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _024_MC3_Team4_NewTApp.swift; sourceTree = "<group>"; };
 		21B080302C4D0836007BC655 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -95,6 +97,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21588AF02C5BDECC003E3489 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				21B0806F2C52844C007BC655 /* EmbededView.swift */,
+				21B0807C2C57C68D007BC655 /* FirebaseTestView.swift */,
+				21B080402C4D08B2007BC655 /* NadaView.swift */,
+				21B0803A2C4D087F007BC655 /* PiriView.swift */,
+				21588AEC2C5BA95E003E3489 /* SDCheckView.swift */,
+				21EDE2422C5B1C1D00F973C0 /* SDTestView.swift */,
+				21B080422C4D08C2007BC655 /* TestView.swift */,
+				21B080732C56DB7A007BC655 /* WindFinderView.swift */,
+				21B080712C52890A007BC655 /* WindyView.swift */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
 		21B080202C4D0834007BC655 = {
 			isa = PBXGroup;
 			children = (
@@ -134,24 +152,16 @@
 		21B080442C4D08D3007BC655 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				21B0806F2C52844C007BC655 /* EmbededView.swift */,
+				21588AF02C5BDECC003E3489 /* Test */,
 				21B0806D2C516248007BC655 /* FindSpotView.swift */,
-				21B0807C2C57C68D007BC655 /* FirebaseTestView.swift */,
 				719EA9BF2C5768580090BAB5 /* FitChartView.swift */,
 				21B0803C2C4D0888007BC655 /* JaneView.swift */,
 				89A63A172C59B7D100787DC4 /* MainView.swift */,
-				21B080402C4D08B2007BC655 /* NadaView.swift */,
 				89A63A1E2C59E53100787DC4 /* PinChartsView.swift */,
-				21B0803A2C4D087F007BC655 /* PiriView.swift */,
 				89A63A1C2C59E4F200787DC4 /* RecentChartsVIew.swift */,
 				719EA9CC2C5A56730090BAB5 /* RecordChartView.swift */,
-				21588AEC2C5BA95E003E3489 /* SDCheckView.swift */,
-				21EDE2422C5B1C1D00F973C0 /* SDTestView.swift */,
 				21B0803E2C4D089F007BC655 /* SisiView.swift */,
 				89A63A1A2C59E4B800787DC4 /* StatisticsView.swift */,
-				21B080422C4D08C2007BC655 /* TestView.swift */,
-				21B080732C56DB7A007BC655 /* WindFinderView.swift */,
-				21B080712C52890A007BC655 /* WindyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -160,7 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				21B0807E2C587D3C007BC655 /* DummyData.swift */,
-				0CAF4CFC2C52B29D0054D347 /* SurfModel.swift */,
+				21588AF32C5BDF97003E3489 /* SurfModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -169,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				21588AEE2C5BB312003E3489 /* FirebaseObservable.swift */,
+				21588AF12C5BDF18003E3489 /* FirebaseTestObservable.swift */,
 				21EDE2442C5B8CA600F973C0 /* SwiftDataObservable.swift */,
 				21B080802C588261007BC655 /* WaveObservable.swift */,
 			);
@@ -335,9 +346,10 @@
 				21B0802D2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift in Sources */,
 				21EDE2412C5B1B2B00F973C0 /* ModelContext.swift in Sources */,
 				21B080812C588261007BC655 /* WaveObservable.swift in Sources */,
-				0CAF4CFD2C52B29D0054D347 /* SurfModel.swift in Sources */,
+				21588AF22C5BDF18003E3489 /* FirebaseTestObservable.swift in Sources */,
 				21588AED2C5BA95E003E3489 /* SDCheckView.swift in Sources */,
 				21B0807D2C57C68D007BC655 /* FirebaseTestView.swift in Sources */,
+				21588AF42C5BDF97003E3489 /* SurfModel.swift in Sources */,
 				719EA9C52C57729E0090BAB5 /* Font.swift in Sources */,
 				89A63A182C59B7D100787DC4 /* MainView.swift in Sources */,
 				21EDE2452C5B8CA600F973C0 /* SwiftDataObservable.swift in Sources */,

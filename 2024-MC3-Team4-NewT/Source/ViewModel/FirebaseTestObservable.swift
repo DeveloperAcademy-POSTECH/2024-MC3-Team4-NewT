@@ -1,16 +1,17 @@
 //
-//  FirebaseObservable.swift
+//  FirebaseTestObservable.swift
 //  2024-MC3-Team4-NewT
 //
-//  Created by ram on 8/1/24.
+//  Created by ram on 8/2/24.
 //
+
 import SwiftData
 import FirebaseFirestore
 import Observation
 import SwiftUI
 
 @Observable
-class FirebaseObservable {
+class FirebaseTestObservable {
     // ChartRow 타입의 데이터를 저장하는 배열
     var items: [ChartRow] = []
     
