@@ -16,14 +16,15 @@ class FirebaseObservable {
     
     // Firebase에서 데이터를 가져와서 주어진 ChartRow 배열을 업데이트하는 함수
     func fetchFirebase(modelContext: ModelContext, collectionName: String, chartRow: [ChartRow]){
-        
-        let db = Firestore.firestore() // Firebase Firestore 데이터베이스에 접근하기 위한 인스턴스 생성
-        var updatedChartRows = chartRow // 매개변수로 받은 chartRow 배열을 복사하여 작업에 사용할 배열로 선언
+        // Firestore DB 접근위한 인스턴스 생성
+        let db = Firestore.firestore()
+        // 작업에 사용할 ChartRow 카피바라
+        var updatedChartRows = chartRow
         
         // Firebase에서 지정한 컬렉션(collectionName)의 모든 문서를 가져옴
         db.collection(collectionName).getDocuments { snapshot, error in
             if let error = error {
-                // 데이터를 가져오는 도중에 에러가 발생한 경우, 에러 메시지를 출력하고 함수를 종료
+                // 에러 발생시 종료
                 print("Error getting documents: \(error.localizedDescription)")
                 return
             }
@@ -59,19 +60,18 @@ class FirebaseObservable {
                         waterTemperature: Float(temp)
                     )
                     
-                    // 타임스탬프(timestamp)를 한국 시간대에 맞춘 문자열로 변환
-                    let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // 날짜와 시간 형식 설정
-                    dateFormatter.timeZone = TimeZone(identifier: "Asia/Seoul") // 한국 시간대 설정
-                    let formattedDate = dateFormatter.string(from: timestamp.dateValue()) // Date를 문자열로 변환
-                    print("파이어베이스 time:\(formattedDate)") // 변환된 시간 출력
+                    // 타임스탬프(timestamp)를 yyyy-MM-dd HH:mm:ss로 변환(싱글톤 패턴 사용)
+                    let formattedDate = DateFormatterManager.shared.longDateFormatter.string(from: timestamp.dateValue())
                     
-                    // 새 ChartRow 객체 생성
+                    // 테스트용 로그 찍기
+                    print("파이어베이스 time:\(formattedDate)")
+                    
+                    
                     let newItem = ChartRow(
-                        time: formattedDate, // 변환된 시간 문자열을 time에 저장
+                        time: formattedDate,
                         surfingValues: surfingValues,
-                        isHighTide: false, // 만조 여부는 false로 설정
-                        isLowTide: false // 간조 여부는 false로 설정
+                        isHighTide: false,
+                        isLowTide: false
                     )
                     
                     // 이미 업데이트된 ChartRow 배열에서 동일한 'time' 값을 가진 데이터를 찾음
@@ -81,12 +81,26 @@ class FirebaseObservable {
                         updatedChartRows[existingIndex].isHighTide = newItem.isHighTide
                         updatedChartRows[existingIndex].isLowTide = newItem.isLowTide
                     } else {
-                        // 동일한 time 값을 가진 데이터가 없으면 새로 추가
-                        modelContext.insert(newItem) // 새로 생성된 데이터를 모델 컨텍스트에 삽입
-                        updatedChartRows.append(newItem) // 업데이트된 배열에 추가
+                        // 동일한 time 값을 가진 데이터가 없으면 SwiftData에 새로 추가
+                        modelContext.insert(newItem)
+                        
                     }
                 }
             }
         }
+    }
+    
+    // 날짜별로 그룹화하여 [(String, [ChartRow])] 형태의 배열로 반환하는 함수
+    func groupedByDate(chartRow: [ChartRow]) -> [(key: String, value: [ChartRow])] {
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy-MM-dd"
+        
+        // 날짜별로 그룹화
+        let grouped = Dictionary(grouping: chartRow) { item -> String in
+            return String(item.time.prefix(10)) // 날짜 부분만 추출하여 그룹화
+        }
+        
+        // 키를 정렬하여 배열로 반환
+        return grouped.sorted { $0.key < $1.key }
     }
 }
