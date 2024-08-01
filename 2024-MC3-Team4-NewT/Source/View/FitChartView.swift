@@ -1,6 +1,8 @@
 import SwiftUI
+import SwiftData
 
 struct FitChartView: View {
+    @Query var statistics: [Statistics]
     var body: some View {
         VStack(spacing: 0){
             VStack {
@@ -14,15 +16,22 @@ struct FitChartView: View {
                         Image(systemName: "chevron.down")
                             .foregroundColor(.white)
                     }
-                .opacity(0.7)
-                Spacer()
-            }
+                    .opacity(0.7)
+                    Spacer()
+                }
                 .padding(.vertical, 6)
-            
+                
             }
+            
+            //MARK: 메인뷰 상단 메뉴
             TabView{
-                // 메인뷰 상단 메뉴를 나열
-                StatisticsView()
+                //통계 데이터가 없을 때 나타낼 화면 필요
+                if let firstStatistic = statistics.first {
+                    StatisticsView(viewStatistics: firstStatistic)
+                } else {
+                    Text("통계 데이터가 없습니다.")
+                        .foregroundColor(.gray)
+                }
                 RecentChartsVIew()
                 PinChartsView()
             }
@@ -35,6 +44,4 @@ struct FitChartView: View {
     }
 }
 
-#Preview {
-    FitChartView()
-}
+

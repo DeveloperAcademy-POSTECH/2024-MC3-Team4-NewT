@@ -18,12 +18,13 @@ struct RecentChartsVIew: View {
                 Button{
                     
                 } label: {
-                    Text("자세히 보기")
-                        .font(.Body2SemiBold)
-                        .foregroundColor(.white)
+                    HStack(alignment: .center, spacing: 2){
+                        Text("모두 보기").font(.Body2SemiBold)
+                        Image(systemName: "chevron.right")
+                    }.foregroundColor(.white)
                 }
             }
-            .padding(.bottom, 12)
+            .padding(.bottom, 8)
             
             ZStack{
                 Color.white.opacity(0.8)
@@ -161,7 +162,10 @@ struct RecentChartsVIew: View {
             .padding(.bottom, 4)
             
             
+        }.background{
+            Image("MainViewBG")
         }
+        
     }
 }
 

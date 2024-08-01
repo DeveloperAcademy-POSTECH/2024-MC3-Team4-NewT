@@ -67,6 +67,14 @@ final class Statistics{ // 통계
     // 아래는 혹시 몰라 만들어놓음
     var weather: String?
     var temperature: Float?
-    init() {  
+    
+    init(waveDirection: Float? = nil, waveHeight: Float? = nil, wavePeriod: Float? = nil, windDirection: Float? = nil, windSpeed: Float? = nil, weather: String? = nil, temperature: Float? = nil) {
+        self.waveDirection = 0.0
+        self.waveHeight = 0.0
+        self.wavePeriod = 0.0
+        self.windDirection = 0.0
+        self.windSpeed = 0.0
+        self.weather = ""
+        self.temperature = 0.0
     }
 }

@@ -26,6 +26,7 @@ struct _024_MC3_Team4_NewTApp: App {
         let sharedModelContainer: ModelContainer = {
             let schema = Schema([
                 DailyWeather.self,
+                Statistics.self,
             ])
             let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 

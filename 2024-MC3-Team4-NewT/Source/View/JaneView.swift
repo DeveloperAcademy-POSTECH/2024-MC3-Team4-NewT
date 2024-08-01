@@ -37,13 +37,10 @@ struct JaneView: View {
         // 오늘 날짜를 가장 위에 두고 나머지 날짜 정렬
         let sortedKeys = ([today] + groupedWeather.keys.filter { $0 != today }).sorted()
         
-        //        FitChartView()
-        //MARK: MainChartView로 뺄 예정
-        
         VStack {
             ForEach(sortedKeys, id: \.self) { date in
                 if let weatherList = groupedWeather[date] {
-                    VStack(alignment: .center, spacing: 8) {
+                    VStack(alignment: .center, spacing: 0) {
                         Text("\(dateFormatter.string(from: Date()))")
                             .padding(.vertical, 10)
                             .font(.SubheadingBold).foregroundColor(.surfBlue)
@@ -59,7 +56,9 @@ struct JaneView: View {
                             Text("날씨    ").font(.CaptionSemiBold)
                         }
                         .padding(.horizontal, 20)
-                        .background(.brightGray)
+                        .padding(.vertical, 2)
+                        .foregroundColor(.black.opacity(0.5))
+                        .background(Color(red: 0.9, green: 0.93, blue: 0.98).opacity(0.5))
                         
                         ScrollView {
                             Grid(alignment: .leadingFirstTextBaseline,
@@ -68,12 +67,12 @@ struct JaneView: View {
                                 ForEach(weatherList) { weather in // weather는 이제 Identifiable
                                     ForEach(weather.chartCollection, id: \.self) { chart in // chart도 Identifiable
                                         //                                    TestView(chart: chart)
-                                        GridRow {
+                                        GridRow(alignment: .center) {
                                             Text("\(timeFormatter.string(from: chart.day))").font(.Body2Medium)
                                             HStack(alignment: .center, spacing: 8) {
-                                                Image("waveDirectionIcon")
+                                                Image("waveDirectionIcon").frame(width: 14, height: 18)
                                                 Text("\(chart.surfingValues.windSpeed, specifier: "%.1f")m/s").font(.Body1Medium)
-                                            }.frame(width: 80)
+                                            }.frame(width: 76)
                                             
                                             HStack(alignment: .center, spacing: 8) {
                                                 Image("swellDirectionIcon")
@@ -86,17 +85,12 @@ struct JaneView: View {
                                                 Text("\(chart.surfingValues.waterTemperature, specifier: "%.0f")°C").font(.Body1Medium)
                                                 Image("waterTemperate")
                                             }
-//                                            .frame(width: 56)
+                                            .frame(width: 56)
                                             HStack(alignment: .center, spacing: 8) {
                                                 Text(chart.surfingValues.weather).font(.Body1Medium)
-                                                Spacer()
+//                                                Spacer()
                                                 Text("\(chart.surfingValues.airTemperature, specifier: "%.0f")°C").font(.Body1Medium)
                                             }
-                                        }.background {
-                                            Rectangle()
-                                                .fill(.surfBlue.opacity(0.1)) // 선의 색상
-                                                .frame(height: 1) // 선의 두께
-//                                                .padding(.horizontal) // 좌우 여백
                                         }
                                         .frame(height: 50)
                                     }
@@ -113,7 +107,7 @@ struct JaneView: View {
         Spacer()
     }
     
-    ///한 줄 차트 뷰
+// MARK: 한 줄 차트 뷰
     struct ChartRowView: View {
         var chart: ChartRowTmp // ChartRowTmp에 맞는 프로퍼티를 정의합니다.
         var body: some View {
@@ -122,10 +116,11 @@ struct JaneView: View {
                     Text("\(timeFormatter.string(from: chart.day))").font(.Body2Medium)
                     HStack(alignment: .center, spacing: 8) {
                         Image("waveDirectionIcon")
+                            .rotationEffect(.degrees(Double(FloatToDouble(chart.surfingValues.windDirection))))
                         Text("\(chart.surfingValues.windSpeed, specifier: "%.1f")m/s").font(.Body1Medium)
                     }
                     HStack(alignment: .center, spacing: 8) {
-                        Image("swellDirectionIcon")
+                        Image("swellDirectionIcon").rotationEffect(.degrees(Double(FloatToDouble(chart.surfingValues.waveDirection))))
                         VStack(alignment: .center, spacing: 0) {
                             Text("\(chart.surfingValues.waveHeight, specifier: "%.1f")m").font(.Body1Medium)
                             Text("\(chart.surfingValues.wavePeriod, specifier: "%.1f")s").font(.CaptionMedium)
