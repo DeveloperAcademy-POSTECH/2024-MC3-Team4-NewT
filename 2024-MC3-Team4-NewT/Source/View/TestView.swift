@@ -18,9 +18,9 @@ struct TestView: View {
             NavigationLink(destination: JaneView()){
                 Text("제인")
             }
-            NavigationLink(destination: SisiView()){
-                Text("씨씨")
-            }
+//            NavigationLink(destination: SisiView()){
+//                Text("씨씨")
+//            }
             NavigationLink(destination: NadaView()){
                 Text("나다")
             }
