@@ -19,3 +19,7 @@ var dummySurfingValues =
  SurfingValues(waveDirection: 139.38, waveHeight: 0.19, wavePeriod: 4.78, windDirection: 220.04, windSpeed: 5.0, weather: "no", airTemperature: 25.45, waterTemperature: 20.5),
  SurfingValues(waveDirection: 94.81, waveHeight: 0.14, wavePeriod: 5.33, windDirection: 220.32, windSpeed: 5.0, weather: "ra", airTemperature: 24.32, waterTemperature: 18.5)
     ]
+
+let dummyChartRows: [ChartRowTmp] = dummySurfingValues.map { surfingValue in
+    ChartRowTmp(day: Date(), surfingValues: surfingValue, isHighTide: false, isLowTide: false)
+}
