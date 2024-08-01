@@ -4,7 +4,6 @@
 //
 //  Created by ram on 7/21/24.
 //
-
 import SwiftData
 import SwiftUI
 import FirebaseCore
@@ -23,16 +22,17 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct _024_MC3_Team4_NewTApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
+        
         let sharedModelContainer: ModelContainer = {
             let schema = Schema([
                 SurfingValues2.self,
                 ChartRow.self,
-                DailyWeather.self,
-                DailyWeather2.self
-                
+                DailyWeather2.self,
+                SurfingRecordOne.self,
+                Statistics.self
             ])
             let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
+            
             do {
                 return try ModelContainer(for: schema, configurations: [modelConfiguration])
             } catch {
@@ -41,10 +41,10 @@ struct _024_MC3_Team4_NewTApp: App {
         }()
         
         WindowGroup {
-            NavigationStack{
+            
                 TestView()
                     .modelContainer(sharedModelContainer)
-            }
+            
         }
     }
 }

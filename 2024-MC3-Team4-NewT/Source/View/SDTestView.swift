@@ -13,13 +13,13 @@ struct SDTestView: View {
 
     var body: some View {
         VStack(spacing: 16) {
-            // DatePicker를 사용하여 날짜 선택
-            DatePicker("Select Day", selection: $selectedDate, displayedComponents: .date)
+            // DatePicker를 사용하여 날짜를 선택
+            DatePicker("Surfing Start Time", selection: $selectedDate, displayedComponents: .date)
                 .datePickerStyle(GraphicalDatePickerStyle())
                 .padding()
 
-            Button(action: saveDailyWeather2) {
-                Text("Save Daily Weather")
+            Button(action: saveSurfingRecord) {
+                Text("Save Surfing Record")
                     .padding()
                     .background(Color.blue)
                     .foregroundColor(.white)
@@ -29,10 +29,10 @@ struct SDTestView: View {
         .padding()
     }
     
-    private func saveDailyWeather2() {
-        // 선택된 날짜를 String 형식으로 변환
+    private func saveSurfingRecord() {
+        // 날짜를 String 형식으로 변환
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = "yyyy-MM-dd"  // 필요한 형식으로 설정
         let formattedDate = dateFormatter.string(from: selectedDate)
 
         // 기본 SurfingValues 객체 생성
@@ -46,31 +46,33 @@ struct SDTestView: View {
             airTemperature: 25.0,
             waterTemperature: 22.0
         )
-
+        
         // 기본 ChartRow 객체 생성
-        let defaultChartRow = ChartRow(
+        let chartRow = ChartRow(
             day: formattedDate,
             surfingValues: defaultSurfingValues,
             isHighTide: false,
             isLowTide: false
         )
-        modelContext.insert(defaultChartRow)
-
-        // 기본 DailyWeather2 객체 생성
-        let dailyWeather2 = DailyWeather2(
-            day: formattedDate,
-            chartCollection: [defaultChartRow] // 기본 ChartRow 배열
-        )
         
+        // 기본 SurfingRecordOne 객체 생성
+        let surfingRecord = SurfingRecordOne(
+            surfingStartTime: formattedDate,
+            surfingEndTime: formattedDate,
+            charts: [chartRow],
+            evaluationValue: 5,
+            memo: "Great surf session!"
+        )
+
         // SwiftData에 저장
-        modelContext.insert(dailyWeather2)
+        modelContext.insert(surfingRecord)
         
         // 변경사항 저장
         do {
             try modelContext.save()
-            print("Daily weather saved successfully.")
+            print("Surfing record saved successfully.")
         } catch {
-            print("Failed to save daily weather: \(error)")
+            print("Failed to save surfing record: \(error)")
         }
     }
 }
