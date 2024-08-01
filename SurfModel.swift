@@ -67,7 +67,6 @@ final class Statistics{ // 통계
     // 아래는 혹시 몰라 만들어놓음
     var weather: String?
     var temperature: Float?
-    init() {
-        
+    init() {  
     }
 }
