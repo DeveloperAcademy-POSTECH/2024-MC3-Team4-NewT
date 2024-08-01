@@ -1,38 +1,36 @@
 //
-//  SDTestView.swift
+//  SDTestViewModel.swift
 //  2024-MC3-Team4-NewT
 //
-//  Created by ram on 7/31/24.
+//  Created by ram on 8/1/24.
 //
+
 import SwiftUI
 import SwiftData
+import Observation
 
-struct SDTestView: View {
-    @Environment(\.modelContext) private var modelContext
-    @State private var selectedDate: Date = Date()
-    
+@Observable
+class SDTestObservable {
+    private var modelContext: ModelContext
+    var selectedDate: Date = Date()
+
     // @Query를 사용하여 DailyWeather2 데이터를 가져옵니다.
-    @Query private var dailyWeathers: [DailyWeather2]
+    var dailyWeathers: [DailyWeather2] = []
 
-    var body: some View {
-        VStack(spacing: 16) {
-            // DatePicker를 사용하여 날짜와 시간을 선택
-            DatePicker("Surfing Start Time", selection: $selectedDate, displayedComponents: [.date, .hourAndMinute])
-                .datePickerStyle(WheelDatePickerStyle())  // 시간을 선택할 수 있도록 스타일 변경
-                .padding()
-            
-            Button(action: saveOrUpdateDailyWeather2) {
-                Text("Save or Update Daily Weather")
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
-            }
-        }
-        .padding()
+    init(modelContext: ModelContext) {
+        self.modelContext = modelContext
+        loadDailyWeathers()
     }
 
-    private func saveOrUpdateDailyWeather2() {
+    func loadDailyWeathers() {
+        // 데이터 로드를 위한 함수 (예: 초기화 또는 데이터 변경 시 호출)
+        // 현재는 @Query의 기능을 대체하는 가상 함수로 대체
+        // 실제 사용 시 데이터베이스나 저장된 데이터를 가져오는 로직이 필요함
+        // 예제에서는 빈 데이터로 초기화
+//        dailyWeathers = modelContext.fetchAll(DailyWeather2.self)
+    }
+
+    func saveOrUpdateDailyWeather2() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"  // 시간, 분, 초까지 포함하는 형식으로 설정
         dateFormatter.timeZone = TimeZone(identifier: "Asia/Seoul") // 한국 시간대로 설정
@@ -81,8 +79,4 @@ struct SDTestView: View {
         
         print("Daily weather saved or updated successfully.")
     }
-}
-
-#Preview {
-    SDTestView()
 }
