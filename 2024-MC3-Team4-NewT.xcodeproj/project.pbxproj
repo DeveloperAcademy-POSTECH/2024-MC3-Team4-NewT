@@ -32,6 +32,7 @@
 		719EA9C72C57745A0090BAB5 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 719EA9C62C57745A0090BAB5 /* Pretendard-SemiBold.otf */; };
 		719EA9CA2C57B13C0090BAB5 /* SF-Pro-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 719EA9C82C57B13C0090BAB5 /* SF-Pro-Italic.ttf */; };
 		719EA9CB2C57B13C0090BAB5 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 719EA9C92C57B13C0090BAB5 /* SF-Pro.ttf */; };
+		719EA9CD2C5A56730090BAB5 /* RecordChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EA9CC2C5A56730090BAB5 /* RecordChartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		719EA9C62C57745A0090BAB5 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		719EA9C82C57B13C0090BAB5 /* SF-Pro-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Italic.ttf"; sourceTree = "<group>"; };
 		719EA9C92C57B13C0090BAB5 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
+		719EA9CC2C5A56730090BAB5 /* RecordChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordChartView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				21B0803C2C4D0888007BC655 /* JaneView.swift */,
 				21B080402C4D08B2007BC655 /* NadaView.swift */,
 				21B0803A2C4D087F007BC655 /* PiriView.swift */,
+				719EA9CC2C5A56730090BAB5 /* RecordChartView.swift */,
 				21B0803E2C4D089F007BC655 /* SisiView.swift */,
 				21B080422C4D08C2007BC655 /* TestView.swift */,
 				21B080732C56DB7A007BC655 /* WindFinderView.swift */,
@@ -305,6 +308,7 @@
 				719EA9C52C57729E0090BAB5 /* Font.swift in Sources */,
 				21B0803D2C4D0888007BC655 /* JaneView.swift in Sources */,
 				21B080702C52844C007BC655 /* EmbededView.swift in Sources */,
+				719EA9CD2C5A56730090BAB5 /* RecordChartView.swift in Sources */,
 				21B0803B2C4D087F007BC655 /* PiriView.swift in Sources */,
 				21B0806E2C516248007BC655 /* FindSpotView.swift in Sources */,
 				21B080722C52890A007BC655 /* WindyView.swift in Sources */,
