@@ -191,7 +191,9 @@ struct JaneView: View {
 
 extension JaneView {
     func weatherIcon(weather: String) {
-        if weather == ""
+        if weather == ""{
+            
+        }
     }
     
     func addDummyData() {
