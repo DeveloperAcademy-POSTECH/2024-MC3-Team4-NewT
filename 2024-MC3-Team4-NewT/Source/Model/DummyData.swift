@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftData
 
 var dummySurfingValues =
 [SurfingValues(waveDirection: 164.0, waveHeight: 0.16, wavePeriod: 4.75, windDirection: 234.36, windSpeed: 5.0, weather: "ra", airTemperature: 25.33, waterTemperature: 23.5),
@@ -22,4 +23,33 @@ var dummySurfingValues =
 
 let dummyChartRows: [ChartRowTmp] = dummySurfingValues.map { surfingValue in
     ChartRowTmp(day: Date(), surfingValues: surfingValue, isHighTide: false, isLowTide: false)
+}
+struct SurfingValues: Codable, Hashable {
+    var waveDirection: Float
+    var waveHeight: Float
+    var wavePeriod: Float
+    var windDirection: Float
+    var windSpeed: Float
+    var weather: String
+    var airTemperature: Float
+    var waterTemperature: Float
+}
+
+struct ChartRowTmp: Codable, Hashable {
+    var day: Date
+    var surfingValues: SurfingValues
+    var isHighTide: Bool = false
+    var isLowTide: Bool = false
+}
+
+
+@Model
+final class DailyWeather{ // 일간 기상 데이터
+    @Attribute(.unique) var day: String
+    var chartCollection: [ChartRowTmp]
+    
+    init(day: String, chartCollection: [ChartRowTmp]) {
+        self.day = day
+        self.chartCollection = chartCollection
+    }
 }
