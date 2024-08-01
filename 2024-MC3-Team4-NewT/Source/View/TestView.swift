@@ -30,6 +30,9 @@ struct TestView: View {
                     Text("FitChartView")
                 }
             }
+            NavigationLink(destination: RecordChartView()){
+                Text("RecordChartView")
+            }
         }
         .onAppear(){
             print(modelContext.sqliteCommand)
