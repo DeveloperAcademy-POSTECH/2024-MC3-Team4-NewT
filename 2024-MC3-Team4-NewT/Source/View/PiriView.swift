@@ -29,6 +29,9 @@ struct PiriView: View {
             NavigationLink(destination: SDTestView()){
                 Text("SwiftData Test")
             }
+            NavigationLink(destination: SDCheckView()){
+                Text("SwiftData 저장 확인")
+            }
             
         }
     }

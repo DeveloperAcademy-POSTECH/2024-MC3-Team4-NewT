@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0CAF4CFD2C52B29D0054D347 /* SurfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF4CFC2C52B29D0054D347 /* SurfModel.swift */; };
+		21588AED2C5BA95E003E3489 /* SDCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588AEC2C5BA95E003E3489 /* SDCheckView.swift */; };
 		21B0802D2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */; };
 		21B080312C4D0836007BC655 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B080302C4D0836007BC655 /* Assets.xcassets */; };
 		21B080342C4D0836007BC655 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B080332C4D0836007BC655 /* Preview Assets.xcassets */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		0CAF4CFC2C52B29D0054D347 /* SurfModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfModel.swift; sourceTree = SOURCE_ROOT; };
+		21588AEC2C5BA95E003E3489 /* SDCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDCheckView.swift; sourceTree = "<group>"; };
 		21B080292C4D0834007BC655 /* 2024-MC3-Team4-NewT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "2024-MC3-Team4-NewT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _024_MC3_Team4_NewTApp.swift; sourceTree = "<group>"; };
 		21B080302C4D0836007BC655 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -140,8 +142,9 @@
 				89A63A1E2C59E53100787DC4 /* PinChartsView.swift */,
 				21B0803A2C4D087F007BC655 /* PiriView.swift */,
 				89A63A1C2C59E4F200787DC4 /* RecentChartsVIew.swift */,
-				21EDE2422C5B1C1D00F973C0 /* SDTestView.swift */,
 				719EA9CC2C5A56730090BAB5 /* RecordChartView.swift */,
+				21588AEC2C5BA95E003E3489 /* SDCheckView.swift */,
+				21EDE2422C5B1C1D00F973C0 /* SDTestView.swift */,
 				21B0803E2C4D089F007BC655 /* SisiView.swift */,
 				89A63A1A2C59E4B800787DC4 /* StatisticsView.swift */,
 				21B080422C4D08C2007BC655 /* TestView.swift */,
@@ -329,6 +332,7 @@
 				21EDE2412C5B1B2B00F973C0 /* ModelContext.swift in Sources */,
 				21B080812C588261007BC655 /* WaveObservable.swift in Sources */,
 				0CAF4CFD2C52B29D0054D347 /* SurfModel.swift in Sources */,
+				21588AED2C5BA95E003E3489 /* SDCheckView.swift in Sources */,
 				21B0807D2C57C68D007BC655 /* FirebaseTestView.swift in Sources */,
 				719EA9C52C57729E0090BAB5 /* Font.swift in Sources */,
 				89A63A182C59B7D100787DC4 /* MainView.swift in Sources */,

@@ -74,7 +74,9 @@ final class SurfingRecordOne {
     init(surfingStartTime: Date, surfingEndTime: Date, charts: [ChartRow], evaluationValue: Int, memo: String) {
         self.id = UUID()
         self.surfingStartTime = surfingStartTime
+        print("surfingStartTime:\(surfingStartTime)")
         self.surfingEndTime = surfingEndTime
+        
         self.charts = charts
         self.evaluationValue = evaluationValue
         self.memo = memo
