@@ -26,6 +26,9 @@ struct PiriView: View {
             NavigationLink(destination: FirebaseTestView()){
                 Text("FirebaseTest")
             }
+            NavigationLink(destination: SDTestView()){
+                Text("SwiftData Test")
+            }
             
         }
     }

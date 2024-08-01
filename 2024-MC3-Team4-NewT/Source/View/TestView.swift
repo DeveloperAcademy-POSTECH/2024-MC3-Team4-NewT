@@ -29,6 +29,9 @@ struct TestView: View {
                 Text("FitChartView")
             }
         }
+        .onAppear(){
+            print(modelContext.sqliteCommand)
+        }
         
     }
 }
