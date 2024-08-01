@@ -421,10 +421,6 @@ struct SisiView: View {
         formatter.dateFormat = "MM월 dd일 (E)"
         return formatter.string(from: date)
     }
-    // MARK: - 로직
-
-    
-    
     
     var startHour: Int {
         let calendar = Calendar.current
