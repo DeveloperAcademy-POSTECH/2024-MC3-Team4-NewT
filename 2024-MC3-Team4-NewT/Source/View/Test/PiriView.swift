@@ -32,6 +32,9 @@ struct PiriView: View {
             NavigationLink(destination: SDCheckView()){
                 Text("SwiftData 저장 확인")
             }
+            NavigationLink(destination: FirebaseSDView()){
+                Text("파이어베이스-스데연결")
+            }
             
         }
     }

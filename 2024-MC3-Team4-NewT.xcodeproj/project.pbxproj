@@ -11,6 +11,7 @@
 		21588AEF2C5BB312003E3489 /* FirebaseObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588AEE2C5BB312003E3489 /* FirebaseObservable.swift */; };
 		21588AF22C5BDF18003E3489 /* FirebaseTestObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588AF12C5BDF18003E3489 /* FirebaseTestObservable.swift */; };
 		21588AF42C5BDF97003E3489 /* SurfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588AF32C5BDF97003E3489 /* SurfModel.swift */; };
+		21588AF62C5BE038003E3489 /* FireSDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588AF52C5BE038003E3489 /* FireSDView.swift */; };
 		21B0802D2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */; };
 		21B080312C4D0836007BC655 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B080302C4D0836007BC655 /* Assets.xcassets */; };
 		21B080342C4D0836007BC655 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B080332C4D0836007BC655 /* Preview Assets.xcassets */; };
@@ -48,6 +49,7 @@
 		21588AEE2C5BB312003E3489 /* FirebaseObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseObservable.swift; sourceTree = "<group>"; };
 		21588AF12C5BDF18003E3489 /* FirebaseTestObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTestObservable.swift; sourceTree = "<group>"; };
 		21588AF32C5BDF97003E3489 /* SurfModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfModel.swift; sourceTree = "<group>"; };
+		21588AF52C5BE038003E3489 /* FireSDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireSDView.swift; sourceTree = "<group>"; };
 		21B080292C4D0834007BC655 /* 2024-MC3-Team4-NewT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "2024-MC3-Team4-NewT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _024_MC3_Team4_NewTApp.swift; sourceTree = "<group>"; };
 		21B080302C4D0836007BC655 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			children = (
 				21B0806F2C52844C007BC655 /* EmbededView.swift */,
 				21B0807C2C57C68D007BC655 /* FirebaseTestView.swift */,
+				21588AF52C5BE038003E3489 /* FireSDView.swift */,
 				21B080402C4D08B2007BC655 /* NadaView.swift */,
 				21B0803A2C4D087F007BC655 /* PiriView.swift */,
 				21588AEC2C5BA95E003E3489 /* SDCheckView.swift */,
@@ -341,6 +344,7 @@
 				21EDE2432C5B1C1D00F973C0 /* SDTestView.swift in Sources */,
 				21B0807F2C587D3C007BC655 /* DummyData.swift in Sources */,
 				21B080412C4D08B2007BC655 /* NadaView.swift in Sources */,
+				21588AF62C5BE038003E3489 /* FireSDView.swift in Sources */,
 				89A63A1F2C59E53100787DC4 /* PinChartsView.swift in Sources */,
 				21B0803F2C4D089F007BC655 /* SisiView.swift in Sources */,
 				21B0802D2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift in Sources */,

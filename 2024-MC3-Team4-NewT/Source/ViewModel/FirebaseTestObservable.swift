@@ -88,6 +88,7 @@ class FirebaseTestObservable {
                     }
                 }
             }
+            self.items = updatedChartRows
         }
         
         // 최종적으로 업데이트된 chartRow 리스트를 반환

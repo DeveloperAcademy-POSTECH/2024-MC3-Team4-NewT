@@ -7,13 +7,6 @@
 import SwiftUI
 import SwiftData
 
-enum ModelType: String, CaseIterable {
-    case surfingValues2 = "SurfingValues2"
-    case chartRow = "ChartRow"
-    case dailyWeather2 = "DailyWeather2"
-    case surfingRecordOne = "SurfingRecordOne"
-    case statistics = "Statistics"
-}
 
 struct SDCheckView: View {
     @Environment(\.modelContext) private var modelContext

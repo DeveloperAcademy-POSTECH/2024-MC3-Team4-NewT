@@ -15,7 +15,7 @@ class FirebaseObservable {
     var items: [ChartRow] = []
     
     // Firebase에서 데이터를 가져와서 주어진 ChartRow 배열을 업데이트하는 함수
-    func fetchFirebase(modelContext: ModelContext, collectionName: String, chartRow: [ChartRow]) -> [ChartRow] {
+    func fetchFirebase(modelContext: ModelContext, collectionName: String, chartRow: [ChartRow]){
         
         let db = Firestore.firestore() // Firebase Firestore 데이터베이스에 접근하기 위한 인스턴스 생성
         var updatedChartRows = chartRow // 매개변수로 받은 chartRow 배열을 복사하여 작업에 사용할 배열로 선언
@@ -88,8 +88,5 @@ class FirebaseObservable {
                 }
             }
         }
-        
-        // 최종적으로 업데이트된 chartRow 리스트를 반환
-        return updatedChartRows
     }
 }
