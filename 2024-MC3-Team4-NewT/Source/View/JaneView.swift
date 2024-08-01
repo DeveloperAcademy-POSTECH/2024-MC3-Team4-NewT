@@ -63,7 +63,7 @@ struct JaneView: View {
                         
                         ScrollView {
                             Grid(alignment: .leadingFirstTextBaseline,
-                                 horizontalSpacing: 24) {
+                                 horizontalSpacing: 20) {
                                 
                                 ForEach(weatherList) { weather in // weather는 이제 Identifiable
                                     ForEach(weather.chartCollection, id: \.self) { chart in // chart도 Identifiable
@@ -73,7 +73,7 @@ struct JaneView: View {
                                             HStack(alignment: .center, spacing: 8) {
                                                 Image("waveDirectionIcon")
                                                 Text("\(chart.surfingValues.windSpeed, specifier: "%.1f")m/s").font(.Body1Medium)
-                                            }
+                                            }.frame(width: 80)
                                             
                                             HStack(alignment: .center, spacing: 8) {
                                                 Image("swellDirectionIcon")
@@ -85,18 +85,18 @@ struct JaneView: View {
                                             VStack(alignment: .center, spacing: 2) {
                                                 Text("\(chart.surfingValues.waterTemperature, specifier: "%.0f")°C").font(.Body1Medium)
                                                 Image("waterTemperate")
-                                            }
+                                            }.frame(width: 56)
                                             HStack(alignment: .center, spacing: 8) {
                                                 Text(chart.surfingValues.weather).font(.Body1Medium)
                                                 Text("\(chart.surfingValues.airTemperature, specifier: "%.0f")°C").font(.Body1Medium)
-                                            }
+                                            }.frame(width: 56)
                                         }.background {
                                             Rectangle()
                                                 .fill(.surfBlue.opacity(0.1)) // 선의 색상
                                                 .frame(height: 1) // 선의 두께
 //                                                .padding(.horizontal) // 좌우 여백
                                         }
-                                        .frame(width: .infinity, height: 50)
+                                        .frame(height: 50)
                                     }
                                 }
                             }
