@@ -20,7 +20,7 @@ struct SDCheckView: View {
     @State private var selectedModel: ModelType = .surfingValues2
     
     @Query private var surfingValues2Data: [SurfingValues2]
-    @Query private var chartRowData: [ChartRow]
+    @Query(sort:\ChartRow.time) private var chartRowData: [ChartRow]
     @Query private var dailyWeather2Data: [DailyWeather2]
     @Query private var surfingRecordOneData: [SurfingRecordOne]
     @Query private var statisticsData: [Statistics]
