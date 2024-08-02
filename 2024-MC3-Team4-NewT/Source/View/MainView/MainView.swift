@@ -18,12 +18,17 @@ struct MainView: View {
                         .padding(.horizontal)
                     JaneView()
                 }
-                //여기에 탭바 넣으면 됩니다
+                VStack{
+                    Spacer()
+                    //여기에 탭바 넣으면 됩니다
+                    CustomTabBar()
+                }
             }
+            
         }
         .background(){
             Image("MainViewBG")
-            .edgesIgnoringSafeArea(.all)
+                .edgesIgnoringSafeArea(.all)
         }
     }
 }

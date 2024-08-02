@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TestView: View {
     @Environment(\.modelContext) private var modelContext
+    @State var showMainTestView = false
     
     var body: some View {
         NavigationStack{
@@ -33,6 +34,19 @@ struct TestView: View {
 //            NavigationLink(destination: RecordChartView()){
 //                Text("RecordChartView")
 //            }
+            Button(action: {
+                showMainTestView = true
+            }) {
+                Text("Go to MainTestView")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(8)
+            }
+            .fullScreenCover(isPresented: $showMainTestView) {
+                MainView()
+            }
         }
         .onAppear(){
             print(modelContext.sqliteCommand)

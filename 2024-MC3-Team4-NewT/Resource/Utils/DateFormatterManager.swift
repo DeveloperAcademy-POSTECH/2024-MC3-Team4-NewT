@@ -28,4 +28,20 @@ class DateFormatterManager {
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter
     }()
+    
+    ///'@@시 (24시제)'로 표시해주는 Formatter
+    let timeFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH시"
+        formatter.locale = Locale(identifier: "ko_kr")
+        return formatter
+    }()
+    
+    ///'@월 %일 &요일'로 표시해주는 Formatter
+    let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "M월 d일 EEEE"
+        formatter.locale = Locale(identifier: "ko_kr")
+        return formatter
+    }()
 }
