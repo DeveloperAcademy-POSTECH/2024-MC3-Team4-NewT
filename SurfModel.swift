@@ -92,7 +92,16 @@ final class Statistics {
     var weather: String?
     var temperature: Float?
     
+    init(waveDirection: Float? = nil, waveHeight: Float? = nil, wavePeriod: Float? = nil, windDirection: Float? = nil, windSpeed: Float? = nil, weather: String? = nil, temperature: Float? = nil) {
+        self.waveDirection = 0.0
+        self.waveHeight = 0.0
+        self.wavePeriod = 0.0
+        self.windDirection = 0.0
+        self.windSpeed = 0.0
+        self.weather = ""
+        self.temperature = 0.0
     init() {
         self.id = UUID()
+
     }
 }

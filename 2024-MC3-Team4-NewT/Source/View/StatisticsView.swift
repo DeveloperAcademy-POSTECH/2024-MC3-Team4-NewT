@@ -6,12 +6,18 @@
 //
 
 import SwiftUI
+import SwiftData
+
+func FloatToDouble(_ value: Float) -> Double {
+    return Double(value.rounded())
+}
 
 struct StatisticsView: View {
+    @Bindable var viewStatistics: Statistics
     var body: some View {
         VStack(alignment: .leading, spacing:0){
             HStack(alignment: .center) {
-                Text("내가 선호하는 맞춤 수치")
+                Text("선호하는 차트 통계")
                     .font(.Heading3Bold)
                     .foregroundColor(.white)
                 Spacer()
@@ -19,10 +25,6 @@ struct StatisticsView: View {
                     print("자세히 보기")
                 } label: {
                     Image("infoIcon")
-                    //                    HStack(alignment: .center, spacing: 2){
-                    //                        Text("자세히 보기").font(.Body2SemiBold)
-                    //                        Image(systemName: "chevron.right")
-                    //                    }.foregroundColor(.white)
                 }
             }.padding(.bottom, 24)
             
@@ -38,11 +40,13 @@ struct StatisticsView: View {
                             .foregroundColor(Color("surfBlue"))                                }
                         Spacer()
                         HStack(alignment: .center, spacing:0){
-                            Text("0.2m")
+                            Text("\(viewStatistics.windSpeed!, specifier: "%.1f")m/s")
+                            
                                 .font(.Heading1SemiBold)
                                 .foregroundColor(Color("surfBlue"))
                             Spacer()
                             Image("waveDirectionIcon2")
+                                .rotationEffect(.degrees(Double(FloatToDouble(viewStatistics.windDirection ?? 0))))
                                 .foregroundColor(Color("surfBlue"))
                                 .padding(4)
                         }
@@ -68,15 +72,16 @@ struct StatisticsView: View {
                         Spacer()
                         HStack(alignment: .bottom) {
                             VStack(alignment: .leading, spacing: 0) {
-                                Text("0.2m")
+                                Text("\(viewStatistics.waveHeight ?? 0.0, specifier: "%.1f")m")
                                     .font(.Heading1SemiBold)
                                     .foregroundColor(Color("surfBlue"))
-                                Text("3.3m/s")
+                                Text("\(viewStatistics.wavePeriod ?? 0.0, specifier: "%.1f")s")
                                     .font(.SubheadingSemiBold)
                                     .foregroundColor(Color("surfBlue"))
                             }
                             Spacer()
                             Image("swellDirectionIcon2")
+                                .rotationEffect(.degrees(FloatToDouble(viewStatistics.waveDirection ?? 0)))
                                 .foregroundColor(Color("surfBlue"))
                                 .padding(4)
                         }
@@ -92,10 +97,9 @@ struct StatisticsView: View {
             Spacer()
         }
         .frame(height: 202)
-        
     }
 }
 
-#Preview {
-    StatisticsView()
+extension StatisticsView {
+    
 }

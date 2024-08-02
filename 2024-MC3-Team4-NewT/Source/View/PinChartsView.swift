@@ -18,9 +18,10 @@ struct PinChartsView: View {
                 Button{
                     
                 } label: {
-                    Text("모두보기")
-                        .font(.Body2SemiBold)
-                        .foregroundColor(.white)
+                    HStack(alignment: .center, spacing: 2){
+                        Text("모두 보기").font(.Body2SemiBold)
+                        Image(systemName: "chevron.right")
+                    }.foregroundColor(.white)
                 }
             }
             .padding(.bottom, 12)
