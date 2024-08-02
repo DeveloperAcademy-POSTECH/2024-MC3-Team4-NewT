@@ -8,7 +8,7 @@ import Foundation
 import SwiftData
 
 @Model
-final class SurfingValues2 {
+final class SurfingValues {
     @Attribute(.unique) var id: UUID
     var waveDirection: Float
     var waveHeight: Float
@@ -36,11 +36,11 @@ final class SurfingValues2 {
 final class ChartRow {
     @Attribute(.unique) var id: UUID
     var time: String
-    var surfingValues: SurfingValues2
+    var surfingValues: SurfingValues
     var isHighTide: Bool
     var isLowTide: Bool
     
-    init(time: String, surfingValues: SurfingValues2, isHighTide: Bool, isLowTide: Bool) {
+    init(time: String, surfingValues: SurfingValues, isHighTide: Bool, isLowTide: Bool) {
         self.id = UUID()
         self.time = time
         self.surfingValues = surfingValues
@@ -50,7 +50,7 @@ final class ChartRow {
 }
 
 @Model
-final class DailyWeather2 {
+final class DailyWeather {
     @Attribute(.unique) var id: UUID
     var day: String
     var chartCollection: [ChartRow]
@@ -110,7 +110,7 @@ final class Statistics {
 
 
 //MARK: 여기서부턴 코드 초안 옮겨놓은 것
-struct SurfingValues: Codable, Hashable {
+struct SurfingValuesOne: Codable, Hashable {
     var waveDirection: Float
     var waveHeight: Float
     var wavePeriod: Float
@@ -123,14 +123,14 @@ struct SurfingValues: Codable, Hashable {
 
 struct ChartRowTmp: Codable, Hashable {
     var day: Date
-    var surfingValues: SurfingValues
+    var surfingValues: SurfingValuesOne
     var isHighTide: Bool = false
     var isLowTide: Bool = false
 }
 
 
 @Model
-final class DailyWeather{ // 일간 기상 데이터
+final class DailyWeatherOld{ // 일간 기상 데이터
     @Attribute(.unique) var day: String
     var chartCollection: [ChartRowTmp]
     
