@@ -111,7 +111,6 @@
 				21B0803A2C4D087F007BC655 /* PiriView.swift */,
 				21588AEC2C5BA95E003E3489 /* SDCheckView.swift */,
 				21EDE2422C5B1C1D00F973C0 /* SDTestView.swift */,
-				21B080422C4D08C2007BC655 /* TestView.swift */,
 				21B080732C56DB7A007BC655 /* WindFinderView.swift */,
 				21B080712C52890A007BC655 /* WindyView.swift */,
 			);
@@ -175,6 +174,7 @@
 				719EA9CC2C5A56730090BAB5 /* RecordChartView.swift */,
 				21B0803E2C4D089F007BC655 /* SisiView.swift */,
 				89A63A1A2C59E4B800787DC4 /* StatisticsView.swift */,
+				21B080422C4D08C2007BC655 /* TestView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
