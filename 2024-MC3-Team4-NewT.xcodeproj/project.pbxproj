@@ -12,6 +12,7 @@
 		21588B012C5C7621003E3489 /* FirebaseTestObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B002C5C7621003E3489 /* FirebaseTestObservable.swift */; };
 		21588B032C5C7632003E3489 /* SwiftDataObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B022C5C7632003E3489 /* SwiftDataObservable.swift */; };
 		21588B052C5C7652003E3489 /* SDCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B042C5C7652003E3489 /* SDCheckView.swift */; };
+		21588B082C5CC2CA003E3489 /* DateFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B072C5CC2CA003E3489 /* DateFormatterManager.swift */; };
 		21B0802D2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */; };
 		21B080312C4D0836007BC655 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B080302C4D0836007BC655 /* Assets.xcassets */; };
 		21B080342C4D0836007BC655 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B080332C4D0836007BC655 /* Preview Assets.xcassets */; };
@@ -52,6 +53,7 @@
 		21588B002C5C7621003E3489 /* FirebaseTestObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTestObservable.swift; sourceTree = "<group>"; };
 		21588B022C5C7632003E3489 /* SwiftDataObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataObservable.swift; sourceTree = "<group>"; };
 		21588B042C5C7652003E3489 /* SDCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDCheckView.swift; sourceTree = "<group>"; };
+		21588B072C5CC2CA003E3489 /* DateFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManager.swift; sourceTree = "<group>"; };
 		21B080292C4D0834007BC655 /* 2024-MC3-Team4-NewT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "2024-MC3-Team4-NewT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _024_MC3_Team4_NewTApp.swift; sourceTree = "<group>"; };
 		21B080302C4D0836007BC655 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,6 +104,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21588B062C5CC29A003E3489 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				21588B072C5CC2CA003E3489 /* DateFormatterManager.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		21B080202C4D0834007BC655 = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +187,7 @@
 				21B080302C4D0836007BC655 /* Assets.xcassets */,
 				21B0806B2C4F355A007BC655 /* Constant */,
 				21EDE23F2C5B1B1B00F973C0 /* Extension */,
+				21588B062C5CC29A003E3489 /* Utils */,
 				21B0806A2C4F354D007BC655 /* Font */,
 			);
 			path = Resource;
@@ -397,6 +408,7 @@
 				21588AFD2C5C75E6003E3489 /* FirebaseSDView.swift in Sources */,
 				21B0807D2C57C68D007BC655 /* FirebaseTestView.swift in Sources */,
 				719EA9C52C57729E0090BAB5 /* Font.swift in Sources */,
+				21588B082C5CC2CA003E3489 /* DateFormatterManager.swift in Sources */,
 				89A63A182C59B7D100787DC4 /* MainView.swift in Sources */,
 				21B0803D2C4D0888007BC655 /* JaneView.swift in Sources */,
 				89A63A1B2C59E4B800787DC4 /* StatisticsView.swift in Sources */,
