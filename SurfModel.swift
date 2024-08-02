@@ -4,12 +4,12 @@
 //
 //  Created by Yeeun on 7/26/24.
 //
-
 import Foundation
 import SwiftData
 
-
-struct SurfingValues: Codable, Hashable {
+@Model
+final class SurfingValues2 {
+    @Attribute(.unique) var id: UUID
     var waveDirection: Float
     var waveHeight: Float
     var wavePeriod: Float
@@ -18,35 +18,61 @@ struct SurfingValues: Codable, Hashable {
     var weather: String
     var airTemperature: Float
     var waterTemperature: Float
-}
-
-struct ChartRowTmp: Codable, Hashable {
-    var day: Date
-    var surfingValues: SurfingValues
-    var isHighTide: Bool = false
-    var isLowTide: Bool = false
+    
+    init(waveDirection: Float, waveHeight: Float, wavePeriod: Float, windDirection: Float, windSpeed: Float, weather: String, airTemperature: Float, waterTemperature: Float) {
+        self.id = UUID()
+        self.waveDirection = waveDirection
+        self.waveHeight = waveHeight
+        self.wavePeriod = wavePeriod
+        self.windDirection = windDirection
+        self.windSpeed = windSpeed
+        self.weather = weather
+        self.airTemperature = airTemperature
+        self.waterTemperature = waterTemperature
+    }
 }
 
 @Model
-final class DailyWeather: Identifiable{ // 일간 기상 데이터
-    @Attribute(.unique) var day: String
-    var chartCollection: [ChartRowTmp]
+final class ChartRow {
+    @Attribute(.unique) var id: UUID
+    var day: String
+    var surfingValues: SurfingValues2
+    var isHighTide: Bool
+    var isLowTide: Bool
     
-    init(day: String, chartCollection: [ChartRowTmp]) {
+    init(day: String, surfingValues: SurfingValues2, isHighTide: Bool, isLowTide: Bool) {
+        self.id = UUID()
+        self.day = day
+        self.surfingValues = surfingValues
+        self.isHighTide = isHighTide
+        self.isLowTide = isLowTide
+    }
+}
+
+@Model
+final class DailyWeather2 {
+    @Attribute(.unique) var id: UUID
+    var day: String
+    var chartCollection: [ChartRow]
+    
+    init(day: String, chartCollection: [ChartRow]) {
+        self.id = UUID()
         self.day = day
         self.chartCollection = chartCollection
     }
 }
 
 @Model
-final class SurfingRecordOne { // 단일 서핑 기록
-    @Attribute(.unique) var surfingStartTime: Date
+final class SurfingRecordOne {
+    @Attribute(.unique) var id: UUID
+    var surfingStartTime: Date
     var surfingEndTime: Date
-    var charts: [ChartRowTmp]
+    var charts: [ChartRow]
     var evaluationValue: Int
     var memo: String
     
-    init(surfingStartTime: Date, surfingEndTime: Date, charts: [ChartRowTmp], evaluationValue: Int, memo: String) {
+    init(surfingStartTime: Date, surfingEndTime: Date, charts: [ChartRow], evaluationValue: Int, memo: String) {
+        self.id = UUID()
         self.surfingStartTime = surfingStartTime
         self.surfingEndTime = surfingEndTime
         self.charts = charts
@@ -56,17 +82,17 @@ final class SurfingRecordOne { // 단일 서핑 기록
 }
 
 @Model
-final class Statistics{ // 통계
+final class Statistics {
+    @Attribute(.unique) var id: UUID
     var waveDirection: Float?
     var waveHeight: Float?
     var wavePeriod: Float?
     var windDirection: Float?
     var windSpeed: Float?
-    
-    
-    // 아래는 혹시 몰라 만들어놓음
     var weather: String?
     var temperature: Float?
-    init() {  
+    
+    init() {
+        self.id = UUID()
     }
 }
