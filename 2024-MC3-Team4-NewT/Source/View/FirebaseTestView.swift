@@ -15,8 +15,10 @@ struct FirebaseTestView: View {
             VStack {
                 List(items, id: \.self) { item in
                     VStack(alignment: .leading) {
-                        Text("Air Temperature: \(item.surfingValues.airTemperature)")
-                        Text("Wave Period: \(item.surfingValues.wavePeriod)")
+                        // day를 원하는 형식으로 변환하여 출력
+                        Text("time: \(formattedDate(item.day))")
+                        Text("온도: \(item.surfingValues.airTemperature)")
+                        Text("파주기: \(item.surfingValues.wavePeriod)")
                     }
                 }
             }
@@ -25,6 +27,14 @@ struct FirebaseTestView: View {
                 fetchItems()
             }
         }
+    }
+
+    // Date를 "yyyy-MM-dd HH:mm:ss" 형식의 String으로 변환하는 함수
+    func formattedDate(_ date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"  // 원하는 형식으로 설정
+        dateFormatter.timeZone = TimeZone(identifier: "Asia/Seoul") // 한국 시간대 설정
+        return dateFormatter.string(from: date)
     }
 
     func fetchItems() {

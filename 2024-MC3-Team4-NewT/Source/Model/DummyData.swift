@@ -53,3 +53,10 @@ final class DailyWeather{ // 일간 기상 데이터
         self.chartCollection = chartCollection
     }
 }
+enum ModelType: String, CaseIterable {
+    case surfingValues2 = "SurfingValues2"
+    case chartRow = "ChartRow"
+    case dailyWeather2 = "DailyWeather2"
+    case surfingRecordOne = "SurfingRecordOne"
+    case statistics = "Statistics"
+}

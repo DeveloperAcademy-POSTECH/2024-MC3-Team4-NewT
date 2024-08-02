@@ -35,14 +35,14 @@ final class SurfingValues2 {
 @Model
 final class ChartRow {
     @Attribute(.unique) var id: UUID
-    var day: String
+    var time: String
     var surfingValues: SurfingValues2
     var isHighTide: Bool
     var isLowTide: Bool
     
-    init(day: String, surfingValues: SurfingValues2, isHighTide: Bool, isLowTide: Bool) {
+    init(time: String, surfingValues: SurfingValues2, isHighTide: Bool, isLowTide: Bool) {
         self.id = UUID()
-        self.day = day
+        self.time = time
         self.surfingValues = surfingValues
         self.isHighTide = isHighTide
         self.isLowTide = isLowTide
@@ -92,16 +92,18 @@ final class Statistics {
     var weather: String?
     var temperature: Float?
     
-    init(waveDirection: Float? = nil, waveHeight: Float? = nil, wavePeriod: Float? = nil, windDirection: Float? = nil, windSpeed: Float? = nil, weather: String? = nil, temperature: Float? = nil) {
-        self.waveDirection = 0.0
-        self.waveHeight = 0.0
-        self.wavePeriod = 0.0
-        self.windDirection = 0.0
-        self.windSpeed = 0.0
-        self.weather = ""
-        self.temperature = 0.0
+    init(id: UUID, waveDirection: Float? = nil, waveHeight: Float? = nil, wavePeriod: Float? = nil, windDirection: Float? = nil, windSpeed: Float? = nil, weather: String? = nil, temperature: Float? = nil) {
+        self.id = id
+        self.waveDirection = waveDirection
+        self.waveHeight = waveHeight
+        self.wavePeriod = wavePeriod
+        self.windDirection = windDirection
+        self.windSpeed = windSpeed
+        self.weather = weather
+        self.temperature = temperature
+    }
     init() {
         self.id = UUID()
-
     }
+    
 }
