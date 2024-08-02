@@ -26,6 +26,8 @@
 		21B0807D2C57C68D007BC655 /* FirebaseTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0807C2C57C68D007BC655 /* FirebaseTestView.swift */; };
 		21B0807F2C587D3C007BC655 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0807E2C587D3C007BC655 /* DummyData.swift */; };
 		21B080812C588261007BC655 /* WaveObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B080802C588261007BC655 /* WaveObservable.swift */; };
+		717594132C5C614700F28BA1 /* RecordChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EA9CC2C5A56730090BAB5 /* RecordChartView.swift */; };
+		717594152C5C656700F28BA1 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717594142C5C656700F28BA1 /* LocationView.swift */; };
 		21EDE2412C5B1B2B00F973C0 /* ModelContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EDE2402C5B1B2B00F973C0 /* ModelContext.swift */; };
 		21EDE2432C5B1C1D00F973C0 /* SDTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EDE2422C5B1C1D00F973C0 /* SDTestView.swift */; };
 		719EA9C02C5768580090BAB5 /* FitChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EA9BF2C5768580090BAB5 /* FitChartView.swift */; };
@@ -58,6 +60,7 @@
 		21B0807C2C57C68D007BC655 /* FirebaseTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTestView.swift; sourceTree = "<group>"; };
 		21B0807E2C587D3C007BC655 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		21B080802C588261007BC655 /* WaveObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveObservable.swift; sourceTree = "<group>"; };
+		717594142C5C656700F28BA1 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		21EDE2402C5B1B2B00F973C0 /* ModelContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContext.swift; sourceTree = "<group>"; };
 		21EDE2422C5B1C1D00F973C0 /* SDTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDTestView.swift; sourceTree = "<group>"; };
 		719EA9BF2C5768580090BAB5 /* FitChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitChartView.swift; sourceTree = "<group>"; };
@@ -132,7 +135,9 @@
 				21B0806D2C516248007BC655 /* FindSpotView.swift */,
 				21B0807C2C57C68D007BC655 /* FirebaseTestView.swift */,
 				719EA9BF2C5768580090BAB5 /* FitChartView.swift */,
+				21B0807C2C57C68D007BC655 /* FirebaseTestView.swift */,
 				21B0803C2C4D0888007BC655 /* JaneView.swift */,
+				717594142C5C656700F28BA1 /* LocationView.swift */,
 				89A63A172C59B7D100787DC4 /* MainView.swift */,
 				21B080402C4D08B2007BC655 /* NadaView.swift */,
 				89A63A1E2C59E53100787DC4 /* PinChartsView.swift */,
@@ -145,6 +150,9 @@
 				21B080422C4D08C2007BC655 /* TestView.swift */,
 				21B080732C56DB7A007BC655 /* WindFinderView.swift */,
 				21B080712C52890A007BC655 /* WindyView.swift */,
+				89A63A172C59B7D100787DC4 /* MainView.swift */,
+				89A63A1A2C59E4B800787DC4 /* StatisticsView.swift */,
+				89A63A1C2C59E4F200787DC4 /* RecentChartsVIew.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -332,9 +340,10 @@
 				21B0803D2C4D0888007BC655 /* JaneView.swift in Sources */,
 				89A63A1B2C59E4B800787DC4 /* StatisticsView.swift in Sources */,
 				21B080702C52844C007BC655 /* EmbededView.swift in Sources */,
-				719EA9CD2C5A56730090BAB5 /* RecordChartView.swift in Sources */,
 				21B0803B2C4D087F007BC655 /* PiriView.swift in Sources */,
+				717594152C5C656700F28BA1 /* LocationView.swift in Sources */,
 				89A63A1D2C59E4F200787DC4 /* RecentChartsVIew.swift in Sources */,
+				717594132C5C614700F28BA1 /* RecordChartView.swift in Sources */,
 				21B0806E2C516248007BC655 /* FindSpotView.swift in Sources */,
 				21B080722C52890A007BC655 /* WindyView.swift in Sources */,
 			);

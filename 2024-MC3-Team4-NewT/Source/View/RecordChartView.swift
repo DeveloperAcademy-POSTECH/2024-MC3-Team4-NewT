@@ -21,7 +21,7 @@ struct RecordChartView: View {
                 } label: {
                     HStack{
                         Text("포항 신항만 해변A ")
-                            .font(.pretendardSemiBold18)
+                            .font(.SubheadingSemiBold)
                         Image(systemName: "chevron.down")
                         Spacer()
                     }
@@ -56,7 +56,7 @@ struct RecordChartView: View {
                                     Image(systemName: "chevron.down")
                                 }
                             }
-                        }.font(.pretendardMedium14)
+                        }.font(.Body2Medium)
                             .foregroundColor(categories == index ? Color.white : Color.black)
                             .padding(.horizontal, 10)
                             .padding(.vertical, 6)
@@ -77,7 +77,7 @@ struct RecordChartView: View {
                             VStack{
                                 HStack{
                                     Text(date(from: selectedDate))
-                                        .font(.pretendardBold18)
+                                        .font(.SubheadingBold)
                                         .foregroundColor(Color("surfBlue"))
                                     Spacer()
                                     Button{
@@ -103,9 +103,9 @@ struct RecordChartView: View {
                                                 .frame(height: 13)
                                                 .foregroundColor(Color("surfBlue"))
                                             Text(" 5점, ")
-                                                .font(.pretendardBold14)
+                                                .font(.Body2Bold)
                                             Text("최고예요")
-                                                .font(.pretendardMedium14)
+                                                .font(.Body2Medium)
                                         }
                                         .padding(5)
                                         .background(.white.opacity(0.6))
@@ -118,7 +118,7 @@ struct RecordChartView: View {
                                     } label: {
                                         
                                         Text("메모 확인하기 ")
-                                            .font(.pretendardMedium12)
+                                            .font(.CaptionMedium)
                                         Image(systemName: "chevron.right")
                                             .resizable()
                                             .scaledToFit()
@@ -143,7 +143,7 @@ struct RecordChartView: View {
                                     Text("수온")
                                     Text("날씨")
                                 }
-                                .font(.pretendardMedium12)
+                                .font(.CaptionMedium)
                                 .foregroundColor(Color("surfBlue"))
                             }
                             .frame(height: 20)
@@ -159,7 +159,7 @@ struct RecordChartView: View {
                                                     .frame(height: 58)
                                                 HStack(spacing: 20){
                                                     Text("\(index + startHour)시")
-                                                        .font(.pretendardMedium12)
+                                                        .font(.CaptionMedium)
                                                         .foregroundColor(.black)
                                                         .opacity(0.7)
                                                     
@@ -167,21 +167,21 @@ struct RecordChartView: View {
                                                         Image(systemName: "paperplane")
                                                             .foregroundColor(Color("iconSkyblue"))
                                                         Text("3.3m/s")
-                                                            .font(.pretendardMedium14)
+                                                            .font(.Body2Medium)
                                                     }
                                                     HStack(spacing: 5){
                                                         Image(systemName: "paperplane.fill")
                                                             .foregroundColor(Color("surfBlue"))
                                                         VStack(spacing: 0){
                                                             Text("0.2m")
-                                                                .font(.pretendardMedium14)
+                                                                .font(.Body2Medium)
                                                             Text("3.3m/s")
-                                                                .font(.pretendardMedium12)
+                                                                .font(.CaptionMedium)
                                                         }
                                                     }
                                                     VStack(spacing: 0){
                                                         Text("28°C")
-                                                            .font(.pretendardMedium14)
+                                                            .font(.Body2Medium)
                                                         Image(systemName: "water.waves")
                                                             .foregroundColor(Color("iconPurple"))
                                                     }
@@ -189,7 +189,7 @@ struct RecordChartView: View {
                                                         Image(systemName: "cloud")
                                                             .foregroundColor(.gray)
                                                         Text("28°C")
-                                                            .font(.pretendardMedium14)
+                                                            .font(.Body2Medium)
                                                     }
                                                 }
                                             }
