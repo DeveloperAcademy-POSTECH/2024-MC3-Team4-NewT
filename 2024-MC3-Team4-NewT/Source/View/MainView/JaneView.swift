@@ -26,7 +26,7 @@ let dateFormatter: DateFormatter = {
 
 struct JaneView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query var dailyWeather: [DailyWeather]
+    @Query var dailyWeather: [DailyWeatherOld]
     var today: String = "2024-07-30" // 오늘 날짜 (예: "2024-07-30")
     
     var body: some View {
@@ -194,7 +194,7 @@ extension JaneView {
     func addDummyData() {
         let context = modelContext //modelContext 가져옴
         let dummyDay = "2024-07-30"
-        let dummyDailyCharts = DailyWeather(day: dummyDay, chartCollection: dummyChartRows)
+        let dummyDailyCharts = DailyWeatherOld(day: dummyDay, chartCollection: dummyChartRows)
         context.insert(dummyDailyCharts)
         
         do {
