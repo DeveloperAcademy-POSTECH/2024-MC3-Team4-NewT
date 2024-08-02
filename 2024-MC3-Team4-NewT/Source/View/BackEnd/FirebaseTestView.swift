@@ -62,7 +62,7 @@ struct FirebaseTestView: View {
                    let wavesPeriod = data["waves_period"] as? Double,
                    let windNorth = data["wind_north"] as? Double {
 
-                    let surfingValues = SurfingValues(
+                    let surfingValues = SurfingValuesOne(
                         waveDirection: Float(wavesDirection),
                         waveHeight: Float(wavesHeight),
                         wavePeriod: Float(wavesPeriod),

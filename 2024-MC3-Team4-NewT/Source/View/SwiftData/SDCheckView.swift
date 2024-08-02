@@ -12,9 +12,9 @@ struct SDCheckView: View {
     @Environment(\.modelContext) private var modelContext
     @State private var selectedModel: ModelType = .surfingValues2
     
-    @Query private var surfingValues2Data: [SurfingValues2]
+    @Query private var surfingValues2Data: [SurfingValues]
     @Query(sort:\ChartRow.time) private var chartRowData: [ChartRow]
-    @Query private var dailyWeather2Data: [DailyWeather2]
+    @Query private var dailyWeather2Data: [DailyWeather]
     @Query private var surfingRecordOneData: [SurfingRecordOne]
     @Query private var statisticsData: [Statistics]
 

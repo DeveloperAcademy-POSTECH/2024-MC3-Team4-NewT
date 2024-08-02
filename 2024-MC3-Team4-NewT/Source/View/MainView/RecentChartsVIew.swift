@@ -45,6 +45,7 @@ struct RecentChartsVIew: View {
                             Text("평가").font(.CaptionSemiBold)
                         }.foregroundColor(.black.opacity(0.5))
                         .padding(.horizontal, 24)
+                        .padding(.vertical, 3)
                     }
                 }
                 
