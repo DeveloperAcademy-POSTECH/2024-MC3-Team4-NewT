@@ -71,6 +71,7 @@ struct JaneView: View {
                                             Text("\(timeFormatter.string(from: chart.day))").font(.Body2Medium)
                                             HStack(alignment: .center, spacing: 8) {
                                                 Image("waveDirectionIcon").frame(width: 14, height: 18)
+//                                                Image(systemName: "location.north").frame(width: 14, height: 18)
                                                 Text("\(chart.surfingValues.windSpeed, specifier: "%.1f")m/s").font(.Body1Medium)
                                             }.frame(width: 76)
                                             
