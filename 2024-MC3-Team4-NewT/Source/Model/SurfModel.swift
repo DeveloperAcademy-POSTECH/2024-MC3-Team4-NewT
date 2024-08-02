@@ -35,13 +35,15 @@ final class SurfingValues2 {
 @Model
 final class ChartRow {
     @Attribute(.unique) var id: UUID
+//    @Attribute(.unique) var time: String
     var time: String
+    @Relationship(deleteRule: .cascade)
     var surfingValues: SurfingValues2
     var isHighTide: Bool
     var isLowTide: Bool
     
     init(time: String, surfingValues: SurfingValues2, isHighTide: Bool, isLowTide: Bool) {
-        self.id = UUID()
+//        self.id = UUID()
         self.time = time
         self.surfingValues = surfingValues
         self.isHighTide = isHighTide
@@ -53,6 +55,7 @@ final class ChartRow {
 final class DailyWeather2 {
     @Attribute(.unique) var id: UUID
     var day: String
+    @Relationship(deleteRule: .cascade)
     var chartCollection: [ChartRow]
     
     init(day: String, chartCollection: [ChartRow]) {
@@ -67,6 +70,7 @@ final class SurfingRecordOne {
     @Attribute(.unique) var id: UUID
     var surfingStartTime: Date
     var surfingEndTime: Date
+    @Relationship(deleteRule: .cascade)
     var charts: [ChartRow]
     var evaluationValue: Int
     var memo: String

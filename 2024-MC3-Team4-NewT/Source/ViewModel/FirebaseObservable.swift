@@ -15,10 +15,10 @@ class FirebaseObservable {
     var items: [ChartRow] = []
     
     // Firebase에서 데이터를 가져와서 주어진 ChartRow 배열을 업데이트하는 함수
-    func fetchFirebase(modelContext: ModelContext, collectionName: String, chartRow: [ChartRow]){
+    func fetchFirebase(modelContext: ModelContext, collectionName: String, chartRow: [ChartRow]) {
         // Firestore DB 접근위한 인스턴스 생성
         let db = Firestore.firestore()
-        // 작업에 사용할 ChartRow 카피바라
+        // 작업에 사용할 ChartRow 카피본
         var updatedChartRows = chartRow
         
         // Firebase에서 지정한 컬렉션(collectionName)의 모든 문서를 가져옴
@@ -48,7 +48,7 @@ class FirebaseObservable {
                    let wavesPeriod = data["waves_period"] as? Double,
                    let windNorth = data["wind_north"] as? Double {
                     
-                    // SurfingValues2 객체를 생성하여 데이터 저장
+                    // SurfingValues2 객체를 동일한 컨텍스트에서 생성하여 데이터 저장
                     let surfingValues = SurfingValues2(
                         waveDirection: Float(wavesDirection),
                         waveHeight: Float(wavesHeight),
@@ -59,6 +59,7 @@ class FirebaseObservable {
                         airTemperature: Float(temp),
                         waterTemperature: Float(temp)
                     )
+                    modelContext.insert(surfingValues)
                     
                     // 타임스탬프(timestamp)를 yyyy-MM-dd HH:mm:ss로 변환(싱글톤 패턴 사용)
                     let formattedDate = DateFormatterManager.shared.longDateFormatter.string(from: timestamp.dateValue())
@@ -66,13 +67,14 @@ class FirebaseObservable {
                     // 테스트용 로그 찍기
                     print("파이어베이스 time:\(formattedDate)")
                     
-                    
+                    // 새 ChartRow 객체를 동일한 컨텍스트에서 생성
                     let newItem = ChartRow(
                         time: formattedDate,
                         surfingValues: surfingValues,
                         isHighTide: false,
                         isLowTide: false
                     )
+                    modelContext.insert(newItem)
                     
                     // 이미 업데이트된 ChartRow 배열에서 동일한 'time' 값을 가진 데이터를 찾음
                     if let existingIndex = updatedChartRows.firstIndex(where: { $0.time == formattedDate }) {
@@ -81,12 +83,12 @@ class FirebaseObservable {
                         updatedChartRows[existingIndex].isHighTide = newItem.isHighTide
                         updatedChartRows[existingIndex].isLowTide = newItem.isLowTide
                     } else {
-                        // 동일한 time 값을 가진 데이터가 없으면 SwiftData에 새로 추가
-                        modelContext.insert(newItem)
-                        
+                        // 동일한 time 값을 가진 데이터가 없으면 추가
+                        updatedChartRows.append(newItem)
                     }
                 }
             }
+
         }
     }
     

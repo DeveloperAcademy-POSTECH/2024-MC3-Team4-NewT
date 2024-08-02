@@ -4,18 +4,6 @@
 //
 //  Created by ram on 7/29/24.
 //
-//
-//  FirebaseTestView.swift
-//  2024-MC3-Team4-NewT
-//
-//  Created by ram on 7/29/24.
-//
-//
-//  FirebaseTestView.swift
-//  2024-MC3-Team4-NewT
-//
-//  Created by ram on 7/29/24.
-//
 import SwiftUI
 import FirebaseFirestore
 
