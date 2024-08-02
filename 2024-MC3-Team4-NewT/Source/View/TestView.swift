@@ -30,6 +30,10 @@ struct TestView: View {
             NavigationLink(destination: RecordChartView()){
                 Text("RecordChartView")
             }
+            NavigationLink(destination: LocationView()){
+                Text("LocationView")
+            }
+            
         }
         
     }
