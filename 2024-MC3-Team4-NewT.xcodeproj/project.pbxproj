@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0CAF4CFD2C52B29D0054D347 /* SurfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF4CFC2C52B29D0054D347 /* SurfModel.swift */; };
 		21588AFD2C5C75E6003E3489 /* FirebaseSDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588AFC2C5C75E6003E3489 /* FirebaseSDView.swift */; };
 		21588AFF2C5C760C003E3489 /* FirebaseObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588AFE2C5C760C003E3489 /* FirebaseObservable.swift */; };
 		21588B012C5C7621003E3489 /* FirebaseTestObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B002C5C7621003E3489 /* FirebaseTestObservable.swift */; };
@@ -19,7 +18,6 @@
 		21B0803B2C4D087F007BC655 /* PiriView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0803A2C4D087F007BC655 /* PiriView.swift */; };
 		21B0803D2C4D0888007BC655 /* JaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0803C2C4D0888007BC655 /* JaneView.swift */; };
 		21B0803F2C4D089F007BC655 /* SisiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0803E2C4D089F007BC655 /* SisiView.swift */; };
-		21B080412C4D08B2007BC655 /* NadaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B080402C4D08B2007BC655 /* NadaView.swift */; };
 		21B080432C4D08C2007BC655 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B080422C4D08C2007BC655 /* TestView.swift */; };
 		21B0806E2C516248007BC655 /* FindSpotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0806D2C516248007BC655 /* FindSpotView.swift */; };
 		21B080702C52844C007BC655 /* EmbededView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0806F2C52844C007BC655 /* EmbededView.swift */; };
@@ -44,10 +42,11 @@
 		89A63A1B2C59E4B800787DC4 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A63A1A2C59E4B800787DC4 /* StatisticsView.swift */; };
 		89A63A1D2C59E4F200787DC4 /* RecentChartsVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A63A1C2C59E4F200787DC4 /* RecentChartsVIew.swift */; };
 		89A63A1F2C59E53100787DC4 /* PinChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A63A1E2C59E53100787DC4 /* PinChartsView.swift */; };
+		89A63A242C5C7AE800787DC4 /* SurfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A63A232C5C7AE800787DC4 /* SurfModel.swift */; };
+		89A63A292C5C7C7500787DC4 /* RecordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A63A282C5C7C7500787DC4 /* RecordsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0CAF4CFC2C52B29D0054D347 /* SurfModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfModel.swift; sourceTree = SOURCE_ROOT; };
 		21588AFC2C5C75E6003E3489 /* FirebaseSDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSDView.swift; sourceTree = "<group>"; };
 		21588AFE2C5C760C003E3489 /* FirebaseObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseObservable.swift; sourceTree = "<group>"; };
 		21588B002C5C7621003E3489 /* FirebaseTestObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTestObservable.swift; sourceTree = "<group>"; };
@@ -60,7 +59,6 @@
 		21B0803A2C4D087F007BC655 /* PiriView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiriView.swift; sourceTree = "<group>"; };
 		21B0803C2C4D0888007BC655 /* JaneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JaneView.swift; sourceTree = "<group>"; };
 		21B0803E2C4D089F007BC655 /* SisiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SisiView.swift; sourceTree = "<group>"; };
-		21B080402C4D08B2007BC655 /* NadaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NadaView.swift; sourceTree = "<group>"; };
 		21B080422C4D08C2007BC655 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		21B0806D2C516248007BC655 /* FindSpotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindSpotView.swift; sourceTree = "<group>"; };
 		21B0806F2C52844C007BC655 /* EmbededView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbededView.swift; sourceTree = "<group>"; };
@@ -87,6 +85,8 @@
 		89A63A1A2C59E4B800787DC4 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		89A63A1C2C59E4F200787DC4 /* RecentChartsVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentChartsVIew.swift; sourceTree = "<group>"; };
 		89A63A1E2C59E53100787DC4 /* PinChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinChartsView.swift; sourceTree = "<group>"; };
+		89A63A232C5C7AE800787DC4 /* SurfModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfModel.swift; sourceTree = "<group>"; };
+		89A63A282C5C7C7500787DC4 /* RecordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,26 +141,13 @@
 		21B080442C4D08D3007BC655 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				21B0806F2C52844C007BC655 /* EmbededView.swift */,
-				21B0806D2C516248007BC655 /* FindSpotView.swift */,
-				21588AFC2C5C75E6003E3489 /* FirebaseSDView.swift */,
-				21B0807C2C57C68D007BC655 /* FirebaseTestView.swift */,
-				719EA9BF2C5768580090BAB5 /* FitChartView.swift */,
-				21B0803C2C4D0888007BC655 /* JaneView.swift */,
-				717594142C5C656700F28BA1 /* LocationView.swift */,
-				89A63A172C59B7D100787DC4 /* MainView.swift */,
-				21B080402C4D08B2007BC655 /* NadaView.swift */,
-				89A63A1E2C59E53100787DC4 /* PinChartsView.swift */,
-				21B0803A2C4D087F007BC655 /* PiriView.swift */,
-				89A63A1C2C59E4F200787DC4 /* RecentChartsVIew.swift */,
-				719EA9CC2C5A56730090BAB5 /* RecordChartView.swift */,
-				21588B042C5C7652003E3489 /* SDCheckView.swift */,
-				21EDE2422C5B1C1D00F973C0 /* SDTestView.swift */,
-				21B0803E2C4D089F007BC655 /* SisiView.swift */,
-				89A63A1A2C59E4B800787DC4 /* StatisticsView.swift */,
+				89A63A272C5C7C4700787DC4 /* RecordsView */,
+				89A63A262C5C7C1300787DC4 /* RecordingView */,
+				89A63A252C5C7AF200787DC4 /* MainView */,
+				89A63A222C5C7A8600787DC4 /* SwiftData */,
+				89A63A212C5C7A3800787DC4 /* LocationView */,
+				89A63A202C5C7A1500787DC4 /* BackEnd */,
 				21B080422C4D08C2007BC655 /* TestView.swift */,
-				21B080732C56DB7A007BC655 /* WindFinderView.swift */,
-				21B080712C52890A007BC655 /* WindyView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -168,8 +155,7 @@
 		21B080452C4D08DB007BC655 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				21B0807E2C587D3C007BC655 /* DummyData.swift */,
-				0CAF4CFC2C52B29D0054D347 /* SurfModel.swift */,
+				89A63A232C5C7AE800787DC4 /* SurfModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -231,6 +217,7 @@
 		21B0806B2C4F355A007BC655 /* Constant */ = {
 			isa = PBXGroup;
 			children = (
+				21B0807E2C587D3C007BC655 /* DummyData.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -250,6 +237,67 @@
 				21EDE2402C5B1B2B00F973C0 /* ModelContext.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		89A63A202C5C7A1500787DC4 /* BackEnd */ = {
+			isa = PBXGroup;
+			children = (
+				21B0803A2C4D087F007BC655 /* PiriView.swift */,
+				21B080712C52890A007BC655 /* WindyView.swift */,
+				21B080732C56DB7A007BC655 /* WindFinderView.swift */,
+				21B0806F2C52844C007BC655 /* EmbededView.swift */,
+				21588AFC2C5C75E6003E3489 /* FirebaseSDView.swift */,
+				21B0807C2C57C68D007BC655 /* FirebaseTestView.swift */,
+			);
+			path = BackEnd;
+			sourceTree = "<group>";
+		};
+		89A63A212C5C7A3800787DC4 /* LocationView */ = {
+			isa = PBXGroup;
+			children = (
+				717594142C5C656700F28BA1 /* LocationView.swift */,
+				21B0806D2C516248007BC655 /* FindSpotView.swift */,
+			);
+			path = LocationView;
+			sourceTree = "<group>";
+		};
+		89A63A222C5C7A8600787DC4 /* SwiftData */ = {
+			isa = PBXGroup;
+			children = (
+				21588B042C5C7652003E3489 /* SDCheckView.swift */,
+				21EDE2422C5B1C1D00F973C0 /* SDTestView.swift */,
+			);
+			path = SwiftData;
+			sourceTree = "<group>";
+		};
+		89A63A252C5C7AF200787DC4 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				89A63A172C59B7D100787DC4 /* MainView.swift */,
+				89A63A1E2C59E53100787DC4 /* PinChartsView.swift */,
+				719EA9CC2C5A56730090BAB5 /* RecordChartView.swift */,
+				89A63A1C2C59E4F200787DC4 /* RecentChartsVIew.swift */,
+				89A63A1A2C59E4B800787DC4 /* StatisticsView.swift */,
+				719EA9BF2C5768580090BAB5 /* FitChartView.swift */,
+				21B0803C2C4D0888007BC655 /* JaneView.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		89A63A262C5C7C1300787DC4 /* RecordingView */ = {
+			isa = PBXGroup;
+			children = (
+				21B0803E2C4D089F007BC655 /* SisiView.swift */,
+			);
+			path = RecordingView;
+			sourceTree = "<group>";
+		};
+		89A63A272C5C7C4700787DC4 /* RecordsView */ = {
+			isa = PBXGroup;
+			children = (
+				89A63A282C5C7C7500787DC4 /* RecordsView.swift */,
+			);
+			path = RecordsView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,9 +385,9 @@
 				21B080742C56DB7A007BC655 /* WindFinderView.swift in Sources */,
 				719EA9C02C5768580090BAB5 /* FitChartView.swift in Sources */,
 				21B080432C4D08C2007BC655 /* TestView.swift in Sources */,
+				89A63A242C5C7AE800787DC4 /* SurfModel.swift in Sources */,
 				21EDE2432C5B1C1D00F973C0 /* SDTestView.swift in Sources */,
 				21B0807F2C587D3C007BC655 /* DummyData.swift in Sources */,
-				21B080412C4D08B2007BC655 /* NadaView.swift in Sources */,
 				89A63A1F2C59E53100787DC4 /* PinChartsView.swift in Sources */,
 				21B0803F2C4D089F007BC655 /* SisiView.swift in Sources */,
 				21588B012C5C7621003E3489 /* FirebaseTestObservable.swift in Sources */,
@@ -347,7 +395,6 @@
 				21EDE2412C5B1B2B00F973C0 /* ModelContext.swift in Sources */,
 				21B080812C588261007BC655 /* WaveObservable.swift in Sources */,
 				21588AFD2C5C75E6003E3489 /* FirebaseSDView.swift in Sources */,
-				0CAF4CFD2C52B29D0054D347 /* SurfModel.swift in Sources */,
 				21B0807D2C57C68D007BC655 /* FirebaseTestView.swift in Sources */,
 				719EA9C52C57729E0090BAB5 /* Font.swift in Sources */,
 				89A63A182C59B7D100787DC4 /* MainView.swift in Sources */,
@@ -356,6 +403,7 @@
 				21B080702C52844C007BC655 /* EmbededView.swift in Sources */,
 				21B0803B2C4D087F007BC655 /* PiriView.swift in Sources */,
 				21588B052C5C7652003E3489 /* SDCheckView.swift in Sources */,
+				89A63A292C5C7C7500787DC4 /* RecordsView.swift in Sources */,
 				717594152C5C656700F28BA1 /* LocationView.swift in Sources */,
 				21588AFF2C5C760C003E3489 /* FirebaseObservable.swift in Sources */,
 				89A63A1D2C59E4F200787DC4 /* RecentChartsVIew.swift in Sources */,

@@ -24,39 +24,4 @@ var dummySurfingValues =
 let dummyChartRows: [ChartRowTmp] = dummySurfingValues.map { surfingValue in
     ChartRowTmp(day: Date(), surfingValues: surfingValue, isHighTide: false, isLowTide: false)
 }
-struct SurfingValues: Codable, Hashable {
-    var waveDirection: Float
-    var waveHeight: Float
-    var wavePeriod: Float
-    var windDirection: Float
-    var windSpeed: Float
-    var weather: String
-    var airTemperature: Float
-    var waterTemperature: Float
-}
 
-struct ChartRowTmp: Codable, Hashable {
-    var day: Date
-    var surfingValues: SurfingValues
-    var isHighTide: Bool = false
-    var isLowTide: Bool = false
-}
-
-
-@Model
-final class DailyWeather{ // 일간 기상 데이터
-    @Attribute(.unique) var day: String
-    var chartCollection: [ChartRowTmp]
-    
-    init(day: String, chartCollection: [ChartRowTmp]) {
-        self.day = day
-        self.chartCollection = chartCollection
-    }
-}
-enum ModelType: String, CaseIterable {
-    case surfingValues2 = "SurfingValues2"
-    case chartRow = "ChartRow"
-    case dailyWeather2 = "DailyWeather2"
-    case surfingRecordOne = "SurfingRecordOne"
-    case statistics = "Statistics"
-}
