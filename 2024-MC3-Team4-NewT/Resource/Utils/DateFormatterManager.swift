@@ -4,7 +4,6 @@
 //
 //  Created by ram on 8/2/24.
 //
-
 import Foundation
 
 class DateFormatterManager {
@@ -44,4 +43,12 @@ class DateFormatterManager {
         formatter.locale = Locale(identifier: "ko_kr")
         return formatter
     }()
+    
+    /// 주어진 시간 문자열을 "HH시" 형식으로 변환하는 함수
+    func timeToHourFormatter(_ timeString: String) -> String {
+        if let date = longDateFormatter.date(from: timeString) {
+            return timeFormatter.string(from: date)
+        }
+        return timeString // 파싱 실패 시 원본 문자열 반환
+    }
 }

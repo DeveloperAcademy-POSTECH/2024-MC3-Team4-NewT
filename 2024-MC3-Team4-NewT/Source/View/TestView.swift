@@ -9,7 +9,8 @@ import SwiftUI
 
 struct TestView: View {
     @Environment(\.modelContext) private var modelContext
-    @State var showMainTestView = false
+    @State var showMainTestView1 = false
+    @State var showMainTestView2 = false
     
     var body: some View {
         NavigationStack{
@@ -35,7 +36,7 @@ struct TestView: View {
 //                Text("RecordChartView")
 //            }
             Button(action: {
-                showMainTestView = true
+                showMainTestView1 = true
             }) {
                 Text("Go to MainTestView")
                     .font(.headline)
@@ -44,8 +45,21 @@ struct TestView: View {
                     .background(Color.blue)
                     .cornerRadius(8)
             }
-            .fullScreenCover(isPresented: $showMainTestView) {
+            .fullScreenCover(isPresented: $showMainTestView1) {
                 MainView()
+            }
+            Button(action: {
+                showMainTestView2 = true
+            }) {
+                Text("SiSi View")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(8)
+            }
+            .fullScreenCover(isPresented: $showMainTestView2) {
+                SisiView()
             }
         }
         .onAppear(){

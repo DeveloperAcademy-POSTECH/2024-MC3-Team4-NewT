@@ -11,10 +11,9 @@ struct SisiView: View {
     @State var memo: String = ""
     let placeHolding: String = "파도에 대한 간단한 메모를 남겨보세요."
     let placeHolding1: String = "(최대 200자)"
-    
     let memoLimit: Int = 200
     @State var heightSize: CGFloat = 245.0
-
+    
     var body: some View {
         ZStack(alignment: .top){
             Color(.systemGroupedBackground)
@@ -65,6 +64,7 @@ struct SisiView: View {
                                     
                                     Divider()
                                         .padding(.leading)
+                                    
                                     HStack {
                                         Text("종료 시간대")
                                             .font(.SubheadingSemiBold)
@@ -83,16 +83,15 @@ struct SisiView: View {
                                                 }
                                                 updateChartScroll()
                                             }
-                                    }.padding(.horizontal)
-                                    
-                                    Divider()
-                                        .padding(.leading)
-                                    Text(date(from: selectedDate))
-                                        .font(.SubheadingBold)
-                                        .foregroundStyle(Color("surfBlue"))
-                                        .padding(.vertical, 8)
+                                    }
+                                    .padding(.horizontal)
                                 }
-                                
+                                Divider()
+                                    .padding(.leading)
+                                Text(date(from: selectedDate))
+                                    .font(.SubheadingBold)
+                                    .foregroundStyle(Color("surfBlue"))
+                                    .padding(.vertical, 8)
                                 ZStack{
                                     Rectangle()
                                         .frame(height: 20)
@@ -108,73 +107,11 @@ struct SisiView: View {
                                     .foregroundColor(Color(.black).opacity(0.5))
                                 }
                                 
-                                ZStack(alignment: .top){
-                                    Color.white
-                                    VStack(spacing: 0){
-                                        ScrollView{
-                                            VStack(spacing: 0 ){
-                                                ForEach(0..<chartCounter, id: \.self) { index in
-                                                    ZStack{
-                                                        Color.white.opacity(0.8)
-                                                            .frame(height: 58)
-                                                        HStack(spacing: 20){
-                                                            VStack(spacing: 0){
-                                                                Text("\(index + startHour)시")
-                                                                    .font(.CaptionMedium)
-                                                                    .foregroundColor(.black)
-                                                                    .opacity(0.7)
-                                                            }
-                                                            HStack(spacing: 5){
-                                                                Image(systemName: "paperplane")
-                                                                    .foregroundColor(Color("iconSkyblue"))
-                                                                Text("3.3m/s")
-                                                                    .font(.CaptionMedium)
-                                                            }
-                                                            HStack(spacing: 5){
-                                                                Image(systemName: "paperplane.fill")
-                                                                    .foregroundColor(Color("surfBlue"))
-                                                                VStack(spacing: 0){
-                                                                    Text("0.2m")
-                                                                        .font(.CaptionMedium)
-                                                                    Text("3.3m/s")
-                                                                        .font(.CaptionMedium)
-                                                                }
-                                                            }
-                                                            VStack(spacing: 0){
-                                                                Text("28°C")
-                                                                    .font(.Body2Medium)
-                                                                Image(systemName: "water.waves")
-                                                                    .foregroundColor(Color("iconPurple"))
-                                                            }
-                                                            HStack(spacing: 5){
-                                                                Image(systemName: "cloud")
-                                                                    .foregroundColor(.gray)
-                                                                Text("28°C")
-                                                                    .font(.Body2Medium)
-                                                            }
-                                                        }
-                                                        if (chartCounter > 3){
-                                                            if (index < chartCounter - 1){
-                                                                Divider()
-                                                                    .background(Color("surfBlue"))
-                                                                    .padding(.top, 58)
-                                                            }
-                                                        }
-                                                        else {
-                                                            if (index == 0 || index == 1){
-                                                                Divider()
-                                                                    .background(Color("surfBlue"))
-                                                                    .padding(.top, 58)
-                                                            }
-                                                        }
-                                                        
-                                                    }
-                                                }
-                                            }
-                                        }.scrollDisabled(isChartScroll)
-                                    }
-                                }
-                                .frame(height: 174)
+                                ChartView(
+                                    startTime: $startTime, 
+                                    stopTime: $stopTime,
+                                    isChartScroll: $isChartScroll
+                                )
                             }
                         }
                         .cornerRadius(24)
@@ -196,17 +133,17 @@ struct SisiView: View {
                                     ProgressView(value: isScore, total: 4.0)
                                         .tint(Color("surfBlue"))
                                         .background(Color("brightGray"))
-                                        
+                                    
                                     HStack(spacing: 50){
                                         ForEach(0..<5) { index in
                                             Button {
-                                                    selectedScore = index
-                                                    isScore = Double(index)
-                                                } label: {
-                                                    Circle()
-                                                        .frame(width: 20, height: 20)
-                                                        .foregroundColor(selectedScore >= index ? Color("surfBlue") : Color(.systemGroupedBackground))
-                                                }
+                                                selectedScore = index
+                                                isScore = Double(index)
+                                            } label: {
+                                                Circle()
+                                                    .frame(width: 20, height: 20)
+                                                    .foregroundColor(selectedScore >= index ? Color("surfBlue") : Color(.systemGroupedBackground))
+                                            }
                                         }
                                         
                                     }
@@ -233,7 +170,7 @@ struct SisiView: View {
                                             .foregroundColor(Color("surfBlue"))
                                     }
                                     Spacer()
-
+                                    
                                     VStack{
                                         Text("3점")
                                             .font(.Body2Bold)
@@ -243,7 +180,7 @@ struct SisiView: View {
                                             .foregroundColor(Color("surfBlue"))
                                     }
                                     Spacer()
-
+                                    
                                     VStack{
                                         Text("4점")
                                             .font(.Body2Bold)
@@ -253,7 +190,7 @@ struct SisiView: View {
                                             .foregroundColor(Color("surfBlue"))
                                     }
                                     Spacer()
-
+                                    
                                     VStack{
                                         Text("5점")
                                             .font(.Body2Bold)
@@ -372,6 +309,7 @@ struct SisiView: View {
         .navigationTitle("파도 기록")
         
     }
+    
     func date(from date: Date) -> String {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ko_kr")
@@ -379,22 +317,6 @@ struct SisiView: View {
         return formatter.string(from: date)
     }
     
-    var startHour: Int {
-        let calendar = Calendar.current
-        return calendar.component(.hour, from: startTime)
-    }
-    var stopHour: Int {
-        let calendar = Calendar.current
-        return calendar.component(.hour, from: stopTime)
-    }
-    
-    var chartCounter: Int {
-        var counter: Int = 1
-        if stopHour > startHour {
-            counter = (stopHour - startHour)+1
-        }
-        return counter
-    }
     func updateChartScroll() {
         let counter = chartCounter
         if counter > 3 {
@@ -402,13 +324,27 @@ struct SisiView: View {
         } else {
             isChartScroll = true
         }
-        print("isChartScroll: \(isChartScroll)")
     }
-
     
+    var chartCounter: Int {
+        var counter: Int = 1
+        if stopHour > startHour {
+            counter = (stopHour - startHour) + 1
+        }
+        return counter
+    }
+    
+    var startHour: Int {
+        let calendar = Calendar.current
+        return calendar.component(.hour, from: startTime)
+    }
+    
+    var stopHour: Int {
+        let calendar = Calendar.current
+        return calendar.component(.hour, from: stopTime)
+    }
 }
 
 #Preview {
     SisiView()
 }
-
