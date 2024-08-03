@@ -44,6 +44,7 @@
 		89A63A1F2C59E53100787DC4 /* PinChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A63A1E2C59E53100787DC4 /* PinChartsView.swift */; };
 		89A63A242C5C7AE800787DC4 /* SurfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A63A232C5C7AE800787DC4 /* SurfModel.swift */; };
 		89A63A292C5C7C7500787DC4 /* RecordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A63A282C5C7C7500787DC4 /* RecordsView.swift */; };
+		89A63A2B2C5E29B000787DC4 /* RecentChartsView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A63A2A2C5E29B000787DC4 /* RecentChartsView2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +88,7 @@
 		89A63A1E2C59E53100787DC4 /* PinChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinChartsView.swift; sourceTree = "<group>"; };
 		89A63A232C5C7AE800787DC4 /* SurfModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfModel.swift; sourceTree = "<group>"; };
 		89A63A282C5C7C7500787DC4 /* RecordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsView.swift; sourceTree = "<group>"; };
+		89A63A2A2C5E29B000787DC4 /* RecentChartsView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentChartsView2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +282,7 @@
 				89A63A1A2C59E4B800787DC4 /* StatisticsView.swift */,
 				719EA9BF2C5768580090BAB5 /* FitChartView.swift */,
 				21B0803C2C4D0888007BC655 /* JaneView.swift */,
+				89A63A2A2C5E29B000787DC4 /* RecentChartsView2.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				21B0802D2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift in Sources */,
 				21EDE2412C5B1B2B00F973C0 /* ModelContext.swift in Sources */,
 				21B080812C588261007BC655 /* WaveObservable.swift in Sources */,
+				89A63A2B2C5E29B000787DC4 /* RecentChartsView2.swift in Sources */,
 				21588AFD2C5C75E6003E3489 /* FirebaseSDView.swift in Sources */,
 				21B0807D2C57C68D007BC655 /* FirebaseTestView.swift in Sources */,
 				719EA9C52C57729E0090BAB5 /* Font.swift in Sources */,

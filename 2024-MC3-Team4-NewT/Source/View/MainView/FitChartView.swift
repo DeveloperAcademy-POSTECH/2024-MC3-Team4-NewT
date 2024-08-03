@@ -32,7 +32,8 @@ struct FitChartView: View {
                     Text("통계 데이터가 없습니다.")
                         .foregroundColor(.gray)
                 }
-                RecentChartsVIew()
+//                RecentChartsVIew()
+                RecentChartsView2()
                 PinChartsView()
             }
             .frame(maxHeight: 256)

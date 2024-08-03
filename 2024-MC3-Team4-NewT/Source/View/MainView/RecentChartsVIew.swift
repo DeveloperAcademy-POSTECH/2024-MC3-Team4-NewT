@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecentChartsVIew: View {
     private var dummyCharts: [ChartRowTmp]
-     = [ChartRowTmp(day: Date(), surfingValues: SurfingValues(waveDirection: 164.0, waveHeight: 0.16, wavePeriod: 4.75, windDirection: 234.36, windSpeed: 5.0, weather: "ra", airTemperature: 25.33, waterTemperature: 23.5), isHighTide: false, isLowTide: false), ChartRowTmp(day: Date(), surfingValues: SurfingValues(waveDirection: 164.0, waveHeight: 0.16, wavePeriod: 4.75, windDirection: 234.36, windSpeed: 5.0, weather: "ra", airTemperature: 25.33, waterTemperature: 23.5), isHighTide: false, isLowTide: false), ChartRowTmp(day: Date(), surfingValues: SurfingValues(waveDirection: 164.0, waveHeight: 0.16, wavePeriod: 4.75, windDirection: 234.36, windSpeed: 5.0, weather: "ra", airTemperature: 25.33, waterTemperature: 23.5), isHighTide: false, isLowTide: false)]
+     = [ChartRowTmp(day: Date(), surfingValues: SurfingValuesOne(waveDirection: 164.0, waveHeight: 0.16, wavePeriod: 4.75, windDirection: 234.36, windSpeed: 5.0, weather: "ra", airTemperature: 25.33, waterTemperature: 23.5), isHighTide: false, isLowTide: false), ChartRowTmp(day: Date(), surfingValues: SurfingValuesOne(waveDirection: 164.0, waveHeight: 0.16, wavePeriod: 4.75, windDirection: 234.36, windSpeed: 5.0, weather: "ra", airTemperature: 25.33, waterTemperature: 23.5), isHighTide: false, isLowTide: false), ChartRowTmp(day: Date(), surfingValues: SurfingValuesOne(waveDirection: 164.0, waveHeight: 0.16, wavePeriod: 4.75, windDirection: 234.36, windSpeed: 5.0, weather: "ra", airTemperature: 25.33, waterTemperature: 23.5), isHighTide: false, isLowTide: false)]
     
     var body: some View {
         VStack(spacing: 0){
@@ -31,7 +31,6 @@ struct RecentChartsVIew: View {
             
             VStack {
                 HStack {
-                    //맨 윗줄 들어가는 곳
                     Grid {
                         HStack(alignment: .center) {
                             Text("시간").font(.CaptionSemiBold)
@@ -44,19 +43,48 @@ struct RecentChartsVIew: View {
                             Spacer()
                             Text("평가").font(.CaptionSemiBold)
                         }.foregroundColor(.black.opacity(0.5))
-                        .padding(.horizontal, 24)
-                        .padding(.vertical, 3)
+                            .padding(.horizontal, 24)
+                            .padding(.vertical, 3)
+                        Rectangle().frame(width: .infinity, height: 1).foregroundColor(.surfBlue.opacity(0.3))
+                        HStack{
+                            VStack {
+                                Text("7/20").font(.Body2SemiBold)
+                                Text("03시").font(.CaptionMedium)
+                            }
+                            Spacer()
+                            HStack {
+                                Image("waveDirectionIcon")
+                                Text("3.3m/s").font(.Body2Medium)
+                            }
+                            HStack {
+                                Image("swellDirectionIcon")
+                                VStack {
+                                    Text("0.2m").font(.Body2Medium)
+                                    Text("3.4s").font(.CaptionMedium)
+                                }
+                            }
+                            Spacer()
+                            VStack(spacing: 0) {
+                                Text("28도").font(.Body2Medium)
+                                Image("waterTemperate")
+                            }
+                            Spacer()
+                            HStack(spacing: 4) {
+                                Image("starIcon")
+                                Text("5점").font(.Body2Medium)
+                            }
+                            .cornerRadius(24)
+                            
+                        }.padding(.horizontal, 19)
+                            .padding(.vertical, 6)
                     }
                 }
-                
-                
             }
             .background(.white.opacity(0.5))
             .cornerRadius(24)
+            .padding()
             Spacer()
-        }.background{
-            Image("MainViewBG")
-        }
+        }.background(.teal)
         
     }
 }

@@ -92,7 +92,7 @@ final class Statistics {
     var weather: String?
     var temperature: Float?
     
-    init(id: UUID, waveDirection: Float? = nil, waveHeight: Float? = nil, wavePeriod: Float? = nil, windDirection: Float? = nil, windSpeed: Float? = nil, weather: String? = nil, temperature: Float? = nil) {
+    init(id: UUID, waveDirection: Float? = 0.0, waveHeight: Float? = 0.0, wavePeriod: Float? = 0.0, windDirection: Float? = 0.0, windSpeed: Float? = 0.0, weather: String? = "", temperature: Float? = 0.0) {
         self.id = id
         self.waveDirection = waveDirection
         self.waveHeight = waveHeight
@@ -121,7 +121,8 @@ struct SurfingValuesOne: Codable, Hashable {
     var waterTemperature: Float
 }
 
-struct ChartRowTmp: Codable, Hashable {
+struct ChartRowTmp: Codable, Hashable, Identifiable{
+    let id = UUID()
     var day: Date
     var surfingValues: SurfingValuesOne
     var isHighTide: Bool = false

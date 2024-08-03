@@ -13,7 +13,9 @@ func FloatToDouble(_ value: Float) -> Double {
 }
 
 struct StatisticsView: View {
+    @Environment(\.modelContext) private var modelContext
     @Bindable var viewStatistics: Statistics
+    var dummyStatistic: Statistics = Statistics(id: UUID(), waveDirection: 164.0, waveHeight: 0.16, wavePeriod: 4.75, windDirection: 234.36, windSpeed: 5.0, weather: "ra", temperature: 25.33)
     var body: some View {
         VStack(alignment: .leading, spacing:0){
             HStack(alignment: .center) {
@@ -96,10 +98,23 @@ struct StatisticsView: View {
             .padding(.bottom, 25)
             Spacer()
         }
+        .onAppear {
+            addDummyStatistics()
+        }
         .frame(height: 202)
     }
 }
 
 extension StatisticsView {
-    
+    func addDummyStatistics() {
+        let context = modelContext //modelContext 가져옴
+        let dummyStatisticCharts = Statistics (id: dummyStatistic.id, waveDirection: dummyStatistic.waveDirection, waveHeight: dummyStatistic.waveHeight, wavePeriod: dummyStatistic.wavePeriod, windDirection: dummyStatistic.windDirection, windSpeed: dummyStatistic.windSpeed, weather: dummyStatistic.weather, temperature: dummyStatistic.temperature)
+        context.insert(dummyStatisticCharts)
+        
+        do {
+            try context.save()
+        } catch {
+            print("Failed to save context: \(error)")
+        }
+    }
 }

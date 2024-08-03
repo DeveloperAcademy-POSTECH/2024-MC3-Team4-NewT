@@ -21,7 +21,7 @@ struct MainView: View {
                 //여기에 탭바 넣으면 됩니다
             }
         }
-        .background(){
+        .background{
             Image("MainViewBG")
             .edgesIgnoringSafeArea(.all)
         }

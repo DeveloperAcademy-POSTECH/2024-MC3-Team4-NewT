@@ -105,6 +105,9 @@ struct JaneView: View {
         }.frame(maxWidth: .infinity)
             .background(.white)
             .cornerRadius(24)
+            .onAppear{
+//                addDummyData()
+            }
         Spacer()
     }
     
