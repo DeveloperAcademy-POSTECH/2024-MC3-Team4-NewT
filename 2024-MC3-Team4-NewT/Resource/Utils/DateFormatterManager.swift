@@ -51,4 +51,10 @@ class DateFormatterManager {
         }
         return timeString // 파싱 실패 시 원본 문자열 반환
     }
+    func dateFromString(_ timeString: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return dateFormatter.date(from: timeString)
+    }
+    
 }

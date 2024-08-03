@@ -16,6 +16,7 @@
 		21588B0A2C5D594F003E3489 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B092C5D594F003E3489 /* ContentView.swift */; };
 		21588B0C2C5D5D30003E3489 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B0B2C5D5D30003E3489 /* CustomTabBar.swift */; };
 		21588B0E2C5E0D68003E3489 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B0D2C5E0D68003E3489 /* ChartView.swift */; };
+		21588B102C5E201F003E3489 /* ChartRecordObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B0F2C5E201F003E3489 /* ChartRecordObservable.swift */; };
 		21B0802D2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */; };
 		21B080312C4D0836007BC655 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B080302C4D0836007BC655 /* Assets.xcassets */; };
 		21B080342C4D0836007BC655 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B080332C4D0836007BC655 /* Preview Assets.xcassets */; };
@@ -60,6 +61,7 @@
 		21588B092C5D594F003E3489 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		21588B0B2C5D5D30003E3489 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
 		21588B0D2C5E0D68003E3489 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		21588B0F2C5E201F003E3489 /* ChartRecordObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRecordObservable.swift; sourceTree = "<group>"; };
 		21B080292C4D0834007BC655 /* 2024-MC3-Team4-NewT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "2024-MC3-Team4-NewT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _024_MC3_Team4_NewTApp.swift; sourceTree = "<group>"; };
 		21B080302C4D0836007BC655 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 		21B080462C4D08E2007BC655 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				21588B0F2C5E201F003E3489 /* ChartRecordObservable.swift */,
 				21588AFE2C5C760C003E3489 /* FirebaseObservable.swift */,
 				21588B002C5C7621003E3489 /* FirebaseTestObservable.swift */,
 				21588B022C5C7632003E3489 /* SwiftDataObservable.swift */,
@@ -419,6 +422,7 @@
 				21B0807D2C57C68D007BC655 /* FirebaseTestView.swift in Sources */,
 				719EA9C52C57729E0090BAB5 /* Font.swift in Sources */,
 				21588B082C5CC2CA003E3489 /* DateFormatterManager.swift in Sources */,
+				21588B102C5E201F003E3489 /* ChartRecordObservable.swift in Sources */,
 				89A63A182C59B7D100787DC4 /* MainView.swift in Sources */,
 				21B0803D2C4D0888007BC655 /* JaneView.swift in Sources */,
 				21588B0C2C5D5D30003E3489 /* CustomTabBar.swift in Sources */,
