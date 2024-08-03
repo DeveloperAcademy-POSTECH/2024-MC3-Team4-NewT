@@ -4,7 +4,6 @@
 //
 //  Created by ram on 8/2/24.
 //
-
 import Foundation
 
 class DateFormatterManager {
@@ -28,4 +27,34 @@ class DateFormatterManager {
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter
     }()
+    
+    ///'@@시 (24시제)'로 표시해주는 Formatter
+    let timeFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH시"
+        formatter.locale = Locale(identifier: "ko_kr")
+        return formatter
+    }()
+    
+    ///'@월 %일 &요일'로 표시해주는 Formatter
+    let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "M월 d일 EEEE"
+        formatter.locale = Locale(identifier: "ko_kr")
+        return formatter
+    }()
+    
+    /// 주어진 시간 문자열을 "HH시" 형식으로 변환하는 함수
+    func timeToHourFormatter(_ timeString: String) -> String {
+        if let date = longDateFormatter.date(from: timeString) {
+            return timeFormatter.string(from: date)
+        }
+        return timeString // 파싱 실패 시 원본 문자열 반환
+    }
+    func dateFromString(_ timeString: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return dateFormatter.date(from: timeString)
+    }
+    
 }

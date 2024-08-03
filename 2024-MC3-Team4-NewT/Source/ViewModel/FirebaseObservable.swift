@@ -56,8 +56,8 @@ class FirebaseObservable {
                         windDirection: Float(windNorth),
                         windSpeed: Float(windSouth),
                         weather: "sunny", // 날씨 정보는 "sunny"로 고정
-                        airTemperature: Float(temp),
-                        waterTemperature: Float(temp)
+                        airTemperature: Float(temp)*0.1,
+                        waterTemperature: Float(temp)*0.1
                     )
                     modelContext.insert(surfingValues)
                     
