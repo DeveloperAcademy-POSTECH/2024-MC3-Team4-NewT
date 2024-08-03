@@ -257,13 +257,13 @@
 		89A63A202C5C7A1500787DC4 /* BackEnd */ = {
 			isa = PBXGroup;
 			children = (
-				21B0803A2C4D087F007BC655 /* PiriView.swift */,
-				21B080712C52890A007BC655 /* WindyView.swift */,
-				21B080732C56DB7A007BC655 /* WindFinderView.swift */,
+				21588B092C5D594F003E3489 /* ContentView.swift */,
 				21B0806F2C52844C007BC655 /* EmbededView.swift */,
 				21588AFC2C5C75E6003E3489 /* FirebaseSDView.swift */,
 				21B0807C2C57C68D007BC655 /* FirebaseTestView.swift */,
-				21588B092C5D594F003E3489 /* ContentView.swift */,
+				21B0803A2C4D087F007BC655 /* PiriView.swift */,
+				21B080732C56DB7A007BC655 /* WindFinderView.swift */,
+				21B080712C52890A007BC655 /* WindyView.swift */,
 			);
 			path = BackEnd;
 			sourceTree = "<group>";
@@ -271,8 +271,8 @@
 		89A63A212C5C7A3800787DC4 /* LocationView */ = {
 			isa = PBXGroup;
 			children = (
-				717594142C5C656700F28BA1 /* LocationView.swift */,
 				21B0806D2C516248007BC655 /* FindSpotView.swift */,
+				717594142C5C656700F28BA1 /* LocationView.swift */,
 			);
 			path = LocationView;
 			sourceTree = "<group>";

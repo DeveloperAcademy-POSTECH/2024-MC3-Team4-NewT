@@ -49,13 +49,14 @@ struct CustomTabBar: View {
             
             Spacer()
         }
-        .frame(height: 50)
+        .frame(height: 60)
         .padding(.vertical, 10)
         .padding(.horizontal, 20)
         .background(
             RoundedRectangle(cornerRadius: 39)
                 .fill(Color(UIColor.systemGray6))
                 .padding(.horizontal, 20)
+                .padding(.vertical,10)
         )
     }
 }
@@ -78,5 +79,5 @@ struct TabBarButton: View {
 
 
 #Preview {
-    CustomTabBar()
+    MainView()
 }
