@@ -27,6 +27,7 @@ let dateFormatter: DateFormatter = {
 struct JaneView: View {
     @Environment(\.modelContext) private var modelContext
     @Query var dailyWeather: [DailyWeatherOld]
+    @Binding var isHeaderVisible: Bool // 헤더 가시성 상태 변수
     var today: String = "2024-07-30" // 오늘 날짜 (예: "2024-07-30")
     
     var body: some View {
@@ -98,6 +99,14 @@ struct JaneView: View {
                                 }
                             }
                         }.padding(.horizontal)
+                            .background(GeometryReader { geometry in
+                                Color.clear
+                                    .preference(key: ScrollOffsetKey.self, value: geometry.frame(in: .global).minY)
+                            })
+                            .onPreferenceChange(ScrollOffsetKey.self) { value in
+                                // 스크롤 오프셋에 따라 헤더 가시성 조절
+                                isHeaderVisible = value > 0
+                            }
                     }
                 }
             }

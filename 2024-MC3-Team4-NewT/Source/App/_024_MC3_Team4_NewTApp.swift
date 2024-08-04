@@ -42,8 +42,7 @@ struct _024_MC3_Team4_NewTApp: App {
         }()
         
         WindowGroup {
-//            TestView()
-            MainView()
+            TestView()
                 .modelContainer(sharedModelContainer)
         }
     }
