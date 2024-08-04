@@ -15,7 +15,7 @@ struct SisiView: View {
     let placeHolding1: String = "(최대 200자)"
     let memoLimit: Int = 200
     @State var heightSize: CGFloat = 245.0
-    
+    var ob = ChartRecordObservable()
     var body: some View {
         
         ZStack(alignment: .top){
@@ -113,7 +113,7 @@ struct SisiView: View {
                                 ChartView(
                                     startTime: $startTime, 
                                     stopTime: $stopTime,
-                                    isChartScroll: $isChartScroll
+                                    isChartScroll: $isChartScroll, observable: ob
                                 )
                             }
                         }

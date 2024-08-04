@@ -13,7 +13,7 @@ struct ChartView: View {
     @Binding var isChartScroll: Bool
     @Query(sort:\ChartRow.time) var chartRows: [ChartRow]
     
-    var observable = ChartRecordObservable()
+    var observable : ChartRecordObservable
     
     var body: some View {
         ZStack(alignment: .top) {

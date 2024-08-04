@@ -4,13 +4,13 @@
 //
 //  Created by ram on 8/3/24.
 //
-
 import SwiftData
 import Observation
 import SwiftUI
 
 @Observable
 class ChartRecordObservable {
+    var 필터된차트: [ChartRow] = []
     
     // Filter ChartRow objects based on startTime and stopTime
     func filterChartRows(_ rows: [ChartRow], startTime: Date, stopTime: Date) -> [ChartRow] {
@@ -22,12 +22,17 @@ class ChartRecordObservable {
         let adjustedStartTime = calendar.date(bySettingHour: nearestStartHour, minute: 0, second: 0, of: startTime) ?? startTime
         
         // Filter the rows between adjustedStartTime and stopTime
-        return rows.filter { row in
-            if let rowDate = DateFormatterManager.shared.dateFromString(row.time){
+        let filtered = rows.filter { row in
+            if let rowDate = DateFormatterManager.shared.dateFromString(row.time) {
                 return rowDate >= adjustedStartTime && rowDate <= stopTime
             }
             return false
         }
+        
+        // Store the filtered rows in 필터된차트
+        필터된차트 = filtered
+        
+        return filtered
     }
     
     // Get the weather icon based on weather conditions
@@ -44,4 +49,3 @@ class ChartRecordObservable {
         }
     }
 }
-
