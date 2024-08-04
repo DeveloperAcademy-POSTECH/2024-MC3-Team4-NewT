@@ -11,7 +11,7 @@ struct ChartView: View {
     @Binding var startTime: Date
     @Binding var stopTime: Date
     @Binding var isChartScroll: Bool
-    @Query var chartRows: [ChartRow]
+    @Query(sort:\ChartRow.time) var chartRows: [ChartRow]
     
     var observable = ChartRecordObservable()
     
