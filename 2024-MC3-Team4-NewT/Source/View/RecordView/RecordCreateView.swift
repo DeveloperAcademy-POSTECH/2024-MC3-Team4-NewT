@@ -4,8 +4,14 @@
 //
 //  Created by ram on 8/5/24.
 //
-
+//
+//  RecordCreateView.swift
+//  2024-MC3-Team4-NewT
+//
+//  Created by ram on 8/5/24.
+//
 import SwiftUI
+import SwiftData
 
 struct RecordCreateView: View {
     @Environment(\.modelContext) var modelContext
@@ -70,12 +76,37 @@ struct RecordCreateView: View {
                         }
                         .cornerRadius(24)
                         .padding(.horizontal)
-                       // 메모뷰 있던 자리
+                        
+                        // Start
+                        EvaluationView(
+                            selectedScore: $selectedScore,
+                            isScore: $isScore,
+                            isMemo: $isMemo,
+                            memo: $memo,
+                            heightSize: $heightSize,
+                            placeHolding: placeHolding,
+                            placeHolding1: placeHolding1,
+                            memoLimit: memoLimit
+                        )
+                        .frame(height: heightSize)
+                        .cornerRadius(24)
+                        .padding(.horizontal)
+                        // End
                     }
                 }.scrollDisabled(isMemo)
                     .padding(.bottom)
                 
-                // 버튼뷰 있던 자리
+                // Start: RecordButtonView
+                RecordButtonView(
+                    isMemo: $isMemo,
+                    heightSize: $heightSize,
+                    startTime: startTime,
+                    stopTime: stopTime,
+                    memo: memo,
+                    memoLimit: memoLimit
+                )
+                // End: RecordButtonView
+                
                 Spacer()
                 
             }
@@ -118,5 +149,4 @@ struct RecordCreateView: View {
         return calendar.component(.hour, from: stopTime)
     }
 }
-
 

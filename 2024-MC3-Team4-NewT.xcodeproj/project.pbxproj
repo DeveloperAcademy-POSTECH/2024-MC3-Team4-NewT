@@ -20,6 +20,8 @@
 		21588B142C600CAA003E3489 /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B132C600CAA003E3489 /* TabBarButton.swift */; };
 		21588B1D2C601239003E3489 /* RecordCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B1C2C601239003E3489 /* RecordCreateView.swift */; };
 		21588B1F2C6012B8003E3489 /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B1E2C6012B8003E3489 /* TimePickerView.swift */; };
+		21588B212C601412003E3489 /* EvaluationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B202C601412003E3489 /* EvaluationView.swift */; };
+		21588B242C6015BC003E3489 /* RecordButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B232C6015BC003E3489 /* RecordButtonView.swift */; };
 		21B0802D2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */; };
 		21B080312C4D0836007BC655 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B080302C4D0836007BC655 /* Assets.xcassets */; };
 		21B080342C4D0836007BC655 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B080332C4D0836007BC655 /* Preview Assets.xcassets */; };
@@ -55,7 +57,6 @@
 		89A63A1D2C59E4F200787DC4 /* RecentChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A63A1C2C59E4F200787DC4 /* RecentChartsView.swift */; };
 		89A63A1F2C59E53100787DC4 /* PinChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A63A1E2C59E53100787DC4 /* PinChartsView.swift */; };
 		89A63A242C5C7AE800787DC4 /* SurfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A63A232C5C7AE800787DC4 /* SurfModel.swift */; };
-		89A63A292C5C7C7500787DC4 /* RecordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A63A282C5C7C7500787DC4 /* RecordsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,8 @@
 		21588B132C600CAA003E3489 /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
 		21588B1C2C601239003E3489 /* RecordCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCreateView.swift; sourceTree = "<group>"; };
 		21588B1E2C6012B8003E3489 /* TimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
+		21588B202C601412003E3489 /* EvaluationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationView.swift; sourceTree = "<group>"; };
+		21588B232C6015BC003E3489 /* RecordButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButtonView.swift; sourceTree = "<group>"; };
 		21B080292C4D0834007BC655 /* 2024-MC3-Team4-NewT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "2024-MC3-Team4-NewT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _024_MC3_Team4_NewTApp.swift; sourceTree = "<group>"; };
 		21B080302C4D0836007BC655 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -107,7 +110,6 @@
 		89A63A1C2C59E4F200787DC4 /* RecentChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentChartsView.swift; sourceTree = "<group>"; };
 		89A63A1E2C59E53100787DC4 /* PinChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinChartsView.swift; sourceTree = "<group>"; };
 		89A63A232C5C7AE800787DC4 /* SurfModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfModel.swift; sourceTree = "<group>"; };
-		89A63A282C5C7C7500787DC4 /* RecordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,8 +172,7 @@
 		21B080442C4D08D3007BC655 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				89A63A272C5C7C4700787DC4 /* RecordsView */,
-				89A63A262C5C7C1300787DC4 /* RecordingView */,
+				89A63A262C5C7C1300787DC4 /* RecordView */,
 				89A63A252C5C7AF200787DC4 /* MainView */,
 				89A63A222C5C7A8600787DC4 /* SwiftData */,
 				89A63A212C5C7A3800787DC4 /* LocationView */,
@@ -319,23 +320,17 @@
 			path = MainView;
 			sourceTree = "<group>";
 		};
-		89A63A262C5C7C1300787DC4 /* RecordingView */ = {
+		89A63A262C5C7C1300787DC4 /* RecordView */ = {
 			isa = PBXGroup;
 			children = (
 				21588B112C6009AF003E3489 /* ChartView.swift */,
-				21B0803E2C4D089F007BC655 /* SisiView.swift */,
+				21588B202C601412003E3489 /* EvaluationView.swift */,
+				21588B232C6015BC003E3489 /* RecordButtonView.swift */,
 				21588B1C2C601239003E3489 /* RecordCreateView.swift */,
+				21B0803E2C4D089F007BC655 /* SisiView.swift */,
 				21588B1E2C6012B8003E3489 /* TimePickerView.swift */,
 			);
-			path = RecordingView;
-			sourceTree = "<group>";
-		};
-		89A63A272C5C7C4700787DC4 /* RecordsView */ = {
-			isa = PBXGroup;
-			children = (
-				89A63A282C5C7C7500787DC4 /* RecordsView.swift */,
-			);
-			path = RecordsView;
+			path = RecordView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -423,6 +418,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21588B212C601412003E3489 /* EvaluationView.swift in Sources */,
 				21588B1F2C6012B8003E3489 /* TimePickerView.swift in Sources */,
 				21588B032C5C7632003E3489 /* SwiftDataObservable.swift in Sources */,
 				21B080742C56DB7A007BC655 /* WindFinderView.swift in Sources */,
@@ -452,12 +448,12 @@
 				21B0803B2C4D087F007BC655 /* PiriView.swift in Sources */,
 				21588B052C5C7652003E3489 /* SDCheckView.swift in Sources */,
 				21588B1D2C601239003E3489 /* RecordCreateView.swift in Sources */,
-				89A63A292C5C7C7500787DC4 /* RecordsView.swift in Sources */,
 				21588B122C6009AF003E3489 /* ChartView.swift in Sources */,
 				717594152C5C656700F28BA1 /* LocationView.swift in Sources */,
 				21588AFF2C5C760C003E3489 /* FirebaseObservable.swift in Sources */,
 				89A63A1D2C59E4F200787DC4 /* RecentChartsView.swift in Sources */,
 				717594132C5C614700F28BA1 /* RecordChartView.swift in Sources */,
+				21588B242C6015BC003E3489 /* RecordButtonView.swift in Sources */,
 				21B0806E2C516248007BC655 /* FindSpotView.swift in Sources */,
 				21B080722C52890A007BC655 /* WindyView.swift in Sources */,
 			);
