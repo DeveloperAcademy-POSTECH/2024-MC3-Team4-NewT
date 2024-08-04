@@ -8,14 +8,8 @@
 import SwiftUI
 
 struct EvaluationView: View {
-    @Binding var selectedScore: Int
-    @Binding var isScore: Double
-    @Binding var isMemo: Bool
-    @Binding var memo: String
-    @Binding var heightSize: CGFloat
-    let placeHolding: String
-    let placeHolding1: String
-    let memoLimit: Int
+    @ObservedObject var viewModel : RecordCreateViewModel
+    
     
     var body: some View {
         ZStack(alignment: .top){
@@ -31,19 +25,19 @@ struct EvaluationView: View {
                 }.padding(.bottom, 20)
                 
                 ZStack{
-                    ProgressView(value: isScore, total: 4.0)
+                    ProgressView(value: viewModel.isScore, total: 4.0)
                         .tint(Color("surfBlue"))
                         .background(Color("brightGray"))
                     
                     HStack(spacing: 50){
                         ForEach(0..<5) { index in
                             Button {
-                                selectedScore = index
-                                isScore = Double(index)
+                                viewModel.selectedScore = index
+                                    viewModel.isScore = Double(index)
                             } label: {
                                 Circle()
                                     .frame(width: 20, height: 20)
-                                    .foregroundColor(selectedScore >= index ? Color("surfBlue") : Color(.systemGroupedBackground))
+                                    .foregroundColor(viewModel.selectedScore >= index ? Color("surfBlue") : Color(.systemGroupedBackground))
                             }
                         }
                         
@@ -109,10 +103,10 @@ struct EvaluationView: View {
                     Spacer()
                 }.padding(.bottom, 8)
                 
-                if isMemo{
+                if viewModel.isMemo{
                     Button{
-                        isMemo.toggle()
-                        heightSize = 322.0
+                        viewModel.isMemo.toggle()
+                            viewModel.heightSize = 322.0
                     } label: {
                         ZStack {
                             Color.white
@@ -134,7 +128,7 @@ struct EvaluationView: View {
                 }
                 else {
                     ZStack(alignment: .top){
-                        TextEditor(text: $memo)
+                        TextEditor(text: $viewModel.memo)
                             .frame(height: 120)
                             .font(.Body1Medium)
                             .foregroundColor(Color.black)
@@ -143,23 +137,23 @@ struct EvaluationView: View {
                             .scrollContentBackground(.hidden)
                             .background(Color("brightGray"))
                             .cornerRadius(12)
-                            .onChange(of: memo){ newValue in
-                                if newValue.count > memoLimit {
-                                    memo = String(newValue.prefix(memoLimit))
+                            .onChange(of: viewModel.memo){ newValue in
+                                if newValue.count > viewModel.memoLimit {
+                                    viewModel.memo = String(newValue.prefix(viewModel.memoLimit))
                                 }
                             }
-                        if(memo.isEmpty)
+                        if(viewModel.memo.isEmpty)
                         {
                             VStack(spacing: 0){
                                 HStack(spacing: 0){
-                                    Text(placeHolding)
+                                    Text(viewModel.placeHolding1)
                                         .font(.Body1Medium)                    .foregroundColor(Color.gray)
                                         .padding(.top, 13)
                                     
                                     Spacer()
                                 }
                                 HStack(spacing: 0){
-                                    Text(placeHolding1)
+                                    Text(viewModel.placeHolding2)
                                         .font(.Body2Medium)
                                         .foregroundColor(Color.gray)
                                     Spacer()

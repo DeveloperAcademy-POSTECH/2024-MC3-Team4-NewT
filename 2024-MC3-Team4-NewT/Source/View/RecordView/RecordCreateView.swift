@@ -9,20 +9,9 @@ import SwiftData
 
 struct RecordCreateView: View {
     @Environment(\.modelContext) var modelContext
-    @State var selectedDate = Date()
-    @State var startTime = Date()
-    @State var stopTime = Date()
-    @State var selectedScore: Int = 0
-    @State var isChartScroll: Bool = true
-    @State var isScore = 0.0
-    @State var isMemo: Bool = true
-    @State var memo: String = ""
-    let placeHolding1: String = "파도에 대한 간단한 메모를 남겨보세요."
-    let placeHolding2: String = "(최대 200자)"
-    let memoLimit: Int = 200
-    @State var heightSize: CGFloat = 245.0
     var ob = ChartRecordObservable()
     @ObservedObject var viewModel = RecordCreateViewModel()
+    
     var body: some View {
         
         ZStack(alignment: .top){
@@ -40,7 +29,7 @@ struct RecordCreateView: View {
                                 
                                 Divider()
                                     .padding(.leading)
-                                Text(date(from: selectedDate))
+                                Text(date(from: viewModel.selectedDate))
                                     .font(.SubheadingBold)
                                     .foregroundStyle(Color("surfBlue"))
                                     .padding(.vertical, 8)
@@ -71,31 +60,19 @@ struct RecordCreateView: View {
                         
                         // Start
                         EvaluationView(
-                            selectedScore: $selectedScore,
-                            isScore: $isScore,
-                            isMemo: $isMemo,
-                            memo: $memo,
-                            heightSize: $heightSize,
-                            placeHolding: placeHolding1,
-                            placeHolding1: placeHolding2,
-                            memoLimit: memoLimit
+                            viewModel:viewModel
                         )
-                        .frame(height: heightSize)
+                        .frame(height: viewModel.heightSize)
                         .cornerRadius(24)
                         .padding(.horizontal)
                         // End
                     }
-                }.scrollDisabled(isMemo)
+                }.scrollDisabled(viewModel.isMemo)
                     .padding(.bottom)
                 
                 // Start: RecordButtonView
                 RecordButtonView(
-                    isMemo: $isMemo,
-                    heightSize: $heightSize,
-                    startTime: startTime,
-                    stopTime: stopTime,
-                    memo: memo,
-                    memoLimit: memoLimit
+                    viewModel:viewModel
                 )
                 // End: RecordButtonView
                 
@@ -117,9 +94,9 @@ struct RecordCreateView: View {
     func updateChartScroll() {
         let counter = chartCounter
         if counter > 3 {
-            isChartScroll = false
+            viewModel.isChartScroll = false
         } else {
-            isChartScroll = true
+            viewModel.isChartScroll = true
         }
     }
     
@@ -133,12 +110,12 @@ struct RecordCreateView: View {
     
     var startHour: Int {
         let calendar = Calendar.current
-        return calendar.component(.hour, from: startTime)
+        return calendar.component(.hour, from: viewModel.startTime)
     }
     
     var stopHour: Int {
         let calendar = Calendar.current
-        return calendar.component(.hour, from: stopTime)
+        return calendar.component(.hour, from: viewModel.stopTime)
     }
 }
 

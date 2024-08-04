@@ -9,24 +9,20 @@ import SwiftUI
 import SwiftData
 
 struct RecordButtonView: View {
-    @Binding var isMemo: Bool
-    @Binding var heightSize: CGFloat
-    let startTime: Date
-    let stopTime: Date
-    let memo: String
-    let memoLimit: Int
+    
     @Environment(\.modelContext) var modelContext
+    @ObservedObject var viewModel : RecordCreateViewModel
     
     var body: some View {
         Button{
-            isMemo.toggle()
-            modelContext.insert(SurfingRecordOne(surfingStartTime: startTime, surfingEndTime: stopTime, charts: [], evaluationValue: memoLimit, memo: memo))
+            viewModel.isMemo.toggle()
+            modelContext.insert(SurfingRecordOne(surfingStartTime: viewModel.startTime, surfingEndTime: viewModel.stopTime, charts: [], evaluationValue: viewModel.memoLimit, memo: viewModel.memo))
             
-            if isMemo {
-                heightSize = 245.0
+            if viewModel.isMemo {
+                viewModel.heightSize = 245.0
             }
             else {
-                heightSize = 322.0
+                viewModel.heightSize = 322.0
             }
             
         } label: {
