@@ -172,11 +172,11 @@
 		21B080442C4D08D3007BC655 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				89A63A262C5C7C1300787DC4 /* RecordView */,
-				89A63A252C5C7AF200787DC4 /* MainView */,
-				89A63A222C5C7A8600787DC4 /* SwiftData */,
-				89A63A212C5C7A3800787DC4 /* LocationView */,
 				89A63A202C5C7A1500787DC4 /* BackEnd */,
+				89A63A212C5C7A3800787DC4 /* LocationView */,
+				89A63A252C5C7AF200787DC4 /* MainView */,
+				89A63A262C5C7C1300787DC4 /* RecordView */,
+				89A63A222C5C7A8600787DC4 /* SwiftData */,
 				21B080422C4D08C2007BC655 /* TestView.swift */,
 			);
 			path = View;
