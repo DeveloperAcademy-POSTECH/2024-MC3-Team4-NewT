@@ -15,7 +15,6 @@
 		21588B082C5CC2CA003E3489 /* DateFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B072C5CC2CA003E3489 /* DateFormatterManager.swift */; };
 		21588B0A2C5D594F003E3489 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B092C5D594F003E3489 /* ContentView.swift */; };
 		21588B0C2C5D5D30003E3489 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B0B2C5D5D30003E3489 /* CustomTabBar.swift */; };
-		21588B0E2C5E0D68003E3489 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B0D2C5E0D68003E3489 /* ChartView.swift */; };
 		21588B102C5E201F003E3489 /* ChartRecordObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B0F2C5E201F003E3489 /* ChartRecordObservable.swift */; };
 		21B0802D2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */; };
 		21B080312C4D0836007BC655 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B080302C4D0836007BC655 /* Assets.xcassets */; };
@@ -36,10 +35,10 @@
 		21B080812C588261007BC655 /* WaveObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B080802C588261007BC655 /* WaveObservable.swift */; };
 		21EDE2412C5B1B2B00F973C0 /* ModelContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EDE2402C5B1B2B00F973C0 /* ModelContext.swift */; };
 		21EDE2432C5B1C1D00F973C0 /* SDTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EDE2422C5B1C1D00F973C0 /* SDTestView.swift */; };
-		7159C18C2C5F4F89007300D6 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7159C18B2C5F4F89007300D6 /* Pretendard-SemiBold.otf */; };
 		71449BF22C5E1E7700801E50 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 71449BF12C5E1E7200801E50 /* Pretendard-SemiBold.otf */; };
 		71449BF42C5E1E7E00801E50 /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 89A63A142C58982A00787DC4 /* Pretendard-ExtraLight.otf */; };
 		71449BF52C5E1E8000801E50 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 89A63A152C58983700787DC4 /* Pretendard-Medium.otf */; };
+		7159C18C2C5F4F89007300D6 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7159C18B2C5F4F89007300D6 /* Pretendard-SemiBold.otf */; };
 		717594132C5C614700F28BA1 /* RecordChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EA9CC2C5A56730090BAB5 /* RecordChartView.swift */; };
 		717594152C5C656700F28BA1 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717594142C5C656700F28BA1 /* LocationView.swift */; };
 		719EA9C02C5768580090BAB5 /* FitChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EA9BF2C5768580090BAB5 /* FitChartView.swift */; };
@@ -53,6 +52,7 @@
 		89A63A1F2C59E53100787DC4 /* PinChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A63A1E2C59E53100787DC4 /* PinChartsView.swift */; };
 		89A63A242C5C7AE800787DC4 /* SurfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A63A232C5C7AE800787DC4 /* SurfModel.swift */; };
 		89A63A292C5C7C7500787DC4 /* RecordsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A63A282C5C7C7500787DC4 /* RecordsView.swift */; };
+		89A63A2F2C5F95B900787DC4 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A63A2E2C5F95B900787DC4 /* ChartView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,7 +64,6 @@
 		21588B072C5CC2CA003E3489 /* DateFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManager.swift; sourceTree = "<group>"; };
 		21588B092C5D594F003E3489 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		21588B0B2C5D5D30003E3489 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
-		21588B0D2C5E0D68003E3489 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		21588B0F2C5E201F003E3489 /* ChartRecordObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRecordObservable.swift; sourceTree = "<group>"; };
 		21B080292C4D0834007BC655 /* 2024-MC3-Team4-NewT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "2024-MC3-Team4-NewT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _024_MC3_Team4_NewTApp.swift; sourceTree = "<group>"; };
@@ -84,8 +83,8 @@
 		21B080802C588261007BC655 /* WaveObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveObservable.swift; sourceTree = "<group>"; };
 		21EDE2402C5B1B2B00F973C0 /* ModelContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContext.swift; sourceTree = "<group>"; };
 		21EDE2422C5B1C1D00F973C0 /* SDTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDTestView.swift; sourceTree = "<group>"; };
-		7159C18B2C5F4F89007300D6 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		71449BF12C5E1E7200801E50 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		7159C18B2C5F4F89007300D6 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		717594142C5C656700F28BA1 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		719EA9BF2C5768580090BAB5 /* FitChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitChartView.swift; sourceTree = "<group>"; };
 		719EA9C12C576EA20090BAB5 /* -024-MC3-Team4-NewT-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "-024-MC3-Team4-NewT-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -102,6 +101,7 @@
 		89A63A1E2C59E53100787DC4 /* PinChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinChartsView.swift; sourceTree = "<group>"; };
 		89A63A232C5C7AE800787DC4 /* SurfModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfModel.swift; sourceTree = "<group>"; };
 		89A63A282C5C7C7500787DC4 /* RecordsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsView.swift; sourceTree = "<group>"; };
+		89A63A2E2C5F95B900787DC4 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChartView.swift; path = "../../../../../../../.Trash/2024-MC3-Team4-NewT/2024-MC3-Team4-NewT/Source/View/RecordingView/ChartView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -305,9 +305,8 @@
 				21B0803C2C4D0888007BC655 /* JaneView.swift */,
 				89A63A172C59B7D100787DC4 /* MainView.swift */,
 				89A63A1E2C59E53100787DC4 /* PinChartsView.swift */,
-				719EA9CC2C5A56730090BAB5 /* RecordChartView.swift */,
 				89A63A1C2C59E4F200787DC4 /* RecentChartsView.swift */,
-
+				719EA9CC2C5A56730090BAB5 /* RecordChartView.swift */,
 				89A63A1A2C59E4B800787DC4 /* StatisticsView.swift */,
 			);
 			path = MainView;
@@ -316,7 +315,7 @@
 		89A63A262C5C7C1300787DC4 /* RecordingView */ = {
 			isa = PBXGroup;
 			children = (
-				21588B0D2C5E0D68003E3489 /* ChartView.swift */,
+				89A63A2E2C5F95B900787DC4 /* ChartView.swift */,
 				21B0803E2C4D089F007BC655 /* SisiView.swift */,
 			);
 			path = RecordingView;
@@ -442,6 +441,7 @@
 				21B0803B2C4D087F007BC655 /* PiriView.swift in Sources */,
 				21588B052C5C7652003E3489 /* SDCheckView.swift in Sources */,
 				89A63A292C5C7C7500787DC4 /* RecordsView.swift in Sources */,
+				89A63A2F2C5F95B900787DC4 /* ChartView.swift in Sources */,
 				717594152C5C656700F28BA1 /* LocationView.swift in Sources */,
 				21588AFF2C5C760C003E3489 /* FirebaseObservable.swift in Sources */,
 				89A63A1D2C59E4F200787DC4 /* RecentChartsView.swift in Sources */,
