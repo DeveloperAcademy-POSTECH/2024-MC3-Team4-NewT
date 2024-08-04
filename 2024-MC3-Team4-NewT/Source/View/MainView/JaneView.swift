@@ -27,6 +27,7 @@ let dateFormatter: DateFormatter = {
 struct JaneView: View {
     @Environment(\.modelContext) private var modelContext
     @Query var dailyWeather: [DailyWeatherOld]
+    @Binding var isHeaderVisible: Bool // 헤더 가시성 상태 변수
     var today: String = "2024-07-30" // 오늘 날짜 (예: "2024-07-30")
     
     var body: some View {
@@ -71,6 +72,7 @@ struct JaneView: View {
                                             Text("\(timeFormatter.string(from: chart.day))").font(.Body2Medium)
                                             HStack(alignment: .center, spacing: 8) {
                                                 Image("waveDirectionIcon").frame(width: 14, height: 18)
+//                                                Image(systemName: "location.north").frame(width: 14, height: 18)
                                                 Text("\(chart.surfingValues.windSpeed, specifier: "%.1f")m/s").font(.Body1Medium)
                                             }.frame(width: 76)
                                             
@@ -97,6 +99,14 @@ struct JaneView: View {
                                 }
                             }
                         }.padding(.horizontal)
+                            .background(GeometryReader { geometry in
+                                Color.clear
+                                    .preference(key: ScrollOffsetKey.self, value: geometry.frame(in: .global).minY)
+                            })
+                            .onPreferenceChange(ScrollOffsetKey.self) { value in
+                                // 스크롤 오프셋에 따라 헤더 가시성 조절
+                                isHeaderVisible = value > 0
+                            }
                     }
                 }
             }
@@ -104,6 +114,9 @@ struct JaneView: View {
         }.frame(maxWidth: .infinity)
             .background(.white)
             .cornerRadius(24)
+            .onAppear{
+                addDummyData()
+            }
         Spacer()
     }
     

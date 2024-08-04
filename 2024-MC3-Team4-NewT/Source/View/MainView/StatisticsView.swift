@@ -1,10 +1,3 @@
-//
-//  StatisticsView.swift
-//  2024-MC3-Team4-NewT
-//
-//  Created by 김이예은 on 7/31/24.
-//
-
 import SwiftUI
 import SwiftData
 
@@ -13,93 +6,147 @@ func FloatToDouble(_ value: Float) -> Double {
 }
 
 struct StatisticsView: View {
-    @Bindable var viewStatistics: Statistics
+    @Environment(\.modelContext) private var modelContext: ModelContext
+    @Query private var statistics: [Statistics]
+    @State private var sheetPop: Bool = false
+
     var body: some View {
-        VStack(alignment: .leading, spacing:0){
-            HStack(alignment: .center) {
-                Text("선호하는 차트 통계")
-                    .font(.Heading3Bold)
-                    .foregroundColor(.white)
-                Spacer()
-                Button {
-                    print("자세히 보기")
-                } label: {
-                    Image("infoIcon")
+        ScrollView {
+            VStack(alignment: .leading, spacing: 0) {
+                HStack(alignment: .center) {
+                    Text("선호하는 차트 통계")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                    Spacer()
+                    Button {
+                        print("자세히 보기")
+                        self.sheetPop = true
+                    } label: {
+                        Image("infoIcon")
+                    }
                 }
-            }.padding(.bottom, 24)
-            
-            HStack(spacing:0){
-                ZStack{
-                    VStack(alignment: .leading, spacing:0){
-                        HStack{
-                            Image("windFillIcon")
-                                .foregroundColor(Color("surfBlue"))
-                            
-                            Text("바람")
-                                .font(.Body1Bold)
-                            .foregroundColor(Color("surfBlue"))                                }
-                        Spacer()
-                        HStack(alignment: .center, spacing:0){
-                            Text("\(viewStatistics.windSpeed!, specifier: "%.1f")m/s")
-                            
-                                .font(.Heading1SemiBold)
-                                .foregroundColor(Color("surfBlue"))
-                            Spacer()
-                            Image("waveDirectionIcon2")
-                                .rotationEffect(.degrees(Double(FloatToDouble(viewStatistics.windDirection ?? 0))))
-                                .foregroundColor(Color("surfBlue"))
-                                .padding(4)
-                        }
-                    }.padding(12)
-                        .frame(minHeight: 139)
-                }
-                .background(.white.opacity(0.5))
-                .cornerRadius(24)
-                Spacer()
-                    .frame(width: 13)
-                ZStack{
-                    VStack(alignment: .leading, spacing:0){
-                        HStack{
-                            Image("waveFillIcon")
-                                .foregroundColor(Color("surfBlue"))
-                            
-                            Text("파도")
-                                .font(.Body1Bold)
-                                .foregroundColor(Color("surfBlue"))
-                            Spacer()
-                        }
-                        .padding(.bottom, 9)
-                        Spacer()
-                        HStack(alignment: .bottom) {
+                .padding(.bottom, 24)
+                
+                HStack(spacing: 0) {
+                    if let viewStatistics = statistics.first {
+                        ZStack {
                             VStack(alignment: .leading, spacing: 0) {
-                                Text("\(viewStatistics.waveHeight ?? 0.0, specifier: "%.1f")m")
-                                    .font(.Heading1SemiBold)
-                                    .foregroundColor(Color("surfBlue"))
-                                Text("\(viewStatistics.wavePeriod ?? 0.0, specifier: "%.1f")s")
-                                    .font(.SubheadingSemiBold)
-                                    .foregroundColor(Color("surfBlue"))
+                                HStack {
+                                    Image("windFillIcon")
+                                        .foregroundColor(Color("surfBlue"))
+                                    Text("바람")
+                                        .font(.body)
+                                        .foregroundColor(Color("surfBlue"))
+                                }
+                                Spacer()
+                                HStack(alignment: .center, spacing: 0) {
+                                    Text("\(viewStatistics.windSpeed ?? 0.0, specifier: "%.1f")m/s")
+                                        .font(.largeTitle)
+                                        .foregroundColor(Color("surfBlue"))
+                                    Spacer()
+                                    Image("waveDirectionIcon2")
+                                        .rotationEffect(.degrees(FloatToDouble(Float(viewStatistics.windDirection ?? 0.0))))
+                                        .foregroundColor(Color("surfBlue"))
+                                        .padding(4)
+                                }
                             }
-                            Spacer()
-                            Image("swellDirectionIcon2")
-                                .rotationEffect(.degrees(FloatToDouble(viewStatistics.waveDirection ?? 0)))
-                                .foregroundColor(Color("surfBlue"))
-                                .padding(4)
+                            .padding(12)
+                            .frame(minHeight: 139)
                         }
+                        .background(Color.white.opacity(0.5))
+                        .cornerRadius(24)
                         
-                    }.padding(12)
-                        .frame(minHeight: 139)
+                        Spacer().frame(width: 13)
+                        
+                        ZStack {
+                            VStack(alignment: .leading, spacing: 0) {
+                                HStack {
+                                    Image("waveFillIcon")
+                                        .foregroundColor(Color("surfBlue"))
+                                    Text("파도")
+                                        .font(.body)
+                                        .foregroundColor(Color("surfBlue"))
+                                    Spacer()
+                                }
+                                .padding(.bottom, 9)
+                                Spacer()
+                                HStack(alignment: .bottom) {
+                                    VStack(alignment: .leading, spacing: 0) {
+                                        Text("\(viewStatistics.waveHeight ?? 0.0, specifier: "%.1f")m")
+                                            .font(.largeTitle)
+                                            .foregroundColor(Color("surfBlue"))
+                                        Text("\(viewStatistics.wavePeriod ?? 0.0, specifier: "%.1f")s")
+                                            .font(.subheadline)
+                                            .foregroundColor(Color("surfBlue"))
+                                    }
+                                    Spacer()
+                                    Image("swellDirectionIcon2")
+                                        .rotationEffect(.degrees(FloatToDouble(Float(viewStatistics.waveDirection ?? 0.0))))
+                                        .foregroundColor(Color("surfBlue"))
+                                        .padding(4)
+                                }
+                            }
+                            .padding(12)
+                            .frame(minHeight: 139)
+                        }
+                        .background(Color.white.opacity(0.5))
+                        .cornerRadius(24)
+                    } else {
+                        Text("데이터가 없습니다.")
+                            .font(.body)
+                            .foregroundColor(.gray)
+                    }
                 }
-                .background(.white.opacity(0.5))
-                .cornerRadius(24)
+                .padding(.top)
+                .padding(.bottom, 25)
+                Spacer()
             }
-            .padding(.top)
-            .padding(.bottom, 25)
-            Spacer()
+            .onAppear {
+                addDummyStatistics()
+            }
+            .frame(height: 202)
         }
-        .frame(height: 202)
+        .sheet(isPresented: $sheetPop) {
+            SheetView(sheetPop: $sheetPop)
+        }
+    }
+    
+    func addDummyStatistics() {
+        let dummyStatistic = Statistics(id: UUID(), waveDirection: 164.0, waveHeight: 0.16, wavePeriod: 4.75, windDirection: 234.36, windSpeed: 5.0, weather: "ra", temperature: 25.33)
+        modelContext.insert(dummyStatistic)
+        
+        do {
+            try modelContext.save()
+        } catch {
+            print("Failed to save context: \(error)")
+        }
     }
 }
 
-extension StatisticsView {
+struct SheetView: View {
+    @Binding var sheetPop: Bool
     
+    var body: some View {
+        VStack(alignment: .leading) {
+            HStack {
+                Text("자세한 정보")
+                    .font(.title)
+                    .padding()
+                Spacer()
+                Button {
+                    sheetPop = false
+                } label: {
+                    Image("sheetXButton")
+                }
+            }
+            .padding()
+            Spacer()
+            Image("infoSheet")
+        }.padding()
+        .frame(maxHeight: UIScreen.main.bounds.height / 2)
+        .background(Color.white)
+        .cornerRadius(24)
+        
+    }
 }
+

@@ -18,7 +18,7 @@ struct TestView: View {
                 NavigationLink(destination: PiriView()){
                     Text("파이리")
                 }
-                NavigationLink(destination: JaneView()){
+                NavigationLink(destination: MainView()){
                     Text("제인")
                 }
                 NavigationLink(destination: SisiView()){
