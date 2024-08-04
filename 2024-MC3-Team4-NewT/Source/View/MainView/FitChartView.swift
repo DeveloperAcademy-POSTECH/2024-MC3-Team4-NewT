@@ -33,7 +33,7 @@ struct FitChartView: View {
                         .foregroundColor(.gray)
                 }
 //                RecentChartsVIew()
-                RecentChartsView2()
+                RecentChartsView()
                 PinChartsView()
             }
             .frame(maxHeight: 256)

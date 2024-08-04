@@ -8,7 +8,7 @@ struct RecentChartsView2: View {
     ]
     
     let columns = [
-        GridItem(.flexible()),
+        GridItem(.fixed(10)),
         GridItem(.flexible()),
         GridItem(.flexible()),
         GridItem(.flexible()),
@@ -100,5 +100,5 @@ struct RecentChartsView2: View {
 }
 
 #Preview {
-    RecentChartsVIew()
+    RecentChartsView()
 }
