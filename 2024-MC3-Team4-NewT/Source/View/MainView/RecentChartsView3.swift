@@ -9,55 +9,31 @@ import SwiftUI
 
 struct RecentChartsView3: View {
     private var dummyCharts: [ChartRowTmp]
-     = [ChartRowTmp(day: Date(), surfingValues: SurfingValuesOne(waveDirection: 164.0, waveHeight: 0.16, wavePeriod: 4.75, windDirection: 234.36, windSpeed: 5.0, weather: "ra", airTemperature: 25.33, waterTemperature: 23.5), isHighTide: false, isLowTide: false),
-        ChartRowTmp(day: Date(), surfingValues: SurfingValuesOne(waveDirection: 164.0, waveHeight: 0.16, wavePeriod: 4.75, windDirection: 234.36, windSpeed: 5.0, weather: "ra", airTemperature: 25.33, waterTemperature: 23.5), isHighTide: false, isLowTide: false),
-        ChartRowTmp(day: Date(), surfingValues: SurfingValuesOne(waveDirection: 164.0, waveHeight: 0.16, wavePeriod: 4.75, windDirection: 234.36, windSpeed: 5.0, weather: "ra", airTemperature: 25.33, waterTemperature: 23.5), isHighTide: false, isLowTide: false)
-     ]
-    
+    = [ChartRowTmp(day: Date(), surfingValues: SurfingValuesOne(waveDirection: 164.0, waveHeight: 0.16, wavePeriod: 4.75, windDirection: 234.36, windSpeed: 5.0, weather: "ra", airTemperature: 25.33, waterTemperature: 23.5), isHighTide: false, isLowTide: false),
+       ChartRowTmp(day: Date(), surfingValues: SurfingValuesOne(waveDirection: 164.0, waveHeight: 0.16, wavePeriod: 4.75, windDirection: 234.36, windSpeed: 5.0, weather: "ra", airTemperature: 25.33, waterTemperature: 23.5), isHighTide: false, isLowTide: false),
+       ChartRowTmp(day: Date(), surfingValues: SurfingValuesOne(waveDirection: 164.0, waveHeight: 0.16, wavePeriod: 4.75, windDirection: 234.36, windSpeed: 5.0, weather: "ra", airTemperature: 25.33, waterTemperature: 23.5), isHighTide: false, isLowTide: false)
+    ]
+    @State var sheetPop: Bool = false
     var body: some View {
         VStack(spacing: 0){
-            HStack{
-                Text("최근 기록 차트")
-                    .font(.Heading3Bold)
-                    .foregroundColor(.white)
+            HStack {
+                Text("자세한 정보")
+                    .font(.title)
+                    .padding()
                 Spacer()
                 Button{
-                    
+                    sheetPop = false // 시트 닫기
                 } label: {
-                    HStack(alignment: .center, spacing: 2){
-                        Text("모두 보기").font(.Body2SemiBold)
-                        Image(systemName: "chevron.right")
-                    }.foregroundColor(.white)
+                    Image("sheetXButton")
                 }
             }
-            .padding(.bottom, 8)
-            
-            VStack {
-                HStack {
-                    Grid {
-                        HStack(alignment: .center) {
-                            Text("시간").font(.CaptionSemiBold)
-                            Spacer()
-                            Text("바람").font(.CaptionSemiBold)
-                            Spacer()
-                            Text("파도").font(.CaptionSemiBold)
-                            Spacer()
-                            Text("수온").font(.CaptionSemiBold)
-                            Spacer()
-                            Text("평가").font(.CaptionSemiBold)
-                        }.foregroundColor(.black.opacity(0.5))
-                            .padding(.horizontal, 24)
-                            .padding(.vertical, 3)
-                        Rectangle().frame(width: .infinity, height: 1).foregroundColor(.surfBlue.opacity(0.3))
-                    }
-                }
-            }
-            .background(.white.opacity(0.5))
-            .cornerRadius(24)
             .padding()
-            Spacer()
-        }.background(.teal)
-        
+            Image("infoSheet")
+        }
+        .frame(maxHeight: UIScreen.main.bounds.height / 2) // 화면의 절반 높이
+        .background(Color.white)
+        .cornerRadius(20)
+        .shadow(radius: 10)
     }
 }
 

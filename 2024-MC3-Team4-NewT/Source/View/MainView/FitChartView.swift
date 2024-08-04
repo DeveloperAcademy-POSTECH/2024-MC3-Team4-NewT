@@ -35,7 +35,7 @@ struct FitChartView: View {
 //                RecentChartsVIew()
                 RecentChartsView()
                 PinChartsView()
-            }
+            }.padding(.top, 12)
             .frame(maxHeight: 256)
             .tabViewStyle(PageTabViewStyle())
             .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .never))

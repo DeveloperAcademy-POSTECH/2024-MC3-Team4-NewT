@@ -15,7 +15,10 @@ func FloatToDouble(_ value: Float) -> Double {
 struct StatisticsView: View {
     @Environment(\.modelContext) private var modelContext
     @Bindable var viewStatistics: Statistics
+    @State private var sheetPop: Bool = false
+    
     var dummyStatistic: Statistics = Statistics(id: UUID(), waveDirection: 164.0, waveHeight: 0.16, wavePeriod: 4.75, windDirection: 234.36, windSpeed: 5.0, weather: "ra", temperature: 25.33)
+    
     var body: some View {
         VStack(alignment: .leading, spacing:0){
             HStack(alignment: .center) {
@@ -25,6 +28,7 @@ struct StatisticsView: View {
                 Spacer()
                 Button {
                     print("자세히 보기")
+                    self.sheetPop = true
                 } label: {
                     Image("infoIcon")
                 }
@@ -102,6 +106,9 @@ struct StatisticsView: View {
             addDummyStatistics()
         }
         .frame(height: 202)
+        .sheet(isPresented: $sheetPop) {
+                    SheetView(sheetPop: $sheetPop) // 시트 뷰 추가
+                }
     }
 }
 
@@ -116,5 +123,31 @@ extension StatisticsView {
         } catch {
             print("Failed to save context: \(error)")
         }
+    }
+}
+
+struct SheetView: View {
+    @Binding var sheetPop: Bool
+    
+    var body: some View {
+        VStack {
+            HStack {
+                Text("자세한 정보")
+                    .font(.title)
+                    .padding()
+                Spacer()
+                Button{
+                    sheetPop = false // 시트 닫기
+                } label: {
+                    Image("sheetXButton")
+                }
+            }
+            .padding()
+            Image("infoSheet")
+        }
+        .frame(maxHeight: UIScreen.main.bounds.height / 2) // 화면의 절반 높이
+        .background(Color.white)
+        .cornerRadius(20)
+        .shadow(radius: 10)
     }
 }

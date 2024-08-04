@@ -106,7 +106,7 @@ struct JaneView: View {
             .background(.white)
             .cornerRadius(24)
             .onAppear{
-//                addDummyData()
+                addDummyData()
             }
         Spacer()
     }

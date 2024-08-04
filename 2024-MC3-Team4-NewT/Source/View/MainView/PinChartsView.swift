@@ -11,7 +11,7 @@ struct PinChartsView: View {
     var body: some View {
         VStack(spacing: 0){
             HStack{
-                Text("나의 고정 차트")
+                Text("고정 차트")
                     .font(.Heading3Bold)
                     .foregroundColor(.white)
                 Spacer()
@@ -19,148 +19,135 @@ struct PinChartsView: View {
                     
                 } label: {
                     HStack(alignment: .center, spacing: 2){
-                        Text("모두 보기").font(.Body2SemiBold)
+                        NavigationLink(destination: RecordChartView()){
+                            Text("모두 보기").font(.Body2SemiBold)
+                        }
+                        
                         Image(systemName: "chevron.right")
                     }.foregroundColor(.white)
                 }
             }
-            .padding(.bottom, 12)
+            .padding(.bottom, 8)
             
-            ZStack{
-                Color.white.opacity(0.8)
-                    .frame(height: 50)
-                HStack(spacing: 20){
-                    VStack(spacing: 0){
-                        Text("7/26")
-                            .font(.Body2Bold)
-                            .foregroundColor(.surfBlue)
-                        Text("03시")
-                            .font(.CaptionMedium)
-                            .foregroundColor(Color("surfBlue"))
-                    }
-                    HStack(spacing: 0){
-                        Image(systemName: "paperplane")
-                            .foregroundColor(Color("iconGreen"))
-                        Text("3.3m/s")
-                            .font(.Body2Medium)
-                    }
-                    HStack(spacing: 0){
-                        Image(systemName: "paperplane.fill")
-                            .foregroundColor(Color("iconBlue"))
-                        VStack(spacing: 0){
-                            Text("0.2m")
-                                .font(.Body2Medium)
-                            Text("3.3m/s")
-                                .font(.CaptionMedium)
-                        }
-                    }
-                    VStack(spacing: 0){
-                        Text("28°C")
-                            .font(.Body2Medium)
-                        Image(systemName: "water.waves")
-                            .foregroundColor(Color("iconWaterOrange"))
-                    }
-                    HStack(spacing: 0){
-                        Image(systemName: "star.fill")
-                            .foregroundColor(Color("iconStarOrange"))
-                        Text("5")
-                            .font(.Body2SemiBold)
-                    }
-                }
-            }
-            .cornerRadius(24)
-            .padding(.bottom, 4)
-            ZStack{
-                Color.white.opacity(0.8)
-                    .frame(height: 50)
-                HStack(spacing: 20){
-                    VStack(spacing: 0){
-                        Text("7/26")
-                            .font(.Body2Bold)
-                            .foregroundColor(.surfBlue)
-                        Text("03시")
-                            .font(.CaptionMedium)
-                            .foregroundColor(Color("surfBlue"))
-                    }
-                    HStack(spacing: 0){
-                        Image(systemName: "paperplane")
-                            .foregroundColor(Color("iconGreen"))
-                        Text("3.3m/s")
-                            .font(.Body2Medium)
-                    }
-                    HStack(spacing: 0){
-                        Image(systemName: "paperplane.fill")
-                            .foregroundColor(Color("iconBlue"))
-                        VStack(spacing: 0){
-                            Text("0.2m")
-                                .font(.Body2Medium)
-                            Text("3.3m/s")
-                                .font(.CaptionMedium)
-                        }
-                    }
-                    VStack(spacing: 0){
-                        Text("28°C")
-                            .font(.Body2Medium)
-                        Image(systemName: "water.waves")
-                            .foregroundColor(Color("iconWaterOrange"))
-                    }
-                    HStack(spacing: 0){
-                        Image(systemName: "star.fill")
-                            .foregroundColor(Color("iconStarOrange"))
-                        Text("5")
-                            .font(.Body2SemiBold)
-                    }
-                }
-            }
-            .cornerRadius(24)
-            .padding(.bottom, 4)
-            ZStack{
-                Color.white.opacity(0.8)
-                    .frame(height: 50)
-                HStack(spacing: 20){
-                    VStack(spacing: 0){
-                        Text("7/26")
-                            .font(.Body2Bold)
-                            .foregroundColor(.surfBlue)
-                        Text("03시")
-                            .font(.CaptionMedium)
-                            .foregroundColor(Color("surfBlue"))
-                    }
-                    HStack(spacing: 0){
-                        Image(systemName: "paperplane")
-                            .foregroundColor(Color("iconGreen"))
-                        Text("3.3m/s")
-                            .font(.Body2Medium)
-                    }
-                    HStack(spacing: 0){
-                        Image(systemName: "paperplane.fill")
-                            .foregroundColor(Color("iconBlue"))
-                        VStack(spacing: 0){
-                            Text("0.2m")
-                                .font(.Body2Medium)
-                            Text("3.3m/s")
-                                .font(.CaptionMedium)
-                        }
-                    }
-                    VStack(spacing: 0){
-                        Text("28°C")
-                            .font(.Body2Medium)
-                        Image(systemName: "water.waves")
-                            .foregroundColor(Color("iconWaterOrange"))
-                    }
-                    HStack(spacing: 0){
-                        Image(systemName: "star.fill")
-                            .foregroundColor(Color("iconStarOrange"))
-                        Text("5")
-                            .font(.Body2SemiBold)
+            VStack {
+                HStack {
+                    Grid {
+                        HStack(alignment: .center) {
+                            Text("고정").font(.CaptionSemiBold)
+                            Spacer()
+                            Text("바람").font(.CaptionSemiBold)
+                            Spacer()
+                            Text("파도").font(.CaptionSemiBold)
+                            Spacer()
+                            Text("수온").font(.CaptionSemiBold)
+                            Spacer()
+                            Text("평가").font(.CaptionSemiBold)
+                        }.foregroundColor(.black.opacity(0.5))
+                            .padding(.horizontal, 24)
+                            .padding(.vertical, 3)
+                        Rectangle().frame(width: .infinity, height: 1).foregroundColor(.surfBlue.opacity(0.3))
+                        HStack{
+                            VStack {
+                                Image("pinIcon")
+                            }.padding(.leading, 8)
+                            Spacer()
+                            HStack {
+                                Image("waveDirectionIcon")
+                                Text("3.3m/s").font(.Body2Medium)
+                            }.padding(.leading, -15)
+                            Spacer()
+                            HStack {
+                                Image("swellDirectionIcon")
+                                VStack {
+                                    Text("0.2m").font(.Body2Medium)
+                                    Text("3.4s").font(.CaptionMedium)
+                                }
+                            }.padding(.leading, -20)
+                            Spacer()
+                            VStack(spacing: 0) {
+                                Text("28도").font(.Body2Medium)
+                                Image("waterTemperate")
+                            }.padding(.trailing, -8)
+                            Spacer()
+                            HStack(spacing: 4) {
+                                Image("starIcon")
+                                Text("5점").font(.Body2Medium)
+                            }
+                            
+                        }.padding(.horizontal, 19)
+                            .padding(.vertical, 6)
+                        HStack{
+                            VStack {
+                                Image("pinIcon")
+                            }.padding(.leading, 8)
+                            Spacer()
+                            HStack {
+                                Image("waveDirectionIcon")
+                                Text("3.3m/s").font(.Body2Medium)
+                            }.padding(.leading, -15)
+                            Spacer()
+                            HStack {
+                                Image("swellDirectionIcon")
+                                VStack {
+                                    Text("0.2m").font(.Body2Medium)
+                                    Text("3.4s").font(.CaptionMedium)
+                                }
+                            }.padding(.leading, -20)
+                            Spacer()
+                            VStack(spacing: 0) {
+                                Text("28도").font(.Body2Medium)
+                                Image("waterTemperate")
+                            }.padding(.trailing, -8)
+                            Spacer()
+                            HStack(spacing: 4) {
+                                Image("starIcon")
+                                Text("5점").font(.Body2Medium)
+                            }
+                            
+                        }.padding(.horizontal, 19)
+                            .padding(.vertical, 6)
+                        HStack{
+                            VStack {
+                                Image("pinIcon")
+                            }.padding(.leading, 8)
+                            Spacer()
+                            HStack {
+                                Image("waveDirectionIcon")
+                                Text("3.3m/s").font(.Body2Medium)
+                            }.padding(.leading, -15)
+                            Spacer()
+                            HStack {
+                                Image("swellDirectionIcon")
+                                VStack {
+                                    Text("0.2m").font(.Body2Medium)
+                                    Text("3.4s").font(.CaptionMedium)
+                                }
+                            }.padding(.leading, -20)
+                            Spacer()
+                            VStack(spacing: 0) {
+                                Text("28도").font(.Body2Medium)
+                                Image("waterTemperate")
+                            }.padding(.trailing, -8)
+                            Spacer()
+                            HStack(spacing: 4) {
+                                Image("starIcon")
+                                Text("5점").font(.Body2Medium)
+                            }
+                            
+                        }.padding(.horizontal, 19)
+                            .padding(.vertical, 6)
                     }
                 }
             }
+            .background(.white.opacity(0.5))
             .cornerRadius(24)
-            .padding(.bottom, 4)
+            //            .padding()
+            Spacer()
         }
+        
     }
 }
+
 
 #Preview {
     PinChartsView()

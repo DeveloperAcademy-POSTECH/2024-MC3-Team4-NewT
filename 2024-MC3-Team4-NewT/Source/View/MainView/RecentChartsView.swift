@@ -25,7 +25,10 @@ struct RecentChartsView: View {
                     
                 } label: {
                     HStack(alignment: .center, spacing: 2){
-                        Text("모두 보기").font(.Body2SemiBold)
+                        NavigationLink(destination: RecordChartView()){
+                            Text("모두 보기").font(.Body2SemiBold)
+                        }
+                        
                         Image(systemName: "chevron.right")
                     }.foregroundColor(.white)
                 }
@@ -49,7 +52,6 @@ struct RecentChartsView: View {
                             .padding(.horizontal, 24)
                             .padding(.vertical, 3)
                         Rectangle().frame(width: .infinity, height: 1).foregroundColor(.surfBlue.opacity(0.3))
-                        GridRow {
                             HStack{
                                 VStack {
                                     Text("7/20").font(.Body2SemiBold)
@@ -72,16 +74,77 @@ struct RecentChartsView: View {
                                 VStack(spacing: 0) {
                                     Text("28도").font(.Body2Medium)
                                     Image("waterTemperate")
-                                }
+                                }.padding(.trailing, -5)
                                 Spacer()
                                 HStack(spacing: 4) {
-                                    Image("starIcon")
+                                    Image("recentStarIcon")
                                     Text("5점").font(.Body2Medium)
                                 }
-                                .cornerRadius(24)
-                            }
+                                
                         }.padding(.horizontal, 19)
                             .padding(.vertical, 6)
+                        HStack{
+                            VStack {
+                                Text("7/20").font(.Body2SemiBold)
+                                Text("03시").font(.CaptionMedium)
+                            }
+                            Spacer()
+                            HStack {
+                                Image("waveDirectionIcon")
+                                Text("3.3m/s").font(.Body2Medium)
+                            }.padding(.leading, -15)
+                            Spacer()
+                            HStack {
+                                Image("swellDirectionIcon")
+                                VStack {
+                                    Text("0.2m").font(.Body2Medium)
+                                    Text("3.4s").font(.CaptionMedium)
+                                }
+                            }.padding(.leading, -20)
+                            Spacer()
+                            VStack(spacing: 0) {
+                                Text("28도").font(.Body2Medium)
+                                Image("waterTemperate")
+                            }.padding(.trailing, -5)
+                            Spacer()
+                            HStack(spacing: 4) {
+                                Image("recentStarIcon")
+                                Text("5점").font(.Body2Medium)
+                            }
+                            
+                    }.padding(.horizontal, 19)
+                        .padding(.vertical, 6)
+                        HStack{
+                            VStack {
+                                Text("7/20").font(.Body2SemiBold)
+                                Text("03시").font(.CaptionMedium)
+                            }
+                            Spacer()
+                            HStack {
+                                Image("waveDirectionIcon")
+                                Text("3.3m/s").font(.Body2Medium)
+                            }.padding(.leading, -15)
+                            Spacer()
+                            HStack {
+                                Image("swellDirectionIcon")
+                                VStack {
+                                    Text("0.2m").font(.Body2Medium)
+                                    Text("3.4s").font(.CaptionMedium)
+                                }
+                            }.padding(.leading, -20)
+                            Spacer()
+                            VStack(spacing: 0) {
+                                Text("28도").font(.Body2Medium)
+                                Image("waterTemperate")
+                            }.padding(.trailing, -5)
+                            Spacer()
+                            HStack(spacing: 4) {
+                                Image("recentStarIcon")
+                                Text("5점").font(.Body2Medium)
+                            }
+                            
+                    }.padding(.horizontal, 19)
+                        .padding(.vertical, 6)
                     }
                 }
             }
@@ -90,7 +153,6 @@ struct RecentChartsView: View {
             //            .padding()
             Spacer()
         }
-        //        .background(.teal)
         
     }
 }
