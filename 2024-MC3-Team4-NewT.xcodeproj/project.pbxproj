@@ -36,6 +36,7 @@
 		21B080812C588261007BC655 /* WaveObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B080802C588261007BC655 /* WaveObservable.swift */; };
 		21EDE2412C5B1B2B00F973C0 /* ModelContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EDE2402C5B1B2B00F973C0 /* ModelContext.swift */; };
 		21EDE2432C5B1C1D00F973C0 /* SDTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EDE2422C5B1C1D00F973C0 /* SDTestView.swift */; };
+		7159C18C2C5F4F89007300D6 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7159C18B2C5F4F89007300D6 /* Pretendard-SemiBold.otf */; };
 		71449BF22C5E1E7700801E50 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 71449BF12C5E1E7200801E50 /* Pretendard-SemiBold.otf */; };
 		71449BF42C5E1E7E00801E50 /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 89A63A142C58982A00787DC4 /* Pretendard-ExtraLight.otf */; };
 		71449BF52C5E1E8000801E50 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 89A63A152C58983700787DC4 /* Pretendard-Medium.otf */; };
@@ -83,6 +84,7 @@
 		21B080802C588261007BC655 /* WaveObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveObservable.swift; sourceTree = "<group>"; };
 		21EDE2402C5B1B2B00F973C0 /* ModelContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContext.swift; sourceTree = "<group>"; };
 		21EDE2422C5B1C1D00F973C0 /* SDTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDTestView.swift; sourceTree = "<group>"; };
+		7159C18B2C5F4F89007300D6 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		71449BF12C5E1E7200801E50 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		717594142C5C656700F28BA1 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		719EA9BF2C5768580090BAB5 /* FitChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitChartView.swift; sourceTree = "<group>"; };
@@ -230,6 +232,7 @@
 				719EA9C22C5770660090BAB5 /* Pretendard-Bold.otf */,
 				89A63A152C58983700787DC4 /* Pretendard-Medium.otf */,
 				89A63A142C58982A00787DC4 /* Pretendard-ExtraLight.otf */,
+				7159C18B2C5F4F89007300D6 /* Pretendard-SemiBold.otf */,
 				71449BF12C5E1E7200801E50 /* Pretendard-SemiBold.otf */,
 				719EA9C82C57B13C0090BAB5 /* SF-Pro-Italic.ttf */,
 				719EA9C92C57B13C0090BAB5 /* SF-Pro.ttf */,
@@ -393,6 +396,7 @@
 			files = (
 				21B080342C4D0836007BC655 /* Preview Assets.xcassets in Resources */,
 				719EA9CB2C57B13C0090BAB5 /* SF-Pro.ttf in Resources */,
+				7159C18C2C5F4F89007300D6 /* Pretendard-SemiBold.otf in Resources */,
 				71449BF42C5E1E7E00801E50 /* Pretendard-ExtraLight.otf in Resources */,
 				71449BF22C5E1E7700801E50 /* Pretendard-SemiBold.otf in Resources */,
 				719EA9C32C5770660090BAB5 /* Pretendard-Bold.otf in Resources */,
