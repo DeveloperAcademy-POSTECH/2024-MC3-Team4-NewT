@@ -18,6 +18,8 @@
 		21588B102C5E201F003E3489 /* ChartRecordObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B0F2C5E201F003E3489 /* ChartRecordObservable.swift */; };
 		21588B122C6009AF003E3489 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B112C6009AF003E3489 /* ChartView.swift */; };
 		21588B142C600CAA003E3489 /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B132C600CAA003E3489 /* TabBarButton.swift */; };
+		21588B1D2C601239003E3489 /* RecordCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B1C2C601239003E3489 /* RecordCreateView.swift */; };
+		21588B1F2C6012B8003E3489 /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B1E2C6012B8003E3489 /* TimePickerView.swift */; };
 		21B0802D2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */; };
 		21B080312C4D0836007BC655 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B080302C4D0836007BC655 /* Assets.xcassets */; };
 		21B080342C4D0836007BC655 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B080332C4D0836007BC655 /* Preview Assets.xcassets */; };
@@ -68,6 +70,8 @@
 		21588B0F2C5E201F003E3489 /* ChartRecordObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRecordObservable.swift; sourceTree = "<group>"; };
 		21588B112C6009AF003E3489 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		21588B132C600CAA003E3489 /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
+		21588B1C2C601239003E3489 /* RecordCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCreateView.swift; sourceTree = "<group>"; };
+		21588B1E2C6012B8003E3489 /* TimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
 		21B080292C4D0834007BC655 /* 2024-MC3-Team4-NewT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "2024-MC3-Team4-NewT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _024_MC3_Team4_NewTApp.swift; sourceTree = "<group>"; };
 		21B080302C4D0836007BC655 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -320,6 +324,8 @@
 			children = (
 				21588B112C6009AF003E3489 /* ChartView.swift */,
 				21B0803E2C4D089F007BC655 /* SisiView.swift */,
+				21588B1C2C601239003E3489 /* RecordCreateView.swift */,
+				21588B1E2C6012B8003E3489 /* TimePickerView.swift */,
 			);
 			path = RecordingView;
 			sourceTree = "<group>";
@@ -417,6 +423,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21588B1F2C6012B8003E3489 /* TimePickerView.swift in Sources */,
 				21588B032C5C7632003E3489 /* SwiftDataObservable.swift in Sources */,
 				21B080742C56DB7A007BC655 /* WindFinderView.swift in Sources */,
 				719EA9C02C5768580090BAB5 /* FitChartView.swift in Sources */,
@@ -444,6 +451,7 @@
 				21B080702C52844C007BC655 /* EmbededView.swift in Sources */,
 				21B0803B2C4D087F007BC655 /* PiriView.swift in Sources */,
 				21588B052C5C7652003E3489 /* SDCheckView.swift in Sources */,
+				21588B1D2C601239003E3489 /* RecordCreateView.swift in Sources */,
 				89A63A292C5C7C7500787DC4 /* RecordsView.swift in Sources */,
 				21588B122C6009AF003E3489 /* ChartView.swift in Sources */,
 				717594152C5C656700F28BA1 /* LocationView.swift in Sources */,
