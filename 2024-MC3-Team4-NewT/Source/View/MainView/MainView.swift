@@ -16,24 +16,24 @@ struct MainView: View {
         NavigationStack {
             ZStack{
                 VStack {
-//                    if isHeaderVisible {
-                        VStack {
-                            Button{
-                                print("지역 선택 버튼 눌림")
-                            }label: {
-                                HStack(alignment: .center, spacing: 4){
-                                    Text("포항 신항만 해변A")
-                                        .font(.SubheadingSemiBold)
-                                        .foregroundColor(.white)
-                                    Image(systemName: "chevron.down")
-                                        .foregroundColor(.white)
-                                }
-                                .opacity(0.7)
-                                Spacer()
+                    //                    if isHeaderVisible {
+                    VStack {
+                        Button{
+                            print("지역 선택 버튼 눌림")
+                        }label: {
+                            HStack(alignment: .center, spacing: 4){
+                                Text("포항 신항만 해변A")
+                                    .font(.SubheadingSemiBold)
+                                    .foregroundColor(.white)
+                                Image(systemName: "chevron.down")
+                                    .foregroundColor(.white)
                             }
-                            .padding(.vertical, 6)
-                        }.padding(.horizontal)
-//                    }
+                            .opacity(0.7)
+                            Spacer()
+                        }
+                        .padding(.vertical, 6)
+                    }.padding(.horizontal)
+                    //                    }
                     FitChartView()
                         .padding(.horizontal)
                     JaneView(isHeaderVisible: $isHeaderVisible)

@@ -9,7 +9,7 @@ import FirebaseFirestore
 
 struct FirebaseTestView: View {
     @State private var items: [ChartRowTmp] = []
-
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -28,7 +28,7 @@ struct FirebaseTestView: View {
             }
         }
     }
-
+    
     // Date를 "yyyy-MM-dd HH:mm:ss" 형식의 String으로 변환하는 함수
     func formattedDate(_ date: Date) -> String {
         let dateFormatter = DateFormatter()
@@ -36,7 +36,7 @@ struct FirebaseTestView: View {
         dateFormatter.timeZone = TimeZone(identifier: "Asia/Seoul") // 한국 시간대 설정
         return dateFormatter.string(from: date)
     }
-
+    
     func fetchItems() {
         let db = Firestore.firestore()
         db.collection("pohang").getDocuments { snapshot, error in
@@ -44,14 +44,14 @@ struct FirebaseTestView: View {
                 print("Error getting documents: \(error.localizedDescription)")
                 return
             }
-
+            
             guard let documents = snapshot?.documents else {
                 print("No documents found")
                 return
             }
-
+            
             var fetchedItems: [ChartRowTmp] = []
-
+            
             for document in documents {
                 let data = document.data()
                 if let windSouth = data["wind_south"] as? Double,
@@ -61,7 +61,7 @@ struct FirebaseTestView: View {
                    let wavesDirection = data["waves_direction"] as? Double,
                    let wavesPeriod = data["waves_period"] as? Double,
                    let windNorth = data["wind_north"] as? Double {
-
+                    
                     let surfingValues = SurfingValuesOne(
                         waveDirection: Float(wavesDirection),
                         waveHeight: Float(wavesHeight),
@@ -72,18 +72,18 @@ struct FirebaseTestView: View {
                         airTemperature: Float(temp),
                         waterTemperature: Float(temp)
                     )
-
+                    
                     let item = ChartRowTmp(
                         day: timestamp.dateValue(),
                         surfingValues: surfingValues,
                         isHighTide: false,
                         isLowTide: false
                     )
-
+                    
                     fetchedItems.append(item)
                 }
             }
-
+            
             self.items = fetchedItems
         }
     }

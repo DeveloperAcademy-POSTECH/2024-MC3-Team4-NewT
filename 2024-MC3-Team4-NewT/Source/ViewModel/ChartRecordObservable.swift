@@ -38,14 +38,14 @@ class ChartRecordObservable {
     // Get the weather icon based on weather conditions
     func weatherIcon(for weather: String) -> String {
         switch weather.lowercased() {
-        case "sunny":
-            return "sun.max"
-        case "cloudy":
-            return "cloud"
-        case "rainy":
-            return "cloud.rain"
-        default:
-            return "questionmark"
+            case "sunny":
+                return "sun.max"
+            case "cloudy":
+                return "cloud"
+            case "rainy":
+                return "cloud.rain"
+            default:
+                return "questionmark"
         }
     }
 }

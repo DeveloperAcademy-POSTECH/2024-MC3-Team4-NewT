@@ -29,12 +29,12 @@ struct EvaluationView: View {
                         .foregroundColor(Color("surfBlue"))
                     Spacer()
                 }.padding(.bottom, 20)
-        
+                
                 ZStack{
                     ProgressView(value: isScore, total: 4.0)
                         .tint(Color("surfBlue"))
                         .background(Color("brightGray"))
-        
+                    
                     HStack(spacing: 50){
                         ForEach(0..<5) { index in
                             Button {
@@ -46,12 +46,12 @@ struct EvaluationView: View {
                                     .foregroundColor(selectedScore >= index ? Color("surfBlue") : Color(.systemGroupedBackground))
                             }
                         }
-        
+                        
                     }
                 }
                 .frame(width: 296)
                 .padding(.bottom, 11)
-        
+                
                 HStack(spacing: 0){
                     VStack{
                         Text("1점")
@@ -71,7 +71,7 @@ struct EvaluationView: View {
                             .foregroundColor(Color("surfBlue"))
                     }
                     Spacer()
-        
+                    
                     VStack{
                         Text("3점")
                             .font(.Body2Bold)
@@ -81,7 +81,7 @@ struct EvaluationView: View {
                             .foregroundColor(Color("surfBlue"))
                     }
                     Spacer()
-        
+                    
                     VStack{
                         Text("4점")
                             .font(.Body2Bold)
@@ -91,7 +91,7 @@ struct EvaluationView: View {
                             .foregroundColor(Color("surfBlue"))
                     }
                     Spacer()
-        
+                    
                     VStack{
                         Text("5점")
                             .font(.Body2Bold)
@@ -108,7 +108,7 @@ struct EvaluationView: View {
                         .foregroundColor(Color("surfBlue"))
                     Spacer()
                 }.padding(.bottom, 8)
-        
+                
                 if isMemo{
                     Button{
                         isMemo.toggle()
@@ -155,7 +155,7 @@ struct EvaluationView: View {
                                     Text(placeHolding)
                                         .font(.Body1Medium)                    .foregroundColor(Color.gray)
                                         .padding(.top, 13)
-        
+                                    
                                     Spacer()
                                 }
                                 HStack(spacing: 0){

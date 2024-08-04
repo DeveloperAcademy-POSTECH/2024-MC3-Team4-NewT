@@ -17,7 +17,7 @@ struct SDCheckView: View {
     @Query private var dailyWeather2Data: [DailyWeather]
     @Query private var surfingRecordOneData: [SurfingRecordOne]
     @Query private var statisticsData: [Statistics]
-
+    
     var body: some View {
         VStack {
             Picker("Select Model", selection: $selectedModel) {
@@ -27,54 +27,54 @@ struct SDCheckView: View {
             }
             .pickerStyle(SegmentedPickerStyle())
             .padding()
-
+            
             List {
                 switch selectedModel {
-                case .surfingValues2:
-                    ForEach(surfingValues2Data, id: \.id) { item in
-                        VStack(alignment: .leading) {
-                            Text("Wave Direction: \(item.waveDirection)")
-                            Text("Wave Height: \(item.waveHeight)")
-                            Text("Weather: \(item.weather)")
-                            Text("Air Temperature: \(item.airTemperature)")
+                    case .surfingValues2:
+                        ForEach(surfingValues2Data, id: \.id) { item in
+                            VStack(alignment: .leading) {
+                                Text("Wave Direction: \(item.waveDirection)")
+                                Text("Wave Height: \(item.waveHeight)")
+                                Text("Weather: \(item.weather)")
+                                Text("Air Temperature: \(item.airTemperature)")
+                            }
                         }
-                    }
-
-                case .chartRow:
-                    ForEach(chartRowData, id: \.id) { item in
-                        VStack(alignment: .leading) {
-                            Text("Day: \(item.time)")
-                            Text("Is High Tide: \(item.isHighTide ? "Yes" : "No")")
-                            Text("Is Low Tide: \(item.isLowTide ? "Yes" : "No")")
-                            Text("Wave Direction: \(item.surfingValues.waveDirection)")
+                        
+                    case .chartRow:
+                        ForEach(chartRowData, id: \.id) { item in
+                            VStack(alignment: .leading) {
+                                Text("Day: \(item.time)")
+                                Text("Is High Tide: \(item.isHighTide ? "Yes" : "No")")
+                                Text("Is Low Tide: \(item.isLowTide ? "Yes" : "No")")
+                                Text("Wave Direction: \(item.surfingValues.waveDirection)")
+                            }
                         }
-                    }
-
-                case .dailyWeather2:
-                    ForEach(dailyWeather2Data, id: \.id) { item in
-                        VStack(alignment: .leading) {
-                            Text("Day: \(item.day)")
-                            Text("Number of Charts: \(item.chartCollection.count)")
+                        
+                    case .dailyWeather2:
+                        ForEach(dailyWeather2Data, id: \.id) { item in
+                            VStack(alignment: .leading) {
+                                Text("Day: \(item.day)")
+                                Text("Number of Charts: \(item.chartCollection.count)")
+                            }
                         }
-                    }
-
-                case .surfingRecordOne:
-                    ForEach(surfingRecordOneData, id: \.id) { item in
-                        VStack(alignment: .leading) {
-                            Text("Start Time: \(item.surfingStartTime)")
-                            Text("End Time: \(item.surfingEndTime)")
-                            Text("Evaluation: \(item.evaluationValue)")
-                            Text("Memo: \(item.memo)")
+                        
+                    case .surfingRecordOne:
+                        ForEach(surfingRecordOneData, id: \.id) { item in
+                            VStack(alignment: .leading) {
+                                Text("Start Time: \(item.surfingStartTime)")
+                                Text("End Time: \(item.surfingEndTime)")
+                                Text("Evaluation: \(item.evaluationValue)")
+                                Text("Memo: \(item.memo)")
+                            }
                         }
-                    }
-
-                case .statistics:
-                    ForEach(statisticsData, id: \.id) { item in
-                        VStack(alignment: .leading) {
-                            Text("Wave Direction: \(item.waveDirection ?? 0)")
-                            Text("Temperature: \(item.temperature ?? 0)")
+                        
+                    case .statistics:
+                        ForEach(statisticsData, id: \.id) { item in
+                            VStack(alignment: .leading) {
+                                Text("Wave Direction: \(item.waveDirection ?? 0)")
+                                Text("Temperature: \(item.temperature ?? 0)")
+                            }
                         }
-                    }
                 }
             }
         }

@@ -9,7 +9,7 @@ struct StatisticsView: View {
     @Environment(\.modelContext) private var modelContext: ModelContext
     @Query private var statistics: [Statistics]
     @State private var sheetPop: Bool = false
-
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
@@ -143,9 +143,9 @@ struct SheetView: View {
             Spacer()
             Image("infoSheet")
         }.padding()
-        .frame(maxHeight: UIScreen.main.bounds.height / 2)
-        .background(Color.white)
-        .cornerRadius(24)
+            .frame(maxHeight: UIScreen.main.bounds.height / 2)
+            .background(Color.white)
+            .cornerRadius(24)
         
     }
 }

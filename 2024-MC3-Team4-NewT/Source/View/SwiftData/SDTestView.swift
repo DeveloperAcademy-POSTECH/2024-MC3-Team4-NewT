@@ -12,17 +12,17 @@ struct SDTestView: View {
     @State private var selectedDate: Date = Date() // 뷰 내부에서 관리할 State 변수
     @Query var chartRow:[ChartRow]
     var viewModel = SwiftDataObservable()
-
+    
     var body: some View {
         VStack(spacing: 16) {
             DatePicker("Surfing Start Time", selection: $selectedDate, displayedComponents: [.date, .hourAndMinute])
                 .datePickerStyle(WheelDatePickerStyle())
                 .padding()
-
+            
             Button(action: {
                 viewModel.selectedDate = selectedDate // 선택된 날짜를 뷰 모델로 전달
                 
-
+                
             }) {
                 Text("Save")
                     .padding()

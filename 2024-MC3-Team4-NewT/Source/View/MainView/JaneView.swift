@@ -72,7 +72,7 @@ struct JaneView: View {
                                             Text("\(timeFormatter.string(from: chart.day))").font(.Body2Medium)
                                             HStack(alignment: .center, spacing: 8) {
                                                 Image("waveDirectionIcon").frame(width: 14, height: 18)
-//                                                Image(systemName: "location.north").frame(width: 14, height: 18)
+                                                //                                                Image(systemName: "location.north").frame(width: 14, height: 18)
                                                 Text("\(chart.surfingValues.windSpeed, specifier: "%.1f")m/s").font(.Body1Medium)
                                             }.frame(width: 76)
                                             
@@ -90,7 +90,7 @@ struct JaneView: View {
                                             .frame(width: 56)
                                             HStack(alignment: .center, spacing: 8) {
                                                 Text(chart.surfingValues.weather).font(.Body1Medium)
-//                                                Spacer()
+                                                //                                                Spacer()
                                                 Text("\(chart.surfingValues.airTemperature, specifier: "%.0f")°C").font(.Body1Medium)
                                             }
                                         }
@@ -120,7 +120,7 @@ struct JaneView: View {
         Spacer()
     }
     
-// MARK: 한 줄 차트 뷰
+    // MARK: 한 줄 차트 뷰
     struct ChartRowView: View {
         var chart: ChartRowTmp // ChartRowTmp에 맞는 프로퍼티를 정의합니다.
         var body: some View {

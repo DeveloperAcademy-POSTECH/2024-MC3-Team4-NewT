@@ -194,8 +194,8 @@ struct RecordChartView: View {
                                                 }
                                             }
                                             
-                                                Divider()
-                                                    .background(Color("surfBlue"))
+                                            Divider()
+                                                .background(Color("surfBlue"))
                                         }
                                     }
                                     
@@ -266,7 +266,7 @@ struct RecordChartView: View {
                     .frame(height: 110+CGFloat((58 * chartCounter)))
                     .cornerRadius(24)
                     .padding(.horizontal)
-
+                    
                 }
                 
             }
