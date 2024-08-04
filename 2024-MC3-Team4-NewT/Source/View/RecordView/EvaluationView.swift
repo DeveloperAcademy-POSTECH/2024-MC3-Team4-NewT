@@ -4,50 +4,47 @@
 //
 //  Created by ram on 8/5/24.
 //
-
 import SwiftUI
 
 struct EvaluationView: View {
     @ObservedObject var viewModel : RecordCreateViewModel
     
-    
     var body: some View {
-        ZStack(alignment: .top){
+        ZStack(alignment: .top) {
             Color.white
-            VStack(spacing:0){
+            VStack(spacing: 0) {
                 Spacer()
                     .frame(height: 16)
-                HStack(spacing: 0){
+                HStack(spacing: 0) {
                     Text("오늘의 파도 평가")
                         .font(.SubheadingBold)
                         .foregroundColor(Color("surfBlue"))
                     Spacer()
                 }.padding(.bottom, 20)
                 
-                ZStack{
+                ZStack {
                     ProgressView(value: viewModel.isScore, total: 4.0)
                         .tint(Color("surfBlue"))
                         .background(Color("brightGray"))
                     
-                    HStack(spacing: 50){
+                    HStack(spacing: 50) {
                         ForEach(0..<5) { index in
                             Button {
                                 viewModel.selectedScore = index
-                                    viewModel.isScore = Double(index)
+                                viewModel.isScore = Double(index)
                             } label: {
                                 Circle()
                                     .frame(width: 20, height: 20)
                                     .foregroundColor(viewModel.selectedScore >= index ? Color("surfBlue") : Color(.systemGroupedBackground))
                             }
                         }
-                        
                     }
                 }
                 .frame(width: 296)
                 .padding(.bottom, 11)
                 
-                HStack(spacing: 0){
-                    VStack{
+                HStack(spacing: 0) {
+                    VStack {
                         Text("1점")
                             .font(.Body2Bold)
                             .foregroundColor(Color("surfBlue"))
@@ -56,7 +53,7 @@ struct EvaluationView: View {
                             .foregroundColor(Color("surfBlue"))
                     }
                     Spacer()
-                    VStack{
+                    VStack {
                         Text("2점")
                             .font(.Body2Bold)
                             .foregroundColor(Color("surfBlue"))
@@ -65,8 +62,7 @@ struct EvaluationView: View {
                             .foregroundColor(Color("surfBlue"))
                     }
                     Spacer()
-                    
-                    VStack{
+                    VStack {
                         Text("3점")
                             .font(.Body2Bold)
                             .foregroundColor(Color("surfBlue"))
@@ -75,8 +71,7 @@ struct EvaluationView: View {
                             .foregroundColor(Color("surfBlue"))
                     }
                     Spacer()
-                    
-                    VStack{
+                    VStack {
                         Text("4점")
                             .font(.Body2Bold)
                             .foregroundColor(Color("surfBlue"))
@@ -85,8 +80,7 @@ struct EvaluationView: View {
                             .foregroundColor(Color("surfBlue"))
                     }
                     Spacer()
-                    
-                    VStack{
+                    VStack {
                         Text("5점")
                             .font(.Body2Bold)
                             .foregroundColor(Color("surfBlue"))
@@ -96,17 +90,17 @@ struct EvaluationView: View {
                     }
                 }
                 .padding(.bottom, 16)
-                HStack(spacing: 0){
+                HStack(spacing: 0) {
                     Text("파도 코멘트")
                         .font(.SubheadingBold)
                         .foregroundColor(Color("surfBlue"))
                     Spacer()
                 }.padding(.bottom, 8)
                 
-                if viewModel.isMemo{
-                    Button{
+                if viewModel.isMemo {
+                    Button {
                         viewModel.isMemo.toggle()
-                            viewModel.heightSize = 322.0
+                        viewModel.heightSize = 322.0
                     } label: {
                         ZStack {
                             Color.white
@@ -116,7 +110,7 @@ struct EvaluationView: View {
                                     RoundedRectangle(cornerRadius: 16)
                                         .stroke(Color("surfBlue"), lineWidth: 1.5)
                                 )
-                            HStack{
+                            HStack {
                                 Text("메모 추가")
                                     .font(.SubheadingSemiBold)
                                     .foregroundColor(Color("surfBlue"))
@@ -125,9 +119,8 @@ struct EvaluationView: View {
                             }
                         }
                     }
-                }
-                else {
-                    ZStack(alignment: .top){
+                } else {
+                    ZStack(alignment: .top) {
                         TextEditor(text: $viewModel.memo)
                             .frame(height: 120)
                             .font(.Body1Medium)
@@ -137,22 +130,22 @@ struct EvaluationView: View {
                             .scrollContentBackground(.hidden)
                             .background(Color("brightGray"))
                             .cornerRadius(12)
-                            .onChange(of: viewModel.memo){ newValue in
-                                if newValue.count > viewModel.memoLimit {
-                                    viewModel.memo = String(newValue.prefix(viewModel.memoLimit))
+                            .onChange(of: viewModel.memo) {
+                                if viewModel.memo.count > viewModel.memoLimit {
+                                    viewModel.memo = String(viewModel.memo.prefix(viewModel.memoLimit))
                                 }
                             }
-                        if(viewModel.memo.isEmpty)
-                        {
-                            VStack(spacing: 0){
-                                HStack(spacing: 0){
+                        
+                        if viewModel.memo.isEmpty {
+                            VStack(spacing: 0) {
+                                HStack(spacing: 0) {
                                     Text(viewModel.placeHolding1)
-                                        .font(.Body1Medium)                    .foregroundColor(Color.gray)
+                                        .font(.Body1Medium)
+                                        .foregroundColor(Color.gray)
                                         .padding(.top, 13)
-                                    
                                     Spacer()
                                 }
-                                HStack(spacing: 0){
+                                HStack(spacing: 0) {
                                     Text(viewModel.placeHolding2)
                                         .font(.Body2Medium)
                                         .foregroundColor(Color.gray)

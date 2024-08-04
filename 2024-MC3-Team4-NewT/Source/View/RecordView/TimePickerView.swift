@@ -10,7 +10,6 @@ import SwiftData
 struct TimePickerView: View {
     @ObservedObject var viewModel : RecordCreateViewModel
     
-    
     var body: some View {
         VStack(spacing: 5){
             Spacer().frame(height: 13)
@@ -42,11 +41,11 @@ struct TimePickerView: View {
                         RoundedRectangle(cornerRadius: 8)
                             .fill(Color("surfBlue"))
                     )
-                    .onChange(of: viewModel.startTime){ newValue in
-                        if(viewModel.startTime>viewModel.stopTime) {
-                            viewModel.startTime=viewModel.stopTime
+                    .onChange(of: viewModel.startTime) {
+                        if viewModel.startTime > viewModel.stopTime {
+                            viewModel.startTime = viewModel.stopTime
                         }
-                            viewModel.updateChartScroll()
+                        viewModel.updateChartScroll()
                     }
             }.padding(.horizontal)
             
@@ -65,9 +64,9 @@ struct TimePickerView: View {
                         RoundedRectangle(cornerRadius: 8)
                             .fill(Color("surfBlue"))
                     )
-                    .onChange(of: viewModel.stopTime){ newValue in
-                        if(viewModel.startTime>viewModel.stopTime) {
-                            viewModel.stopTime=viewModel.startTime
+                    .onChange(of: viewModel.stopTime) {
+                        if viewModel.startTime > viewModel.stopTime {
+                            viewModel.stopTime = viewModel.startTime
                         }
                         viewModel.updateChartScroll()
                     }
@@ -75,5 +74,4 @@ struct TimePickerView: View {
             .padding(.horizontal)
         }
     }
-    
 }

@@ -20,7 +20,7 @@ struct SurfingValuesOne: Codable, Hashable {
 }
 
 struct ChartRowTmp: Codable, Hashable, Identifiable{
-    let id = UUID()
+    var id = UUID()
     var day: Date
     var surfingValues: SurfingValuesOne
     var isHighTide: Bool = false

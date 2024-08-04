@@ -39,7 +39,7 @@ struct WindyView: View {
         guard let url = URL(string: "https://api.windy.com/api/point-forecast/v2") else { return }
         
         let apiKey = "x7m179X43PHGXc0KXPSgCBzZuCsnNjKr"
-        let encodedApiKey = Data(apiKey.utf8).base64EncodedString()
+        _ = Data(apiKey.utf8).base64EncodedString()
         let parameters: [String: Any] = [
             "lat": lat,
             "lon": lon,
