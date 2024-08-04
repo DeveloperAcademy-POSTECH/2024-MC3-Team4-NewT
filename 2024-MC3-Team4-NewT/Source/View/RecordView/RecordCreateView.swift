@@ -9,8 +9,8 @@ import SwiftData
 
 struct RecordCreateView: View {
     @Environment(\.modelContext) var modelContext
-    var ob = ChartRecordObservable()
     @ObservedObject var viewModel = RecordCreateViewModel()
+    var cro = ChartRecordObservable()
     
     var body: some View {
         
@@ -23,13 +23,11 @@ struct RecordCreateView: View {
                         ZStack(alignment: .top){
                             Color.white
                             VStack(spacing: 0){
-                                TimePickerView(viewModel: viewModel,
-                                               updateChartScroll: updateChartScroll
-                                )
+                                TimePickerView(viewModel: viewModel)
                                 
                                 Divider()
                                     .padding(.leading)
-                                Text(date(from: viewModel.selectedDate))
+                                Text(DateFormatterManager.shared.date(from: viewModel.selectedDate))
                                     .font(.SubheadingBold)
                                     .foregroundStyle(Color("surfBlue"))
                                     .padding(.vertical, 8)
@@ -50,7 +48,7 @@ struct RecordCreateView: View {
                                 ChartView(
                                     viewModel: viewModel,  // 여기서 viewModel을 전달합니다.
                                     isChartScroll: $viewModel.isChartScroll,
-                                    observable: ob
+                                    observable: cro
                                 )
                                 
                             }
@@ -58,64 +56,29 @@ struct RecordCreateView: View {
                         .cornerRadius(24)
                         .padding(.horizontal)
                         
-                        // Start
+                        
                         EvaluationView(
                             viewModel:viewModel
                         )
                         .frame(height: viewModel.heightSize)
                         .cornerRadius(24)
                         .padding(.horizontal)
-                        // End
+                        
                     }
                 }.scrollDisabled(viewModel.isMemo)
                     .padding(.bottom)
                 
-                // Start: RecordButtonView
+                
                 RecordButtonView(
                     viewModel:viewModel
                 )
-                // End: RecordButtonView
                 
                 Spacer()
-                
             }
         }
         .navigationTitle("파도 기록")
         
     }
-    
-    func date(from date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "ko_kr")
-        formatter.dateFormat = "MM월 dd일 (E)"
-        return formatter.string(from: date)
-    }
-    
-    func updateChartScroll() {
-        let counter = chartCounter
-        if counter > 3 {
-            viewModel.isChartScroll = false
-        } else {
-            viewModel.isChartScroll = true
-        }
-    }
-    
-    var chartCounter: Int {
-        var counter: Int = 1
-        if stopHour > startHour {
-            counter = (stopHour - startHour) + 1
-        }
-        return counter
-    }
-    
-    var startHour: Int {
-        let calendar = Calendar.current
-        return calendar.component(.hour, from: viewModel.startTime)
-    }
-    
-    var stopHour: Int {
-        let calendar = Calendar.current
-        return calendar.component(.hour, from: viewModel.stopTime)
-    }
+  
 }
 

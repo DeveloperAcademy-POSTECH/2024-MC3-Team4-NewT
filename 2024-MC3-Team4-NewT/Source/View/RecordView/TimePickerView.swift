@@ -9,7 +9,7 @@ import SwiftData
 
 struct TimePickerView: View {
     @ObservedObject var viewModel : RecordCreateViewModel
-    let updateChartScroll: () -> Void
+    
     
     var body: some View {
         VStack(spacing: 5){
@@ -46,7 +46,7 @@ struct TimePickerView: View {
                         if(viewModel.startTime>viewModel.stopTime) {
                             viewModel.startTime=viewModel.stopTime
                         }
-                        updateChartScroll()
+                            viewModel.updateChartScroll()
                     }
             }.padding(.horizontal)
             
@@ -69,10 +69,11 @@ struct TimePickerView: View {
                         if(viewModel.startTime>viewModel.stopTime) {
                             viewModel.stopTime=viewModel.startTime
                         }
-                        updateChartScroll()
+                        viewModel.updateChartScroll()
                     }
             }
             .padding(.horizontal)
         }
     }
+    
 }

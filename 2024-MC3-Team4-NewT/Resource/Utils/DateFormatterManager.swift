@@ -56,5 +56,11 @@ class DateFormatterManager {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         return dateFormatter.date(from: timeString)
     }
+    func date(from date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ko_kr")
+        formatter.dateFormat = "MM월 dd일 (E)"
+        return formatter.string(from: date)
+    }
     
 }
