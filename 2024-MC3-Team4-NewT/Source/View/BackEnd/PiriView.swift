@@ -7,39 +7,49 @@
 import SwiftUI
 
 struct PiriView: View {
-    
+    @State private var showMainTestView = false
     
     var body: some View {
-        VStack(spacing:20){
-            NavigationLink(destination: FindSpotView()){
+        VStack(spacing: 20) {
+            NavigationLink(destination: FindSpotView()) {
                 Text("spot")
             }
-            NavigationLink(destination: WindFinderView()){
+            NavigationLink(destination: WindFinderView()) {
                 Text("API")
             }
-            NavigationLink(destination: EmbededView()){
+            NavigationLink(destination: EmbededView()) {
                 Text("Embeded")
             }
-            NavigationLink(destination: WindyView()){
+            NavigationLink(destination: WindyView()) {
                 Text("Windy")
             }
-            NavigationLink(destination: FirebaseTestView()){
+            NavigationLink(destination: FirebaseTestView()) {
                 Text("FirebaseTest")
             }
-            NavigationLink(destination: SDTestView()){
+            NavigationLink(destination: SDTestView()) {
                 Text("SwiftData Test")
             }
-            NavigationLink(destination: SDCheckView()){
+            NavigationLink(destination: SDCheckView()) {
                 Text("SwiftData 저장 확인")
             }
-            NavigationLink(destination: FirebaseSDView()){
+            NavigationLink(destination: FirebaseSDView()) {
                 Text("파이어베이스-스데연결")
             }
             
+            // Button to show MainTestView with full screen cover
+            Button(action: {
+                showMainTestView = true
+            }) {
+                Text("Go to MainTestView")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(8)
+            }
+            .fullScreenCover(isPresented: $showMainTestView) {
+                MainTestView()
+            }
         }
     }
-    
 }
-
-
-
