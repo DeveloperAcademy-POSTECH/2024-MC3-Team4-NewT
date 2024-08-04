@@ -8,8 +8,7 @@ import SwiftUI
 import SwiftData
 
 struct ChartView: View {
-    @Binding var startTime: Date
-    @Binding var stopTime: Date
+    @ObservedObject var viewModel: RecordCreateViewModel
     @Binding var isChartScroll: Bool
     @Query(sort:\ChartRow.time) var chartRows: [ChartRow]
     
@@ -21,7 +20,7 @@ struct ChartView: View {
             VStack(spacing: 0) {
                 ScrollView {
                     VStack(spacing: 0) {
-                        let filteredRows = observable.filterChartRows(chartRows, startTime: startTime, stopTime: stopTime)
+                        let filteredRows = observable.filterChartRows(chartRows, startTime: viewModel.startTime, stopTime: viewModel.stopTime)
                         
                         ForEach(filteredRows.indices, id: \.self) { index in
                             let row = filteredRows[index]
@@ -87,3 +86,4 @@ struct ChartView: View {
         .frame(height: 174)
     }
 }
+

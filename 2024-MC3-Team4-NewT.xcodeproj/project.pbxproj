@@ -24,6 +24,7 @@
 		21588B242C6015BC003E3489 /* RecordButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B232C6015BC003E3489 /* RecordButtonView.swift */; };
 		21588B262C6017C0003E3489 /* TabBarBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B252C6017C0003E3489 /* TabBarBackup.swift */; };
 		21588B282C601902003E3489 /* OldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B272C601902003E3489 /* OldModel.swift */; };
+		21588B2A2C601E21003E3489 /* RecordCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B292C601E21003E3489 /* RecordCreateViewModel.swift */; };
 		21B0802D2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */; };
 		21B080312C4D0836007BC655 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B080302C4D0836007BC655 /* Assets.xcassets */; };
 		21B080342C4D0836007BC655 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B080332C4D0836007BC655 /* Preview Assets.xcassets */; };
@@ -79,6 +80,7 @@
 		21588B232C6015BC003E3489 /* RecordButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButtonView.swift; sourceTree = "<group>"; };
 		21588B252C6017C0003E3489 /* TabBarBackup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarBackup.swift; sourceTree = "<group>"; };
 		21588B272C601902003E3489 /* OldModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldModel.swift; sourceTree = "<group>"; };
+		21588B292C601E21003E3489 /* RecordCreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCreateViewModel.swift; sourceTree = "<group>"; };
 		21B080292C4D0834007BC655 /* 2024-MC3-Team4-NewT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "2024-MC3-Team4-NewT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _024_MC3_Team4_NewTApp.swift; sourceTree = "<group>"; };
 		21B080302C4D0836007BC655 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -176,11 +178,11 @@
 		21B080442C4D08D3007BC655 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				89A63A202C5C7A1500787DC4 /* BackEnd */,
-				89A63A212C5C7A3800787DC4 /* LocationView */,
 				89A63A252C5C7AF200787DC4 /* MainView */,
 				89A63A262C5C7C1300787DC4 /* RecordView */,
+				89A63A212C5C7A3800787DC4 /* LocationView */,
 				89A63A222C5C7A8600787DC4 /* SwiftData */,
+				89A63A202C5C7A1500787DC4 /* BackEnd */,
 				21B080422C4D08C2007BC655 /* TestView.swift */,
 			);
 			path = View;
@@ -203,6 +205,7 @@
 				21588B002C5C7621003E3489 /* FirebaseTestObservable.swift */,
 				21588B022C5C7632003E3489 /* SwiftDataObservable.swift */,
 				21B080802C588261007BC655 /* WaveObservable.swift */,
+				21588B292C601E21003E3489 /* RecordCreateViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -439,6 +442,7 @@
 				21B0802D2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift in Sources */,
 				21588B0A2C5D594F003E3489 /* ContentView.swift in Sources */,
 				21EDE2412C5B1B2B00F973C0 /* ModelContext.swift in Sources */,
+				21588B2A2C601E21003E3489 /* RecordCreateViewModel.swift in Sources */,
 				21B080812C588261007BC655 /* WaveObservable.swift in Sources */,
 				21588AFD2C5C75E6003E3489 /* FirebaseSDView.swift in Sources */,
 				21B0807D2C57C68D007BC655 /* FirebaseTestView.swift in Sources */,

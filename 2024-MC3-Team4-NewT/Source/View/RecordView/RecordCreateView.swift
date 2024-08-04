@@ -17,11 +17,12 @@ struct RecordCreateView: View {
     @State var isScore = 0.0
     @State var isMemo: Bool = true
     @State var memo: String = ""
-    let placeHolding: String = "파도에 대한 간단한 메모를 남겨보세요."
-    let placeHolding1: String = "(최대 200자)"
+    let placeHolding1: String = "파도에 대한 간단한 메모를 남겨보세요."
+    let placeHolding2: String = "(최대 200자)"
     let memoLimit: Int = 200
     @State var heightSize: CGFloat = 245.0
     var ob = ChartRecordObservable()
+    @ObservedObject var viewModel = RecordCreateViewModel()
     var body: some View {
         
         ZStack(alignment: .top){
@@ -33,11 +34,8 @@ struct RecordCreateView: View {
                         ZStack(alignment: .top){
                             Color.white
                             VStack(spacing: 0){
-                                TimePickerView(
-                                    selectedDate: $selectedDate,
-                                    startTime: $startTime,
-                                    stopTime: $stopTime,
-                                    updateChartScroll: updateChartScroll
+                                TimePickerView(viewModel: viewModel,
+                                               updateChartScroll: updateChartScroll
                                 )
                                 
                                 Divider()
@@ -60,12 +58,12 @@ struct RecordCreateView: View {
                                     .font(.CaptionMedium)
                                     .foregroundColor(Color(.black).opacity(0.5))
                                 }
-                                
                                 ChartView(
-                                    startTime: $startTime,
-                                    stopTime: $stopTime,
-                                    isChartScroll: $isChartScroll, observable: ob
+                                    viewModel: viewModel,  // 여기서 viewModel을 전달합니다.
+                                    isChartScroll: $viewModel.isChartScroll,
+                                    observable: ob
                                 )
+                                
                             }
                         }
                         .cornerRadius(24)
@@ -78,8 +76,8 @@ struct RecordCreateView: View {
                             isMemo: $isMemo,
                             memo: $memo,
                             heightSize: $heightSize,
-                            placeHolding: placeHolding,
-                            placeHolding1: placeHolding1,
+                            placeHolding: placeHolding1,
+                            placeHolding1: placeHolding2,
                             memoLimit: memoLimit
                         )
                         .frame(height: heightSize)

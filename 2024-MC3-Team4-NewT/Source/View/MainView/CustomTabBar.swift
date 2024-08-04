@@ -11,6 +11,7 @@ struct CustomTabBar: View {
     @State private var selectedTab: Int = 1
     
     var body: some View {
+        
         HStack {
             Spacer()
             TabBarButton(icon: "chart.bar", label: "파도차트", isSelected: selectedTab == 0)
@@ -20,24 +21,23 @@ struct CustomTabBar: View {
             
             Spacer()
             
-            ZStack {
-                Circle()
-                    .fill(Color.blue)
-                    .frame(width: 70, height: 70)
-                    .shadow(radius: 4)
-                
-                VStack {
-                    Image(systemName: "waveform.path.ecg")
-                        .font(.system(size: 24))
-                        .foregroundColor(.white)
-                    Text("파도기록")
-                        .font(.caption)
-                        .foregroundColor(.white)
+            NavigationLink(destination: RecordCreateView()) {
+                ZStack {
+                    Circle()
+                        .fill(Color(.surfBlue))
+                        .frame(width: 70, height: 70)
+                        .shadow(radius: 4)
+                    
+                    VStack {
+                        Image(systemName: "water.waves")
+                            .font(.system(size: 24))
+                            .foregroundColor(.white)
+                        Text("파도기록")
+                            .font(.caption)
+                            .foregroundColor(.white)
+                    }
                 }
-            }
-            .offset(y: -20) // Move the circle up to align with the image
-            .onTapGesture {
-                selectedTab = 1
+                .offset(y: -20) // Move the circle up to align with the image
             }
             
             Spacer()
@@ -58,12 +58,6 @@ struct CustomTabBar: View {
                 .padding(.horizontal, 20)
                 .padding(.vertical,10)
         )
+        
     }
-}
-
-
-
-
-#Preview {
-    CustomTabBar()
 }

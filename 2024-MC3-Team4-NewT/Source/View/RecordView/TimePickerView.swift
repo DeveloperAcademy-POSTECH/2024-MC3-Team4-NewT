@@ -8,9 +8,7 @@ import SwiftUI
 import SwiftData
 
 struct TimePickerView: View {
-    @Binding var selectedDate: Date
-    @Binding var startTime: Date
-    @Binding var stopTime: Date
+    @ObservedObject var viewModel : RecordCreateViewModel
     let updateChartScroll: () -> Void
     
     var body: some View {
@@ -21,7 +19,7 @@ struct TimePickerView: View {
                     .font(.SubheadingSemiBold)
                     .foregroundColor(Color("surfBlue"))
                 Spacer()
-                DatePicker("", selection: $selectedDate, displayedComponents: [.date])
+                DatePicker("", selection: $viewModel.selectedDate, displayedComponents: [.date])
                     .labelsHidden()
                     .colorScheme(.dark)
                     .background(
@@ -37,16 +35,16 @@ struct TimePickerView: View {
                     .font(.SubheadingSemiBold)
                     .foregroundColor(Color("surfBlue"))
                 Spacer()
-                DatePicker("", selection: $startTime, displayedComponents: [.hourAndMinute])
+                DatePicker("", selection: $viewModel.startTime, displayedComponents: [.hourAndMinute])
                     .labelsHidden()
                     .colorScheme(.dark)
                     .background(
                         RoundedRectangle(cornerRadius: 8)
                             .fill(Color("surfBlue"))
                     )
-                    .onChange(of: startTime){ newValue in
-                        if(startTime>stopTime) {
-                            startTime=stopTime
+                    .onChange(of: viewModel.startTime){ newValue in
+                        if(viewModel.startTime>viewModel.stopTime) {
+                            viewModel.startTime=viewModel.stopTime
                         }
                         updateChartScroll()
                     }
@@ -60,16 +58,16 @@ struct TimePickerView: View {
                     .font(.SubheadingSemiBold)
                     .foregroundColor(Color("surfBlue"))
                 Spacer()
-                DatePicker("", selection: $stopTime, displayedComponents: [.hourAndMinute])
+                DatePicker("", selection: $viewModel.stopTime, displayedComponents: [.hourAndMinute])
                     .labelsHidden()
                     .colorScheme(.dark)
                     .background(
                         RoundedRectangle(cornerRadius: 8)
                             .fill(Color("surfBlue"))
                     )
-                    .onChange(of: stopTime){ newValue in
-                        if(startTime>stopTime) {
-                            stopTime=startTime
+                    .onChange(of: viewModel.stopTime){ newValue in
+                        if(viewModel.startTime>viewModel.stopTime) {
+                            viewModel.stopTime=viewModel.startTime
                         }
                         updateChartScroll()
                     }
