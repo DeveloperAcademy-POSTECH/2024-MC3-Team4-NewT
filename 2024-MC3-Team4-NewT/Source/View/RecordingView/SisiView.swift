@@ -1,6 +1,8 @@
 import SwiftUI
+import SwiftData
 
 struct SisiView: View {
+    @Environment(\.modelContext) var modelContext
     @State var selectedDate = Date()
     @State var startTime = Date()
     @State var stopTime = Date()
@@ -15,6 +17,7 @@ struct SisiView: View {
     @State var heightSize: CGFloat = 245.0
     
     var body: some View {
+        
         ZStack(alignment: .top){
             Color(.systemGroupedBackground)
                 .ignoresSafeArea()
@@ -280,6 +283,8 @@ struct SisiView: View {
                 
                 Button{
                     isMemo.toggle()
+                    modelContext.insert(SurfingRecordOne(surfingStartTime: startTime, surfingEndTime: stopTime, charts: [], evaluationValue: memoLimit, memo: memo))
+                    
                     if isMemo {
                         
                         heightSize = 245.0
