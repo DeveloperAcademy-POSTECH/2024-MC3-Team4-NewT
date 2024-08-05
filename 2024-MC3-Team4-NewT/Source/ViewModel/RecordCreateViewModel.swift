@@ -16,6 +16,7 @@ class RecordCreateViewModel: ObservableObject {
     @Published var isChartScroll: Bool = true
     @Published var isScore = 0.0
     @Published var isMemo: Bool = true
+    @Published var isScoreText = ""
     @Published var memo: String = ""
     @Published var heightSize: CGFloat = 245.0
     

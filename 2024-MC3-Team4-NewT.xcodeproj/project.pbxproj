@@ -51,6 +51,9 @@
 		71449BF52C5E1E8000801E50 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 89A63A152C58983700787DC4 /* Pretendard-Medium.otf */; };
 		7159C18C2C5F4F89007300D6 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7159C18B2C5F4F89007300D6 /* Pretendard-SemiBold.otf */; };
 		7159C18E2C60C549007300D6 /* RecordChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7159C18D2C60C549007300D6 /* RecordChartViewModel.swift */; };
+		715BA4CC2C6111FF00477938 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715BA4CB2C6111FF00477938 /* ModalView.swift */; };
+		715BA4CE2C6115BC00477938 /* RecordChartTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715BA4CD2C6115BC00477938 /* RecordChartTestView.swift */; };
+		715BA4D02C611DE600477938 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715BA4CF2C611DE600477938 /* CategoriesView.swift */; };
 		717594132C5C614700F28BA1 /* RecordChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EA9CC2C5A56730090BAB5 /* RecordChartView.swift */; };
 		717594152C5C656700F28BA1 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717594142C5C656700F28BA1 /* LocationView.swift */; };
 		719EA9C02C5768580090BAB5 /* FitChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EA9BF2C5768580090BAB5 /* FitChartView.swift */; };
@@ -107,6 +110,9 @@
 		71449BF12C5E1E7200801E50 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		7159C18B2C5F4F89007300D6 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		7159C18D2C60C549007300D6 /* RecordChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordChartViewModel.swift; sourceTree = "<group>"; };
+		715BA4CB2C6111FF00477938 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
+		715BA4CD2C6115BC00477938 /* RecordChartTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordChartTestView.swift; sourceTree = "<group>"; };
+		715BA4CF2C611DE600477938 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		717594142C5C656700F28BA1 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		719EA9BF2C5768580090BAB5 /* FitChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitChartView.swift; sourceTree = "<group>"; };
 		719EA9C12C576EA20090BAB5 /* -024-MC3-Team4-NewT-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "-024-MC3-Team4-NewT-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -141,6 +147,9 @@
 			isa = PBXGroup;
 			children = (
 				719EA9CC2C5A56730090BAB5 /* RecordChartView.swift */,
+				715BA4CB2C6111FF00477938 /* ModalView.swift */,
+				715BA4CD2C6115BC00477938 /* RecordChartTestView.swift */,
+				715BA4CF2C611DE600477938 /* CategoriesView.swift */,
 				213A4A732C605E3F00786C97 /* RecordReadView.swift */,
 			);
 			path = RecordReadView;
@@ -468,12 +477,14 @@
 				21588B082C5CC2CA003E3489 /* DateFormatterManager.swift in Sources */,
 				7159C18E2C60C549007300D6 /* RecordChartViewModel.swift in Sources */,
 				21588B142C600CAA003E3489 /* TabBarButton.swift in Sources */,
+				715BA4CC2C6111FF00477938 /* ModalView.swift in Sources */,
 				21588B102C5E201F003E3489 /* ChartRecordObservable.swift in Sources */,
 				89A63A182C59B7D100787DC4 /* MainView.swift in Sources */,
 				21B0803D2C4D0888007BC655 /* JaneView.swift in Sources */,
 				21588B0C2C5D5D30003E3489 /* CustomTabBar.swift in Sources */,
 				89A63A1B2C59E4B800787DC4 /* StatisticsView.swift in Sources */,
 				21B080702C52844C007BC655 /* EmbededView.swift in Sources */,
+				715BA4D02C611DE600477938 /* CategoriesView.swift in Sources */,
 				21B0803B2C4D087F007BC655 /* PiriView.swift in Sources */,
 				21588B052C5C7652003E3489 /* SDCheckView.swift in Sources */,
 				21588B1D2C601239003E3489 /* RecordCreateView.swift in Sources */,
@@ -485,6 +496,7 @@
 				21588AFF2C5C760C003E3489 /* FirebaseObservable.swift in Sources */,
 				89A63A1D2C59E4F200787DC4 /* RecentChartsView.swift in Sources */,
 				717594132C5C614700F28BA1 /* RecordChartView.swift in Sources */,
+				715BA4CE2C6115BC00477938 /* RecordChartTestView.swift in Sources */,
 				21588B242C6015BC003E3489 /* RecordButtonView.swift in Sources */,
 				21B0806E2C516248007BC655 /* FindSpotView.swift in Sources */,
 				21B080722C52890A007BC655 /* WindyView.swift in Sources */,

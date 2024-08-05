@@ -16,6 +16,21 @@ struct RecordButtonView: View {
     
     var body: some View {
         Button{
+            print(viewModel.memo)
+            print(viewModel.isMemo)
+            if viewModel.isMemo {
+                    viewModel.heightSize = 322.0
+                modelContext.insert(SurfingRecordOne(surfingStartTime: viewModel.startTime, surfingEndTime: viewModel.stopTime, charts: [], evaluationValue: Int(viewModel.isScore + 1), evaluationText: viewModel.isScoreText, memo: viewModel.memo))
+            }
+            else {
+                viewModel.heightSize = 245.0
+                viewModel.isMemo.toggle()
+                modelContext.insert(SurfingRecordOne(surfingStartTime: viewModel.startTime, surfingEndTime: viewModel.stopTime, charts: [], evaluationValue: Int(viewModel.isScore + 1), evaluationText: viewModel.isScoreText, memo: viewModel.memo))
+            }
+            
+            if (viewModel.memo.isEmpty) {
+                print("empty")
+            }
             for aa in observable.필터된차트{
                 print(aa.time)
             }
