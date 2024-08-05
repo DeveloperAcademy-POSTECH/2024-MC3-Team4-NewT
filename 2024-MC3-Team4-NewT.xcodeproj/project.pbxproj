@@ -139,11 +139,11 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		21588B2D2C605CF8003E3489 /* RecordCreateView */ = {
+		21588B2D2C605CF8003E3489 /* RecordReadView */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = RecordCreateView;
+			path = RecordReadView;
 			sourceTree = "<group>";
 		};
 		21B080202C4D0834007BC655 = {
@@ -185,9 +185,9 @@
 		21B080442C4D08D3007BC655 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				21588B2D2C605CF8003E3489 /* RecordCreateView */,
 				89A63A252C5C7AF200787DC4 /* MainView */,
-				89A63A262C5C7C1300787DC4 /* RecordView */,
+				89A63A262C5C7C1300787DC4 /* RecordCreateView */,
+				21588B2D2C605CF8003E3489 /* RecordReadView */,
 				89A63A212C5C7A3800787DC4 /* LocationView */,
 				89A63A222C5C7A8600787DC4 /* SwiftData */,
 				89A63A202C5C7A1500787DC4 /* BackEnd */,
@@ -337,7 +337,7 @@
 			path = MainView;
 			sourceTree = "<group>";
 		};
-		89A63A262C5C7C1300787DC4 /* RecordView */ = {
+		89A63A262C5C7C1300787DC4 /* RecordCreateView */ = {
 			isa = PBXGroup;
 			children = (
 				21588B112C6009AF003E3489 /* ChartView.swift */,
@@ -347,7 +347,7 @@
 				21B0803E2C4D089F007BC655 /* SisiView.swift */,
 				21588B1E2C6012B8003E3489 /* TimePickerView.swift */,
 			);
-			path = RecordView;
+			path = RecordCreateView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
