@@ -25,7 +25,7 @@ struct TestView: View {
                     Text("씨씨")
                 }
                 NavigationLink(destination: RecordTestView()){
-                    Text("씨씨")
+                    Text("서핑기록Test")
                 }
                 NavigationLink(destination: FitChartView()){
                     Text("FitChartView")

@@ -29,17 +29,16 @@ struct RecordButtonView: View {
                 filteredCharts.append(newChartRow)
                 
             }
-
+        
             viewModel.isMemo.toggle()
             if let aa = filteredCharts.first{
-                // 같은 modelContext에서 SurfingRecordOne 생성
                 let newSurfingRecord = SurfingRecordOne(
                     surfingStartTime: viewModel.startTime,
                     surfingEndTime: viewModel.stopTime,
-                    firstCharts: aa,
                     evaluationValue: viewModel.selectedScore+1,
-                    memo: viewModel.memo
-                )
+                    evaluationText: viewModel.isScoreText,
+                    memo: viewModel.memo,
+                    firstCharts: aa)
                 modelContext.insert(newSurfingRecord)
                 for item2 in filteredCharts{
                     item2.surfingRecordOne = newSurfingRecord

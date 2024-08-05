@@ -63,7 +63,7 @@ final class SurfingRecordOne {
     var memo: String
     
 
-    init(surfingStartTime: Date, surfingEndTime: Date, charts: [ChartRow], evaluationValue: Int, evaluationText: String, memo: String) {
+    init(surfingStartTime: Date, surfingEndTime: Date, evaluationValue: Int, evaluationText: String, memo: String,firstCharts:ChartRow) {
 
         self.id = UUID()
         self.surfingStartTime = surfingStartTime
