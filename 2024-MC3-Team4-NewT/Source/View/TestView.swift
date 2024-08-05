@@ -34,9 +34,9 @@ struct TestView: View {
                     Text("LocationView")
                 }
             }
-            //            NavigationLink(destination: RecordChartView()){
-            //                Text("RecordChartView")
-            //            }
+                        NavigationLink(destination: RecordChartView()){
+                            Text("RecordChartView")
+                        }
             Button(action: {
                 showMainTestView1 = true
             }) {
