@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		213A4A742C605E3F00786C97 /* RecordReadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213A4A732C605E3F00786C97 /* RecordReadView.swift */; };
 		21588AFD2C5C75E6003E3489 /* FirebaseSDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588AFC2C5C75E6003E3489 /* FirebaseSDView.swift */; };
 		21588AFF2C5C760C003E3489 /* FirebaseObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588AFE2C5C760C003E3489 /* FirebaseObservable.swift */; };
 		21588B012C5C7621003E3489 /* FirebaseTestObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B002C5C7621003E3489 /* FirebaseTestObservable.swift */; };
@@ -63,6 +64,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		213A4A732C605E3F00786C97 /* RecordReadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordReadView.swift; sourceTree = "<group>"; };
 		21588AFC2C5C75E6003E3489 /* FirebaseSDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSDView.swift; sourceTree = "<group>"; };
 		21588AFE2C5C760C003E3489 /* FirebaseObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseObservable.swift; sourceTree = "<group>"; };
 		21588B002C5C7621003E3489 /* FirebaseTestObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTestObservable.swift; sourceTree = "<group>"; };
@@ -131,19 +133,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		213A4A722C605E2600786C97 /* RecordReadView */ = {
+			isa = PBXGroup;
+			children = (
+				213A4A732C605E3F00786C97 /* RecordReadView.swift */,
+			);
+			path = RecordReadView;
+			sourceTree = "<group>";
+		};
 		21588B062C5CC29A003E3489 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				21588B072C5CC2CA003E3489 /* DateFormatterManager.swift */,
 			);
 			path = Utils;
-			sourceTree = "<group>";
-		};
-		21588B2D2C605CF8003E3489 /* RecordReadView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = RecordReadView;
 			sourceTree = "<group>";
 		};
 		21B080202C4D0834007BC655 = {
@@ -187,7 +190,7 @@
 			children = (
 				89A63A252C5C7AF200787DC4 /* MainView */,
 				89A63A262C5C7C1300787DC4 /* RecordCreateView */,
-				21588B2D2C605CF8003E3489 /* RecordReadView */,
+				213A4A722C605E2600786C97 /* RecordReadView */,
 				89A63A212C5C7A3800787DC4 /* LocationView */,
 				89A63A222C5C7A8600787DC4 /* SwiftData */,
 				89A63A202C5C7A1500787DC4 /* BackEnd */,
@@ -466,6 +469,7 @@
 				21B0803B2C4D087F007BC655 /* PiriView.swift in Sources */,
 				21588B052C5C7652003E3489 /* SDCheckView.swift in Sources */,
 				21588B1D2C601239003E3489 /* RecordCreateView.swift in Sources */,
+				213A4A742C605E3F00786C97 /* RecordReadView.swift in Sources */,
 				21588B122C6009AF003E3489 /* ChartView.swift in Sources */,
 				717594152C5C656700F28BA1 /* LocationView.swift in Sources */,
 				21588B262C6017C0003E3489 /* TabBarBackup.swift in Sources */,
