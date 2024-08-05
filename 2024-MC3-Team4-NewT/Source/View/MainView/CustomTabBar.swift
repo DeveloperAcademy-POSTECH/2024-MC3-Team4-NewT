@@ -8,18 +8,46 @@
 import SwiftUI
 
 struct CustomTabBar: View {
-    @State private var selectedTab: Int = 0
+    @Binding var selectedTab: Int
     
     var body: some View {
         
-        HStack {
-            Spacer()
-            TabBarButton(icon: "chart.bar", label: "파도차트", isSelected: selectedTab == 0)
+        ZStack(alignment: .top) {
+            HStack {
+                Spacer()
+                TabBarButton(
+                    icon: (selectedTab == 0 ? "chartBarXaxis" : "chartBarXaxis.gray"),
+                    label: "파도차트",
+                    isSelected: selectedTab == 0)
                 .onTapGesture {
                     selectedTab = 0
                 }
+                
+                Spacer()
+                Spacer()
+                Spacer()
+                
+                TabBarButton(
+                    icon: (selectedTab == 2 ? "bookPages" : "bookPages.gray"),
+                    label: "기록차트",
+                    isSelected: selectedTab == 2)
+                .onTapGesture {
+                    selectedTab = 2
+                }
+                
+                Spacer()
+            }
+            .frame(height: 77)
+            .padding(.vertical, 10)
+            .padding(.horizontal, 20)
+            .background(
+                Rectangle()
+                    .fill(.white)
+            )
             
-            Spacer()
+            Rectangle()
+                .frame(height: 0.5) // 선의 두께, 0.33은 반영을 안해줘서 0.5로 설정
+                .foregroundColor(.black.opacity(0.3))
             
             NavigationLink(destination: RecordCreateView()) {
                 ZStack {
@@ -39,28 +67,8 @@ struct CustomTabBar: View {
                 }
                 .offset(y: -20)
             }
-            
-            Spacer()
-            
-            TabBarButton(
-                icon: "doc.text",
-                label: "기록차트",
-                isSelected: selectedTab == 2)
-            .onTapGesture {
-                selectedTab = 2
-            }
-            
-            Spacer()
-        }
-        .frame(height: 60)
-        .padding(.vertical, 10)
-        .padding(.horizontal, 20)
-        .background(
-            RoundedRectangle(cornerRadius: 39)
-                .fill(Color(UIColor.systemGray6))
-                .padding(.horizontal, 20)
-                .padding(.vertical,10)
-        )
+        }.ignoresSafeArea(edges: .bottom)
+        
         
     }
 }
