@@ -23,15 +23,12 @@ struct RecordCreateView: View {
                             Color.white
                             VStack(spacing: 0){
                                 TimePickerView(viewModel: viewModel)
-                                
                                 Divider()
                                     .padding(.leading)
-                                
                                 ChartHeaderView(viewModel: viewModel)
                                 
                                 ChartView(
                                     viewModel: viewModel,
-                                    isChartScroll: $viewModel.isChartScroll,
                                     observable: cro
                                 )
                             }
@@ -51,7 +48,8 @@ struct RecordCreateView: View {
                     .padding(.bottom)
                 
                 RecordButtonView(
-                    viewModel:viewModel
+                    viewModel:viewModel,
+                    observable: cro
                 )
                 
                 Spacer()
