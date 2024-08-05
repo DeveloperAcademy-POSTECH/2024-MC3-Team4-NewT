@@ -48,7 +48,7 @@ struct PinChartsView: View {
                         Rectangle().frame(width: .infinity, height: 1).foregroundColor(.surfBlue.opacity(0.3))
                         HStack{
                             VStack {
-                                Image("pinIcon")
+                                Image("PinIcon")
                             }.padding(.leading, 8)
                             Spacer()
                             HStack {
