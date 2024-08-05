@@ -50,6 +50,7 @@
 		71449BF42C5E1E7E00801E50 /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 89A63A142C58982A00787DC4 /* Pretendard-ExtraLight.otf */; };
 		71449BF52C5E1E8000801E50 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 89A63A152C58983700787DC4 /* Pretendard-Medium.otf */; };
 		7159C18C2C5F4F89007300D6 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7159C18B2C5F4F89007300D6 /* Pretendard-SemiBold.otf */; };
+		7159C18E2C60C549007300D6 /* RecordChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7159C18D2C60C549007300D6 /* RecordChartViewModel.swift */; };
 		717594132C5C614700F28BA1 /* RecordChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EA9CC2C5A56730090BAB5 /* RecordChartView.swift */; };
 		717594152C5C656700F28BA1 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717594142C5C656700F28BA1 /* LocationView.swift */; };
 		719EA9C02C5768580090BAB5 /* FitChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EA9BF2C5768580090BAB5 /* FitChartView.swift */; };
@@ -105,6 +106,7 @@
 		21EDE2422C5B1C1D00F973C0 /* SDTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDTestView.swift; sourceTree = "<group>"; };
 		71449BF12C5E1E7200801E50 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		7159C18B2C5F4F89007300D6 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		7159C18D2C60C549007300D6 /* RecordChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordChartViewModel.swift; sourceTree = "<group>"; };
 		717594142C5C656700F28BA1 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		719EA9BF2C5768580090BAB5 /* FitChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitChartView.swift; sourceTree = "<group>"; };
 		719EA9C12C576EA20090BAB5 /* -024-MC3-Team4-NewT-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "-024-MC3-Team4-NewT-Info.plist"; sourceTree = SOURCE_ROOT; };
@@ -217,6 +219,7 @@
 				21588B0F2C5E201F003E3489 /* ChartRecordObservable.swift */,
 				21588AFE2C5C760C003E3489 /* FirebaseObservable.swift */,
 				21588B002C5C7621003E3489 /* FirebaseTestObservable.swift */,
+				7159C18D2C60C549007300D6 /* RecordChartViewModel.swift */,
 				21588B292C601E21003E3489 /* RecordCreateViewModel.swift */,
 				21588B022C5C7632003E3489 /* SwiftDataObservable.swift */,
 				21B080802C588261007BC655 /* WaveObservable.swift */,
@@ -463,6 +466,7 @@
 				21B0807D2C57C68D007BC655 /* FirebaseTestView.swift in Sources */,
 				719EA9C52C57729E0090BAB5 /* Font.swift in Sources */,
 				21588B082C5CC2CA003E3489 /* DateFormatterManager.swift in Sources */,
+				7159C18E2C60C549007300D6 /* RecordChartViewModel.swift in Sources */,
 				21588B142C600CAA003E3489 /* TabBarButton.swift in Sources */,
 				21588B102C5E201F003E3489 /* ChartRecordObservable.swift in Sources */,
 				89A63A182C59B7D100787DC4 /* MainView.swift in Sources */,
