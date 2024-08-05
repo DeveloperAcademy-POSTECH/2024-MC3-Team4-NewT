@@ -20,7 +20,7 @@ struct MainTestView: View {
             
             // Bottom Tab Bar
             Spacer()
-            CustomTabBar()
+//            CustomTabBar()
         }
     }
 }
