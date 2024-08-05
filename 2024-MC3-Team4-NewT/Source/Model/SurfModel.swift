@@ -59,14 +59,18 @@ final class SurfingRecordOne {
     @Relationship(deleteRule:.cascade)
     var firstCharts:ChartRow
     var evaluationValue: Int
+    var evaluationText: String
     var memo: String
     
-    init(surfingStartTime: Date, surfingEndTime: Date, firstCharts: ChartRow, evaluationValue: Int, memo: String) {
+
+    init(surfingStartTime: Date, surfingEndTime: Date, charts: [ChartRow], evaluationValue: Int, evaluationText: String, memo: String) {
+
         self.id = UUID()
         self.surfingStartTime = surfingStartTime
         self.surfingEndTime = surfingEndTime
         self.firstCharts = firstCharts
         self.evaluationValue = evaluationValue
+        self.evaluationText = evaluationText
         self.memo = memo
     }
 }

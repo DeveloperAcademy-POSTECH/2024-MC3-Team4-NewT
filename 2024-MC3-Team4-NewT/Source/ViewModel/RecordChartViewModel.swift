@@ -9,10 +9,7 @@ class RecordChartViewModel: ObservableObject {
     @Published var stopTime = Date()
     @Published var isEllipsisOnOff: Bool = false
     @Published var ismemo: Bool = false
-    
-//    let placeHolding1: String = "파도에 대한 간단한 메모를 남겨보세요."
-//    let placeHolding2: String = "(최대 200자)"
-//    let memoLimit: Int = 200
+    @Published var isID: UUID = UUID()
     
     var chartCounter: Int {
         var counter: Int = 1
