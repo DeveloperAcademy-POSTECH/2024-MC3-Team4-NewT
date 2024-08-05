@@ -37,7 +37,7 @@ struct RecordButtonView: View {
                     surfingStartTime: viewModel.startTime,
                     surfingEndTime: viewModel.stopTime,
                     firstCharts: aa,
-                    evaluationValue: viewModel.selectedScore,
+                    evaluationValue: viewModel.selectedScore+1,
                     memo: viewModel.memo
                 )
                 modelContext.insert(newSurfingRecord)
