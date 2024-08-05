@@ -136,6 +136,7 @@
 		213A4A722C605E2600786C97 /* RecordReadView */ = {
 			isa = PBXGroup;
 			children = (
+				719EA9CC2C5A56730090BAB5 /* RecordChartView.swift */,
 				213A4A732C605E3F00786C97 /* RecordReadView.swift */,
 			);
 			path = RecordReadView;
@@ -333,7 +334,6 @@
 				89A63A172C59B7D100787DC4 /* MainView.swift */,
 				89A63A1E2C59E53100787DC4 /* PinChartsView.swift */,
 				89A63A1C2C59E4F200787DC4 /* RecentChartsView.swift */,
-				719EA9CC2C5A56730090BAB5 /* RecordChartView.swift */,
 				89A63A1A2C59E4B800787DC4 /* StatisticsView.swift */,
 				21588B132C600CAA003E3489 /* TabBarButton.swift */,
 			);
