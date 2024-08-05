@@ -7,13 +7,7 @@ struct RecordChartView: View {
     @Query private var surfingRecordOneData: [SurfingRecordOne]
     
     @ObservedObject var viewModel = RecordChartViewModel()
-//    @State var categories: Int = 0
-//    @State var selectedDate = Date()
-//    @State var startTime = Date()
-//    @State var stopTime = Date()
-//    @State var isEllipsisOnOff: Bool = false
-//    @State var ismemo: Bool = false
-//    
+
     var body: some View {
         ZStack{
             Color(.systemGroupedBackground)

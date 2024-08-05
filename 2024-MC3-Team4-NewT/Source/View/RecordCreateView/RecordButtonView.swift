@@ -16,38 +16,40 @@ struct RecordButtonView: View {
 
     var body: some View {
         Button {
-            var 필터데이터: [ChartRow] = []
-
-            for aa in observable.필터된차트 {
-                print(aa.time)
-                // 같은 modelContext에서 새로운 ChartRow 생성 후 추가
+            var filteredCharts: [ChartRow] = []
+            
+            for item1 in observable.필터된차트 {
                 let newChartRow = ChartRow(
-                    time: aa.time,
-                    surfingValues: aa.surfingValues,
-                    isHighTide: aa.isHighTide,
-                    isLowTide: aa.isLowTide
+                    time: item1.time,
+                    surfingValues: item1.surfingValues,
+                    isHighTide: item1.isHighTide,
+                    isLowTide: item1.isLowTide
                 )
-                
                 modelContext.insert(newChartRow)
-                필터데이터.append(newChartRow)
+                filteredCharts.append(newChartRow)
                 
             }
 
             viewModel.isMemo.toggle()
-
-            // 같은 modelContext에서 SurfingRecordOne 생성
-            let newSurfingRecord = SurfingRecordOne(
-                surfingStartTime: viewModel.startTime,
-                surfingEndTime: viewModel.stopTime,
-                charts: [],
-                evaluationValue: viewModel.selectedScore,
-                memo: viewModel.memo
-            )
-            
-            modelContext.insert(newSurfingRecord)
-            for bb in 필터데이터{
-                bb.surfingRecordOne = newSurfingRecord
+            if let aa = filteredCharts.first{
+                // 같은 modelContext에서 SurfingRecordOne 생성
+                let newSurfingRecord = SurfingRecordOne(
+                    surfingStartTime: viewModel.startTime,
+                    surfingEndTime: viewModel.stopTime,
+                    firstCharts: aa,
+                    evaluationValue: viewModel.selectedScore,
+                    memo: viewModel.memo
+                )
+                modelContext.insert(newSurfingRecord)
+                for item2 in filteredCharts{
+                    item2.surfingRecordOne = newSurfingRecord
+                }
+                
             }
+            else{
+                print("filteredCharts.first에서 nil로 터짐")
+            }
+            
 //            try modelContext.save()
 
         } label: {
