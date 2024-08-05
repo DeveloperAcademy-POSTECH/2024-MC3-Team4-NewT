@@ -24,9 +24,9 @@ struct TestView: View {
                 NavigationLink(destination: SisiView()){
                     Text("씨씨")
                 }
-                //                NavigationLink(destination: NadaView()){
-                //                    Text("나다")
-                //                }
+                NavigationLink(destination: RecordTestView()){
+                    Text("씨씨")
+                }
                 NavigationLink(destination: FitChartView()){
                     Text("FitChartView")
                 }

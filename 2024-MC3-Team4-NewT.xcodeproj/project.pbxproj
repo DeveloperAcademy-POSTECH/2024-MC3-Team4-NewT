@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		213A4A742C605E3F00786C97 /* RecordReadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213A4A732C605E3F00786C97 /* RecordReadView.swift */; };
 		213A4A762C60609600786C97 /* ChartHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213A4A752C60609600786C97 /* ChartHeaderView.swift */; };
+		213A4A7A2C61160000786C97 /* RecordTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213A4A792C61160000786C97 /* RecordTestView.swift */; };
 		21588AFD2C5C75E6003E3489 /* FirebaseSDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588AFC2C5C75E6003E3489 /* FirebaseSDView.swift */; };
 		21588AFF2C5C760C003E3489 /* FirebaseObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588AFE2C5C760C003E3489 /* FirebaseObservable.swift */; };
 		21588B012C5C7621003E3489 /* FirebaseTestObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B002C5C7621003E3489 /* FirebaseTestObservable.swift */; };
@@ -71,6 +72,7 @@
 /* Begin PBXFileReference section */
 		213A4A732C605E3F00786C97 /* RecordReadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordReadView.swift; sourceTree = "<group>"; };
 		213A4A752C60609600786C97 /* ChartHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHeaderView.swift; sourceTree = "<group>"; };
+		213A4A792C61160000786C97 /* RecordTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTestView.swift; sourceTree = "<group>"; };
 		21588AFC2C5C75E6003E3489 /* FirebaseSDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSDView.swift; sourceTree = "<group>"; };
 		21588AFE2C5C760C003E3489 /* FirebaseObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseObservable.swift; sourceTree = "<group>"; };
 		21588B002C5C7621003E3489 /* FirebaseTestObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTestObservable.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				715BA4CD2C6115BC00477938 /* RecordChartTestView.swift */,
 				715BA4CF2C611DE600477938 /* CategoriesView.swift */,
 				213A4A732C605E3F00786C97 /* RecordReadView.swift */,
+				213A4A792C61160000786C97 /* RecordTestView.swift */,
 			);
 			path = RecordReadView;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				213A4A742C605E3F00786C97 /* RecordReadView.swift in Sources */,
 				21588B122C6009AF003E3489 /* ChartView.swift in Sources */,
 				717594152C5C656700F28BA1 /* LocationView.swift in Sources */,
+				213A4A7A2C61160000786C97 /* RecordTestView.swift in Sources */,
 				21588B262C6017C0003E3489 /* TabBarBackup.swift in Sources */,
 				21588B282C601902003E3489 /* OldModel.swift in Sources */,
 				21588AFF2C5C760C003E3489 /* FirebaseObservable.swift in Sources */,

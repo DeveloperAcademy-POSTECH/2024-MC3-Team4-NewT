@@ -39,6 +39,7 @@ final class ChartRow {
     var surfingValues: SurfingValues
     var isHighTide: Bool
     var isLowTide: Bool
+    var surfingRecordOne:SurfingRecordOne?
     
     init(time: String, surfingValues: SurfingValues, isHighTide: Bool, isLowTide: Bool) {
         self.id = UUID()
@@ -46,6 +47,31 @@ final class ChartRow {
         self.surfingValues = surfingValues
         self.isHighTide = isHighTide
         self.isLowTide = isLowTide
+    }
+}
+
+
+@Model
+final class SurfingRecordOne {
+    @Attribute(.unique) var id: UUID
+    var surfingStartTime: Date
+    var surfingEndTime: Date
+    @Relationship(deleteRule:.cascade)
+    var firstCharts:ChartRow
+    var evaluationValue: Int
+    var evaluationText: String
+    var memo: String
+    
+
+    init(surfingStartTime: Date, surfingEndTime: Date, charts: [ChartRow], evaluationValue: Int, evaluationText: String, memo: String) {
+
+        self.id = UUID()
+        self.surfingStartTime = surfingStartTime
+        self.surfingEndTime = surfingEndTime
+        self.firstCharts = firstCharts
+        self.evaluationValue = evaluationValue
+        self.evaluationText = evaluationText
+        self.memo = memo
     }
 }
 
@@ -59,27 +85,6 @@ final class DailyWeather {
         self.id = UUID()
         self.day = day
         self.chartCollection = chartCollection
-    }
-}
-
-@Model
-final class SurfingRecordOne {
-    @Attribute(.unique) var id: UUID
-    var surfingStartTime: Date
-    var surfingEndTime: Date
-    var charts: [ChartRow]
-    var evaluationValue: Int
-    var evaluationText: String
-    var memo: String
-    
-    init(surfingStartTime: Date, surfingEndTime: Date, charts: [ChartRow], evaluationValue: Int, evaluationText: String, memo: String) {
-        self.id = UUID()
-        self.surfingStartTime = surfingStartTime
-        self.surfingEndTime = surfingEndTime
-        self.charts = charts
-        self.evaluationValue = evaluationValue
-        self.evaluationText = evaluationText
-        self.memo = memo
     }
 }
 
