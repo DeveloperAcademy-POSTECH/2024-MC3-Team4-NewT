@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		213A4A742C605E3F00786C97 /* RecordReadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213A4A732C605E3F00786C97 /* RecordReadView.swift */; };
+		213A4A762C60609600786C97 /* ChartHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213A4A752C60609600786C97 /* ChartHeaderView.swift */; };
 		21588AFD2C5C75E6003E3489 /* FirebaseSDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588AFC2C5C75E6003E3489 /* FirebaseSDView.swift */; };
 		21588AFF2C5C760C003E3489 /* FirebaseObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588AFE2C5C760C003E3489 /* FirebaseObservable.swift */; };
 		21588B012C5C7621003E3489 /* FirebaseTestObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B002C5C7621003E3489 /* FirebaseTestObservable.swift */; };
@@ -65,6 +66,7 @@
 
 /* Begin PBXFileReference section */
 		213A4A732C605E3F00786C97 /* RecordReadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordReadView.swift; sourceTree = "<group>"; };
+		213A4A752C60609600786C97 /* ChartHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHeaderView.swift; sourceTree = "<group>"; };
 		21588AFC2C5C75E6003E3489 /* FirebaseSDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSDView.swift; sourceTree = "<group>"; };
 		21588AFE2C5C760C003E3489 /* FirebaseObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseObservable.swift; sourceTree = "<group>"; };
 		21588B002C5C7621003E3489 /* FirebaseTestObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTestObservable.swift; sourceTree = "<group>"; };
@@ -343,6 +345,7 @@
 		89A63A262C5C7C1300787DC4 /* RecordCreateView */ = {
 			isa = PBXGroup;
 			children = (
+				213A4A752C60609600786C97 /* ChartHeaderView.swift */,
 				21588B112C6009AF003E3489 /* ChartView.swift */,
 				21588B202C601412003E3489 /* EvaluationView.swift */,
 				21588B232C6015BC003E3489 /* RecordButtonView.swift */,
@@ -445,6 +448,7 @@
 				719EA9C02C5768580090BAB5 /* FitChartView.swift in Sources */,
 				21B080432C4D08C2007BC655 /* TestView.swift in Sources */,
 				89A63A242C5C7AE800787DC4 /* SurfModel.swift in Sources */,
+				213A4A762C60609600786C97 /* ChartHeaderView.swift in Sources */,
 				21EDE2432C5B1C1D00F973C0 /* SDTestView.swift in Sources */,
 				21B0807F2C587D3C007BC655 /* DummyData.swift in Sources */,
 				89A63A1F2C59E53100787DC4 /* PinChartsView.swift in Sources */,

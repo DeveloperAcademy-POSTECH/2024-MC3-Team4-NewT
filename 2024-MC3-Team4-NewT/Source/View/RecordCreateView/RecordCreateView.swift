@@ -13,7 +13,6 @@ struct RecordCreateView: View {
     var cro = ChartRecordObservable()
     
     var body: some View {
-        
         ZStack(alignment: .top){
             Color(.systemGroupedBackground)
                 .ignoresSafeArea()
@@ -27,35 +26,18 @@ struct RecordCreateView: View {
                                 
                                 Divider()
                                     .padding(.leading)
-                                Text(DateFormatterManager.shared.date(from: viewModel.selectedDate))
-                                    .font(.SubheadingBold)
-                                    .foregroundStyle(Color("surfBlue"))
-                                    .padding(.vertical, 8)
-                                ZStack{
-                                    Rectangle()
-                                        .frame(height: 20)
-                                        .foregroundColor(Color(.systemGroupedBackground))
-                                    HStack(spacing: 50){
-                                        Text("시간")
-                                        Text("바람")
-                                        Text("파도")
-                                        Text("수온")
-                                        Text("날씨")
-                                    }
-                                    .font(.CaptionMedium)
-                                    .foregroundColor(Color(.black).opacity(0.5))
-                                }
+                                
+                                ChartHeaderView(viewModel: viewModel)
+                                
                                 ChartView(
-                                    viewModel: viewModel,  // 여기서 viewModel을 전달합니다.
+                                    viewModel: viewModel,
                                     isChartScroll: $viewModel.isChartScroll,
                                     observable: cro
                                 )
-                                
                             }
                         }
                         .cornerRadius(24)
                         .padding(.horizontal)
-                        
                         
                         EvaluationView(
                             viewModel:viewModel
@@ -68,7 +50,6 @@ struct RecordCreateView: View {
                 }.scrollDisabled(viewModel.isMemo)
                     .padding(.bottom)
                 
-                
                 RecordButtonView(
                     viewModel:viewModel
                 )
@@ -79,6 +60,4 @@ struct RecordCreateView: View {
         .navigationTitle("파도 기록")
         
     }
-  
 }
-
