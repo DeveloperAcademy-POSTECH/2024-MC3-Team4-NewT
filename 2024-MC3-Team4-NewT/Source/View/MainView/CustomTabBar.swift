@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CustomTabBar: View {
-    @State private var selectedTab: Int = 1
+    @State private var selectedTab: Int = 0
     
     var body: some View {
         
@@ -37,15 +37,18 @@ struct CustomTabBar: View {
                             .foregroundColor(.white)
                     }
                 }
-                .offset(y: -20) // Move the circle up to align with the image
+                .offset(y: -20)
             }
             
             Spacer()
             
-            TabBarButton(icon: "doc.text", label: "기록차트", isSelected: selectedTab == 2)
-                .onTapGesture {
-                    selectedTab = 2
-                }
+            TabBarButton(
+                icon: "doc.text",
+                label: "기록차트",
+                isSelected: selectedTab == 2)
+            .onTapGesture {
+                selectedTab = 2
+            }
             
             Spacer()
         }

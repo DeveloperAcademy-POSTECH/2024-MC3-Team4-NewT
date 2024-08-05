@@ -3,8 +3,6 @@ import SwiftUI
 
 struct RecordChartView: View {
     @State var categories: Int = 0
-    
-    
     @State var selectedDate = Date()
     @State var startTime = Date()
     @State var stopTime = Date()
