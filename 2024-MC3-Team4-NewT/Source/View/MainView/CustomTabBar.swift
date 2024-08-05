@@ -75,7 +75,7 @@ struct CustomTabBar: View {
                 }
                 else {
                     Spacer()
-                    //버튼 바뀌고 올라가는 애니메이션
+                    //버튼 바뀌고 위에 버튼 추가되는 애니메이션 넣어야 함
                     ZStack(alignment: .bottom) {
                         Rectangle()
                         .frame(height: 380)

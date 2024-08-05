@@ -30,9 +30,7 @@ struct FitChartView: View {
                     StatisticsView()
                 } else {
                     Text("통계 데이터가 없습니다.")
-                        .foregroundColor(.gray)
                 }
-//                RecentChartsVIew()
                 RecentChartsView()
                 PinChartsView()
             }.padding(.top, 12)
@@ -41,7 +39,6 @@ struct FitChartView: View {
             .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .never))
             // .never 로 하면 배경 안보이고 .always 로 하면 인디케이터 배경 보입니다.
         }
-        
     }
 }
 
