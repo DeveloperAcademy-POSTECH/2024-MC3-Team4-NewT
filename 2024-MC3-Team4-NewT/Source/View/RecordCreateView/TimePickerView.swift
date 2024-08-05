@@ -25,6 +25,10 @@ struct TimePickerView: View {
                         RoundedRectangle(cornerRadius: 8)
                             .fill(Color("surfBlue"))
                     )
+                    .onChange(of: viewModel.selectedDate){
+                        viewModel.startTime = viewModel.selectedDate
+                        viewModel.stopTime = viewModel.selectedDate
+                    }
             }.padding(.horizontal)
             
             Divider()

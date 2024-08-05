@@ -32,6 +32,13 @@ struct EvaluationView: View {
                             Button {
                                 viewModel.selectedScore = index
                                 viewModel.isScore = Double(index)
+                                
+                                if(index == 0){ viewModel.isScoreText = "별로예요" }
+                                else if(index == 1){ viewModel.isScoreText = "아쉬워요" }
+                                else if(index == 2){ viewModel.isScoreText = "보통이에요" }
+                                else if(index == 3){ viewModel.isScoreText = "만족해요" }
+                                else { viewModel.isScoreText = "최고예요" }
+                                
                             } label: {
                                 Circle()
                                     .frame(width: 20, height: 20)
