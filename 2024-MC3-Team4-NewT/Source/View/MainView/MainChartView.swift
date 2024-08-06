@@ -1,14 +1,7 @@
-//
-//  JaneVIew.swift
-//  2024-MC3-Team4-NewT
-//
-//  Created by ram on 7/21/24.
-//
-
 import SwiftUI
 import SwiftData
 
-///'@@시 (24시제)'로 표시해주는 Formatter
+/// 'HH시'로 표시해주는 Formatter
 let timeFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateFormat = "HH시"
@@ -16,7 +9,7 @@ let timeFormatter: DateFormatter = {
     return formatter
 }()
 
-///'@월 %일 &요일'로 표시해주는 Formatter
+/// 'M월 d일 EEEE'로 표시해주는 Formatter
 let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateFormat = "M월 d일 EEEE"
@@ -24,7 +17,6 @@ let dateFormatter: DateFormatter = {
     return formatter
 }()
 
-//test
 /// 원본 문자열에서 Date 객체로 변환하기 위한 Formatter
 let inputDateFormatter: DateFormatter = {
     let formatter = DateFormatter()
@@ -38,14 +30,17 @@ struct MainChartView: View {
     var fbo = FirebaseObservable()
     @Query(sort: \ChartRow.time) var chartRow: [ChartRow]
     @Binding var isHeaderVisible: Bool // 헤더 가시성 상태 변수
+    @State private var currentSection: String = ""
     var today: String = "2024-07-30" // 오늘 날짜 (예: "2024-07-30")
     
     var body: some View {
         VStack {
             VStack(alignment: .center, spacing: 0) {
-                Text("\(dateFormatter.string(from: Date()))")
+                Text(currentSection.isEmpty ? dateFormatter.string(from: Date()) : currentSection)
                     .padding(.vertical, 10)
-                    .font(.SubheadingBold).foregroundColor(.surfBlue)
+                    .font(.SubheadingBold)
+                    .foregroundColor(.surfBlue)
+                
                 HStack(alignment: .center) {
                     Text("  시간").font(.CaptionSemiBold)
                     Spacer()
@@ -63,23 +58,26 @@ struct MainChartView: View {
                 .background(Color(red: 0.9, green: 0.93, blue: 0.98).opacity(0.5))
                 
                 ScrollView {
-                    GeometryReader { geometry in
-                        let totalWidth = geometry.size.width
-                        let columnWidth = totalWidth / 5  // 5열로 나누기
-                        
-                        ForEach(fbo.groupedByDate(chartRow: chartRow), id: \.key) { (key, charts) in
-                            VStack(alignment: .leading) {
+                    VStack(spacing: 0) {
+                        ForEach(groupedByDate(chartRow: chartRow), id: \.key) { (key, charts) in
+                            VStack(alignment: .leading, spacing: 0) {
                                 Text(key)
                                     .font(.headline)
                                     .padding(.top)
+                                    .background(GeometryReader { geo in
+                                        Color.clear.onAppear {
+                                            if geo.frame(in: .global).minY < 100 {
+                                                currentSection = key
+                                            }
+                                        }
+                                    })
                                 
-                                Grid(alignment: .leadingFirstTextBaseline,
-                                     horizontalSpacing: 20) {
+                                VStack {
                                     ForEach(charts, id: \.time) { chart in
-                                        GridRow(alignment: .center) {
+                                        HStack {
                                             Text("\(formattedTime(from: chart.time))")
                                                 .font(.Body2Medium)
-                                                .frame(width: columnWidth, alignment: .leading)
+                                                .frame(maxWidth: .infinity, alignment: .leading)
                                             
                                             HStack(alignment: .center, spacing: 8) {
                                                 Image("waveDirectionIcon")
@@ -87,7 +85,7 @@ struct MainChartView: View {
                                                 Text("\(chart.surfingValues.windSpeed, specifier: "%.1f")m/s")
                                                     .font(.Body1Medium)
                                             }
-                                            .frame(width: columnWidth, alignment: .leading)
+                                            .frame(maxWidth: .infinity, alignment: .leading)
                                             
                                             HStack(alignment: .center, spacing: 8) {
                                                 Image("swellDirectionIcon")
@@ -98,14 +96,14 @@ struct MainChartView: View {
                                                         .font(.CaptionMedium)
                                                 }
                                             }
-                                            .frame(width: columnWidth, alignment: .leading)
+                                            .frame(maxWidth: .infinity, alignment: .leading)
                                             
                                             VStack(alignment: .center, spacing: 2) {
                                                 Text("\(chart.surfingValues.waterTemperature, specifier: "%.0f")°C")
                                                     .font(.Body1Medium)
                                                 Image("waterTemperate")
                                             }
-                                            .frame(width: columnWidth, alignment: .leading)
+                                            .frame(maxWidth: .infinity, alignment: .leading)
                                             
                                             HStack(alignment: .center, spacing: 8) {
                                                 Text(chart.surfingValues.weather)
@@ -113,7 +111,7 @@ struct MainChartView: View {
                                                 Text("\(chart.surfingValues.airTemperature, specifier: "%.0f")°C")
                                                     .font(.Body1Medium)
                                             }
-                                            .frame(width: columnWidth, alignment: .leading)
+                                            .frame(maxWidth: .infinity, alignment: .leading)
                                         }
                                         .frame(height: 50)
                                     }
@@ -121,32 +119,49 @@ struct MainChartView: View {
                             }
                         }
                     }
-                }.padding(.horizontal)
+                    .padding(.bottom, 160)  // 차트 하단 패딩 추가
+                }
+                .padding(.horizontal)
             }
         }
         .frame(maxWidth: .infinity)
         .background(.white.opacity(0.8))
         .cornerRadius(24)
-        .onAppear{
-            //                addDummyData()
+        .onAppear {
+            if let firstSection = groupedByDate(chartRow: chartRow).first?.key {
+                currentSection = firstSection
+            }
         }
         Spacer()
     }
     
+    func formattedTime(from string: String) -> String {
+        if let date = inputDateFormatter.date(from: string) {
+            return timeFormatter.string(from: date)
+        }
+        return string
+    }
     
+    func groupedByDate(chartRow: [ChartRow]) -> [(key: String, value: [ChartRow])] {
+        // 날짜별로 그룹화
+        let grouped = Dictionary(grouping: chartRow) { item -> String in
+            String(item.time.prefix(10)) // 날짜 부분만 추출하여 그룹화
+        }
+        
+        // 키를 정렬하여 배열로 반환
+        return grouped.sorted { $0.key < $1.key }
+    }
 }
-
-
 
 extension MainChartView {
     func weatherIcon(weather: String) {
-        if weather == ""{
-            
+        if weather == "" {
+            // Implementation here
         }
     }
     
     func addDummyData() {
-        let context = modelContext //modelContext 가져옴
+        let context = modelContext // modelContext 가져옴
         let dummyDay = "2024-07-30"
         let dummyDailyCharts = DailyWeatherOld(day: dummyDay, chartCollection: dummyChartRows)
         context.insert(dummyDailyCharts)
@@ -157,26 +172,4 @@ extension MainChartView {
             print("Failed to save context: \(error)")
         }
     }
-    
-    func formattedTime(from string: String) -> String {
-            if let date = inputDateFormatter.date(from: string) {
-                return timeFormatter.string(from: date)
-            }
-            return string
-        }
-    
-    func groupedByDate(chartRow: [ChartRow]) -> [String: [ChartRow]] {
-            var grouped = [String: [ChartRow]]()
-            for chart in chartRow {
-                if let date = inputDateFormatter.date(from: chart.time) {
-                    let dateString = dateFormatter.string(from: date)
-                    if grouped[dateString] == nil {
-                        grouped[dateString] = [ChartRow]()
-                    }
-                    grouped[dateString]?.append(chart)
-                }
-            }
-            return grouped
-        }
 }
-
