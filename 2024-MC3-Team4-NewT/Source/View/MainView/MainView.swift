@@ -40,7 +40,7 @@ struct MainView: View {
                             //                    }
                             FitChartView()
                                 .padding(.horizontal)
-                            JaneView(isHeaderVisible: $isHeaderVisible)
+                            MainChartView(isHeaderVisible: $isHeaderVisible)
                         }
                     }
                     else if (selectedTab == 2) {

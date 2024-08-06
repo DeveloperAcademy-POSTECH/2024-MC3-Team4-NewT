@@ -24,7 +24,8 @@ let dateFormatter: DateFormatter = {
     return formatter
 }()
 
-struct JaneView: View {
+//구 JaneView
+struct MainChartView: View {
     @Environment(\.modelContext) private var modelContext
     @Query var dailyWeather: [DailyWeatherOld]
     @Binding var isHeaderVisible: Bool // 헤더 가시성 상태 변수
@@ -197,7 +198,7 @@ struct JaneView: View {
 }
 
 
-extension JaneView {
+extension MainChartView {
     func weatherIcon(weather: String) {
         if weather == ""{
             

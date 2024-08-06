@@ -31,7 +31,7 @@
 		21B080312C4D0836007BC655 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B080302C4D0836007BC655 /* Assets.xcassets */; };
 		21B080342C4D0836007BC655 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B080332C4D0836007BC655 /* Preview Assets.xcassets */; };
 		21B0803B2C4D087F007BC655 /* PiriView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0803A2C4D087F007BC655 /* PiriView.swift */; };
-		21B0803D2C4D0888007BC655 /* JaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0803C2C4D0888007BC655 /* JaneView.swift */; };
+		21B0803D2C4D0888007BC655 /* MainChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0803C2C4D0888007BC655 /* MainChartView.swift */; };
 		21B0803F2C4D089F007BC655 /* SisiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0803E2C4D089F007BC655 /* SisiView.swift */; };
 		21B080432C4D08C2007BC655 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B080422C4D08C2007BC655 /* TestView.swift */; };
 		21B0806E2C516248007BC655 /* FindSpotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0806D2C516248007BC655 /* FindSpotView.swift */; };
@@ -94,7 +94,7 @@
 		21B080302C4D0836007BC655 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21B080332C4D0836007BC655 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		21B0803A2C4D087F007BC655 /* PiriView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiriView.swift; sourceTree = "<group>"; };
-		21B0803C2C4D0888007BC655 /* JaneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JaneView.swift; sourceTree = "<group>"; };
+		21B0803C2C4D0888007BC655 /* MainChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainChartView.swift; sourceTree = "<group>"; };
 		21B0803E2C4D089F007BC655 /* SisiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SisiView.swift; sourceTree = "<group>"; };
 		21B080422C4D08C2007BC655 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		21B0806D2C516248007BC655 /* FindSpotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindSpotView.swift; sourceTree = "<group>"; };
@@ -344,7 +344,7 @@
 			children = (
 				21588B0B2C5D5D30003E3489 /* CustomTabBar.swift */,
 				719EA9BF2C5768580090BAB5 /* FitChartView.swift */,
-				21B0803C2C4D0888007BC655 /* JaneView.swift */,
+				21B0803C2C4D0888007BC655 /* MainChartView.swift */,
 				89A63A172C59B7D100787DC4 /* MainView.swift */,
 				89A63A1E2C59E53100787DC4 /* PinChartsView.swift */,
 				89A63A1C2C59E4F200787DC4 /* RecentChartsView.swift */,
@@ -480,7 +480,7 @@
 				715BA4CC2C6111FF00477938 /* ModalView.swift in Sources */,
 				21588B102C5E201F003E3489 /* ChartRecordObservable.swift in Sources */,
 				89A63A182C59B7D100787DC4 /* MainView.swift in Sources */,
-				21B0803D2C4D0888007BC655 /* JaneView.swift in Sources */,
+				21B0803D2C4D0888007BC655 /* MainChartView.swift in Sources */,
 				21588B0C2C5D5D30003E3489 /* CustomTabBar.swift in Sources */,
 				89A63A1B2C59E4B800787DC4 /* StatisticsView.swift in Sources */,
 				21B080702C52844C007BC655 /* EmbededView.swift in Sources */,
