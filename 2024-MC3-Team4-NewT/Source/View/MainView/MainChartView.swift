@@ -1,245 +1,152 @@
-//
-//  JaneVIew.swift
-//  2024-MC3-Team4-NewT
-//
-//  Created by ram on 7/21/24.
-//
-
 import SwiftUI
 import SwiftData
 
-///'@@시 (24시제)'로 표시해주는 Formatter
-let timeFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "HH시"
-    formatter.locale = Locale(identifier: "ko_kr")
-    return formatter
-}()
-
-///'@월 %일 &요일'로 표시해주는 Formatter
-let dateFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "M월 d일 EEEE"
-    formatter.locale = Locale(identifier: "ko_kr")
-    return formatter
-}()
-
-//구 JaneView
 struct MainChartView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query var dailyWeather: [DailyWeatherOld]
+    var fbo = FirebaseObservable()
+    @Query(sort: \ChartRow.time) var chartRow: [ChartRow]
     @Binding var isHeaderVisible: Bool // 헤더 가시성 상태 변수
-    var today: String = "2024-07-30" // 오늘 날짜 (예: "2024-07-30")
+    @State private var topDate: String = ""
     
     var body: some View {
-        
-        // 날짜별로 그룹화
-        let groupedWeather = Dictionary(grouping: dailyWeather, by: { $0.day })
-        
-        // 오늘 날짜를 가장 위에 두고 나머지 날짜 정렬
-        let sortedKeys = ([today] + groupedWeather.keys.filter { $0 != today }).sorted()
-        
         VStack {
-            ForEach(sortedKeys, id: \.self) { date in
-                if let weatherList = groupedWeather[date] {
-                    VStack(alignment: .center, spacing: 0) {
-                        Text("\(dateFormatter.string(from: Date()))")
-                            .padding(.vertical, 10)
-                            .font(.SubheadingBold).foregroundColor(.surfBlue)
-                        HStack(alignment: .center) {
-                            Text("  시간").font(.CaptionSemiBold)
-                            Spacer()
-                            Text(" 바람").font(.CaptionSemiBold)
-                            Spacer()
-                            Text("  파도").font(.CaptionSemiBold)
-                            Spacer()
-                            Text("수온   ").font(.CaptionSemiBold)
-                            Spacer()
-                            Text("날씨    ").font(.CaptionSemiBold)
-                        }
-                        .padding(.horizontal, 20)
-                        .padding(.vertical, 2)
-                        .foregroundColor(.black.opacity(0.5))
-                        .background(Color(red: 0.9, green: 0.93, blue: 0.98).opacity(0.5))
-                        
-                        ScrollView {
-                            Grid(alignment: .leadingFirstTextBaseline,
-                                 horizontalSpacing: 20) {
-                                
-                                ForEach(weatherList) { weather in // weather는 이제 Identifiable
-                                    ForEach(weather.chartCollection, id: \.self) { chart in // chart도 Identifiable
-                                        //                                    TestView(chart: chart)
-                                        GridRow(alignment: .center) {
-                                            Text("\(timeFormatter.string(from: chart.day))").font(.Body2Medium)
-                                            HStack(alignment: .center, spacing: 8) {
-                                                Image("waveDirectionIcon").frame(width: 14, height: 18)
-                                                //                                                Image(systemName: "location.north").frame(width: 14, height: 18)
-                                                Text("\(chart.surfingValues.windSpeed, specifier: "%.1f")m/s").font(.Body1Medium)
-                                            }.frame(width: 76)
-                                            
-                                            HStack(alignment: .center, spacing: 8) {
-                                                Image("swellDirectionIcon")
-                                                VStack(alignment: .center, spacing: 0) {
-                                                    Text("\(chart.surfingValues.waveHeight, specifier: "%.1f")m").font(.Body1Medium)
-                                                    Text("\(chart.surfingValues.wavePeriod, specifier: "%.1f")s").font(.CaptionMedium)
+            Text(topDate.isEmpty ? DateFormatterManager.shared.dateFormatter.string(from: Date()) : topDate)
+                .padding(.vertical, 10)
+                .font(.SubheadingBold)
+                .foregroundColor(.surfBlue)
+            
+            HStack(alignment: .center) {
+                Text("  시간").font(.CaptionSemiBold)
+                Spacer()
+                Text(" 바람").font(.CaptionSemiBold)
+                Spacer()
+                Text("  파도").font(.CaptionSemiBold)
+                Spacer()
+                Text("수온   ").font(.CaptionSemiBold)
+                Spacer()
+                Text("날씨    ").font(.CaptionSemiBold)
+            }
+            .padding(.horizontal, 20)
+            .padding(.vertical, 2)
+            .foregroundColor(.black.opacity(0.5))
+            .background(Color(red: 0.9, green: 0.93, blue: 0.98).opacity(0.5))
+            
+            ScrollView {
+                LazyVStack(spacing: 0) {
+                    ForEach(fbo.groupedByDate(chartRow: chartRow), id: \.key) { (key, charts) in
+                        VStack(alignment: .leading, spacing: 0) {
+                            // 각 날짜별 차트 헤더
+                            Text(key)
+                                .font(.SubheadingBold)
+                                .foregroundColor(.surfBlue)
+                                .padding(.top)
+                                .background(
+                                    GeometryReader { geo in
+                                        Color.clear.onChange(of: geo.frame(in: .global).minY) { _ in
+                                            // 스크롤 위치에 따라 상단 날짜 업데이트
+                                            if geo.frame(in: .global).minY < 100 && geo.frame(in: .global).maxY > -100 {
+                                                DispatchQueue.main.async {
+                                                    let currentDate = DateFormatterManager.shared.shortDateFormatter.date(from: key)
+                                                    
+                                                    // 날짜 업데이트 확인용
+                                                    print("Current Date String: \(key)")
+                                                    print("Parsed Date: \(String(describing: currentDate))")
+                                                    
+                                                    if let currentDate = currentDate {
+                                                        topDate = currentDate.addingDays(1).formattedDate()
+                                                    }
                                                 }
                                             }
-                                            VStack(alignment: .center, spacing: 2) {
-                                                Text("\(chart.surfingValues.waterTemperature, specifier: "%.0f")°C").font(.Body1Medium)
-                                                Image("waterTemperate")
-                                            }
-                                            .frame(width: 56)
-                                            HStack(alignment: .center, spacing: 8) {
-                                                Text(chart.surfingValues.weather).font(.Body1Medium)
-                                                //                                                Spacer()
-                                                Text("\(chart.surfingValues.airTemperature, specifier: "%.0f")°C").font(.Body1Medium)
+                                        }
+                                    }
+                                )
+                            
+                            // 각 차트 항목
+                            LazyVStack(spacing: 0) {
+                                ForEach(charts, id: \.time) { chart in
+                                    HStack {
+                                        Text("\(DateFormatterManager.shared.timeToHourFormatter(chart.time))")
+                                            .font(.Body2Medium)
+                                            .frame(width: 35)
+                                        
+                                        HStack(alignment: .center, spacing: 8) {
+                                            Image("waveDirectionIcon")
+                                                .frame(width: 14, height: 18)
+                                            Text("\(chart.surfingValues.windSpeed, specifier: "%.1f")m/s")
+                                                .font(.Body1Medium)
+                                        }
+                                        .frame(width: 80)
+                                        
+                                        HStack(alignment: .center, spacing: 8) {
+                                            Image("swellDirectionIcon")
+                                            VStack(alignment: .center, spacing: 0) {
+                                                Text("\(chart.surfingValues.waveHeight, specifier: "%.1f")m")
+                                                    .font(.Body1Medium)
+                                                Text("\(chart.surfingValues.wavePeriod, specifier: "%.1f")s")
+                                                    .font(.CaptionMedium)
                                             }
                                         }
-                                        .frame(height: 50)
+                                        .frame(width: 70)
+                                        .padding(.trailing, 12)
+                                        
+                                        VStack(alignment: .center, spacing: 2) {
+                                            Text("\(chart.surfingValues.waterTemperature, specifier: "%.0f")°C")
+                                                .font(.Body1Medium)
+                                            Image("waterTemperate")
+                                        }
+                                        .frame(width: 60)
+                                        
+                                        HStack(alignment: .center, spacing: 8) {
+                                            Image("sunIcon")
+                                            Text("\(chart.surfingValues.airTemperature, specifier: "%.0f")°C")
+                                                .font(.Body1Medium)
+                                        }
+                                        .frame(maxWidth: .infinity, alignment: .leading)
                                     }
+                                    .frame(height: 50)
                                 }
                             }
-                        }.padding(.horizontal)
-                            .background(GeometryReader { geometry in
-                                Color.clear
-                                    .preference(key: ScrollOffsetKey.self, value: geometry.frame(in: .global).minY)
-                            })
-                            .onPreferenceChange(ScrollOffsetKey.self) { value in
-                                // 스크롤 오프셋에 따라 헤더 가시성 조절
-                                isHeaderVisible = value > 0
-                            }
+                        }
+                        .id(key) // 날짜를 식별자로 사용
                     }
                 }
+                .padding(.bottom, 80) //탭 바 여백 남겨둠
             }
-            
-        }.frame(maxWidth: .infinity)
-            .background(.white)
-            .cornerRadius(24)
-            .onAppear{
-                addDummyData()
+            .padding(.horizontal)
+        }
+        .frame(maxWidth: .infinity)
+        .background(.white.opacity(0.8))
+        .cornerRadius(24)
+        .onAppear {
+            if let firstSection = fbo.groupedByDate(chartRow: chartRow).first?.key {
+                print("First Section Key: \(firstSection)")
+                
+                let initialDate = DateFormatterManager.shared.shortDateFormatter.date(from: firstSection)
+                
+                print("Initial Date: \(String(describing: initialDate))")
+                
+                if let initialDate = initialDate {
+                    topDate = initialDate.addingDays(1).formattedDate()
+                }
             }
+        }
         Spacer()
     }
     
-    // MARK: 한 줄 차트 뷰
-    struct ChartRowView: View {
-        var chart: ChartRowTmp // ChartRowTmp에 맞는 프로퍼티를 정의합니다.
-        var body: some View {
-            ZStack(alignment: .bottom){
-                HStack(alignment: .center, spacing: 4){
-                    Text("\(timeFormatter.string(from: chart.day))").font(.Body2Medium)
-                    HStack(alignment: .center, spacing: 8) {
-                        Image("waveDirectionIcon")
-                            .rotationEffect(.degrees(Double(FloatToDouble(chart.surfingValues.windDirection))))
-                        Text("\(chart.surfingValues.windSpeed, specifier: "%.1f")m/s").font(.Body1Medium)
-                    }
-                    HStack(alignment: .center, spacing: 8) {
-                        Image("swellDirectionIcon").rotationEffect(.degrees(Double(FloatToDouble(chart.surfingValues.waveDirection))))
-                        VStack(alignment: .center, spacing: 0) {
-                            Text("\(chart.surfingValues.waveHeight, specifier: "%.1f")m").font(.Body1Medium)
-                            Text("\(chart.surfingValues.wavePeriod, specifier: "%.1f")s").font(.CaptionMedium)
-                        }
-                    }
-                    VStack(alignment: .center, spacing: 2) {
-                        Text("\(chart.surfingValues.waterTemperature, specifier: "%.0f")°C").font(.Body1Medium)
-                        Image("waterTemperate")
-                    }
-                    HStack(alignment: .center, spacing: 8) {
-                        //weather 변수는 사용 API에 따라 String or Int로 변경 가능성. 현재는 String 기준으로 작성
-                        Text(chart.surfingValues.weather).font(.Body1Medium)
-                        Text("\(chart.surfingValues.airTemperature, specifier: "%.0f")°C").font(.Body1Medium)
-                    }
-                }.frame(maxWidth: .infinity).frame(height: 63)
-                    .padding(.horizontal)
-            }
-            Rectangle()
-                .fill(.surfBlue.opacity(0.1)) // 선의 색상
-                .frame(height: 1) // 선의 두께
-                .padding(.horizontal) // 좌우 여백
+    func formattedTime(from string: String) -> String {
+        if let date = DateFormatterManager.shared.dateFromString(string) {
+            return DateFormatterManager.shared.timeFormatter.string(from: date)
         }
-    }
-    
-    struct TestView: View {
-        var chart: ChartRowTmp // ChartRowTmp에 맞는 프로퍼티를 정의합니다.
-        var body: some View {
-            Grid(alignment: .leadingFirstTextBaseline,
-                 horizontalSpacing: 15) {
-                GridRow {
-                    Text("\(timeFormatter.string(from: chart.day))").font(.Body2Medium)
-                    HStack(alignment: .center, spacing: 8) {
-                        Image("waveDirectionIcon")
-                        Text("\(chart.surfingValues.windSpeed, specifier: "%.1f")m/s").font(.Body1Medium)
-                    }
-                    
-                    HStack(alignment: .center, spacing: 8) {
-                        Image("swellDirectionIcon")
-                        VStack(alignment: .center, spacing: 0) {
-                            Text("\(chart.surfingValues.waveHeight, specifier: "%.1f")m").font(.Body1Medium)
-                            Text("\(chart.surfingValues.wavePeriod, specifier: "%.1f")s").font(.CaptionMedium)
-                        }
-                    }
-                    VStack(alignment: .center, spacing: 2) {
-                        Text("\(chart.surfingValues.waterTemperature, specifier: "%.0f")°C").font(.Body1Medium)
-                        Image("waterTemperate")
-                    }
-                    HStack(alignment: .center, spacing: 8) {
-                        Text(chart.surfingValues.weather).font(.Body1Medium)
-                        Text("\(chart.surfingValues.airTemperature, specifier: "%.0f")°C").font(.Body1Medium)
-                    }
-                }.background {
-                    Rectangle()
-                        .fill(.surfBlue.opacity(0.1)) // 선의 색상
-                        .frame(height: 1) // 선의 두께
-                        .padding(.horizontal) // 좌우 여백
-                }
-            }
-        }
+        return string
     }
 }
 
-
-extension MainChartView {
-    func weatherIcon(weather: String) {
-        if weather == ""{
-            
-        }
+extension Date {
+    func addingDays(_ days: Int) -> Date {
+        Calendar.current.date(byAdding: .day, value: days, to: self) ?? self
     }
     
-    func addDummyData() {
-        let context = modelContext //modelContext 가져옴
-        let dummyDay = "2024-07-30"
-        let dummyDailyCharts = DailyWeatherOld(day: dummyDay, chartCollection: dummyChartRows)
-        context.insert(dummyDailyCharts)
-        
-        do {
-            try context.save()
-        } catch {
-            print("Failed to save context: \(error)")
-        }
+    func formattedDate() -> String {
+        DateFormatterManager.shared.dateFormatter.string(from: self)
     }
-    
-    //        func ChartRowList() {
-    //            var chartRows: [ChartRow] = dummyChartRows
-    //            ForEach(chartRows) { row in
-    //                Text("\(daysFormatter.string(from: row.day))").textScale(.secondary)
-    //                HStack(alignment: .center, spacing: 8) {
-    //                    Image(systemName: "location.north")
-    //                    Text("\(row.surfingValues.windSpeed, specifier: "%.1f")m/s").textScale(.secondary)
-    //                }
-    //                HStack(alignment: .center, spacing: 8) {
-    //                    Image(systemName: "location.north.fill")
-    //                    VStack {
-    //                        Text("\(row.surfingValues.waveHeight, specifier: "%.1f")m").textScale(.secondary)
-    //                        Text("\(row.surfingValues.wavePeriod, specifier: "%.1f")s").textScale(.secondary)
-    //                    }
-    //                }
-    //                Text("\(row.surfingValues.waterTemperature, specifier: "%.0f")°C").textScale(.secondary)
-    //                HStack(alignment: .center, spacing: 8) {
-    //                    Text(row.surfingValues.weather).textScale(.secondary)
-    //                    Text("\(row.surfingValues.airTemperature, specifier: "%.0f")°C").textScale(.secondary)
-    //                }
-    //            }
-    //        }
-    
 }
-
