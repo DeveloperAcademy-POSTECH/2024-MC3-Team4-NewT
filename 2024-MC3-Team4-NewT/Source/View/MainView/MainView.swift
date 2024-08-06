@@ -56,10 +56,10 @@ struct MainView: View {
             }
             
         }.ignoresSafeArea(edges: .bottom)
-        .background{
-            Image("MainViewBG")
-                .edgesIgnoringSafeArea(.all)
-        }
+            .background{
+                Image("MainViewBG")
+                    .edgesIgnoringSafeArea(.all)
+            }
     }
 }
 

@@ -33,7 +33,7 @@ final class SurfingValues {
 }
 
 @Model
-final class ChartRow {
+final class ChartRow: Identifiable {
     @Attribute(.unique) var id: UUID
     var time: String
     var surfingValues: SurfingValues
@@ -50,7 +50,7 @@ final class ChartRow {
 }
 
 @Model
-final class DailyWeather {
+final class DailyWeather: Identifiable {
     @Attribute(.unique) var id: UUID
     var day: String
     var chartCollection: [ChartRow]
