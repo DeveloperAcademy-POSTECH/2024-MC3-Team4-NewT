@@ -76,7 +76,7 @@ struct ModalView: View {
                             Spacer()
                         }.padding(.bottom, 36)
                         
-                        RecordChartTestView(viewModel: viewModel)
+                        RecordChartTestView(viewModel: viewModel, recordOne: item)
                         
                     }.padding(.horizontal)
 //                        .overlay(.yellow.opacity(0.3))

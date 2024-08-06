@@ -23,12 +23,12 @@ struct PiriView: View {
             NavigationLink(destination: WindyView()) {
                 Text("Windy")
             }
-            NavigationLink(destination: FirebaseTestView()) {
-                Text("FirebaseTest")
-            }
-            NavigationLink(destination: SDTestView()) {
-                Text("SwiftData Test")
-            }
+//            NavigationLink(destination: FirebaseTestView()) {
+//                Text("FirebaseTest")
+//            }
+//            NavigationLink(destination: SDTestView()) {
+//                Text("SwiftData Test")
+//            }
             NavigationLink(destination: SDCheckView()) {
                 Text("SwiftData 저장 확인")
             }

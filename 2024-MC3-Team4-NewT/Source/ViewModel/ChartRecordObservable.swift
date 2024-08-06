@@ -11,6 +11,19 @@ import SwiftUI
 @Observable
 class ChartRecordObservable {
     var 필터된차트: [ChartRow] = []
+    func test(charts: [ChartRow], recordOne: SurfingRecordOne) -> [ChartRow] {
+        var 필터된데이터: [ChartRow] = []
+        
+        for chartRow in charts {
+            if let associatedRecord = chartRow.surfingRecordStartTime {
+                if associatedRecord == recordOne.surfingStartTime {
+                    필터된데이터.append(chartRow)
+                }
+            }
+        }
+        
+        return 필터된데이터
+    }
 
     func filterChartRows(_ rows: [ChartRow], startTime: Date, stopTime: Date) -> [ChartRow] {
         let calendar = Calendar.current

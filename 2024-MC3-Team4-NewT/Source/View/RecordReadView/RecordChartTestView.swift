@@ -12,9 +12,12 @@ import SwiftData
 struct RecordChartTestView: View {
     @Query private var surfingRecordOneData: [SurfingRecordOne]
     @ObservedObject var viewModel : RecordChartViewModel
+    @Query var chartRow:[ChartRow]
+    var recordOne:SurfingRecordOne
     
     var body: some View {
         VStack(spacing: 0){
+            let data = viewModel.filteredRecordChart(charts: chartRow, recordOne: recordOne)
             ZStack{
                 Rectangle()
                     .foregroundColor(Color("brightGray"))
@@ -34,6 +37,7 @@ struct RecordChartTestView: View {
                 Color.white
                 VStack(spacing: 0){
                     ForEach(0..<viewModel.chartCounter, id: \.self) { index in
+                        
                         VStack(spacing: 0 ){
                             ZStack{
                                 Color.clear
@@ -83,9 +87,9 @@ struct RecordChartTestView: View {
                 }
             }
             .frame(height: 58*CGFloat(viewModel.chartCounter))
-
+            
         }
-
+        
     }
 }
 

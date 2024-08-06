@@ -39,7 +39,7 @@ final class ChartRow {
     var surfingValues: SurfingValues
     var isHighTide: Bool
     var isLowTide: Bool
-    
+    var surfingRecordStartTime:Date?
     init(time: String, surfingValues: SurfingValues, isHighTide: Bool, isLowTide: Bool) {
         self.id = UUID()
         self.time = time

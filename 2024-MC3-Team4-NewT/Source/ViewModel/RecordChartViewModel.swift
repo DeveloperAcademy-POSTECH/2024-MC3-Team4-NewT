@@ -10,7 +10,20 @@ class RecordChartViewModel: ObservableObject {
     @Published var isEllipsisOnOff: Bool = false
     @Published var ismemo: Bool = false
     @Published var isID: UUID = UUID()
-    
+    func filteredRecordChart(charts: [ChartRow], recordOne: SurfingRecordOne) -> [ChartRow] {
+        var 필터된데이터: [ChartRow] = []
+        
+        for chartRow in charts {
+            if let associatedRecord = chartRow.surfingRecordStartTime {
+                if associatedRecord == recordOne.surfingStartTime {
+                    필터된데이터.append(chartRow)
+                }
+            }
+        }
+        print("필터된 데이터:\(필터된데이터)")
+        return 필터된데이터
+    }
+
     var chartCounter: Int {
         var counter: Int = 1
         if stopHour > startHour {

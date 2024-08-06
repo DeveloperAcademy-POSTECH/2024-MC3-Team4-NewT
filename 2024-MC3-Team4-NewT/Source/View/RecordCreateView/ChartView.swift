@@ -9,7 +9,10 @@ import SwiftData
 
 struct ChartView: View {
     @ObservedObject var viewModel: RecordCreateViewModel
-    @Query(sort:\ChartRow.time) var chartRows: [ChartRow]
+    @Query(filter:#Predicate<ChartRow>{ item in
+        item.surfingRecordStartTime == nil
+
+    },sort:\ChartRow.time) var chartRows: [ChartRow]
     
     var observable : ChartRecordObservable
     

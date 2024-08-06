@@ -145,7 +145,7 @@ struct RecordChartView: View {
                                 .background(Color("backgroundSkyblue"))
                                 
                                 
-                                RecordChartTestView(viewModel: viewModel)
+                                RecordChartTestView(viewModel: viewModel,recordOne:item)
                             }
                             
                             if viewModel.isEllipsisOnOff {
@@ -221,7 +221,3 @@ struct RecordChartView: View {
     }
 }
 
-
-#Preview {
-    RecordChartView()
-}

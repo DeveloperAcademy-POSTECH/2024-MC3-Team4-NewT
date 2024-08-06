@@ -33,6 +33,8 @@ struct RecordButtonView: View {
             }
             for aa in observable.필터된차트{
                 print(aa.time)
+                modelContext.insert(aa)
+                aa.surfingRecordStartTime = viewModel.startTime
             }
             
             
