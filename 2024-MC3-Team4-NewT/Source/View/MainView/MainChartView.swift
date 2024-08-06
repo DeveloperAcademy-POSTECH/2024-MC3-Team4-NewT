@@ -1,48 +1,6 @@
 import SwiftUI
 import SwiftData
 
-/// 'HH시'로 표시해주는 Formatter
-let timeFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "HH시"
-    formatter.locale = Locale(identifier: "ko_kr")
-    return formatter
-}()
-
-/// 'M월 d일 EEEE'로 표시해주는 Formatter
-let dateFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "M월 d일 EEEE"
-    formatter.locale = Locale(identifier: "ko_kr")
-    return formatter
-}()
-
-/// 원본 문자열에서 Date 객체로 변환하기 위한 Formatter
-let inputDateFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-    formatter.locale = Locale(identifier: "ko_kr")
-    return formatter
-}()
-
-// 추가된 포맷터
-let dateKeyFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy-MM-dd"
-    formatter.locale = Locale(identifier: "ko_kr")
-    return formatter
-}()
-
-extension Date {
-    func addingDays(_ days: Int) -> Date {
-        Calendar.current.date(byAdding: .day, value: days, to: self) ?? self
-    }
-    
-    func formattedDate() -> String {
-        dateFormatter.string(from: self)
-    }
-}
-
 struct MainChartView: View {
     @Environment(\.modelContext) private var modelContext
     var fbo = FirebaseObservable()
@@ -52,8 +10,7 @@ struct MainChartView: View {
     
     var body: some View {
         VStack {
-            // 상단 날짜 및 차트 헤더 표시
-            Text(topDate.isEmpty ? dateFormatter.string(from: Date()) : topDate)
+            Text(topDate.isEmpty ? DateFormatterManager.shared.dateFormatter.string(from: Date()) : topDate)
                 .padding(.vertical, 10)
                 .font(.SubheadingBold)
                 .foregroundColor(.surfBlue)
@@ -80,7 +37,8 @@ struct MainChartView: View {
                         VStack(alignment: .leading, spacing: 0) {
                             // 각 날짜별 차트 헤더
                             Text(key)
-                                .font(.headline)
+                                .font(.SubheadingBold)
+                                .foregroundColor(.surfBlue)
                                 .padding(.top)
                                 .background(
                                     GeometryReader { geo in
@@ -88,14 +46,13 @@ struct MainChartView: View {
                                             // 스크롤 위치에 따라 상단 날짜 업데이트
                                             if geo.frame(in: .global).minY < 100 && geo.frame(in: .global).maxY > -100 {
                                                 DispatchQueue.main.async {
-                                                    let currentDate = dateKeyFormatter.date(from: key)
+                                                    let currentDate = DateFormatterManager.shared.shortDateFormatter.date(from: key)
                                                     
-                                                    // 디버깅을 위한 print문 추가
+                                                    // 날짜 업데이트 확인용
                                                     print("Current Date String: \(key)")
                                                     print("Parsed Date: \(String(describing: currentDate))")
                                                     
                                                     if let currentDate = currentDate {
-//                                                        let previousDate = currentDate.addingDays().formattedDate()
                                                         topDate = currentDate.addingDays(1).formattedDate()
                                                     }
                                                 }
@@ -108,7 +65,7 @@ struct MainChartView: View {
                             LazyVStack(spacing: 0) {
                                 ForEach(charts, id: \.time) { chart in
                                     HStack {
-                                        Text("\(formattedTime(from: chart.time))")
+                                        Text("\(DateFormatterManager.shared.timeToHourFormatter(chart.time))")
                                             .font(.Body2Medium)
                                             .frame(width: 35)
                                         
@@ -153,7 +110,7 @@ struct MainChartView: View {
                         .id(key) // 날짜를 식별자로 사용
                     }
                 }
-                .padding(.bottom, 80)  // 차트 하단 패딩 추가
+                .padding(.bottom, 80) //탭 바 여백 남겨둠
             }
             .padding(.horizontal)
         }
@@ -162,16 +119,14 @@ struct MainChartView: View {
         .cornerRadius(24)
         .onAppear {
             if let firstSection = fbo.groupedByDate(chartRow: chartRow).first?.key {
-                // 디버깅을 위한 print문 추가
                 print("First Section Key: \(firstSection)")
                 
-                let initialDate = dateKeyFormatter.date(from: firstSection)
+                let initialDate = DateFormatterManager.shared.shortDateFormatter.date(from: firstSection)
                 
-                // 디버깅을 위한 print문 추가
                 print("Initial Date: \(String(describing: initialDate))")
                 
                 if let initialDate = initialDate {
-                    topDate = initialDate.formattedDate()
+                    topDate = initialDate.addingDays(1).formattedDate()
                 }
             }
         }
@@ -179,17 +134,19 @@ struct MainChartView: View {
     }
     
     func formattedTime(from string: String) -> String {
-        if let date = inputDateFormatter.date(from: string) {
-            return timeFormatter.string(from: date)
+        if let date = DateFormatterManager.shared.dateFromString(string) {
+            return DateFormatterManager.shared.timeFormatter.string(from: date)
         }
         return string
     }
 }
 
-extension MainChartView {
-    func weatherIcon(weather: String) {
-        if weather == "" {
-            //아이콘 보여주기
-        }
+extension Date {
+    func addingDays(_ days: Int) -> Date {
+        Calendar.current.date(byAdding: .day, value: days, to: self) ?? self
+    }
+    
+    func formattedDate() -> String {
+        DateFormatterManager.shared.dateFormatter.string(from: self)
     }
 }
