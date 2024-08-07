@@ -10,6 +10,14 @@ class RecordChartViewModel: ObservableObject {
     @Published var isEllipsisOnOff: Bool = false
     @Published var ismemo: Bool = false
     @Published var isID: UUID = UUID()
+    
+    /// LotationView 변수
+    @Published var selectedRegion: Region? = nil
+    @Published var selectedItem: String = "포항 신항만해변"
+    @Published var selectedItemBackgroundColor: Color = Color("backgroundSkyblue")
+    @Published var selectedItemColor: Color = Color("surfBlue")
+    @Published var isSelectButton: Bool = true
+    
     func filteredRecordChart(charts: [ChartRow], recordOne: SurfingRecordOne) -> [ChartRow] {
         var 필터된데이터: [ChartRow] = []
         
@@ -20,7 +28,10 @@ class RecordChartViewModel: ObservableObject {
                 }
             }
         }
-        print("필터된 데이터:\(필터된데이터)")
+        for test in 필터된데이터{
+            print("필터:\(test.time)")
+        }
+//        print("필터된 데이터:\(필터된데이터.first?.time)")
         return 필터된데이터
     }
 
@@ -49,4 +60,5 @@ class RecordChartViewModel: ObservableObject {
         formatter.dateFormat = "MM월 dd일 (E)"
         return formatter.string(from: date)
     }
+    
 }
