@@ -12,7 +12,3 @@ struct RecordReadView: View {
         Text("Hello, World!")
     }
 }
-
-#Preview {
-    RecordReadView()
-}
