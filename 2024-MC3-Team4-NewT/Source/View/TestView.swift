@@ -30,9 +30,10 @@ struct TestView: View {
                 NavigationLink(destination: FitChartView()){
                     Text("FitChartView")
                 }
-                NavigationLink(destination: LocationView()){
-                    Text("LocationView")
-                }
+//                NavigationLink(destination: LocationView()){
+//                    Text("LocationView")
+//                }
+                
             }
                         NavigationLink(destination: RecordChartView()){
                             Text("RecordChartView")
@@ -69,8 +70,4 @@ struct TestView: View {
         }
         
     }
-}
-
-#Preview {
-    TestView()
 }
