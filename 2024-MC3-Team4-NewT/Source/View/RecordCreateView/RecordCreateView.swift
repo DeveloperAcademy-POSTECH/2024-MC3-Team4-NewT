@@ -69,6 +69,8 @@ struct RecordButtonView: View {
     @ObservedObject var viewModel : RecordCreateViewModel
     var observable : ChartRecordObservable
     
+    @Environment(\.dismiss) private var dismiss // Step 1: Import the dismiss environment
+
     var body: some View {
         Button{
             if viewModel.isMemo {
@@ -81,7 +83,7 @@ struct RecordButtonView: View {
                 modelContext.insert(SurfingRecordOne(surfingStartTime: viewModel.startTime, surfingEndTime: viewModel.stopTime, charts: [], evaluationValue: Int(viewModel.isScore + 1), evaluationText: viewModel.isScoreText, memo: viewModel.memo))
             }
             
-            for aa in observable.필터된차트{
+            for aa in observable.필터된차트 {
                 print(aa.time)
                 let tmp2 = aa.surfingValues
                 let tmp1 = SurfingValues(waveDirection: tmp2.waveDirection, waveHeight: tmp2.waveHeight, wavePeriod: tmp2.wavePeriod, windDirection: tmp2.waveDirection, windSpeed: tmp2.windSpeed, weather: "sunny", airTemperature: tmp2.airTemperature, waterTemperature: tmp2.waterTemperature)
@@ -91,6 +93,8 @@ struct RecordButtonView: View {
                 modelContext.insert(tmp)
             }
             viewModel.isMemo.toggle()
+            
+            dismiss() // Step 2: Dismiss the view after the button action is successfully executed
             
         } label: {
             ZStack {
@@ -108,6 +112,7 @@ struct RecordButtonView: View {
         }
     }
 }
+
 
 import SwiftUI
 import SwiftData
