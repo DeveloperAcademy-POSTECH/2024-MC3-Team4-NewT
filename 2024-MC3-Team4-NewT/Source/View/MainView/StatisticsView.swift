@@ -15,7 +15,7 @@ struct StatisticsView: View {
             VStack(alignment: .leading, spacing: 0) {
                 HStack(alignment: .center) {
                     Text("선호하는 차트 통계")
-                        .font(.headline)
+                        .font(.Heading3Bold)
                         .foregroundColor(.white)
                     Spacer()
                     Button {
@@ -35,16 +35,16 @@ struct StatisticsView: View {
                                     Image("windFillIcon")
                                         .foregroundColor(Color("surfBlue"))
                                     Text("바람")
-                                        .font(.body)
+                                        .font(.Body1Bold)
                                         .foregroundColor(Color("surfBlue"))
                                 }
                                 Spacer()
                                 HStack(alignment: .center, spacing: 0) {
                                     Text("\(viewStatistics.windSpeed ?? 0.0, specifier: "%.1f")m/s")
-                                        .font(.largeTitle)
-                                        .foregroundColor(Color("surfBlue"))
+                                        .font(.Heading1SemiBold)
+                                        .foregroundColor(Color(red: 0.13, green: 0.13, blue: 0.13).opacity(0.9))
                                     Spacer()
-                                    Image("waveDirectionIcon2")
+                                    Image("waveDirectionIcon")
                                         .rotationEffect(.degrees(FloatToDouble(Float(viewStatistics.windDirection ?? 0.0))))
                                         .foregroundColor(Color("surfBlue"))
                                         .padding(4)
@@ -64,7 +64,7 @@ struct StatisticsView: View {
                                     Image("waveFillIcon")
                                         .foregroundColor(Color("surfBlue"))
                                     Text("파도")
-                                        .font(.body)
+                                        .font(.Body1Bold)
                                         .foregroundColor(Color("surfBlue"))
                                     Spacer()
                                 }
@@ -73,11 +73,11 @@ struct StatisticsView: View {
                                 HStack(alignment: .bottom) {
                                     VStack(alignment: .leading, spacing: 0) {
                                         Text("\(viewStatistics.waveHeight ?? 0.0, specifier: "%.1f")m")
-                                            .font(.largeTitle)
-                                            .foregroundColor(Color("surfBlue"))
+                                            .font(.Heading1SemiBold)
+                                            .foregroundColor(Color(red: 0.13, green: 0.13, blue: 0.13).opacity(0.9))
                                         Text("\(viewStatistics.wavePeriod ?? 0.0, specifier: "%.1f")s")
-                                            .font(.subheadline)
-                                            .foregroundColor(Color("surfBlue"))
+                                            .font(.SubheadingSemiBold)
+                                            .foregroundColor(Color(red: 0.13, green: 0.13, blue: 0.13).opacity(0.9))
                                     }
                                     Spacer()
                                     Image("swellDirectionIcon2")
@@ -104,7 +104,7 @@ struct StatisticsView: View {
             .onAppear {
                 addDummyStatistics()
             }
-            .frame(height: 202)
+//            .frame(height: 202)
         }
         .sheet(isPresented: $sheetPop) {
             SheetView(sheetPop: $sheetPop)

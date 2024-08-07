@@ -17,7 +17,8 @@ struct MainView: View {
     var body: some View {
         NavigationStack {
             ZStack{
-                VStack {
+                Image("MainViewBG")
+                    .edgesIgnoringSafeArea(.all)
                     if selectedTab == 0 {
                         VStack {
                             //                    if isHeaderVisible {
@@ -41,12 +42,11 @@ struct MainView: View {
                             FitChartView()
                                 .padding(.horizontal)
                             MainChartView(isHeaderVisible: $isHeaderVisible)
-                        }
+                        }.padding(.top, 50)
                     }
                     else if (selectedTab == 2) {
                         RecordChartView()
                     }
-                }
                 Spacer()
                 VStack{
                     Spacer()
@@ -56,10 +56,10 @@ struct MainView: View {
             }
             
         }.ignoresSafeArea(edges: .bottom)
-        .background{
-            Image("MainViewBG")
-                .edgesIgnoringSafeArea(.all)
-        }
+//        .background{
+//            Image("MainViewBG")
+//                .edgesIgnoringSafeArea(.all)
+//        }
     }
 }
 
