@@ -41,8 +41,19 @@ struct RecordChartTestView: View {
                                 HStack(spacing: 20) {
                                     if viewModel.isPinButton[recordOne.id] == true {
                                         Button {
+                                            
                                             viewModel.isChartPinButotn[row.id, default: false].toggle()
-                                            print ("고정 row: \(row.id)")
+//                                            print ("고정 row: \(row.id)")
+                                            if (viewModel.isChartPinButotn[row.id] == true && viewModel.isPinCounter < 3) {
+                                                viewModel.isPinCounter += 1
+                                            }
+                                            else if (viewModel.isChartPinButotn[row.id] == false) {
+                                                viewModel.isPinCounter -= 1
+                                                viewModel.isChartPinButotn[row.id] = false
+                                            }
+                                            else {
+                                                viewModel.isChartPinButotn[row.id] = false
+                                            }
                                         } label: {
                                             Image(systemName: "checkmark.circle.fill")
                                                 .frame(width: 20)
