@@ -70,7 +70,7 @@ struct MainChartView: View {
                                             .frame(width: 35)
                                         
                                         HStack(alignment: .center, spacing: 8) {
-                                            Image("waveDirectionIcon")
+                                            Image("waveDirectionIcon2")
                                                 .frame(width: 14, height: 18)
                                             Text("\(chart.surfingValues.windSpeed, specifier: "%.1f")m/s")
                                                 .font(.Body1Medium)

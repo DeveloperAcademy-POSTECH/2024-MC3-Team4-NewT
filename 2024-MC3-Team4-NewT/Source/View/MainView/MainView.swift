@@ -18,14 +18,15 @@ struct MainView: View {
     var body: some View {
         NavigationStack {
             ZStack{
-                VStack {
+                Image("MainViewBG")
+                    .edgesIgnoringSafeArea(.all)
                     if selectedTab == 0 {
                         VStack {
                             //                    if isHeaderVisible {
                             VStack {
                                 NavigationLink(destination: LocationView(selectedItem: $viewModel.selectedItem)) {
                                     HStack(alignment: .center, spacing: 4){
-                                        Text(viewModel.selectedItem)
+                                        Text(viewModel.selectedItem ?? "포항 신항만해변A")
                                             .font(.SubheadingSemiBold)
                                             .foregroundColor(.white)
                                         Image(systemName: "chevron.down")
@@ -33,20 +34,18 @@ struct MainView: View {
                                         Spacer()
                                     }
                                     .opacity(0.7)
-                                    .padding(.vertical, 6)
-                                }
-                                
+                                    Spacer()
+                                }.padding(.vertical, 6)
                             }.padding(.horizontal)
                             //                    }
                             FitChartView()
                                 .padding(.horizontal)
                             MainChartView(isHeaderVisible: $isHeaderVisible)
-                        }
+                        }.padding(.top, 50)
                     }
                     else if (selectedTab == 2) {
                         RecordChartView()
                     }
-                }
                 Spacer()
                 VStack{
                     Spacer()
@@ -59,8 +58,8 @@ struct MainView: View {
                     .edgesIgnoringSafeArea(.all)
             }
             
-        }
-        
+
+        }.ignoresSafeArea(edges: .bottom)
     }
 }
 

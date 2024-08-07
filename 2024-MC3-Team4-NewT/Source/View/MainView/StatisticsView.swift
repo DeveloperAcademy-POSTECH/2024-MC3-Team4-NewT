@@ -9,13 +9,13 @@ struct StatisticsView: View {
     @Environment(\.modelContext) private var modelContext: ModelContext
     @Query private var statistics: [Statistics]
     @State private var sheetPop: Bool = false
-    
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
                 HStack(alignment: .center) {
                     Text("선호하는 차트 통계")
-                        .font(.headline)
+                        .font(.Heading3Bold)
                         .foregroundColor(.white)
                     Spacer()
                     Button {
@@ -26,7 +26,7 @@ struct StatisticsView: View {
                     }
                 }
                 .padding(.bottom, 24)
-                
+
                 HStack(spacing: 0) {
                     if let viewStatistics = statistics.first {
                         ZStack {
@@ -35,17 +35,17 @@ struct StatisticsView: View {
                                     Image("windFillIcon")
                                         .foregroundColor(Color("surfBlue"))
                                     Text("바람")
-                                        .font(.body)
+                                        .font(.Body1Bold)
                                         .foregroundColor(Color("surfBlue"))
                                 }
                                 Spacer()
                                 HStack(alignment: .center, spacing: 0) {
                                     Text("\(viewStatistics.windSpeed ?? 0.0, specifier: "%.1f")m/s")
-                                        .font(.largeTitle)
-                                        .foregroundColor(Color("surfBlue"))
+                                        .font(.Heading1SemiBold)
+                                        .foregroundColor(Color(red: 0.13, green: 0.13, blue: 0.13).opacity(0.9))
                                     Spacer()
-                                    Image("waveDirectionIcon2")
-                                        .rotationEffect(.degrees(FloatToDouble(Float(viewStatistics.windDirection ?? 0.0))))
+                                    Image("waveDirectionIcon")
+                                        .rotationEffect(.degrees(Double(viewStatistics.windDirection ?? 0.0)))
                                         .foregroundColor(Color("surfBlue"))
                                         .padding(4)
                                 }
@@ -55,16 +55,16 @@ struct StatisticsView: View {
                         }
                         .background(Color.white.opacity(0.5))
                         .cornerRadius(24)
-                        
+
                         Spacer().frame(width: 13)
-                        
+
                         ZStack {
                             VStack(alignment: .leading, spacing: 0) {
                                 HStack {
                                     Image("waveFillIcon")
                                         .foregroundColor(Color("surfBlue"))
                                     Text("파도")
-                                        .font(.body)
+                                        .font(.Body1Bold)
                                         .foregroundColor(Color("surfBlue"))
                                     Spacer()
                                 }
@@ -73,15 +73,15 @@ struct StatisticsView: View {
                                 HStack(alignment: .bottom) {
                                     VStack(alignment: .leading, spacing: 0) {
                                         Text("\(viewStatistics.waveHeight ?? 0.0, specifier: "%.1f")m")
-                                            .font(.largeTitle)
-                                            .foregroundColor(Color("surfBlue"))
+                                            .font(.Heading1SemiBold)
+                                            .foregroundColor(Color(red: 0.13, green: 0.13, blue: 0.13).opacity(0.9))
                                         Text("\(viewStatistics.wavePeriod ?? 0.0, specifier: "%.1f")s")
-                                            .font(.subheadline)
-                                            .foregroundColor(Color("surfBlue"))
+                                            .font(.SubheadingSemiBold)
+                                            .foregroundColor(Color(red: 0.13, green: 0.13, blue: 0.13).opacity(0.9))
                                     }
                                     Spacer()
                                     Image("swellDirectionIcon2")
-                                        .rotationEffect(.degrees(FloatToDouble(Float(viewStatistics.waveDirection ?? 0.0))))
+                                        .rotationEffect(.degrees(Double(viewStatistics.waveDirection ?? 0.0)))
                                         .foregroundColor(Color("surfBlue"))
                                         .padding(4)
                                 }
@@ -101,52 +101,34 @@ struct StatisticsView: View {
                 .padding(.bottom, 25)
                 Spacer()
             }
-            .onAppear {
-                addDummyStatistics()
-            }
-            .frame(height: 202)
         }
         .sheet(isPresented: $sheetPop) {
             SheetView(sheetPop: $sheetPop)
-        }
-    }
-    
-    func addDummyStatistics() {
-        let dummyStatistic = Statistics(id: UUID(), waveDirection: 164.0, waveHeight: 0.16, wavePeriod: 4.75, windDirection: 234.36, windSpeed: 5.0, weather: "ra", temperature: 25.33)
-        modelContext.insert(dummyStatistic)
-        
-        do {
-            try modelContext.save()
-        } catch {
-            print("Failed to save context: \(error)")
+                .presentationDetents([.height(450)])
+                .presentationCornerRadius(21)
         }
     }
 }
 
 struct SheetView: View {
     @Binding var sheetPop: Bool
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("자세한 정보")
-                    .font(.title)
-                    .padding()
+                Text("내가 선호하는 차트 통계")
+                    .font(.Heading3Bold)
                 Spacer()
                 Button {
                     sheetPop = false
                 } label: {
                     Image("sheetXButton")
                 }
-            }
-            .padding()
-            Spacer()
+            }.padding(.horizontal, 4)
             Image("infoSheet")
         }.padding()
-            .frame(maxHeight: UIScreen.main.bounds.height / 2)
+            .padding(.bottom, 4)
             .background(Color.white)
             .cornerRadius(24)
-        
     }
 }
-
