@@ -4,6 +4,7 @@ import SwiftData
 struct ModalView: View {
     @Query private var surfingRecordOneData: [SurfingRecordOne]
     @ObservedObject var viewModel : RecordChartViewModel
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         ScrollView{
@@ -17,6 +18,7 @@ struct ModalView: View {
                             Spacer()
                             Button{
                                 //모달 내리기 모션 넣어야함
+                                dismiss()
                             }label: {
                                 Image(systemName: "xmark.circle.fill")
                                     .resizable()

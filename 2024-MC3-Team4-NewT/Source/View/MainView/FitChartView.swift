@@ -29,8 +29,9 @@ struct FitChartView: View {
                 if let firstStatistic = statistics.first {
                     StatisticsView()
                 } else {
-                    Text("통계 데이터가 없습니다.")
-                        .foregroundColor(.gray)
+                    Text("통계 데이터가 없습니다. \n파도를 기록하고 통계를 받아보세요!")
+                        .foregroundColor(.white)
+                        .frame(alignment: .center)
                 }
                 //                RecentChartsVIew()
                 RecentChartsView()
