@@ -76,7 +76,7 @@ struct RecordItemView: View {
                             .foregroundColor(Color.black.opacity(0.8))
                             .sheet(isPresented: $viewModel.ismemo) {
                                 ModalView(viewModel: viewModel)
-                                // halfModal 만들어야 함!
+                                    .presentationDetents([.fraction(0.8)])
                             }
                         }
                     }
