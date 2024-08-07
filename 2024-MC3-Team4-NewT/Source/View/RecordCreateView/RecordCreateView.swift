@@ -44,7 +44,8 @@ struct RecordCreateView: View {
                         .padding(.horizontal)
                         
                     }
-                }.scrollDisabled(viewModel.isMemo)
+                }
+                .scrollDisabled(viewModel.isMemo)
                     .padding(.bottom)
                 
                 RecordButtonView(
@@ -56,6 +57,9 @@ struct RecordCreateView: View {
             }
         }
         .navigationTitle("파도 기록")
+        .onAppear{
+            viewModel.resetData()
+        }
         
     }
 }

@@ -5,6 +5,7 @@
 //  Created by ram on 8/5/24.
 //
 
+
 import SwiftUI
 import SwiftData
 
@@ -20,8 +21,8 @@ class RecordCreateViewModel: ObservableObject {
     @Published var memo: String = ""
     @Published var heightSize: CGFloat = 245.0
     
-    let placeHolding1: String = "파도에 대한 간단한 메모를 남겨보세요."
-    let placeHolding2: String = "(최대 200자)"
+    var placeHolding1: String = "파도에 대한 간단한 메모를 남겨보세요."
+    var placeHolding2: String = "(최대 200자)"
     let memoLimit: Int = 200
     
     var chartCounter: Int {
@@ -51,10 +52,17 @@ class RecordCreateViewModel: ObservableObject {
         }
     }
     
-    func date(from date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "ko_kr")
-        formatter.dateFormat = "MM월 dd일 (E)"
-        return formatter.string(from: date)
-    }
+    func resetData() {
+            // Reset all properties to their initial values
+            selectedDate = Date()
+            startTime = Date()
+            stopTime = Date()
+            selectedScore = 0
+            isChartScroll = true
+            isScore = 0.0
+            isMemo = true
+            isScoreText = ""
+            memo = ""
+            heightSize = 245.0
+        }
 }

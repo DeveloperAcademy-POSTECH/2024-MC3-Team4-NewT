@@ -12,10 +12,12 @@ struct ChartHeaderView: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            Text(DateFormatterManager.shared.date(from: viewModel.selectedDate))
-                .font(.SubheadingBold)
-                .foregroundStyle(Color("surfBlue"))
-                .padding(.vertical, 8)
+            NavigationLink(destination: FirebaseSDView()){
+                Text(DateFormatterManager.shared.date(from: viewModel.selectedDate))
+                    .font(.SubheadingBold)
+                    .foregroundStyle(Color("surfBlue"))
+                    .padding(.vertical, 8)
+            }
             ZStack {
                 Rectangle()
                     .frame(height: 20)

@@ -11,7 +11,7 @@ struct ChartView: View {
     @ObservedObject var viewModel: RecordCreateViewModel
     @Query(filter:#Predicate<ChartRow>{ item in
         item.surfingRecordStartTime == nil
-
+        
     },sort:\ChartRow.time) var chartRows: [ChartRow]
     
     var observable : ChartRecordObservable
@@ -34,12 +34,14 @@ struct ChartView: View {
                                 Color.white.opacity(0.8)
                                     .frame(height: 58)
                                 HStack(spacing: 20) {
-                                    VStack(spacing: 0) {
-                                        Text(DateFormatterManager.shared.timeToHourFormatter(row.time))
-                                            .font(.CaptionMedium)
-                                            .foregroundColor(.black)
-                                            .opacity(0.7)
-                                    }
+                                    
+                                        VStack(spacing: 0) {
+                                            Text(DateFormatterManager.shared.timeToHourFormatter(row.time))
+                                                .font(.CaptionMedium)
+                                                .foregroundColor(.black)
+                                                .opacity(0.7)
+                                        }
+                                    
                                     HStack(spacing: 5) {
                                         Image(systemName: "paperplane")
                                             .foregroundColor(Color("iconSkyblue"))
