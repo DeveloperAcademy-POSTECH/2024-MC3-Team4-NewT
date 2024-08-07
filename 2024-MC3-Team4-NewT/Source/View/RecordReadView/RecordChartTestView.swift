@@ -1,27 +1,22 @@
-//
-//  RecordChartTestView.swift
-//  2024-MC3-Team4-NewT
-//
-//  Created by siye on 8/5/24.
-//
-
 import Foundation
 import SwiftUI
 import SwiftData
 
 struct RecordChartTestView: View {
     @Query private var surfingRecordOneData: [SurfingRecordOne]
-    @ObservedObject var viewModel : RecordChartViewModel
-    @Query var chartRow:[ChartRow]
-    var recordOne:SurfingRecordOne
+    @ObservedObject var viewModel: RecordChartViewModel
+    @Query(sort: \ChartRow.time) var chartRow: [ChartRow]
+    var recordOne: SurfingRecordOne
     
     var body: some View {
-        VStack(spacing: 0){
+        VStack(spacing: 0) {
             let data = viewModel.filteredRecordChart(charts: chartRow, recordOne: recordOne)
-            ZStack{
+            
+            ZStack {
                 Rectangle()
                     .foregroundColor(Color("brightGray"))
-                HStack(spacing: 50){
+                
+                HStack(spacing: 50) {
                     Text("시간")
                     Text("바람")
                     Text("파도")
@@ -33,65 +28,72 @@ struct RecordChartTestView: View {
             }
             .frame(height: 20)
             
-            ZStack(alignment: .top){
+            ZStack(alignment: .top) {
                 Color.white
-                VStack(spacing: 0){
+                VStack(spacing: 0) {
                     ForEach(data.indices, id: \.self) { index in
-                        
-                        VStack(spacing: 0 ){
-                            ZStack{
+                        let row = data[index]
+                        VStack(spacing: 0) {
+                            ZStack {
                                 Color.clear
                                     .frame(height: 58)
-                                HStack(spacing: 20){
-                                    Text("\(index + viewModel.startHour)시")
+                                
+                                HStack(spacing: 20) {
+                                    if viewModel.isPinButton[recordOne.id] == true {
+                                        Button {
+                                            viewModel.isChartPinButotn[row.id, default: false].toggle()
+                                            print ("고정 row: \(row.id)")
+                                        } label: {
+                                            Image(systemName: "checkmark.circle.fill")
+                                                .frame(width: 20)
+                                                .foregroundColor(viewModel.isChartPinButotn[row.id] == true ? Color("surfBlue") : Color(.systemGroupedBackground))
+                                        }
+                                    }
+                                    Text(DateFormatterManager.shared.timeToHourFormatter(row.time))
                                         .font(.CaptionMedium)
                                         .foregroundColor(.black)
                                         .opacity(0.7)
                                     
-                                    HStack(spacing: 5){
+                                    HStack(spacing: 5) {
                                         Image(systemName: "paperplane")
                                             .foregroundColor(Color("iconSkyblue"))
-                                        Text("3.3m/s")
+                                        Text("\(row.surfingValues.windSpeed, specifier: "%.1f")m/s")
                                             .font(.Body2Medium)
                                     }
-                                    HStack(spacing: 5){
+                                    
+                                    HStack(spacing: 5) {
                                         Image(systemName: "paperplane.fill")
                                             .foregroundColor(Color("surfBlue"))
-                                        VStack(spacing: 0){
-                                            Text("0.2m")
+                                        VStack(spacing: 0) {
+                                            Text("\(row.surfingValues.waveHeight, specifier: "%.1f")m")
                                                 .font(.Body2Medium)
-                                            Text("3.3m/s")
+                                            Text("\(row.surfingValues.wavePeriod, specifier: "%.1f")m/s")
                                                 .font(.CaptionMedium)
                                         }
                                     }
-                                    VStack(spacing: 0){
-                                        Text("28°C")
+                                    VStack(spacing: 0) {
+                                        Text("\(row.surfingValues.waterTemperature, specifier: "%.0f")°C")
                                             .font(.Body2Medium)
                                         Image(systemName: "water.waves")
                                             .foregroundColor(Color("iconPurple"))
                                     }
-                                    HStack(spacing: 5){
+                                    
+                                    HStack(spacing: 5) {
                                         Image(systemName: "cloud")
                                             .foregroundColor(.gray)
-                                        Text("28°C")
+                                        Text("\(row.surfingValues.airTemperature, specifier: "%.0f")°C")
                                             .font(.Body2Medium)
                                     }
                                 }
+                                .padding(.horizontal, 10)
                             }
-                            
-                            Divider()
-                                .background(Color("surfBlue"))
                         }
-                        
-                        
+                        .onAppear{
+                            print ("****row: \(row.id)")
+                        }
                     }
-                    
                 }
             }
-            .frame(height: 58*CGFloat(viewModel.chartCounter))
-          
         }
-        
     }
 }
-

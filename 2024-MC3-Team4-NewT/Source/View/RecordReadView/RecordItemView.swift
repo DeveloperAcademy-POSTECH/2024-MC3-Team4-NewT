@@ -107,6 +107,7 @@ struct RecordItemView: View {
                                 
                                 print("Updated pin ID \(item.id): \(viewModel.isPinButton[item.id, default: false])")
                                 print("Updated ellips ID \(item.id): \(viewModel.isEllipsisOnOff[item.id, default: false])")
+                                print("")
                             } label: {
                                 HStack {
                                     Text("핀 고정")
@@ -155,7 +156,6 @@ struct RecordItemView: View {
                 }
             }
         }
-        .frame(height: 110 + CGFloat((58 * viewModel.chartCounter)))
         .cornerRadius(24)
         .padding(.horizontal)
         .padding(.bottom)

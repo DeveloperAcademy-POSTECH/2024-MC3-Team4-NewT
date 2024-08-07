@@ -18,6 +18,7 @@ struct RecordButtonView: View {
 
     var body: some View {
         Button{
+            // TODO: 데이터가 1개 이상일 때만 저장가능하게 해야함!
             if viewModel.isMemo {
                 viewModel.heightSize = 322.0
                 modelContext.insert(SurfingRecordOne(surfingStartTime: viewModel.startTime, surfingEndTime: viewModel.stopTime, charts: [], evaluationValue: Int(viewModel.isScore + 1), evaluationText: viewModel.isScoreText, memo: viewModel.memo))
@@ -31,7 +32,7 @@ struct RecordButtonView: View {
             for aa in observable.필터된차트 {
                 print(aa.time)
                 let tmp2 = aa.surfingValues
-                let tmp1 = SurfingValues(waveDirection: tmp2.waveDirection, waveHeight: tmp2.waveHeight, wavePeriod: tmp2.wavePeriod, windDirection: tmp2.waveDirection, windSpeed: tmp2.windSpeed, weather: "sunny", airTemperature: tmp2.airTemperature, waterTemperature: tmp2.waterTemperature)
+                let tmp1 = SurfingValues(waveDirection: tmp2.waveDirection, waveHeight: tmp2.waveHeight, wavePeriod: tmp2.wavePeriod, windDirection: tmp2.waveDirection, windSpeed: tmp2.windSpeed, weather: tmp2.weather, airTemperature: tmp2.airTemperature, waterTemperature: tmp2.waterTemperature)
                 modelContext.insert(tmp1)
                 let tmp = ChartRow(time: aa.time, surfingValues: tmp1, isHighTide: aa.isHighTide, isLowTide: aa.isLowTide)
                 tmp.surfingRecordStartTime = viewModel.startTime
