@@ -102,25 +102,27 @@ struct StatisticsView: View {
                 Spacer()
             }
             .onAppear {
-                addDummyStatistics()
+//                addDummyStatistics()
             }
 //            .frame(height: 202)
         }
         .sheet(isPresented: $sheetPop) {
             SheetView(sheetPop: $sheetPop)
+                .presentationDetents([.height(450)])
+                .presentationCornerRadius(21)
         }
     }
     
-    func addDummyStatistics() {
-        let dummyStatistic = Statistics(id: UUID(), waveDirection: 164.0, waveHeight: 0.16, wavePeriod: 4.75, windDirection: 234.36, windSpeed: 5.0, weather: "ra", temperature: 25.33)
-        modelContext.insert(dummyStatistic)
-        
-        do {
-            try modelContext.save()
-        } catch {
-            print("Failed to save context: \(error)")
-        }
-    }
+//    func addDummyStatistics() {
+//        let dummyStatistic = Statistics(id: UUID(), waveDirection: 164.0, waveHeight: 0.16, wavePeriod: 4.75, windDirection: 234.36, windSpeed: 5.0, weather: "ra", temperature: 25.33)
+//        modelContext.insert(dummyStatistic)
+//        
+//        do {
+//            try modelContext.save()
+//        } catch {
+//            print("Failed to save context: \(error)")
+//        }
+//    }
 }
 
 struct SheetView: View {
@@ -129,21 +131,19 @@ struct SheetView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Text("자세한 정보")
-                    .font(.title)
-                    .padding()
+                Text("내가 선호하는 차트 통계")
+                    .font(.Heading3Bold)
                 Spacer()
                 Button {
                     sheetPop = false
                 } label: {
                     Image("sheetXButton")
                 }
-            }
-            .padding()
-            Spacer()
+            }.padding(.horizontal, 4)
             Image("infoSheet")
         }.padding()
-            .frame(maxHeight: UIScreen.main.bounds.height / 2)
+            .padding(.bottom, 4)
+//            .frame(maxHeight: UIScreen.main.bounds.height / 2)
             .background(Color.white)
             .cornerRadius(24)
         
