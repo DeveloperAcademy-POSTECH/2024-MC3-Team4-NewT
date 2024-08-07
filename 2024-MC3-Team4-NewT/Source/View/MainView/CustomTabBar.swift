@@ -11,8 +11,8 @@ struct CustomTabBar: View {
     @Binding var selectedTab: Int
     
     var body: some View {
-        
         ZStack(alignment: .top) {
+            Color.white .ignoresSafeArea(edges: .bottom)
             HStack {
                 Spacer()
                 TabBarButton(
@@ -67,7 +67,8 @@ struct CustomTabBar: View {
                 }
                 .offset(y: -20)
             }
-        }.ignoresSafeArea(edges: .bottom)
+        }.frame(height: 77)
+//        .ignoresSafeArea(edges: .bottom)
         
         
     }

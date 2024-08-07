@@ -31,6 +31,7 @@ struct MainView: View {
                                             .foregroundColor(.white)
                                         Image(systemName: "chevron.down")
                                             .foregroundColor(.white)
+                                        Spacer()
                                     }
                                     .opacity(0.7)
                                     Spacer()
@@ -50,9 +51,14 @@ struct MainView: View {
                     Spacer()
                     //여기에 탭바 넣으면 됩니다
                     CustomTabBar(selectedTab: $selectedTab)
+                        .ignoresSafeArea(edges: .bottom)
                 }
+            }.background{
+                Image("MainViewBG")
+                    .edgesIgnoringSafeArea(.all)
             }
             
+
         }.ignoresSafeArea(edges: .bottom)
     }
 }

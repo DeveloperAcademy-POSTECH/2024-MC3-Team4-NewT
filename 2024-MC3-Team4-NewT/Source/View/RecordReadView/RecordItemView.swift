@@ -1,10 +1,12 @@
-import Foundation
 import SwiftUI
 import SwiftData
 
 struct RecordItemView: View {
     var item: SurfingRecordOne
     @ObservedObject var viewModel: RecordChartViewModel
+    @Environment(\.modelContext) var modelContext // Access the SwiftData context
+    
+    @State private var showDeleteConfirmation = false // State to show the confirmation alert
 
     var body: some View {
         ZStack(alignment: .top) {
@@ -18,11 +20,7 @@ struct RecordItemView: View {
                         Spacer()
                         Button {
                             withAnimation {
-                                print("Current ellips ID \(item.id): \(viewModel.isEllipsisOnOff[item.id, default: false])")
-                                
                                 viewModel.updateEllipsisState(for: item.id)
-                                
-                                print("Updated ellips ID \(item.id): \(viewModel.isEllipsisOnOff[item.id, default: false])")
                             }
                         } label: {
                             Image(systemName: "ellipsis")
@@ -78,7 +76,7 @@ struct RecordItemView: View {
                             .foregroundColor(Color.black.opacity(0.8))
                             .sheet(isPresented: $viewModel.ismemo) {
                                 ModalView(viewModel: viewModel)
-                                // halfModal 만들어야 함!
+                                    .presentationDetents([.fraction(0.8)])
                             }
                         }
                     }
@@ -99,14 +97,8 @@ struct RecordItemView: View {
                             .foregroundColor(.white)
                         VStack(alignment: .leading, spacing: 0) {
                             Button {
-                                print("Current pin ID \(item.id): \(viewModel.isPinButton[item.id, default: false])")
-                                print("Current ellips ID \(item.id): \(viewModel.isEllipsisOnOff[item.id, default: false])")
-                                
                                 viewModel.isPinButton[item.id, default: false].toggle()
                                 viewModel.isEllipsisOnOff[item.id, default: false].toggle()
-                                
-                                print("Updated pin ID \(item.id): \(viewModel.isPinButton[item.id, default: false])")
-                                print("Updated ellips ID \(item.id): \(viewModel.isEllipsisOnOff[item.id, default: false])")
                             } label: {
                                 HStack {
                                     Text("핀 고정")
@@ -134,7 +126,7 @@ struct RecordItemView: View {
                             
                             Divider()
                             Button {
-                                // Your delete action here
+                                showDeleteConfirmation = true // Show the delete confirmation alert
                             } label: {
                                 HStack {
                                     Text("삭제")
@@ -155,9 +147,22 @@ struct RecordItemView: View {
                 }
             }
         }
-        .frame(height: 110 + CGFloat((58 * viewModel.chartCounter)))
         .cornerRadius(24)
         .padding(.horizontal)
         .padding(.bottom)
+        .alert(isPresented: $showDeleteConfirmation) {
+            Alert(
+                title: Text("기록을 삭제하시겠습니까?"),
+                primaryButton: .destructive(Text("삭제")) {
+                    deleteRecord(item: item)
+                },
+                secondaryButton: .cancel(Text("취소"))
+            )
+        }
+    }
+    
+    private func deleteRecord(item: SurfingRecordOne) {
+        modelContext.delete(item) // Delete the SurfingRecordOne object from the context
+        try? modelContext.save()  // Save the context to persist changes
     }
 }
