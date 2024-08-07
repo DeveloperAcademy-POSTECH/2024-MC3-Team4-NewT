@@ -12,6 +12,7 @@ class RecordChartViewModel: ObservableObject {
     @Published var isID: UUID = UUID()
     @Published var isPinButton: [UUID: Bool] = [:]
     @Published var isChartPinButotn: [UUID: Bool] = [:]
+    @Published var isMemoCheckingButton: [UUID: Bool] = [:]
     /// LotationView 변수
     @Published var selectedRegion: Region? = nil
     @Published var selectedItem: String = "포항 신항만해변"
