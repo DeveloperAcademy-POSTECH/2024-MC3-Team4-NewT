@@ -8,11 +8,10 @@ class RecordChartViewModel: ObservableObject {
     @Published var startTime = Date()
     @Published var stopTime = Date()
     @Published var isEllipsisOnOff: [UUID: Bool] = [:]
-        
     @Published var ismemo: Bool = false
     @Published var isID: UUID = UUID()
     @Published var isPinButton: [UUID: Bool] = [:]
-
+    @Published var isChartPinButotn: [UUID: Bool] = [:]
     /// LotationView 변수
     @Published var selectedRegion: Region? = nil
     @Published var selectedItem: String = "포항 신항만해변"

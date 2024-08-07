@@ -33,7 +33,16 @@ struct RecordChartView: View {
                     ScrollView {
                         ForEach(surfingRecordOneData, id: \.id) { item in
                             RecordItemView(item: item, viewModel: viewModel)
+                                .onAppear{
+                                    print("")
+                                    print("")
+                                    print("큰 차트 item.id \(item.id)")
+                                }
+                                
+                            
                         }
+                        Spacer()
+                            .frame(height: 100)
                     }
                 }
             }
