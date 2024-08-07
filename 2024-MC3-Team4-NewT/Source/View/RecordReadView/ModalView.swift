@@ -37,31 +37,10 @@ struct ModalView: View {
                                     .font(.Body2SemiBold)
                                     .foregroundColor(.black.opacity(0.7))
                                 
-                                if(item.evaluationValue == 1){
-                                    Text("별로예요")
-                                        .font(.Body2Medium)
-                                        .foregroundColor(.black.opacity(0.7))
-                                }
-                                else if(item.evaluationValue  == 2){
-                                    Text("아쉬워요")
-                                        .font(.Body2Medium)
-                                        .foregroundColor(.black.opacity(0.7))
-                                }
-                                else if(item.evaluationValue  == 3){
-                                    Text("보통이에요")
-                                        .font(.Body2Medium)
-                                        .foregroundColor(.black.opacity(0.7))
-                                }
-                                else if(item.evaluationValue  == 4){
-                                    Text("만족해요")
-                                        .font(.Body2Medium)
-                                        .foregroundColor(.black.opacity(0.7))
-                                }
-                                else {
-                                    Text("최고예요")
-                                        .font(.Body2Medium)
-                                        .foregroundColor(.black.opacity(0.7))
-                                }
+                                Text(viewModel.evaluationText(for: item.evaluationValue))
+                                    .font(.Body2Medium)
+                                    .foregroundColor(.black.opacity(0.7))
+                               
                             }
                             .padding(5)
                             .background(Color("backgroundSkyblue"))
