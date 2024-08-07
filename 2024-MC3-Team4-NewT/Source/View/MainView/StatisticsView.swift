@@ -7,9 +7,9 @@ func FloatToDouble(_ value: Float) -> Double {
 
 struct StatisticsView: View {
     @Environment(\.modelContext) private var modelContext: ModelContext
-    @Query private var statistics: [Statistics] //RecordOne 가져와서 넣고 띄우기
+    @Query private var statistics: [Statistics]
     @State private var sheetPop: Bool = false
-    
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
@@ -26,7 +26,7 @@ struct StatisticsView: View {
                     }
                 }
                 .padding(.bottom, 24)
-                
+
                 HStack(spacing: 0) {
                     if let viewStatistics = statistics.first {
                         ZStack {
@@ -45,7 +45,7 @@ struct StatisticsView: View {
                                         .foregroundColor(Color(red: 0.13, green: 0.13, blue: 0.13).opacity(0.9))
                                     Spacer()
                                     Image("waveDirectionIcon")
-                                        .rotationEffect(.degrees(FloatToDouble(Float(viewStatistics.windDirection ?? 0.0))))
+                                        .rotationEffect(.degrees(Double(viewStatistics.windDirection ?? 0.0)))
                                         .foregroundColor(Color("surfBlue"))
                                         .padding(4)
                                 }
@@ -55,9 +55,9 @@ struct StatisticsView: View {
                         }
                         .background(Color.white.opacity(0.5))
                         .cornerRadius(24)
-                        
+
                         Spacer().frame(width: 13)
-                        
+
                         ZStack {
                             VStack(alignment: .leading, spacing: 0) {
                                 HStack {
@@ -81,7 +81,7 @@ struct StatisticsView: View {
                                     }
                                     Spacer()
                                     Image("swellDirectionIcon2")
-                                        .rotationEffect(.degrees(FloatToDouble(Float(viewStatistics.waveDirection ?? 0.0))))
+                                        .rotationEffect(.degrees(Double(viewStatistics.waveDirection ?? 0.0)))
                                         .foregroundColor(Color("surfBlue"))
                                         .padding(4)
                                 }
@@ -101,10 +101,6 @@ struct StatisticsView: View {
                 .padding(.bottom, 25)
                 Spacer()
             }
-            .onAppear {
-//                addDummyStatistics()
-            }
-//            .frame(height: 202)
         }
         .sheet(isPresented: $sheetPop) {
             SheetView(sheetPop: $sheetPop)
@@ -112,22 +108,11 @@ struct StatisticsView: View {
                 .presentationCornerRadius(21)
         }
     }
-    
-//    func addDummyStatistics() {
-//        let dummyStatistic = Statistics(id: UUID(), waveDirection: 164.0, waveHeight: 0.16, wavePeriod: 4.75, windDirection: 234.36, windSpeed: 5.0, weather: "ra", temperature: 25.33)
-//        modelContext.insert(dummyStatistic)
-//        
-//        do {
-//            try modelContext.save()
-//        } catch {
-//            print("Failed to save context: \(error)")
-//        }
-//    }
 }
 
 struct SheetView: View {
     @Binding var sheetPop: Bool
-    
+
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
@@ -143,10 +128,7 @@ struct SheetView: View {
             Image("infoSheet")
         }.padding()
             .padding(.bottom, 4)
-//            .frame(maxHeight: UIScreen.main.bounds.height / 2)
             .background(Color.white)
             .cornerRadius(24)
-        
     }
 }
-
