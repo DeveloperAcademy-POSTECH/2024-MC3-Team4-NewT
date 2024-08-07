@@ -16,7 +16,7 @@ struct RecordChartView: View {
                 VStack(spacing: 0) {
                     NavigationLink(destination: LocationView(selectedItem: $viewModel.selectedItem)) {
                         HStack {
-                            Text(viewModel.selectedItem ?? "포항 신항만해변")
+                            Text(viewModel.selectedItem)
                                 .font(.SubheadingSemiBold)
                             Image(systemName: "chevron.down")
                             Spacer()
@@ -34,16 +34,15 @@ struct RecordChartView: View {
                         ForEach(surfingRecordOneData, id: \.id) { item in
                             RecordItemView(item: item, viewModel: viewModel)
                                 .onAppear{
-                                    print("")
-                                    print("")
                                     print("큰 차트 item.id \(item.id)")
                                 }
                                 
                             
                         }
                         Spacer()
-                            .frame(height: 100)
+                            .frame(height: 60)
                     }
+                    
                 }
             }
         }
