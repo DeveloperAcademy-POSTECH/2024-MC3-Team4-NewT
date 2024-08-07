@@ -36,7 +36,7 @@ struct RecordChartTestView: View {
             ZStack(alignment: .top){
                 Color.white
                 VStack(spacing: 0){
-                    ForEach(0..<viewModel.chartCounter, id: \.self) { index in
+                    ForEach(data.indices, id: \.self) { index in
                         
                         VStack(spacing: 0 ){
                             ZStack{
@@ -82,12 +82,14 @@ struct RecordChartTestView: View {
                             Divider()
                                 .background(Color("surfBlue"))
                         }
+                        
+                        
                     }
                     
                 }
             }
             .frame(height: 58*CGFloat(viewModel.chartCounter))
-            
+          
         }
         
     }

@@ -14,12 +14,12 @@ struct RecordButtonView: View {
     @ObservedObject var viewModel : RecordCreateViewModel
     var observable : ChartRecordObservable
     
+    @Environment(\.dismiss) private var dismiss // Step 1: Import the dismiss environment
+
     var body: some View {
         Button{
-            print(viewModel.memo)
-            print(viewModel.isMemo)
             if viewModel.isMemo {
-                    viewModel.heightSize = 322.0
+                viewModel.heightSize = 322.0
                 modelContext.insert(SurfingRecordOne(surfingStartTime: viewModel.startTime, surfingEndTime: viewModel.stopTime, charts: [], evaluationValue: Int(viewModel.isScore + 1), evaluationText: viewModel.isScoreText, memo: viewModel.memo))
             }
             else {
@@ -28,60 +28,17 @@ struct RecordButtonView: View {
                 modelContext.insert(SurfingRecordOne(surfingStartTime: viewModel.startTime, surfingEndTime: viewModel.stopTime, charts: [], evaluationValue: Int(viewModel.isScore + 1), evaluationText: viewModel.isScoreText, memo: viewModel.memo))
             }
             
-            if (viewModel.memo.isEmpty) {
-                print("empty")
-            }
-            for aa in observable.필터된차트{
+            for aa in observable.필터된차트 {
                 print(aa.time)
-                modelContext.insert(aa)
-                aa.surfingRecordStartTime = viewModel.startTime
+                let tmp2 = aa.surfingValues
+                let tmp1 = SurfingValues(waveDirection: tmp2.waveDirection, waveHeight: tmp2.waveHeight, wavePeriod: tmp2.wavePeriod, windDirection: tmp2.waveDirection, windSpeed: tmp2.windSpeed, weather: "sunny", airTemperature: tmp2.airTemperature, waterTemperature: tmp2.waterTemperature)
+                modelContext.insert(tmp1)
+                let tmp = ChartRow(time: aa.time, surfingValues: tmp1, isHighTide: aa.isHighTide, isLowTide: aa.isLowTide)
+                tmp.surfingRecordStartTime = viewModel.startTime
+                modelContext.insert(tmp)
             }
-            
-            
-//            let filteredRows = observable.filterChartRows(
-//                chartRows,
-//                startTime: viewModel.startTime,
-//                stopTime: viewModel.stopTime
-//            )
-//
-//            let calendar = Calendar.current
-//                
-//                // 시작 시간에 가장 가까운 3시간 간격을 찾습니다.
-//            let startHour = calendar.component(.hour, from: viewModel.startTime)
-//                let nearestStartHour = (startHour / 3) * 3
-//            let adjustedStartTime = calendar.date(bySettingHour: nearestStartHour, minute: 0, second: 0, of: viewModel.startTime) ?? viewModel.startTime
-//                
-//                // Predicate를 정의하여 필터링 조건을 작성합니다.
-//                let predicate = #Predicate<ChartRow> { row in
-//                    if let rowDate = DateFormatterManager.shared.dateFromString(row.time) {
-//                        rowDate >= adjustedStartTime && rowDate <= viewModel.stopTime
-//                    }
-//                    return false
-//                }
 
-//                // Predicate를 사용하여 행들을 필터링합니다.
-//                let filtered = rows.filter { row in
-//                    predicate.evaluate(with: row)
-//                }
-                
-            
-
-            viewModel.isMemo.toggle()
-
-//            modelContext.insert(
-//                SurfingRecordOne(
-//                    surfingStartTime: viewModel.startTime,
-//                    surfingEndTime: viewModel.stopTime,
-//                    charts: [],
-//                    evaluationValue: viewModel.memoLimit,
-//                    memo: viewModel.memo))
-            
-//            if viewModel.isMemo {
-//                viewModel.heightSize = 245.0
-//            }
-//            else {
-//                viewModel.heightSize = 322.0
-//            }
+            dismiss() // Step 2: Dismiss the view after the button action is successfully executed
             
         } label: {
             ZStack {

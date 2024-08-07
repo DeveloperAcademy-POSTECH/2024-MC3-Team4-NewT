@@ -13,7 +13,7 @@ import SwiftUI
 class FirebaseObservable {
     // ChartRow 타입의 데이터를 저장하는 배열
     var items: [ChartRow] = []
-    var container = try? ModelContainer(for: 
+    var container = try? ModelContainer(for:
                                             DailyWeatherOld.self,
                                         SurfingValues.self,
                                         ChartRow.self,
@@ -25,22 +25,16 @@ class FirebaseObservable {
     func fetchFirebase(modelContext: ModelContext, collectionName: String, chartRow: [ChartRow]) {
         // Firestore DB 접근위한 인스턴스 생성
         let db = Firestore.firestore()
-        //        // 작업에 사용할 ChartRow 카피본
-        var updatedChartRows = chartRow
-        let context = ModelContext(container!)
-        let descriptor = FetchDescriptor<ChartRow>()
-        let chartCollection = (try? context.fetch(descriptor)) ?? []
         for item in chartRow{
             if let aa = item.surfingRecordStartTime{
-                print("통과")
+                print("\(aa):통과")
             }
             else{
                 
                 modelContext.delete(item)
             }
         }
-         
-//        print(chartCollection)
+        
         // Firebase에서 지정한 컬렉션(collectionName)의 모든 문서를 가져옴
         db.collection(collectionName).getDocuments { snapshot, error in
             if let error = error {
@@ -85,7 +79,7 @@ class FirebaseObservable {
                     let formattedDate = DateFormatterManager.shared.longDateFormatter.string(from: timestamp.dateValue())
                     
                     // 테스트용 로그 찍기
-//                    print("파이어베이스 time:\(formattedDate)")
+                    //                    print("파이어베이스 time:\(formattedDate)")
                     
                     // 새 ChartRow 객체를 동일한 컨텍스트에서 생성
                     let newItem = ChartRow(
@@ -94,10 +88,10 @@ class FirebaseObservable {
                         isHighTide: false,
                         isLowTide: false
                     )
-//                    if chartCollection[index].time
+                    //                    if chartCollection[index].time
                     modelContext.insert(newItem)
                     
-
+                    
                 }
             }
             
