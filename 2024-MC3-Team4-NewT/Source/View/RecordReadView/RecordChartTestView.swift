@@ -82,12 +82,14 @@ struct RecordChartTestView: View {
                             Divider()
                                 .background(Color("surfBlue"))
                         }
+                        
+                        
                     }
                     
                 }
             }
             .frame(height: 58*CGFloat(viewModel.chartCounter))
-            
+          
         }
         
     }
