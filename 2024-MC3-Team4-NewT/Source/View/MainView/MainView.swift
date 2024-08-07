@@ -13,6 +13,7 @@ struct MainView: View {
     @State private var scrollOffset: CGFloat = 0 // 스크롤 오프셋 상태 변수
     @State var isHeaderVisible: Bool = true // 헤더 가시성 상태 변수
     @State var selectedTab: Int = 0
+    @ObservedObject var viewModel = RecordChartViewModel()
     
     var body: some View {
         NavigationStack {
@@ -23,11 +24,9 @@ struct MainView: View {
                         VStack {
                             //                    if isHeaderVisible {
                             VStack {
-                                Button{
-                                    print("지역 선택 버튼 눌림")
-                                }label: {
+                                NavigationLink(destination: LocationView(selectedItem: $viewModel.selectedItem)) {
                                     HStack(alignment: .center, spacing: 4){
-                                        Text("포항 신항만 해변A")
+                                        Text(viewModel.selectedItem ?? "포항 신항만해변A")
                                             .font(.SubheadingSemiBold)
                                             .foregroundColor(.white)
                                         Image(systemName: "chevron.down")
@@ -35,8 +34,7 @@ struct MainView: View {
                                     }
                                     .opacity(0.7)
                                     Spacer()
-                                }
-                                .padding(.vertical, 6)
+                                }.padding(.vertical, 6)
                             }.padding(.horizontal)
                             //                    }
                             FitChartView()
@@ -56,10 +54,6 @@ struct MainView: View {
             }
             
         }.ignoresSafeArea(edges: .bottom)
-//        .background{
-//            Image("MainViewBG")
-//                .edgesIgnoringSafeArea(.all)
-//        }
     }
 }
 

@@ -16,7 +16,7 @@ struct RecordChartView: View {
                 VStack(spacing: 0) {
                     NavigationLink(destination: LocationView(selectedItem: $viewModel.selectedItem)) {
                         HStack {
-                            Text(viewModel.selectedItem ?? "포항 신항만해변")
+                            Text(viewModel.selectedItem ?? "포항 신항만해변A")
                                 .font(.SubheadingSemiBold)
                             Image(systemName: "chevron.down")
                             Spacer()
@@ -35,7 +35,7 @@ struct RecordChartView: View {
                             RecordItemView(item: item, viewModel: viewModel)
                         }
                     }
-                }
+                }.padding(.top, 50)
             }
         }
     }
