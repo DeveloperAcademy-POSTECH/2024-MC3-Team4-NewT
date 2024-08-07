@@ -40,7 +40,6 @@ class FirebaseObservable {
             }
         }
          
-//        print(chartCollection)
         // Firebase에서 지정한 컬렉션(collectionName)의 모든 문서를 가져옴
         db.collection(collectionName).getDocuments { snapshot, error in
             if let error = error {
