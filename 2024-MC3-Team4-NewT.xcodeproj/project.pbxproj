@@ -38,12 +38,12 @@
 		21B080702C52844C007BC655 /* EmbededView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0806F2C52844C007BC655 /* EmbededView.swift */; };
 		21B080722C52890A007BC655 /* WindyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B080712C52890A007BC655 /* WindyView.swift */; };
 		21B080742C56DB7A007BC655 /* WindFinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B080732C56DB7A007BC655 /* WindFinderView.swift */; };
-		21B080762C578BC6007BC655 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21B080752C578BC6007BC655 /* GoogleService-Info.plist */; };
 		21B080792C578CAB007BC655 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 21B080782C578CAB007BC655 /* FirebaseAnalytics */; };
 		21B0807B2C578CAB007BC655 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 21B0807A2C578CAB007BC655 /* FirebaseFirestore */; };
 		21B0807D2C57C68D007BC655 /* FirebaseTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0807C2C57C68D007BC655 /* FirebaseTestView.swift */; };
 		21B0807F2C587D3C007BC655 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0807E2C587D3C007BC655 /* DummyData.swift */; };
 		21B080812C588261007BC655 /* WaveObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B080802C588261007BC655 /* WaveObservable.swift */; };
+		21BA39682C641DDD00571A27 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21BA39672C641DDD00571A27 /* GoogleService-Info.plist */; };
 		21EDE2412C5B1B2B00F973C0 /* ModelContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EDE2402C5B1B2B00F973C0 /* ModelContext.swift */; };
 		21EDE2432C5B1C1D00F973C0 /* SDTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EDE2422C5B1C1D00F973C0 /* SDTestView.swift */; };
 		712B07642C631EC8001DC52C /* RecordItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712B07632C631EC8001DC52C /* RecordItemView.swift */; };
@@ -102,10 +102,10 @@
 		21B0806F2C52844C007BC655 /* EmbededView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbededView.swift; sourceTree = "<group>"; };
 		21B080712C52890A007BC655 /* WindyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindyView.swift; sourceTree = "<group>"; };
 		21B080732C56DB7A007BC655 /* WindFinderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindFinderView.swift; sourceTree = "<group>"; };
-		21B080752C578BC6007BC655 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		21B0807C2C57C68D007BC655 /* FirebaseTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTestView.swift; sourceTree = "<group>"; };
 		21B0807E2C587D3C007BC655 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		21B080802C588261007BC655 /* WaveObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveObservable.swift; sourceTree = "<group>"; };
+		21BA39672C641DDD00571A27 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		21EDE2402C5B1B2B00F973C0 /* ModelContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContext.swift; sourceTree = "<group>"; };
 		21EDE2422C5B1C1D00F973C0 /* SDTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDTestView.swift; sourceTree = "<group>"; };
 		712B07632C631EC8001DC52C /* RecordItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordItemView.swift; sourceTree = "<group>"; };
@@ -295,7 +295,7 @@
 		21B0806C2C4F358D007BC655 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				21B080752C578BC6007BC655 /* GoogleService-Info.plist */,
+				21BA39672C641DDD00571A27 /* GoogleService-Info.plist */,
 				21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */,
 			);
 			path = App;
@@ -443,7 +443,7 @@
 				71449BF22C5E1E7700801E50 /* Pretendard-SemiBold.otf in Resources */,
 				719EA9C32C5770660090BAB5 /* Pretendard-Bold.otf in Resources */,
 				21B080312C4D0836007BC655 /* Assets.xcassets in Resources */,
-				21B080762C578BC6007BC655 /* GoogleService-Info.plist in Resources */,
+				21BA39682C641DDD00571A27 /* GoogleService-Info.plist in Resources */,
 				719EA9CA2C57B13C0090BAB5 /* SF-Pro-Italic.ttf in Resources */,
 				71449BF52C5E1E8000801E50 /* Pretendard-Medium.otf in Resources */,
 			);
@@ -637,7 +637,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"2024-MC3-Team4-NewT/Preview Content\"";
-				DEVELOPMENT_TEAM = R83JF9K5WA;
+				DEVELOPMENT_TEAM = F5WP2FDW4U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "-024-MC3-Team4-NewT-Info.plist";
@@ -651,7 +651,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ADA.-024-MC3-Team4-NewT";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ADA.NewT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -667,7 +667,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"2024-MC3-Team4-NewT/Preview Content\"";
-				DEVELOPMENT_TEAM = R83JF9K5WA;
+				DEVELOPMENT_TEAM = F5WP2FDW4U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "-024-MC3-Team4-NewT-Info.plist";
@@ -681,7 +681,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ADA.-024-MC3-Team4-NewT";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ADA.NewT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

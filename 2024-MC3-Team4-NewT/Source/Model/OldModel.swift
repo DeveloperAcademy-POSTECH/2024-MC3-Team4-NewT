@@ -7,6 +7,11 @@
 import SwiftData
 import SwiftUI
 import Foundation
+class MyObservableObject: ObservableObject {
+    @Published var isOn = false
+    @Published var pinChart:[ChartRow] = []
+    @Published var isChartPinButotn: [UUID: Bool] = [:]
+}
 //MARK: 여기서부턴 코드 초안 옮겨놓은 것
 struct SurfingValuesOne: Codable, Hashable {
     var waveDirection: Float

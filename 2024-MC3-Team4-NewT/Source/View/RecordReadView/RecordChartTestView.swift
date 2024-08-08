@@ -1,12 +1,14 @@
 import Foundation
 import SwiftUI
 import SwiftData
-
 struct RecordChartTestView: View {
     @Query private var surfingRecordOneData: [SurfingRecordOne]
     @ObservedObject var viewModel: RecordChartViewModel
     @Query(sort: \ChartRow.time) var chartRow: [ChartRow]
     var recordOne: SurfingRecordOne
+    @EnvironmentObject var myObject: MyObservableObject
+    @State private var showAlert = false
+    @State private var selectedItem: ChartRow?
     
     var body: some View {
         VStack(spacing: 0) {
@@ -41,9 +43,10 @@ struct RecordChartTestView: View {
                                 HStack(spacing: 20) {
                                     if viewModel.isPinButton[recordOne.id] == true {
                                         Button {
-                                            
+                                            selectedItem = row
+                                            showAlert = true
                                             viewModel.isChartPinButotn[row.id, default: false].toggle()
-//                                            print ("고정 row: \(row.id)")
+                                            //                                            print ("고정 row: \(row.id)")
                                             if (viewModel.isChartPinButotn[row.id] == true && viewModel.isPinCounter < 3) {
                                                 viewModel.isPinCounter += 1
                                             }
@@ -54,6 +57,7 @@ struct RecordChartTestView: View {
                                             else {
                                                 viewModel.isChartPinButotn[row.id] = false
                                             }
+                                            
                                         } label: {
                                             Image(systemName: "checkmark.circle.fill")
                                                 .frame(width: 20)
@@ -105,6 +109,20 @@ struct RecordChartTestView: View {
                     }
                 }
             }
+        }
+        .alert(isPresented: $showAlert) {
+            Alert(
+                title: Text("차트를 고정하시겠습니까?"),
+                primaryButton: .default(Text("Yes"), action: {
+                    if let item = selectedItem {
+                        myObject.pinChart.append(item)
+//                        DateFormatterManager.shared.dateFromString("1999-11-19 00:00:00")
+//                        try? modelContext.save()
+                        print("Selected index: \(index)")
+                    }
+                }),
+                secondaryButton: .cancel(Text("No"))
+            )
         }
     }
 }

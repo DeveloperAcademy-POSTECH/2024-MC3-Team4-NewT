@@ -109,5 +109,21 @@ final class Statistics {
     }
     
 }
+//
+//@Model
+//final class Pin{
+//    @Attribute(.unique) var id: UUID
+////    var pins:[ChartRow]
+////    var pin:ChartRow
+////    var count:Int
+//    var parentStartTime:String
+//    init(parentStartTime:String) {
+//        self.id = UUID()
+////        self.pins = pins
+////        self.count = 0
+////        self.pin = pin
+//        self.parentStartTime = parentStartTime
+//    }
+//}
 
 
