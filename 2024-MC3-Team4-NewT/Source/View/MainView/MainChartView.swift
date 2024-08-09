@@ -4,7 +4,10 @@ import SwiftData
 struct MainChartView: View {
     @Environment(\.modelContext) private var modelContext
     var fbo = FirebaseObservable()
-    @Query(sort: \ChartRow.time) var chartRow: [ChartRow]
+    @Query(filter:#Predicate<ChartRow>{ item in
+        item.surfingRecordStartTime == nil
+        
+    },sort: \ChartRow.time) var chartRow: [ChartRow]
     @Binding var isHeaderVisible: Bool // 헤더 가시성 상태 변수
     @State private var topDate: String = ""
     

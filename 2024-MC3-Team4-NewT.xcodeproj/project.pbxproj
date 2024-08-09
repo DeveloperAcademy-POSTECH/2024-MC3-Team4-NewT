@@ -44,6 +44,7 @@
 		21B0807F2C587D3C007BC655 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0807E2C587D3C007BC655 /* DummyData.swift */; };
 		21B080812C588261007BC655 /* WaveObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B080802C588261007BC655 /* WaveObservable.swift */; };
 		21BA39682C641DDD00571A27 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21BA39672C641DDD00571A27 /* GoogleService-Info.plist */; };
+		21BA396A2C65984100571A27 /* WeatherAPITestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA39692C65984100571A27 /* WeatherAPITestView.swift */; };
 		21EDE2412C5B1B2B00F973C0 /* ModelContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EDE2402C5B1B2B00F973C0 /* ModelContext.swift */; };
 		21EDE2432C5B1C1D00F973C0 /* SDTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EDE2422C5B1C1D00F973C0 /* SDTestView.swift */; };
 		712B07642C631EC8001DC52C /* RecordItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712B07632C631EC8001DC52C /* RecordItemView.swift */; };
@@ -106,6 +107,7 @@
 		21B0807E2C587D3C007BC655 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		21B080802C588261007BC655 /* WaveObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveObservable.swift; sourceTree = "<group>"; };
 		21BA39672C641DDD00571A27 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		21BA39692C65984100571A27 /* WeatherAPITestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPITestView.swift; sourceTree = "<group>"; };
 		21EDE2402C5B1B2B00F973C0 /* ModelContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContext.swift; sourceTree = "<group>"; };
 		21EDE2422C5B1C1D00F973C0 /* SDTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDTestView.swift; sourceTree = "<group>"; };
 		712B07632C631EC8001DC52C /* RecordItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordItemView.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 				21588B252C6017C0003E3489 /* TabBarBackup.swift */,
 				21B080732C56DB7A007BC655 /* WindFinderView.swift */,
 				21B080712C52890A007BC655 /* WindyView.swift */,
+				21BA39692C65984100571A27 /* WeatherAPITestView.swift */,
 			);
 			path = BackEnd;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				21588B0C2C5D5D30003E3489 /* CustomTabBar.swift in Sources */,
 				89A63A1B2C59E4B800787DC4 /* StatisticsView.swift in Sources */,
 				21B080702C52844C007BC655 /* EmbededView.swift in Sources */,
+				21BA396A2C65984100571A27 /* WeatherAPITestView.swift in Sources */,
 				715BA4D02C611DE600477938 /* CategoriesView.swift in Sources */,
 				21B0803B2C4D087F007BC655 /* PiriView.swift in Sources */,
 				21588B052C5C7652003E3489 /* SDCheckView.swift in Sources */,

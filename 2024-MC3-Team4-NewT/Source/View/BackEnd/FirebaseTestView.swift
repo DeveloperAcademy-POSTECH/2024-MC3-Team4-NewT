@@ -88,7 +88,3 @@ struct FirebaseTestView: View {
         }
     }
 }
-
-#Preview {
-    FirebaseTestView()
-}

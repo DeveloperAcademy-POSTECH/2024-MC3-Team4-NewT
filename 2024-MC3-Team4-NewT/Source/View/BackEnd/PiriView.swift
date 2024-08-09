@@ -11,8 +11,8 @@ struct PiriView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            NavigationLink(destination: FindSpotView()) {
-                Text("spot")
+            NavigationLink(destination: WeatherAPITestView()) {
+                Text("기상청 테스트")
             }
             NavigationLink(destination: WindFinderView()) {
                 Text("API")

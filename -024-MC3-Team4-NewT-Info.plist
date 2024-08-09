@@ -2,14 +2,27 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Pretendard-Medium.otf</string>
-		<string>Pretendard-ExtraLight.otf</string>
-		<string>Pretendard-Bold.otf</string>
-		<string>Pretendard-SemiBold.otf</string>
-		<string>SF-Pro</string>
-		<string>SF-Pro-Italic</string>
-	</array>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSExceptionDomains</key>
+        <dict>
+            <key>apis.data.go.kr</key>
+            <dict>
+                <key>NSIncludesSubdomains</key>
+                <true/>
+                <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+            </dict>
+        </dict>
+    </dict>
+    <key>UIAppFonts</key>
+    <array>
+        <string>Pretendard-Medium.otf</string>
+        <string>Pretendard-ExtraLight.otf</string>
+        <string>Pretendard-Bold.otf</string>
+        <string>Pretendard-SemiBold.otf</string>
+        <string>SF-Pro</string>
+        <string>SF-Pro-Italic</string>
+    </array>
 </dict>
 </plist>

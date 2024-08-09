@@ -44,7 +44,7 @@ struct _024_MC3_Team4_NewTApp: App {
         }()
         
         WindowGroup {
-            MainView()
+            TestView()
                 .modelContainer(sharedModelContainer)
                 .environmentObject(myObject)
         }
