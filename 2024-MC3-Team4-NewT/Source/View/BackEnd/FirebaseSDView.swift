@@ -9,7 +9,7 @@ import SwiftData
 
 struct FirebaseSDView: View {
     @Environment(\.modelContext) var modelContext
-    var fbo = OldFirebaseObservable()
+    var fbo = FirebaseObservable()
     @Query(sort: \ChartRow.time) var chartRow: [ChartRow]
     
     var body: some View {
@@ -32,7 +32,7 @@ struct FirebaseSDView: View {
             }
             .navigationTitle("FirebaseSDView")
             .onAppear {
-                fbo.fetchFirebase(modelContext: modelContext, collectionName: "pohang", chartRow: chartRow)
+                fbo.fetchFirebase(modelContext: modelContext, collectionName: "wolpo", chartRow: chartRow)
             }
         }
     }

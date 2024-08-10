@@ -45,12 +45,14 @@ struct ChartView: View {
                                     HStack(spacing: 5) {
                                         Image(systemName: "paperplane")
                                             .foregroundColor(Color("iconSkyblue"))
+                                            .rotationEffect(Angle(degrees: Double(row.surfingValues.windDirection)))
                                         Text("\(row.surfingValues.windSpeed, specifier: "%.1f")m/s")
                                             .font(.CaptionMedium)
                                     }
                                     HStack(spacing: 5) {
                                         Image(systemName: "paperplane.fill")
                                             .foregroundColor(Color("surfBlue"))
+                                            .rotationEffect(Angle(degrees: Double(row.surfingValues.waveDirection)))
                                         VStack(spacing: 0) {
                                             Text("\(row.surfingValues.waveHeight, specifier: "%.1f")m")
                                                 .font(.CaptionMedium)
@@ -58,6 +60,7 @@ struct ChartView: View {
                                                 .font(.CaptionMedium)
                                         }
                                     }
+
                                     VStack(spacing: 0) {
                                         Text("\(row.surfingValues.waterTemperature, specifier: "%.1f")°C")
                                             .font(.Body2Medium)

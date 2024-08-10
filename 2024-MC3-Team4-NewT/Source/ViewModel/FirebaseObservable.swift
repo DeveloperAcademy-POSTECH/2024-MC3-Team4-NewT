@@ -1,10 +1,3 @@
-//
-//  FirebaseObservable.swift
-//  2024-MC3-Team4-NewT
-//
-//  Created by ram on 8/10/24.
-//
-
 import SwiftData
 import FirebaseFirestore
 import Observation
@@ -12,7 +5,6 @@ import SwiftUI
 
 @Observable
 class FirebaseObservable {
-    // ChartRow 타입의 데이터를 저장하는 배열
     var items: [ChartRow] = []
     var container = try? ModelContainer(for:
                                             DailyWeatherOld.self,
@@ -22,93 +14,96 @@ class FirebaseObservable {
                                         SurfingRecordOne.self,
                                         Statistics.self
     )
-    // Firebase에서 데이터를 가져와서 주어진 ChartRow 배열을 업데이트하는 함수
+    
     func fetchFirebase(modelContext: ModelContext, collectionName: String, chartRow: [ChartRow]) {
-        // Firestore DB 접근위한 인스턴스 생성
         let db = Firestore.firestore()
-        for item in chartRow{
-            if let aa = item.surfingRecordStartTime{
+        for item in chartRow {
+            if let aa = item.surfingRecordStartTime {
                 print("\(aa):통과")
-            }
-            else{
-                
+            } else {
                 modelContext.delete(item)
             }
         }
         
-        // Firebase에서 지정한 컬렉션(collectionName)의 모든 문서를 가져옴
         db.collection(collectionName).getDocuments { snapshot, error in
             if let error = error {
-                // 에러 발생시 종료
                 print("Error getting documents: \(error.localizedDescription)")
                 return
             }
             
-            // 데이터가 비어 있는 경우 처리
             guard let documents = snapshot?.documents else {
-                print("No documents found") // 데이터가 없음을 출력
+                print("No documents found")
                 return
             }
             
-            // 가져온 문서들에 대해 반복 처리
             for document in documents {
-                let data = document.data() // 문서의 데이터를 딕셔너리 형태로 가져옴
+                let data = document.data()
                 
-                // 필요한 데이터가 있는지 확인하고, 있다면 변환
-                if let timestamp = data["timestamp"] as? Timestamp,
-                   let temp = data["Temperature"] as? Double,
-                   let wavesHeight = data["WaveHeight"] as? Double,
-                   let windDirection = data["WindDirection"] as? Double,
-                   let windSpeed = data["WindSpeed"] as? Double,
-                   let wavesPeriod = data["waves_period"] as? Double,
-                   let seaTemp = data["SeaTemperature"] as? Double,
+                // 모든 데이터가 String으로 제공되므로 적절한 형식으로 변환
+                if let timestampString = data["timestamp"] as? String,
+                   let tempString = data["Temperature"] as? String,
+                   let wavesHeightString = data["WaveHeight"] as? String,
+                   let windSpeedEastWestString = data["WindSpeedEastWest"] as? String,
+                   let windSpeedNorthSouthString = data["WindSpeedNorthSouth"] as? String,
+                   let seaTempString = data["SeaTemperature"] as? String,
                    let weather = data["weather"] as? String,
-                   let watherTemp = data["SeaTemperature"] as? Double{
+                   let windDirectionString = data["WindDirection"] as? String {
                     
-                    // SurfingValues2 객체를 동일한 컨텍스트에서 생성하여 데이터 저장
-                    let surfingValues = SurfingValues(
-                        waveDirection: Float(windDirection),
-                        waveHeight: Float(wavesHeight),
-                        wavePeriod: Float(wavesPeriod),
-                        windDirection: Float(windDirection),
-                        windSpeed: Float(windSpeed),
-                        weather: weather, // 날씨 정보는 "sunny"로 고정
-                        airTemperature: Float(temp),
-                        waterTemperature: Float(watherTemp)
-                    )
-                    modelContext.insert(surfingValues)
-                    
-                    // 타임스탬프(timestamp)를 yyyy-MM-dd HH:mm:ss로 변환(싱글톤 패턴 사용)
-                    let formattedDate = DateFormatterManager.shared.longDateFormatter.string(from: timestamp.dateValue())
-                    
-                    // 새 ChartRow 객체를 동일한 컨텍스트에서 생성
-                    let newItem = ChartRow(
-                        time: formattedDate,
-                        surfingValues: surfingValues,
-                        isHighTide: false,
-                        isLowTide: false
-                    )
-                    //                    if chartCollection[index].time
-                    modelContext.insert(newItem)
-                    
-                    
+                    // String을 적절한 타입으로 변환
+                    if let temp = Double(tempString),
+                       let wavesHeight = Double(wavesHeightString),
+                       let windSpeedEastWest = Double(windSpeedEastWestString),
+                       let windSpeedNorthSouth = Double(windSpeedNorthSouthString),
+                       let seaTemp = Double(seaTempString),
+                       let windDirection = Double(windDirectionString) {
+                        
+                        // 동서 및 남북 바람 속도를 이용하여 전체 바람 속도 계산
+                        let windSpeed = sqrt(pow(windSpeedEastWest, 2) + pow(windSpeedNorthSouth, 2))
+                        
+                        // SurfingValues 인스턴스 생성
+                        let surfingValues = SurfingValues(
+                            waveDirection: 0.0,
+                            waveHeight: Float(wavesHeight),
+                            wavePeriod: 0.0, // waves_period 데이터가 없으므로 기본값 사용
+                            windDirection: Float(windDirection),
+                            windSpeed: Float(windSpeed),
+                            weather: weather,
+                            airTemperature: Float(temp),
+                            waterTemperature: Float(seaTemp)
+                        )
+                        modelContext.insert(surfingValues)
+                        
+                        // 타임스탬프를 yyyyMMddHHmm 형식에서 Date로 변환
+                        let dateFormatter = DateFormatter()
+                        dateFormatter.dateFormat = "yyyyMMddHHmm"
+                        if let date = dateFormatter.date(from: timestampString) {
+                            let formattedDate = DateFormatterManager.shared.longDateFormatter.string(from: date)
+                            
+                            // ChartRow 인스턴스 생성
+                            let newItem = ChartRow(
+                                time: formattedDate,
+                                surfingValues: surfingValues,
+                                isHighTide: false,
+                                isLowTide: false
+                            )
+                            modelContext.insert(newItem)
+                        } else {
+                            print("Invalid timestamp format: \(timestampString)")
+                        }
+                    }
                 }
             }
-            
         }
     }
     
-    // 날짜별로 그룹화하여 [(String, [ChartRow])] 형태의 배열로 반환하는 함수
     func groupedByDate(chartRow: [ChartRow]) -> [(key: String, value: [ChartRow])] {
         let inputFormatter = DateFormatter()
         inputFormatter.dateFormat = "yyyy-MM-dd"
         
-        // 날짜별로 그룹화
         let grouped = Dictionary(grouping: chartRow) { item -> String in
-            return String(item.time.prefix(10)) // 날짜 부분만 추출하여 그룹화
+            return String(item.time.prefix(10))
         }
         
-        // 키를 정렬하여 배열로 반환
         return grouped.sorted { $0.key < $1.key }
     }
 }

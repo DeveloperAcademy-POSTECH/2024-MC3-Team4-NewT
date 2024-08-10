@@ -75,6 +75,8 @@ struct MainChartView: View {
                                         HStack(alignment: .center, spacing: 8) {
                                             Image("waveDirectionIcon2")
                                                 .frame(width: 14, height: 18)
+                                                .rotationEffect(Angle(degrees: Double(chart.surfingValues.windDirection)))
+
                                             Text("\(chart.surfingValues.windSpeed, specifier: "%.1f")m/s")
                                                 .font(.Body1Medium)
                                         }
@@ -82,6 +84,7 @@ struct MainChartView: View {
                                         
                                         HStack(alignment: .center, spacing: 8) {
                                             Image("swellDirectionIcon")
+                                                .rotationEffect(Angle(degrees: Double(chart.surfingValues.waveDirection)))
                                             VStack(alignment: .center, spacing: 0) {
                                                 Text("\(chart.surfingValues.waveHeight, specifier: "%.1f")m")
                                                     .font(.Body1Medium)
