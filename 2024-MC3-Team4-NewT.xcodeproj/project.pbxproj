@@ -10,7 +10,7 @@
 		213A4A742C605E3F00786C97 /* RecordReadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213A4A732C605E3F00786C97 /* RecordReadView.swift */; };
 		213A4A762C60609600786C97 /* ChartHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213A4A752C60609600786C97 /* ChartHeaderView.swift */; };
 		21588AFD2C5C75E6003E3489 /* FirebaseSDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588AFC2C5C75E6003E3489 /* FirebaseSDView.swift */; };
-		21588AFF2C5C760C003E3489 /* FirebaseObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588AFE2C5C760C003E3489 /* FirebaseObservable.swift */; };
+		21588AFF2C5C760C003E3489 /* OldFirebaseObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588AFE2C5C760C003E3489 /* OldFirebaseObservable.swift */; };
 		21588B012C5C7621003E3489 /* FirebaseTestObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B002C5C7621003E3489 /* FirebaseTestObservable.swift */; };
 		21588B032C5C7632003E3489 /* SwiftDataObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B022C5C7632003E3489 /* SwiftDataObservable.swift */; };
 		21588B052C5C7652003E3489 /* SDCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B042C5C7652003E3489 /* SDCheckView.swift */; };
@@ -47,6 +47,7 @@
 		21BA396A2C65984100571A27 /* WeatherAPITestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA39692C65984100571A27 /* WeatherAPITestView.swift */; };
 		21EDE2412C5B1B2B00F973C0 /* ModelContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EDE2402C5B1B2B00F973C0 /* ModelContext.swift */; };
 		21EDE2432C5B1C1D00F973C0 /* SDTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EDE2422C5B1C1D00F973C0 /* SDTestView.swift */; };
+		21F36C4D2C66770600988438 /* FirebaseObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F36C4C2C66770600988438 /* FirebaseObservable.swift */; };
 		712B07642C631EC8001DC52C /* RecordItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712B07632C631EC8001DC52C /* RecordItemView.swift */; };
 		71449BF22C5E1E7700801E50 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 71449BF12C5E1E7200801E50 /* Pretendard-SemiBold.otf */; };
 		71449BF42C5E1E7E00801E50 /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 89A63A142C58982A00787DC4 /* Pretendard-ExtraLight.otf */; };
@@ -74,7 +75,7 @@
 		213A4A732C605E3F00786C97 /* RecordReadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordReadView.swift; sourceTree = "<group>"; };
 		213A4A752C60609600786C97 /* ChartHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHeaderView.swift; sourceTree = "<group>"; };
 		21588AFC2C5C75E6003E3489 /* FirebaseSDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSDView.swift; sourceTree = "<group>"; };
-		21588AFE2C5C760C003E3489 /* FirebaseObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseObservable.swift; sourceTree = "<group>"; };
+		21588AFE2C5C760C003E3489 /* OldFirebaseObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldFirebaseObservable.swift; sourceTree = "<group>"; };
 		21588B002C5C7621003E3489 /* FirebaseTestObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTestObservable.swift; sourceTree = "<group>"; };
 		21588B022C5C7632003E3489 /* SwiftDataObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataObservable.swift; sourceTree = "<group>"; };
 		21588B042C5C7652003E3489 /* SDCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDCheckView.swift; sourceTree = "<group>"; };
@@ -110,6 +111,7 @@
 		21BA39692C65984100571A27 /* WeatherAPITestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPITestView.swift; sourceTree = "<group>"; };
 		21EDE2402C5B1B2B00F973C0 /* ModelContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContext.swift; sourceTree = "<group>"; };
 		21EDE2422C5B1C1D00F973C0 /* SDTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDTestView.swift; sourceTree = "<group>"; };
+		21F36C4C2C66770600988438 /* FirebaseObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseObservable.swift; sourceTree = "<group>"; };
 		712B07632C631EC8001DC52C /* RecordItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordItemView.swift; sourceTree = "<group>"; };
 		71449BF12C5E1E7200801E50 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		7159C18B2C5F4F89007300D6 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
@@ -231,8 +233,9 @@
 			isa = PBXGroup;
 			children = (
 				21588B0F2C5E201F003E3489 /* ChartRecordObservable.swift */,
-				21588AFE2C5C760C003E3489 /* FirebaseObservable.swift */,
+				21F36C4C2C66770600988438 /* FirebaseObservable.swift */,
 				21588B002C5C7621003E3489 /* FirebaseTestObservable.swift */,
+				21588AFE2C5C760C003E3489 /* OldFirebaseObservable.swift */,
 				7159C18D2C60C549007300D6 /* RecordChartViewModel.swift */,
 				21588B292C601E21003E3489 /* RecordCreateViewModel.swift */,
 				21588B022C5C7632003E3489 /* SwiftDataObservable.swift */,
@@ -320,9 +323,9 @@
 				21B0807C2C57C68D007BC655 /* FirebaseTestView.swift */,
 				21B0803A2C4D087F007BC655 /* PiriView.swift */,
 				21588B252C6017C0003E3489 /* TabBarBackup.swift */,
+				21BA39692C65984100571A27 /* WeatherAPITestView.swift */,
 				21B080732C56DB7A007BC655 /* WindFinderView.swift */,
 				21B080712C52890A007BC655 /* WindyView.swift */,
-				21BA39692C65984100571A27 /* WeatherAPITestView.swift */,
 			);
 			path = BackEnd;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21588B212C601412003E3489 /* EvaluationView.swift in Sources */,
+				21F36C4D2C66770600988438 /* FirebaseObservable.swift in Sources */,
 				21588B1F2C6012B8003E3489 /* TimePickerView.swift in Sources */,
 				21588B032C5C7632003E3489 /* SwiftDataObservable.swift in Sources */,
 				21B080742C56DB7A007BC655 /* WindFinderView.swift in Sources */,
@@ -501,7 +505,7 @@
 				717594152C5C656700F28BA1 /* LocationView.swift in Sources */,
 				21588B262C6017C0003E3489 /* TabBarBackup.swift in Sources */,
 				21588B282C601902003E3489 /* OldModel.swift in Sources */,
-				21588AFF2C5C760C003E3489 /* FirebaseObservable.swift in Sources */,
+				21588AFF2C5C760C003E3489 /* OldFirebaseObservable.swift in Sources */,
 				89A63A1D2C59E4F200787DC4 /* RecentChartsView.swift in Sources */,
 				717594132C5C614700F28BA1 /* RecordChartView.swift in Sources */,
 				715BA4CE2C6115BC00477938 /* RecordChartTestView.swift in Sources */,

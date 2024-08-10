@@ -3,7 +3,7 @@ import SwiftData
 
 struct MainChartView: View {
     @Environment(\.modelContext) private var modelContext
-    var fbo = FirebaseObservable()
+    var fbo = OldFirebaseObservable()
     @Query(filter:#Predicate<ChartRow>{ item in
         item.surfingRecordStartTime == nil
         

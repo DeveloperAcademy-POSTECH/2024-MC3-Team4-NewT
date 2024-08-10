@@ -2,16 +2,15 @@
 //  FirebaseObservable.swift
 //  2024-MC3-Team4-NewT
 //
-//  Created by ram on 8/10/24.
+//  Created by ram on 8/1/24.
 //
-
 import SwiftData
 import FirebaseFirestore
 import Observation
 import SwiftUI
 
 @Observable
-class FirebaseObservable {
+class OldFirebaseObservable {
     // ChartRow 타입의 데이터를 저장하는 배열
     var items: [ChartRow] = []
     var container = try? ModelContainer(for:
@@ -55,31 +54,32 @@ class FirebaseObservable {
                 let data = document.data() // 문서의 데이터를 딕셔너리 형태로 가져옴
                 
                 // 필요한 데이터가 있는지 확인하고, 있다면 변환
-                if let timestamp = data["timestamp"] as? Timestamp,
-                   let temp = data["Temperature"] as? Double,
-                   let wavesHeight = data["WaveHeight"] as? Double,
-                   let windDirection = data["WindDirection"] as? Double,
-                   let windSpeed = data["WindSpeed"] as? Double,
+                if let windSouth = data["wind_south"] as? Double,
+                   let timestamp = data["timestamp"] as? Timestamp,
+                   let temp = data["temp"] as? Double,
+                   let wavesHeight = data["waves_height"] as? Double,
+                   let wavesDirection = data["waves_direction"] as? Double,
                    let wavesPeriod = data["waves_period"] as? Double,
-                   let seaTemp = data["SeaTemperature"] as? Double,
-                   let weather = data["weather"] as? String,
-                   let watherTemp = data["SeaTemperature"] as? Double{
+                   let windNorth = data["wind_north"] as? Double {
                     
                     // SurfingValues2 객체를 동일한 컨텍스트에서 생성하여 데이터 저장
                     let surfingValues = SurfingValues(
-                        waveDirection: Float(windDirection),
+                        waveDirection: Float(wavesDirection),
                         waveHeight: Float(wavesHeight),
                         wavePeriod: Float(wavesPeriod),
-                        windDirection: Float(windDirection),
-                        windSpeed: Float(windSpeed),
-                        weather: weather, // 날씨 정보는 "sunny"로 고정
-                        airTemperature: Float(temp),
-                        waterTemperature: Float(watherTemp)
+                        windDirection: Float(windNorth),
+                        windSpeed: Float(windSouth),
+                        weather: "sunny", // 날씨 정보는 "sunny"로 고정
+                        airTemperature: Float(temp)*0.1,
+                        waterTemperature: Float(temp)*0.1
                     )
                     modelContext.insert(surfingValues)
                     
                     // 타임스탬프(timestamp)를 yyyy-MM-dd HH:mm:ss로 변환(싱글톤 패턴 사용)
                     let formattedDate = DateFormatterManager.shared.longDateFormatter.string(from: timestamp.dateValue())
+                    
+                    // 테스트용 로그 찍기
+                    //                    print("파이어베이스 time:\(formattedDate)")
                     
                     // 새 ChartRow 객체를 동일한 컨텍스트에서 생성
                     let newItem = ChartRow(

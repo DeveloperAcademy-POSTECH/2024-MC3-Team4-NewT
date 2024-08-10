@@ -9,7 +9,7 @@ import SwiftData
 
 struct FirebaseSDView: View {
     @Environment(\.modelContext) var modelContext
-    var fbo = FirebaseObservable()
+    var fbo = OldFirebaseObservable()
     @Query(sort: \ChartRow.time) var chartRow: [ChartRow]
     
     var body: some View {
