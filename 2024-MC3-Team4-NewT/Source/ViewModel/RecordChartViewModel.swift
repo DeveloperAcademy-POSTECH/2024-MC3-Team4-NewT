@@ -33,13 +33,14 @@ class RecordChartViewModel: ObservableObject {
                 }
             }
         }
+        
         for test in 필터된데이터{
-//            print("필터:\(test.time)")
+            //            print("필터:\(test.time)")
         }
-//        print("필터된 데이터:\(필터된데이터.first?.time)")
+        //        print("필터된 데이터:\(필터된데이터.first?.time)")
         return 필터된데이터
     }
-
+    
     var chartCounter: Int {
         var counter: Int = 1
         if stopHour > startHour {
@@ -67,20 +68,20 @@ class RecordChartViewModel: ObservableObject {
     
     func evaluationText(for value: Int) -> String {
         switch value {
-        case 1: return "별로예요"
-        case 2: return "아쉬워요"
-        case 3: return "보통이에요"
-        case 4: return "만족해요"
-        default: return "최고예요"
+            case 1: return "별로예요"
+            case 2: return "아쉬워요"
+            case 3: return "보통이에요"
+            case 4: return "만족해요"
+            default: return "최고예요"
         }
     }
     
     func updateEllipsisState(for id: UUID) {
-           for key in isEllipsisOnOff.keys {
-               if key != id {
-                   isEllipsisOnOff[key] = false
-               }
-           }
-           isEllipsisOnOff[id, default: false].toggle()
-       }
+        for key in isEllipsisOnOff.keys {
+            if key != id {
+                isEllipsisOnOff[key] = false
+            }
+        }
+        isEllipsisOnOff[id, default: false].toggle()
+    }
 }

@@ -6,6 +6,11 @@ struct LocationView: View {
     @ObservedObject var viewModel = RecordChartViewModel()
 
     @Binding var selectedItem: String
+    
+    // UserDefaults 키 상수
+    private let selectedRegionKey = "selectedRegion"
+    private let selectedItemKey = "selectedItem"
+    
     var body: some View {
         ZStack{
             Color(.systemGroupedBackground)
@@ -14,12 +19,14 @@ struct LocationView: View {
                 Divider()
                     .background(Color(.clear))
                 HStack(spacing: 0){
+                    // 왼쪽 지역 목록 (순서가 고정됨)
                     VStack(alignment: .leading, spacing: 0){
                         ForEach(regions) { region in
                             HStack(spacing: 0){
                                 Button {
                                     viewModel.selectedRegion = region
                                     viewModel.isSelectButton = true
+                                    saveSelection()
                                 } label: {
                                     ZStack(alignment: .leading){
                                         Spacer()
@@ -33,12 +40,12 @@ struct LocationView: View {
                                     }
                                 }
                             }
-                            
                         }
                         Spacer()
                     }
                     .frame(width: 150)
                     
+                    // 오른쪽 항목 목록 (선택된 지역이 첫 번째로 나타남)
                     ZStack(alignment: .leading){
                         Color.white
                         if let region = viewModel.selectedRegion {
@@ -48,7 +55,7 @@ struct LocationView: View {
                                         Button {
                                             viewModel.selectedItem = item
                                             viewModel.isSelectButton = false
-                                           
+                                            saveSelection()
                                         } label: {
                                             ZStack(alignment: .leading){
                                                 Spacer()
@@ -66,7 +73,6 @@ struct LocationView: View {
                                 }
                                 Spacer()
                             }
-                            
                         }
                     }
                 }
@@ -96,11 +102,44 @@ struct LocationView: View {
                         }
                     }
                     .padding(.horizontal)
-                    
                 }.disabled(viewModel.isSelectButton)
                 
             }
             
-        }.navigationTitle("지역선택")
+        }
+        .navigationTitle("지역선택")
+        .onAppear {
+            loadSelection()
+        }
+    }
+    
+    // selectedItem에 해당하는 지역을 반환하는 함수
+    func regionForSelectedItem(_ item: String) -> Region? {
+        for region in regions {
+            if region.items.contains(item) {
+                return region
+            }
+        }
+        return nil
+    }
+    
+    // 선택된 지역과 항목을 UserDefaults에 저장하는 함수
+    func saveSelection() {
+        if let selectedRegion = viewModel.selectedRegion {
+            UserDefaults.standard.set(selectedRegion.name, forKey: selectedRegionKey)
+        }
+        UserDefaults.standard.set(viewModel.selectedItem, forKey: selectedItemKey)
+    }
+    
+    // UserDefaults에서 저장된 선택 항목을 불러오는 함수
+    func loadSelection() {
+        if let savedRegionName = UserDefaults.standard.string(forKey: selectedRegionKey),
+           let savedItem = UserDefaults.standard.string(forKey: selectedItemKey) {
+            if let region = regions.first(where: { $0.name == savedRegionName }) {
+                viewModel.selectedRegion = region
+                viewModel.selectedItem = savedItem
+                viewModel.isSelectButton = false
+            }
+        }
     }
 }

@@ -4,7 +4,6 @@
 //
 //  Created by 김이예은 on 7/31/24.
 //
-
 import Foundation
 import SwiftUI
 import SwiftData
@@ -15,37 +14,39 @@ struct MainView: View {
     @State var selectedTab: Int = 0
     @ObservedObject var viewModel = RecordChartViewModel()
     
+    private let selectedItemKey = "selectedItem" // UserDefaults 키 상수
+    
     var body: some View {
         NavigationStack {
             ZStack{
                 Image("MainViewBG")
                     .edgesIgnoringSafeArea(.all)
-                    if selectedTab == 0 {
+                if selectedTab == 0 {
+                    VStack {
+                        //                    if isHeaderVisible {
                         VStack {
-                            //                    if isHeaderVisible {
-                            VStack {
-                                NavigationLink(destination: LocationView(selectedItem: $viewModel.selectedItem)) {
-                                    HStack(alignment: .center, spacing: 4){
-                                        Text(viewModel.selectedItem ?? "포항 신항만해변A")
-                                            .font(.SubheadingSemiBold)
-                                            .foregroundColor(.white)
-                                        Image(systemName: "chevron.down")
-                                            .foregroundColor(.white)
-                                        Spacer()
-                                    }
-                                    .opacity(0.7)
+                            NavigationLink(destination: LocationView(selectedItem: $viewModel.selectedItem)) {
+                                HStack(alignment: .center, spacing: 4){
+                                    Text(viewModel.selectedItem)
+                                        .font(.SubheadingSemiBold)
+                                        .foregroundColor(.white)
+                                    Image(systemName: "chevron.down")
+                                        .foregroundColor(.white)
                                     Spacer()
-                                }.padding(.vertical, 6)
-                            }.padding(.horizontal)
-                            //                    }
-                            FitChartView()
-                                .padding(.horizontal)
-                            MainChartView(isHeaderVisible: $isHeaderVisible)
-                        }.padding(.top, 50)
-                    }
-                    else if (selectedTab == 2) {
-                        RecordChartView()
-                    }
+                                }
+                                .opacity(0.7)
+                                Spacer()
+                            }.padding(.vertical, 6)
+                        }.padding(.horizontal)
+                        //                    }
+                        FitChartView()
+                            .padding(.horizontal)
+                        MainChartView(isHeaderVisible: $isHeaderVisible)
+                    }.padding(.top, 50)
+                }
+                else if (selectedTab == 2) {
+                    RecordChartView()
+                }
                 Spacer()
                 VStack{
                     Spacer()
@@ -57,9 +58,18 @@ struct MainView: View {
                 Image("MainViewBG")
                     .edgesIgnoringSafeArea(.all)
             }
-            
-
-        }.ignoresSafeArea(edges: .bottom)
+        }
+        .ignoresSafeArea(edges: .bottom)
+        .onAppear {
+            loadSelectedItem()
+        }
+    }
+    
+    // UserDefaults에서 selectedItem을 불러오는 함수
+    private func loadSelectedItem() {
+        if let savedItem = UserDefaults.standard.string(forKey: selectedItemKey) {
+            viewModel.selectedItem = savedItem
+        }
     }
 }
 

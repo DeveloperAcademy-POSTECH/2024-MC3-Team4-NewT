@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21353F612C6786570095CA6D /* BeachMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21353F602C6786570095CA6D /* BeachMapper.swift */; };
 		213A4A742C605E3F00786C97 /* RecordReadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213A4A732C605E3F00786C97 /* RecordReadView.swift */; };
 		213A4A762C60609600786C97 /* ChartHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213A4A752C60609600786C97 /* ChartHeaderView.swift */; };
 		21588AFD2C5C75E6003E3489 /* FirebaseSDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588AFC2C5C75E6003E3489 /* FirebaseSDView.swift */; };
@@ -72,6 +73,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		21353F602C6786570095CA6D /* BeachMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeachMapper.swift; sourceTree = "<group>"; };
 		213A4A732C605E3F00786C97 /* RecordReadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordReadView.swift; sourceTree = "<group>"; };
 		213A4A752C60609600786C97 /* ChartHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHeaderView.swift; sourceTree = "<group>"; };
 		21588AFC2C5C75E6003E3489 /* FirebaseSDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSDView.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 		21B0806B2C4F355A007BC655 /* Constant */ = {
 			isa = PBXGroup;
 			children = (
+				21353F602C6786570095CA6D /* BeachMapper.swift */,
 				21B0807E2C587D3C007BC655 /* DummyData.swift */,
 			);
 			path = Constant;
@@ -466,6 +469,7 @@
 				21F36C4D2C66770600988438 /* FirebaseObservable.swift in Sources */,
 				21588B1F2C6012B8003E3489 /* TimePickerView.swift in Sources */,
 				21588B032C5C7632003E3489 /* SwiftDataObservable.swift in Sources */,
+				21353F612C6786570095CA6D /* BeachMapper.swift in Sources */,
 				21B080742C56DB7A007BC655 /* WindFinderView.swift in Sources */,
 				719EA9C02C5768580090BAB5 /* FitChartView.swift in Sources */,
 				21B080432C4D08C2007BC655 /* TestView.swift in Sources */,
