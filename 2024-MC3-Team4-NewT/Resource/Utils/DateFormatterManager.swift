@@ -69,4 +69,15 @@ class DateFormatterManager {
         formatter.locale = Locale(identifier: "ko_kr")
         return formatter.string(from: date)
     }
+    func formatDate(_ date: Date?, format: String) -> String {
+        guard let date = date else {
+            return ""
+        }
+        
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: date)
+    }
+    func timeToHourFormatter(_ date: Date?) -> String {
+            return formatDate(date, format: "HH'시'")
+    }
 }
