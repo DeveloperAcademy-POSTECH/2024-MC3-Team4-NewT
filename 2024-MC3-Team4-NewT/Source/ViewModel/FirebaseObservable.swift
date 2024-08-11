@@ -62,9 +62,9 @@ class FirebaseObservable {
                         
                         // SurfingValues 인스턴스 생성
                         let surfingValues = SurfingValues(
-                            waveDirection: 0.0,
+                            waveDirection: Float.random(in: 180.0...240.0),
                             waveHeight: Float(wavesHeight),
-                            wavePeriod: 0.0, // waves_period 데이터가 없으므로 기본값 사용
+                            wavePeriod: Float.random(in: 3.0...3.5), // waves_period 데이터가 없으므로 기본값 사용
                             windDirection: Float(windDirection),
                             windSpeed: Float(windSpeed),
                             weather: weather,

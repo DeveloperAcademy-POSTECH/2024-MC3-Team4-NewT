@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		21353F612C6786570095CA6D /* BeachMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21353F602C6786570095CA6D /* BeachMapper.swift */; };
+		21353F632C6873380095CA6D /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21353F622C6873380095CA6D /* OnboardingView.swift */; };
 		213A4A742C605E3F00786C97 /* RecordReadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213A4A732C605E3F00786C97 /* RecordReadView.swift */; };
 		213A4A762C60609600786C97 /* ChartHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213A4A752C60609600786C97 /* ChartHeaderView.swift */; };
 		21588AFD2C5C75E6003E3489 /* FirebaseSDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588AFC2C5C75E6003E3489 /* FirebaseSDView.swift */; };
@@ -74,6 +75,7 @@
 
 /* Begin PBXFileReference section */
 		21353F602C6786570095CA6D /* BeachMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeachMapper.swift; sourceTree = "<group>"; };
+		21353F622C6873380095CA6D /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		213A4A732C605E3F00786C97 /* RecordReadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordReadView.swift; sourceTree = "<group>"; };
 		213A4A752C60609600786C97 /* ChartHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHeaderView.swift; sourceTree = "<group>"; };
 		21588AFC2C5C75E6003E3489 /* FirebaseSDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSDView.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				89A63A222C5C7A8600787DC4 /* SwiftData */,
 				89A63A202C5C7A1500787DC4 /* BackEnd */,
 				21B080422C4D08C2007BC655 /* TestView.swift */,
+				21353F622C6873380095CA6D /* OnboardingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				21BA396A2C65984100571A27 /* WeatherAPITestView.swift in Sources */,
 				715BA4D02C611DE600477938 /* CategoriesView.swift in Sources */,
 				21B0803B2C4D087F007BC655 /* PiriView.swift in Sources */,
+				21353F632C6873380095CA6D /* OnboardingView.swift in Sources */,
 				21588B052C5C7652003E3489 /* SDCheckView.swift in Sources */,
 				21588B1D2C601239003E3489 /* RecordCreateView.swift in Sources */,
 				213A4A742C605E3F00786C97 /* RecordReadView.swift in Sources */,
@@ -662,7 +666,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ADA.NewT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -692,7 +696,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ADA.NewT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
