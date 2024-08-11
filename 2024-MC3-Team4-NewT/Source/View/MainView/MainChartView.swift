@@ -76,7 +76,7 @@ struct MainChartView: View {
                                             Image("waveDirectionIcon2")
                                                 .frame(width: 14, height: 18)
                                                 .rotationEffect(Angle(degrees: Double(chart.surfingValues.windDirection)))
-
+                                            
                                             Text("\(chart.surfingValues.windSpeed, specifier: "%.1f")m/s")
                                                 .font(.Body1Medium)
                                         }

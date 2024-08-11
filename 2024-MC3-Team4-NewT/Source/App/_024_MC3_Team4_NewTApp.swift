@@ -22,7 +22,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct _024_MC3_Team4_NewTApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
-        @StateObject var myObject = MyObservableObject()
+        
         let sharedModelContainer: ModelContainer = {
             let schema = Schema([
                 DailyWeatherOld.self,
@@ -30,9 +30,7 @@ struct _024_MC3_Team4_NewTApp: App {
                 ChartRow.self,
                 DailyWeather.self,
                 SurfingRecordOne.self,
-                Statistics.self,
-//                Pin.self
-                
+                Statistics.self
             ])
             let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
             
@@ -44,10 +42,8 @@ struct _024_MC3_Team4_NewTApp: App {
         }()
         
         WindowGroup {
-            TestView()
+            MainView()
                 .modelContainer(sharedModelContainer)
-                .environmentObject(myObject)
         }
     }
 }
-

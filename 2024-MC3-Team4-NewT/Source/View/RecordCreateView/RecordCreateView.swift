@@ -46,7 +46,7 @@ struct RecordCreateView: View {
                     }
                 }
                 .scrollDisabled(viewModel.isMemo)
-                    .padding(.bottom)
+                .padding(.bottom)
                 
                 RecordButtonView(
                     viewModel:viewModel,

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ChartHeaderView: View {
     @ObservedObject var viewModel: RecordCreateViewModel
-
+    
     var body: some View {
         VStack(spacing: 0) {
             NavigationLink(destination: FirebaseSDView()){

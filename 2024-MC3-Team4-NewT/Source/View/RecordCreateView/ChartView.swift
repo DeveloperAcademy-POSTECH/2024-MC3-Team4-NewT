@@ -35,12 +35,12 @@ struct ChartView: View {
                                     .frame(height: 58)
                                 HStack(spacing: 20) {
                                     
-                                        VStack(spacing: 0) {
-                                            Text(DateFormatterManager.shared.timeToHourFormatter(row.time))
-                                                .font(.CaptionMedium)
-                                                .foregroundColor(.black)
-                                                .opacity(0.7)
-                                        }
+                                    VStack(spacing: 0) {
+                                        Text(DateFormatterManager.shared.timeToHourFormatter(row.time))
+                                            .font(.CaptionMedium)
+                                            .foregroundColor(.black)
+                                            .opacity(0.7)
+                                    }
                                     
                                     HStack(spacing: 5) {
                                         Image(systemName: "paperplane")
@@ -60,7 +60,7 @@ struct ChartView: View {
                                                 .font(.CaptionMedium)
                                         }
                                     }
-
+                                    
                                     VStack(spacing: 0) {
                                         Text("\(row.surfingValues.waterTemperature, specifier: "%.1f")°C")
                                             .font(.Body2Medium)

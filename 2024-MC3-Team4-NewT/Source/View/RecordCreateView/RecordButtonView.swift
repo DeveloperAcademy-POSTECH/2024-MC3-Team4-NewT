@@ -14,9 +14,9 @@ struct RecordButtonView: View {
     @Environment(\.modelContext) var modelContext
     @ObservedObject var viewModel: RecordCreateViewModel
     var observable: ChartRecordObservable
-
+    
     @Environment(\.dismiss) private var dismiss
-
+    
     var body: some View {
         Button {
             let evaluationValue = Int(viewModel.isScore + 1)
@@ -30,7 +30,7 @@ struct RecordButtonView: View {
             }
             
             modelContext.insert(record)
-
+            
             for aa in observable.필터된차트 {
                 let tmp2 = aa.surfingValues
                 let tmp1 = SurfingValues(waveDirection: tmp2.waveDirection, waveHeight: tmp2.waveHeight, wavePeriod: tmp2.wavePeriod, windDirection: tmp2.waveDirection, windSpeed: tmp2.windSpeed, weather: tmp2.weather, airTemperature: tmp2.airTemperature, waterTemperature: tmp2.waterTemperature)
@@ -39,9 +39,9 @@ struct RecordButtonView: View {
                 tmp.surfingRecordStartTime = viewModel.startTime
                 modelContext.insert(tmp)
             }
-
+            
             updateStatistics() // Update statistics after inserting records
-
+            
             dismiss()
         } label: {
             ZStack {
@@ -57,65 +57,65 @@ struct RecordButtonView: View {
             .padding(.horizontal)
         }
     }
-
+    
     private func updateStatistics() {
-            // Fetch all ChartRows and SurfingRecords
-            let allChartRows = chartRows
-            let allSurfingRecords = surfingRecords
+        // Fetch all ChartRows and SurfingRecords
+        let allChartRows = chartRows
+        let allSurfingRecords = surfingRecords
+        
+        // Filter SurfingRecords with evaluationValue >= 3
+        let relevantRecords = allSurfingRecords.filter { $0.evaluationValue >= 3 }
+        
+        guard !relevantRecords.isEmpty else { return }
+        
+        var totalWaveDirection: Double = 0.0
+        var totalWaveHeight: Double = 0.0
+        var totalWavePeriod: Double = 0.0
+        var totalWindDirection: Double = 0.0
+        var totalWindSpeed: Double = 0.0
+        var count: Double = 0.0
+        
+        for record in relevantRecords {
+            let recordChartRows = observable.filterChartRows(allChartRows, startTime: record.surfingStartTime, stopTime: record.surfingEndTime)
             
-            // Filter SurfingRecords with evaluationValue >= 3
-            let relevantRecords = allSurfingRecords.filter { $0.evaluationValue >= 3 }
-            
-            guard !relevantRecords.isEmpty else { return }
-            
-            var totalWaveDirection: Double = 0.0
-            var totalWaveHeight: Double = 0.0
-            var totalWavePeriod: Double = 0.0
-            var totalWindDirection: Double = 0.0
-            var totalWindSpeed: Double = 0.0
-            var count: Double = 0.0
-
-            for record in relevantRecords {
-                let recordChartRows = observable.filterChartRows(allChartRows, startTime: record.surfingStartTime, stopTime: record.surfingEndTime)
-                
-                for chartRow in recordChartRows {
-                    totalWaveDirection += Double(chartRow.surfingValues.waveDirection)
-                    totalWaveHeight += Double(chartRow.surfingValues.waveHeight)
-                    totalWavePeriod += Double(chartRow.surfingValues.wavePeriod)
-                    totalWindDirection += Double(chartRow.surfingValues.windDirection)
-                    totalWindSpeed += Double(chartRow.surfingValues.windSpeed)
-                    count += 1.0
-                }
-            }
-            
-            guard count > 0 else { return }
-
-            let averageWaveDirection = Float(totalWaveDirection / count)
-            let averageWaveHeight = Float(totalWaveHeight / count)
-            let averageWavePeriod = Float(totalWavePeriod / count)
-            let averageWindDirection = Float(totalWindDirection / count)
-            let averageWindSpeed = Float(totalWindSpeed / count)
-
-            // Fetch the existing Statistics or create a new one if it doesn't exist
-            let descriptor = FetchDescriptor<Statistics>()
-            let statistics: Statistics
-            if let fetchedStatistics = try? modelContext.fetch(descriptor).first {
-                statistics = fetchedStatistics
-            } else {
-                statistics = Statistics()
-                modelContext.insert(statistics)
-            }
-
-            statistics.waveDirection = averageWaveDirection
-            statistics.waveHeight = averageWaveHeight
-            statistics.wavePeriod = averageWavePeriod
-            statistics.windDirection = averageWindDirection
-            statistics.windSpeed = averageWindSpeed
-            
-            do {
-                try modelContext.save()
-            } catch {
-                print("Failed to save statistics: \(error)")
+            for chartRow in recordChartRows {
+                totalWaveDirection += Double(chartRow.surfingValues.waveDirection)
+                totalWaveHeight += Double(chartRow.surfingValues.waveHeight)
+                totalWavePeriod += Double(chartRow.surfingValues.wavePeriod)
+                totalWindDirection += Double(chartRow.surfingValues.windDirection)
+                totalWindSpeed += Double(chartRow.surfingValues.windSpeed)
+                count += 1.0
             }
         }
+        
+        guard count > 0 else { return }
+        
+        let averageWaveDirection = Float(totalWaveDirection / count)
+        let averageWaveHeight = Float(totalWaveHeight / count)
+        let averageWavePeriod = Float(totalWavePeriod / count)
+        let averageWindDirection = Float(totalWindDirection / count)
+        let averageWindSpeed = Float(totalWindSpeed / count)
+        
+        // Fetch the existing Statistics or create a new one if it doesn't exist
+        let descriptor = FetchDescriptor<Statistics>()
+        let statistics: Statistics
+        if let fetchedStatistics = try? modelContext.fetch(descriptor).first {
+            statistics = fetchedStatistics
+        } else {
+            statistics = Statistics()
+            modelContext.insert(statistics)
+        }
+        
+        statistics.waveDirection = averageWaveDirection
+        statistics.waveHeight = averageWaveHeight
+        statistics.wavePeriod = averageWavePeriod
+        statistics.windDirection = averageWindDirection
+        statistics.windSpeed = averageWindSpeed
+        
+        do {
+            try modelContext.save()
+        } catch {
+            print("Failed to save statistics: \(error)")
+        }
+    }
 }
