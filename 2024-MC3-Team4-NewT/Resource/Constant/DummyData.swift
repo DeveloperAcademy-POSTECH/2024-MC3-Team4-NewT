@@ -25,18 +25,4 @@ let dummyChartRows: [ChartRowTmp] = dummySurfingValues.map { surfingValue in
     ChartRowTmp(day: Date(), surfingValues: surfingValue, isHighTide: false, isLowTide: false)
 }
 
-struct Region: Identifiable {
-    let id = UUID()
-    let name: String
-    let items: [String]
-}
 
-let regions = [
-    Region(name: "양양", items: ["양양 물치해변", "양양 정암해변", "양양 설악해변", "양양 낙산해변", "양양 동호해변"]),
-    Region(name: "제주", items: ["제주 중문해변", "제주 이호테우해변", "제주 월정해변", "제주 사계해변"]),
-    Region(name: "부산", items: ["부산 송정해변", "부산 다대포해변"]),
-    Region(name: "고성/속초", items: ["고성 송지호해변", "고성 천진해변", "속초 속초해변"]),
-    Region(name: "강릉/동해/삼척", items: ["동해 대진해변", "강릉 금진해변", "강릉 경포해변", "삼척 용화해변"]),
-    Region(name: "포항/울산", items: ["포항 신항만해변", "포항 월포해변", "울산 진하해변"]),
-    Region(name: "서해/남해", items: ["태안 만리포해변", "고흥 남열 해돋이해변"])
-]

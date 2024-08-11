@@ -7,7 +7,7 @@
 
 import Foundation
 import SwiftData
-
+import SwiftUI
 extension ModelContext {
     var sqliteCommand: String {
         if let url = container.configurations.first?.url.path(percentEncoded: false) {
@@ -18,3 +18,9 @@ extension ModelContext {
     }
 }
 
+struct ScrollOffsetKey: PreferenceKey {
+    static var defaultValue: CGFloat = 0
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value = nextValue()
+    }
+}

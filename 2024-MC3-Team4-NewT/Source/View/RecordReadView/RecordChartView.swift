@@ -6,7 +6,7 @@ struct RecordChartView: View {
     @Environment(\.modelContext) var modelContext
     @Query private var surfingRecordOneData: [SurfingRecordOne]
     @ObservedObject var viewModel = RecordChartViewModel()
-
+    @State var isLocationSelected = false
     var body: some View {
         NavigationStack {
             ZStack {
@@ -14,7 +14,7 @@ struct RecordChartView: View {
                     .ignoresSafeArea()
                 
                 VStack(spacing: 0) {
-                    NavigationLink(destination: LocationView(selectedItem: $viewModel.selectedItem)) {
+                    NavigationLink(destination: LocationView(isLocationSelected: $isLocationSelected)) {
                         HStack {
                             Text(viewModel.selectedItem ?? "포항 신항만해변A")
                                 .font(.SubheadingSemiBold)
