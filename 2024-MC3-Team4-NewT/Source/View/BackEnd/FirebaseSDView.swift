@@ -37,7 +37,3 @@ struct FirebaseSDView: View {
         }
     }
 }
-
-#Preview {
-    FirebaseSDView()
-}

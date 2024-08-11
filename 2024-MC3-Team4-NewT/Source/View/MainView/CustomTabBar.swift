@@ -4,7 +4,6 @@
 //
 //  Created by ram on 8/3/24.
 //
-
 import SwiftUI
 
 struct CustomTabBar: View {
@@ -13,7 +12,7 @@ struct CustomTabBar: View {
     var body: some View {
         ZStack(alignment: .top) {
             Color.white .ignoresSafeArea(edges: .bottom)
-            HStack {
+            HStack(alignment:.top) {
                 Spacer()
                 TabBarButton(
                     icon: (selectedTab == 0 ? "chartBarXaxis" : "chartBarXaxis.gray"),
@@ -37,18 +36,19 @@ struct CustomTabBar: View {
                 
                 Spacer()
             }
-            .frame(height: 77)
-            .padding(.vertical, 10)
+            .frame(height: 80)
             .padding(.horizontal, 20)
+            .padding(.bottom,30)
             .background(
                 Rectangle()
                     .fill(.white)
             )
+            .ignoresSafeArea(edges: .bottom)
             
             Rectangle()
                 .frame(height: 0.5) // 선의 두께, 0.33은 반영을 안해줘서 0.5로 설정
                 .foregroundColor(.black.opacity(0.3))
-            
+                
             NavigationLink(destination: RecordCreateView()) {
                 ZStack {
                     Circle()
@@ -67,9 +67,28 @@ struct CustomTabBar: View {
                 }
                 .offset(y: -20)
             }
-        }.frame(height: 77)
-//        .ignoresSafeArea(edges: .bottom)
+        }.frame(height: 90)
         
         
+        
+    }
+}
+
+
+struct TabBarButton: View {
+    var icon: String
+    var label: String
+    var isSelected: Bool
+    
+    var body: some View {
+        VStack {
+            
+            Image("\(icon)")
+                .font(.system(size: 24))
+            Text(label)
+                .font(.CaptionSemiBold)
+            
+        }
+        .foregroundColor(isSelected ? Color.surfBlue : Color.gray)
     }
 }
