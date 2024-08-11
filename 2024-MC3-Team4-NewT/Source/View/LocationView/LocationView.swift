@@ -1,6 +1,6 @@
 import Foundation
 import SwiftUI
-
+import SwiftData
 struct LocationView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode> // 현재 뷰의 presentation 상태를 제어하기 위한 환경 변수
     @ObservedObject var viewModel = RecordChartViewModel() // 뷰와 관련된 데이터를 관리하기 위한 ViewModel
@@ -11,6 +11,14 @@ struct LocationView: View {
     @State private var selectedRegion: Region? // 선택된 지역을 저장하기 위한 상태 변수
     @State private var selectedRegionItem: String? // 선택된 지역 내 항목을 저장하기 위한 상태 변수
     @Binding var isLocationSelected: Bool
+    
+    @Query(filter:#Predicate<ChartRow>{ item in
+        item.surfingRecordStartTime == nil
+        
+    },sort: \ChartRow.time) var chartRow: [ChartRow]
+    @Environment(\.modelContext) private var modelContext
+    var fbo = FirebaseObservable()
+    @State private var mappedItem: String = ""
     
     var body: some View {
         ZStack {
@@ -88,9 +96,45 @@ struct LocationView: View {
                     .padding(.bottom, 8) // 구분선 아래에 약간의 여백 추가
 
                 Button {
-                    saveSelection()
-                    isLocationSelected = true
-                    presentationMode.wrappedValue.dismiss()
+                    Task {
+                            await saveSelection() // MainActor에서 실행되는 것이 안전함
+
+                            // 매핑된 값 설정
+                            if let mappedValue = beachToEnglishMap["\(selectedRegionItem ?? "포항 월포해변")"] {
+                                await MainActor.run {
+                                    mappedItem = mappedValue
+                                }
+                            } else {
+                                await MainActor.run {
+                                    mappedItem = ""
+                                }
+                            }
+                            print("맵핑데이터:\(mappedItem)")
+
+                            // 조건에 따라 모델 컨텍스트에서 ChartRow 삭제
+                            for item in chartRow {
+                                if let aa = item.surfingRecordStartTime {
+                                    print("\(aa):통과")
+                                } else {
+                                    await MainActor.run {
+                                        modelContext.delete(item)
+                                    }
+                                }
+                            }
+
+                            // Firebase에서 데이터 가져오기 (비동기 작업이므로 MainActor에서 벗어나도 괜찮음)
+                            if mappedItem == "wolpo" {
+                                fbo.fetchFirebase(modelContext: modelContext, collectionName: "wolpo", chartRow: chartRow)
+                            } else {
+                                fbo.fetchFirebase(modelContext: modelContext, collectionName: "jungmun", chartRow: chartRow)
+                            }
+
+                            // UI 상태 업데이트
+                            await MainActor.run {
+                                isLocationSelected = true
+                                presentationMode.wrappedValue.dismiss() // 뷰를 닫음
+                            }
+                        }
                 } label: {
                     ZStack {
                         // 선택된 항목이 없으면 버튼을 비활성화 (회색), 있으면 활성화 (파란색)
@@ -140,19 +184,3 @@ struct LocationView: View {
         }
     }
 }
-
-struct Region: Identifiable {
-    let id = UUID()
-    let name: String
-    let items: [String]
-}
-
-let regions = [
-    Region(name: "양양", items: ["양양 물치해변", "양양 정암해변", "양양 설악해변", "양양 낙산해변", "양양 동호해변"]),
-    Region(name: "제주", items: ["제주 중문해변", "제주 이호테우해변", "제주 월정해변", "제주 사계해변"]),
-    Region(name: "부산", items: ["부산 송정해변", "부산 다대포해변"]),
-    Region(name: "고성/속초", items: ["고성 송지호해변", "고성 천진해변", "속초 속초해변"]),
-    Region(name: "강릉/동해/삼척", items: ["동해 대진해변", "강릉 금진해변", "강릉 경포해변", "삼척 용화해변"]),
-    Region(name: "포항/울산", items: ["포항 신항만해변", "포항 월포해변", "울산 진하해변"]),
-    Region(name: "서해/남해", items: ["태안 만리포해변", "고흥 남열 해돋이해변"])
-]

@@ -33,6 +33,7 @@ struct FirebaseSDView: View {
             .navigationTitle("FirebaseSDView")
             .onAppear {
                 fbo.fetchFirebase(modelContext: modelContext, collectionName: "wolpo", chartRow: chartRow)
+                
             }
         }
     }

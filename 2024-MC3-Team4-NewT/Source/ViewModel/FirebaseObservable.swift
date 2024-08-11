@@ -17,13 +17,13 @@ class FirebaseObservable {
     
     func fetchFirebase(modelContext: ModelContext, collectionName: String, chartRow: [ChartRow]) {
         let db = Firestore.firestore()
-        for item in chartRow {
-            if let aa = item.surfingRecordStartTime {
-                print("\(aa):통과")
-            } else {
-                modelContext.delete(item)
-            }
-        }
+//        for item in chartRow {
+//            if let aa = item.surfingRecordStartTime {
+//                print("\(aa):통과")
+//            } else {
+//                modelContext.delete(item)
+//            }
+//        }
         
         db.collection(collectionName).getDocuments { snapshot, error in
             if let error = error {
