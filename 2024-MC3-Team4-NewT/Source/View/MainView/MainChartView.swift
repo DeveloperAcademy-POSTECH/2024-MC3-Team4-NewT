@@ -103,7 +103,7 @@ struct MainChartView: View {
                                         .frame(width: 60)
                                         
                                         HStack(alignment: .center, spacing: 8) {
-                                            Image("sunIcon")
+                                            Image(chart.surfingValues.weather)
                                             Text("\(chart.surfingValues.airTemperature, specifier: "%.0f")°C")
                                                 .font(.Body1Medium)
                                         }

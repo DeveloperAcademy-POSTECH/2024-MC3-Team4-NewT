@@ -68,7 +68,7 @@ struct ChartView: View {
                                             .foregroundColor(Color("iconPurple"))
                                     }
                                     HStack(spacing: 5) {
-                                        Image(systemName: observable.weatherIcon(for: row.surfingValues.weather))
+                                        Image(row.surfingValues.weather)
                                             .foregroundColor(.gray)
                                         Text("\(row.surfingValues.airTemperature, specifier: "%.1f")°C")
                                             .font(.Body2Medium)
