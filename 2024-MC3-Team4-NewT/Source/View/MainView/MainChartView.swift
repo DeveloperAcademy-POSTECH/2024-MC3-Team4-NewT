@@ -97,8 +97,8 @@ struct MainChartView: View {
                                         
                                         VStack(alignment: .center, spacing: 2) {
                                             Text("\(chart.surfingValues.waterTemperature, specifier: "%.0f")°C")
-                                                .font(.Body1Medium)
-                                            Image("waterTemperate")
+                                                .font(.caption)
+                                            //                                            Image("waterTemperate")
                                         }
                                         .frame(width: 60)
                                         
@@ -109,16 +109,24 @@ struct MainChartView: View {
                                         }
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                     }
-                                    .frame(height: 50)
+                                    .frame(height: 60)
                                 }
                             }
+                            .padding(.horizontal)
+                            Divider()
+                                .frame(minHeight: 5)
+                                .background(Color(.gray).opacity(0.1)) 
+                                .edgesIgnoringSafeArea(.horizontal)
+                                
+                            
                         }
                         .id(key) // 날짜를 식별자로 사용
+                        
                     }
                 }
                 .padding(.bottom, 80) //탭 바 여백 남겨둠
             }
-            .padding(.horizontal)
+            
         }
         .frame(maxWidth: .infinity)
         .background(.white.opacity(0.8))
