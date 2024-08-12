@@ -70,16 +70,7 @@ struct MainView: View {
         .ignoresSafeArea(edges: .bottom)
         .onAppear {
             loadSelectedItem() // 뷰가 나타날 때 UserDefaults에서 선택된 항목을 불러옴
-//            for item in chartRow {
-//                if let aa = item.surfingRecordStartTime {
-//                    print("\(aa):통과")
-//                } else {
-//                    modelContext.delete(item)
-//                }
-//            }
-            
-            
-//            fbo.fetchFirebase(modelContext: modelContext, collectionName: mappedItem, chartRow: chartRow)
+
         }
         .onChange(of:isLocationChanged){
             loadSelectedItem()

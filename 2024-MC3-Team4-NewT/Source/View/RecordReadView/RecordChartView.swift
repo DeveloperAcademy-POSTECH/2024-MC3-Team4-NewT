@@ -7,6 +7,10 @@ struct RecordChartView: View {
     @Query private var surfingRecordOneData: [SurfingRecordOne]
     @ObservedObject var viewModel = RecordChartViewModel()
     @State var isLocationSelected = false
+    private let selectionKey = "selectionKey" 
+    @State private var selectedItem: String = ""
+    @State private var mappedItem: String = ""
+    private let defaultItem = "포항 월포해변"
     var body: some View {
         NavigationStack {
             ZStack {
@@ -16,7 +20,7 @@ struct RecordChartView: View {
                 VStack(spacing: 0) {
                     NavigationLink(destination: LocationView(isLocationSelected: $isLocationSelected)) {
                         HStack {
-                            Text(viewModel.selectedItem ?? "포항 신항만해변A")
+                            Text(selectedItem)
                                 .font(.SubheadingSemiBold)
                             Image(systemName: "chevron.down")
                             Spacer()
@@ -44,6 +48,40 @@ struct RecordChartView: View {
                     }
                 }.padding(.top, 50)
             }
+        }
+        .onAppear{
+            aaa()
+        }
+    }
+    func aaa(){
+        if let savedItem = UserDefaults.standard.string(forKey: selectionKey) {
+            let components = savedItem.split(separator: " ", maxSplits: 1) // 첫 번째로만 분리
+            if components.count == 2 {
+                let regionName = String(components[0])
+                let itemName = String(components[1])
+
+                
+                
+                selectedItem = itemName
+                // 매핑된 값이 존재하면 mappedItem에 저장, 그렇지 않으면 빈 문자열로 초기화
+                if let mappedValue = beachToEnglishMap["\(itemName)"] {
+                    mappedItem = mappedValue
+                } else {
+                    mappedItem = ""
+                }
+            }
+            
+            print("로드:\(selectedItem), 매핑된 값:\(mappedItem)")
+        } else {
+            // UserDefaults에 값이 없으면 기본값 설정
+            selectedItem = defaultItem
+            if let defaultMappedValue = beachToEnglishMap[defaultItem] {
+                mappedItem = defaultMappedValue
+            } else {
+                mappedItem = ""
+            }
+            UserDefaults.standard.set(defaultItem, forKey: selectionKey) // 기본값을 UserDefaults에 저장
+            
         }
     }
 }
