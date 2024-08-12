@@ -112,8 +112,9 @@ struct MainChartView: View {
                             .padding(.horizontal)
                             Divider()
                                 .frame(minHeight: 5)
-                                .overlay(.backgroundGray)
+                                .background(Color(.gray).opacity(0.1)) 
                                 .edgesIgnoringSafeArea(.horizontal)
+                                
                             
                         }
                         .id(key) // 날짜를 식별자로 사용
