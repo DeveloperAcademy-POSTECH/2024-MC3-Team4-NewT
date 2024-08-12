@@ -9,11 +9,13 @@ class RecordChartViewModel: ObservableObject {
     @Published var stopTime = Date()
     @Published var isEllipsisOnOff: [UUID: Bool] = [:]
     @Published var ismemo: Bool = false
-    @Published var isID: UUID = UUID()
+    @Published var chartRowId: UUID = UUID()
     @Published var isPinButton: [UUID: Bool] = [:]
-    @Published var isChartPinButotn: [UUID: Bool] = [:]
+    @Published var isChartPinButton: [UUID: Bool] = [:]
     @Published var isMemoCheckingButton: [UUID: Bool] = [:]
     @Published var isPinCounter: Int = 0
+    @Published var recordId = UUID()
+    
     
     /// LotationView 변수
     @Published var selectedRegion: Region? = nil

@@ -8,7 +8,7 @@ struct ModalView: View {
     var body: some View {
         ScrollView{
             ForEach(surfingRecordOneData, id: \.id) { item in
-                if ( item.id == viewModel.isID) {
+                if ( item.id == viewModel.chartRowId) {
                     VStack(spacing: 0){
                         HStack{
                             Text(DateFormatterManager.shared.dateFormatter(from: item.surfingStartTime))

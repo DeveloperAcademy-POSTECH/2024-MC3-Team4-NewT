@@ -50,7 +50,7 @@ struct RecordItemView: View {
                         Spacer()
                         if item.memo.isEmpty {
                             Button {
-                                viewModel.isID = item.id
+                                viewModel.chartRowId = item.id
                                 // 메모 추가하기 눌렀을 때 보이는 화면 만들어야 함!!
                             } label: {
                                 Text("메모 추가하기 ")
@@ -64,7 +64,7 @@ struct RecordItemView: View {
                         } else {
                             Button {
                                 viewModel.ismemo.toggle()
-                                viewModel.isID = item.id
+                                viewModel.chartRowId = item.id
                             } label: {
                                 Text("메모 확인하기 ")
                                     .font(.CaptionMedium)
@@ -97,6 +97,8 @@ struct RecordItemView: View {
                             .foregroundColor(.white)
                         VStack(alignment: .leading, spacing: 0) {
                             Button {
+                                print("recordId:\(item.id)")
+                                viewModel.recordId = item.id
                                 viewModel.isPinButton[item.id, default: false].toggle()
                                 viewModel.isEllipsisOnOff[item.id, default: false].toggle()
                             } label: {
@@ -174,6 +176,10 @@ struct RecordItemView: View {
                 title: Text("이미 등록된 차트입니다."),
                 dismissButton: .default(Text("취소")) {
                     print("test")
+                    
+                    viewModel.isChartPinButton[viewModel.chartRowId] = false
+//                    viewModel.isEllipsisOnOff[viewModel.recordId] = false
+                    viewModel.isPinButton[viewModel.recordId] = false
                 }
             )
         }

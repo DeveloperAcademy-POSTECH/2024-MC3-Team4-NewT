@@ -10,6 +10,7 @@ struct RecordChartTestView: View {
     @EnvironmentObject var myObject: MyObservableObject
     @State private var selectedItem: ChartRow?
     
+    
     var body: some View {
         VStack(spacing: 0) {
             let data = viewModel.filteredRecordChart(charts: chartRow, recordOne: recordOne)
@@ -45,30 +46,36 @@ struct RecordChartTestView: View {
                                         Button {
                                             selectedItem = row
                                             
-                                            viewModel.isChartPinButotn[row.id, default: false].toggle()
+                                            viewModel.isChartPinButton[row.id, default: false].toggle()
                                             viewModel.rowTime=row.time
                                             // UserDefaults에 pinTime 저장
+                                            viewModel.pinRecord = row.surfingRecordStartTime ?? Date()
                                             viewModel.confirm(row.time, row.surfingRecordStartTime ?? Date())
                                             print("isRecord:\(viewModel.isRecord)")
+                                                viewModel.chartRowId = row.id
                                             if viewModel.isRecord == false{
                                                 viewModel.showPin = true
                                             }
-                                            viewModel.pinRecord = row.surfingRecordStartTime ?? Date()
-                                            if viewModel.isChartPinButotn[row.id] == true && viewModel.isPinCounter < 3 {
-                                                viewModel.isPinCounter += 1
-                                            } else if viewModel.isChartPinButotn[row.id] == false {
-                                                viewModel.isPinCounter -= 1
-                                                viewModel.isChartPinButotn[row.id] = false
-                                                removePinTime(row.time) // Pin 해제 시 UserDefaults에서 제거
-                                            } else {
-                                                viewModel.isChartPinButotn[row.id] = false
+                                            else{
+//                                                viewModel.isChartPinButotn[row.id] = false
                                             }
+                                            
+//                                            viewModel.isChartPinButotn[row.id] = false
+//                                            if viewModel.isChartPinButotn[row.id] == true && viewModel.isPinCounter < 3 {
+//                                                viewModel.isPinCounter += 1
+//                                            } else if viewModel.isChartPinButotn[row.id] == false {
+//                                                viewModel.isPinCounter -= 1
+//                                                viewModel.isChartPinButotn[row.id] = false
+//                                                removePinTime(row.time) // Pin 해제 시 UserDefaults에서 제거
+//                                            } else {
+//                                                viewModel.isChartPinButotn[row.id] = false
+//                                            }
                                             
                                             
                                         } label: {
                                             Image(systemName: "checkmark.circle.fill")
                                                 .frame(width: 20)
-                                                .foregroundColor(viewModel.isChartPinButotn[row.id] == true ? Color("surfBlue") : Color(.systemGroupedBackground))
+                                                .foregroundColor(viewModel.isChartPinButton[row.id] == true ? Color("surfBlue") : Color(.systemGroupedBackground))
                                         }
                                     }
                                     Text(DateFormatterManager.shared.timeToHourFormatter(row.time))
