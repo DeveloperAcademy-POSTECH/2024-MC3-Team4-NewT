@@ -6,10 +6,9 @@ struct MainChartView: View {
     var fbo = OldFirebaseObservable()
     @Query(filter:#Predicate<ChartRow>{ item in
         item.surfingRecordStartTime == nil
-        
     },sort: \ChartRow.time) var chartRow: [ChartRow]
     @Binding var isHeaderVisible: Bool // 헤더 가시성 상태 변수
-    @State private var topDate: String = ""
+    @State private var topDate: String = Date.formattedDate(Date())()
     
     var body: some View {
         VStack {
@@ -39,7 +38,11 @@ struct MainChartView: View {
                     ForEach(fbo.groupedByDate(chartRow: chartRow), id: \.key) { (key, charts) in
                         VStack(alignment: .leading, spacing: 0) {
                             // 각 날짜별 차트 헤더
-                            EmptyView()
+                            Text(key)
+                                .frame(alignment: .center)
+                                .font(.SubheadingBold)
+                                .foregroundColor(.surfBlue)
+                                .padding(.top)
                                 .background(
                                     GeometryReader { geo in
                                         Color.clear.onChange(of: geo.frame(in: .global).minY) { _ in

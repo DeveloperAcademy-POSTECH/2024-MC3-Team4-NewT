@@ -14,6 +14,9 @@ class RecordChartViewModel: ObservableObject {
     @Published var isChartPinButotn: [UUID: Bool] = [:]
     @Published var isMemoCheckingButton: [UUID: Bool] = [:]
     @Published var isPinCounter: Int = 0
+    @Published var chartRow: [ChartRow] = []
+    @Published var surfingRecords: [SurfingRecordOne] = []
+    
     
     /// LotationView 변수
     @Published var selectedRegion: Region? = nil
@@ -68,11 +71,11 @@ class RecordChartViewModel: ObservableObject {
     
     func evaluationText(for value: Int) -> String {
         switch value {
-            case 1: return "별로예요"
-            case 2: return "아쉬워요"
-            case 3: return "보통이에요"
-            case 4: return "만족해요"
-            default: return "최고예요"
+        case 1: return "별로예요"
+        case 2: return "아쉬워요"
+        case 3: return "보통이에요"
+        case 4: return "만족해요"
+        default: return "최고예요"
         }
     }
     
@@ -83,5 +86,19 @@ class RecordChartViewModel: ObservableObject {
             }
         }
         isEllipsisOnOff[id, default: false].toggle()
+    }
+    
+    
+    
+    func latestCharts(limit: Int = 3) -> [ChartRow] {
+        return chartRow
+            .sorted { ($0.surfingRecordStartTime ?? Date.distantPast) > ($1.surfingRecordStartTime ?? Date.distantPast) }
+            .prefix(limit)
+            .map { $0 }
+    }
+    
+    func evaluationValue(for chartRow: ChartRow) -> Int? {
+        guard let startTime = chartRow.surfingRecordStartTime else { return nil }
+        return surfingRecords.first { $0.surfingStartTime == startTime }?.evaluationValue
     }
 }

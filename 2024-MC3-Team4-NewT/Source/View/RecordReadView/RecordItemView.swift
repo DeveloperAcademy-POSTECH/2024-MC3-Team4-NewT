@@ -5,9 +5,9 @@ struct RecordItemView: View {
     var item: SurfingRecordOne
     @ObservedObject var viewModel: RecordChartViewModel
     @Environment(\.modelContext) var modelContext // Access the SwiftData context
-//    @Query var pinModel:[Pin]
+    //    @Query var pinModel:[Pin]
     @State private var showDeleteConfirmation = false // State to show the confirmation alert
-
+    
     var body: some View {
         ZStack(alignment: .top) {
             Color.white
@@ -98,7 +98,7 @@ struct RecordItemView: View {
                         VStack(alignment: .leading, spacing: 0) {
                             Button {
                                 item.charts.first?.isHighTide = true
-                               
+                                
                                 viewModel.isPinButton[item.id, default: false].toggle()
                                 viewModel.isEllipsisOnOff[item.id, default: false].toggle()
                             } label: {

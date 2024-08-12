@@ -40,7 +40,14 @@ struct RecordButtonView: View {
                 modelContext.insert(tmp)
             }
             
-            updateStatistics() // Update statistics after inserting records
+            updateStatistics()
+            
+            do {
+                try modelContext.save()
+                print("Record saved successfully with evaluation value \(evaluationValue).")
+            } catch {
+                print("Failed to save record: \(error)")
+            }
             
             dismiss()
         } label: {
@@ -59,11 +66,8 @@ struct RecordButtonView: View {
     }
     
     private func updateStatistics() {
-        // Fetch all ChartRows and SurfingRecords
         let allChartRows = chartRows
         let allSurfingRecords = surfingRecords
-        
-        // Filter SurfingRecords with evaluationValue >= 3
         let relevantRecords = allSurfingRecords.filter { $0.evaluationValue >= 3 }
         
         guard !relevantRecords.isEmpty else { return }
@@ -96,7 +100,6 @@ struct RecordButtonView: View {
         let averageWindDirection = Float(totalWindDirection / count)
         let averageWindSpeed = Float(totalWindSpeed / count)
         
-        // Fetch the existing Statistics or create a new one if it doesn't exist
         let descriptor = FetchDescriptor<Statistics>()
         let statistics: Statistics
         if let fetchedStatistics = try? modelContext.fetch(descriptor).first {
