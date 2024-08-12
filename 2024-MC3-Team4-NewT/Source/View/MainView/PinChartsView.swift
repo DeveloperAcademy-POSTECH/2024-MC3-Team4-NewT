@@ -45,7 +45,12 @@ struct PinChartsView: View {
                         }.foregroundColor(.black.opacity(0.5))
                             .padding(.horizontal, 24)
                             .padding(.vertical, 3)
-                        Rectangle().frame(width: .infinity, height: 1).foregroundColor(.surfBlue.opacity(0.3))
+                        
+                        Rectangle()
+                            .frame(height: 1)
+                            .frame(maxWidth: .infinity)
+                            .foregroundColor(.surfBlue.opacity(0.3))
+                        
                         HStack{
                             VStack {
                                 Image("pinIcon")

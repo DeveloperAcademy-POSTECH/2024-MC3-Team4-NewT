@@ -2,9 +2,11 @@ import SwiftUI
 import SwiftData
 
 struct RecentChartsView: View {
+//    @Environment(\.modelContext) var modelContext
     @StateObject private var viewModel = RecordChartViewModel()
     @Query(sort: \ChartRow.time) var chartRows: [ChartRow]
     @Query(sort: \SurfingRecordOne.surfingStartTime) var surfingRecords: [SurfingRecordOne]
+    @State private var evaluationValue: Int?
     
     var body: some View {
         VStack(spacing: 0) {
@@ -43,11 +45,13 @@ struct RecentChartsView: View {
                         }
                         .foregroundColor(.black.opacity(0.5))
                         .padding(.horizontal, 24)
-                        .padding(.vertical, 3)
+                        .padding(.top, 3)
                         
                         Rectangle()
-                            .frame(width: .infinity, height: 1)
+                            .frame(height: 1)
+                            .frame(maxWidth: .infinity)
                             .foregroundColor(.surfBlue.opacity(0.3))
+                            .padding(0)
                         
                         ForEach(viewModel.latestCharts(), id: \.id) { row in
                             HStack {
@@ -82,11 +86,11 @@ struct RecentChartsView: View {
                                 Spacer()
                                 HStack(spacing: 4) {
                                     Image("recentStarIcon")
-                                    if let evaluationValue = viewModel.evaluationValue(for: row) {
-                                        Text("\(evaluationValue)점")
+                                    if let value = evaluationValue(for: row) {
+                                        Text("\(value)점")
                                             .font(.Body2Medium)
                                     } else {
-                                        Text("평가 없음")
+                                        Text("5점")
                                             .font(.Body2Medium)
                                     }
                                 }
@@ -96,8 +100,10 @@ struct RecentChartsView: View {
                             
                             if row != viewModel.latestCharts().last {
                                 Rectangle()
-                                    .frame(width: .infinity, height: 1)
+                                    .frame(height: 1)
+                                    .frame(maxWidth: .infinity)
                                     .foregroundColor(.surfBlue.opacity(0.3))
+                                    .padding(0)
                             }
                         }
                     }
@@ -114,3 +120,18 @@ struct RecentChartsView: View {
     }
 }
 
+extension RecentChartsView {
+    private func evaluationValue(for row: ChartRow) -> Int? {
+        // ChartRow의 id를 사용하여 관련 SurfingRecordOne을 찾기
+        for record in surfingRecords {
+            if let matchingChartRow = record.charts.first(where: { $0.id == row.id }) {
+                print(record.evaluationValue)
+                print("실행됨.")
+                return record.evaluationValue
+            }
+        }
+        print("실행되었지만 찾지 못함")
+        return nil
+    }
+    //하..
+}
