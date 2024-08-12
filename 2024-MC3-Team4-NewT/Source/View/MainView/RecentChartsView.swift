@@ -63,13 +63,13 @@ struct RecentChartsView: View {
                                 }
                                 Spacer()
                                 HStack {
-                                    Image("waveDirectionIcon2")
+                                    Image("waveDirectionIcon2").rotationEffect(Angle(degrees: Double(row.surfingValues.windDirection)))
                                     Text("\(row.surfingValues.windSpeed, specifier: "%.1f")m/s")
                                         .font(.Body2Medium)
                                 }
                                 Spacer()
                                 HStack {
-                                    Image("swellDirectionIcon")
+                                    Image("swellDirectionIcon").rotationEffect(Angle(degrees: Double(row.surfingValues.waveDirection)))
                                     VStack {
                                         Text("\(row.surfingValues.waveHeight, specifier: "%.1f")m")
                                             .font(.Body2Medium)
