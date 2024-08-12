@@ -4,10 +4,10 @@ import SwiftData
 struct RecordItemView: View {
     var item: SurfingRecordOne
     @ObservedObject var viewModel: RecordChartViewModel
-    @Environment(\.modelContext) var modelContext // Access the SwiftData context
-//    @Query var pinModel:[Pin]
-    @State private var showDeleteConfirmation = false // State to show the confirmation alert
-
+    @Environment(\.modelContext) var modelContext
+    @State private var showDeleteConfirmation = false
+    
+    
     var body: some View {
         ZStack(alignment: .top) {
             Color.white
@@ -97,8 +97,6 @@ struct RecordItemView: View {
                             .foregroundColor(.white)
                         VStack(alignment: .leading, spacing: 0) {
                             Button {
-                                item.charts.first?.isHighTide = true
-                               
                                 viewModel.isPinButton[item.id, default: false].toggle()
                                 viewModel.isEllipsisOnOff[item.id, default: false].toggle()
                             } label: {
@@ -161,6 +159,25 @@ struct RecordItemView: View {
                 secondaryButton: .cancel(Text("취소"))
             )
         }
+        .alert(isPresented: $viewModel.showPin) {
+            Alert(
+                title: Text("차트를 고정하시겠습니까?"),
+                primaryButton: .default(Text("네")) {
+                    print("test")
+                    viewModel.savePinTime(viewModel.rowTime,viewModel.pinRecord)
+                },
+                secondaryButton: .cancel(Text("취소"))
+            )
+        }
+        .alert(isPresented: $viewModel.isRecord) {
+            Alert(
+                title: Text("이미 등록된 차트입니다."),
+                dismissButton: .default(Text("취소")) {
+                    print("test")
+                }
+            )
+        }
+
     }
     
     private func deleteRecord(item: SurfingRecordOne) {

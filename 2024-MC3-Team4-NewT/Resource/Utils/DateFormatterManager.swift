@@ -69,4 +69,7 @@ class DateFormatterManager {
         formatter.locale = Locale(identifier: "ko_kr")
         return formatter.string(from: date)
     }
+    func convertDateToString(date: Date) -> String {
+        return longDateFormatter.string(from: date)
+    }
 }

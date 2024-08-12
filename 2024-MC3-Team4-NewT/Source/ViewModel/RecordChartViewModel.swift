@@ -21,7 +21,10 @@ class RecordChartViewModel: ObservableObject {
     @Published var selectedItemBackgroundColor: Color = Color("backgroundSkyblue")
     @Published var selectedItemColor: Color = Color("surfBlue")
     @Published var isSelectButton: Bool = true
-    
+    @Published var showPin = false
+    @Published var rowTime = ""
+    @Published var pinRecord = Date()
+    @Published var isRecord = false
     
     func filteredRecordChart(charts: [ChartRow], recordOne: SurfingRecordOne) -> [ChartRow] {
         var 필터된데이터: [ChartRow] = []
@@ -80,8 +83,36 @@ class RecordChartViewModel: ObservableObject {
         for key in isEllipsisOnOff.keys {
             if key != id {
                 isEllipsisOnOff[key] = false
+                
             }
         }
         isEllipsisOnOff[id, default: false].toggle()
+        
+    }
+    // UserDefaults에 row.time을 추가하는 함수
+    func savePinTime(_ time: String,_ date: Date) {
+        var pinTimes = UserDefaults.standard.stringArray(forKey: "pinTime") ?? []
+       
+        var pinRecord = UserDefaults.standard.stringArray(forKey: "pinRecord") ?? []
+        var convertDate = DateFormatterManager.shared.convertDateToString(date: date)
+        if !pinRecord.contains(convertDate) {
+            pinRecord.append(convertDate)
+            UserDefaults.standard.set(pinRecord, forKey: "pinRecord")
+            print("들어갔음record:\(convertDate)")
+            pinTimes.append(time)
+            UserDefaults.standard.set(pinTimes, forKey: "pinTime")
+            print("들어갔음time:\(time)")
+        }
+        
+        
+    }
+    func confirm(_ time: String,_ date: Date){
+        var pinTimes = UserDefaults.standard.stringArray(forKey: "pinTime") ?? []
+       
+        var pinRecord = UserDefaults.standard.stringArray(forKey: "pinRecord") ?? []
+        var convertDate = DateFormatterManager.shared.convertDateToString(date: date)
+        if pinRecord.contains(convertDate) {
+            isRecord = true
+        }
     }
 }

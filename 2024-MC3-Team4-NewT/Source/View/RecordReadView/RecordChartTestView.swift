@@ -1,13 +1,13 @@
 import Foundation
 import SwiftUI
 import SwiftData
+
 struct RecordChartTestView: View {
     @Query private var surfingRecordOneData: [SurfingRecordOne]
     @ObservedObject var viewModel: RecordChartViewModel
     @Query(sort: \ChartRow.time) var chartRow: [ChartRow]
     var recordOne: SurfingRecordOne
     @EnvironmentObject var myObject: MyObservableObject
-    @State private var showAlert = false
     @State private var selectedItem: ChartRow?
     
     var body: some View {
@@ -44,19 +44,26 @@ struct RecordChartTestView: View {
                                     if viewModel.isPinButton[recordOne.id] == true {
                                         Button {
                                             selectedItem = row
-                                            showAlert = true
+                                            
                                             viewModel.isChartPinButotn[row.id, default: false].toggle()
-                                            //                                            print ("고정 row: \(row.id)")
-                                            if (viewModel.isChartPinButotn[row.id] == true && viewModel.isPinCounter < 3) {
-                                                viewModel.isPinCounter += 1
+                                            viewModel.rowTime=row.time
+                                            // UserDefaults에 pinTime 저장
+                                            viewModel.confirm(row.time, row.surfingRecordStartTime ?? Date())
+                                            print("isRecord:\(viewModel.isRecord)")
+                                            if viewModel.isRecord == false{
+                                                viewModel.showPin = true
                                             }
-                                            else if (viewModel.isChartPinButotn[row.id] == false) {
+                                            viewModel.pinRecord = row.surfingRecordStartTime ?? Date()
+                                            if viewModel.isChartPinButotn[row.id] == true && viewModel.isPinCounter < 3 {
+                                                viewModel.isPinCounter += 1
+                                            } else if viewModel.isChartPinButotn[row.id] == false {
                                                 viewModel.isPinCounter -= 1
                                                 viewModel.isChartPinButotn[row.id] = false
-                                            }
-                                            else {
+                                                removePinTime(row.time) // Pin 해제 시 UserDefaults에서 제거
+                                            } else {
                                                 viewModel.isChartPinButotn[row.id] = false
                                             }
+                                            
                                             
                                         } label: {
                                             Image(systemName: "checkmark.circle.fill")
@@ -106,23 +113,21 @@ struct RecordChartTestView: View {
                         .onAppear{
                             print ("****row: \(row.id)")
                         }
+                        
                     }
                 }
             }
         }
-        .alert(isPresented: $showAlert) {
-            Alert(
-                title: Text("차트를 고정하시겠습니까?"),
-                primaryButton: .default(Text("Yes"), action: {
-                    if let item = selectedItem {
-                        myObject.pinChart.append(item)
-//                        DateFormatterManager.shared.dateFromString("1999-11-19 00:00:00")
-//                        try? modelContext.save()
-                        print("Selected index: \(index)")
-                    }
-                }),
-                secondaryButton: .cancel(Text("No"))
-            )
+    }
+    
+    
+    
+    // UserDefaults에서 row.time을 제거하는 함수
+    private func removePinTime(_ time: String) {
+        var pinTimes = UserDefaults.standard.stringArray(forKey: "pinTime") ?? []
+        if let index = pinTimes.firstIndex(of: time) {
+            pinTimes.remove(at: index)
+            UserDefaults.standard.set(pinTimes, forKey: "pinTime")
         }
     }
 }
