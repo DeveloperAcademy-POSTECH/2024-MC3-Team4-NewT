@@ -1,12 +1,17 @@
+//
+//  RecordItemView2.swift
+//  2024-MC3-Team4-NewT
+//
+//  Created by ram on 8/13/24.
+//
 import SwiftUI
 import SwiftData
 
-struct RecordItemView: View {
+struct RecordItemView2: View {
     var item: SurfingRecordOne
     @ObservedObject var viewModel: RecordChartViewModel
     @Environment(\.modelContext) var modelContext
     @State private var showDeleteConfirmation = false
-    
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -98,13 +103,11 @@ struct RecordItemView: View {
                         VStack(alignment: .leading, spacing: 0) {
                             Button {
                                 print("recordId:\(item.id)")
-                                print("쇼핀:\(viewModel.showPin)")
-                                viewModel.recordId = item.id
-                                viewModel.isPinButton[item.id, default: false].toggle()
-                                viewModel.isEllipsisOnOff[item.id, default: false].toggle()
+                                removePinRecord(for: item.surfingStartTime)
+                                viewModel.updateEllipsisState(for: item.id)
                             } label: {
                                 HStack {
-                                    Text("핀 고정")
+                                    Text("핀 고정 제거")
                                     Spacer()
                                     Image(systemName: "pin")
                                 }
@@ -126,24 +129,10 @@ struct RecordItemView: View {
                                 .frame(width: 218, height: 44)
                                 .padding(.leading)
                             }
-                            
-                            Divider()
-                            Button {
-                                showDeleteConfirmation = true
-                                deleteRecord(item: item)// Show the delete confirmation alert
-                            } label: {
-                                HStack {
-                                    Text("삭제")
-                                    Spacer()
-                                    Image(systemName: "trash")
-                                }
-                                .foregroundColor(.red)
-                                .frame(width: 218, height: 44)
-                                .padding(.leading)
-                            }
+                           
                         }
                     }
-                    .frame(width: 250, height: 132)
+                    .frame(width: 250, height: 100)
                     .cornerRadius(12)
                     .shadow(radius: 10)
                     .padding(.top, 47)
@@ -154,49 +143,17 @@ struct RecordItemView: View {
         .cornerRadius(24)
         .padding(.horizontal)
         .padding(.bottom)
-        .alert(isPresented: $showDeleteConfirmation) {
-            Alert(
-                title: Text("기록을 삭제하시겠습니까?"),
-                primaryButton: .destructive(Text("삭제")) {
-                    deleteRecord(item: item)
-                },
-                secondaryButton: .cancel(Text("취소"))
-            )
-        }
-        .alert(isPresented: $viewModel.showPin) {
-            Alert(
-                title: Text("차트를 고정하시겠습니까?"),
-                primaryButton: .default(Text("네")) {
-                    print("Pin saved.")
-                    viewModel.savePinTime(viewModel.rowTime, viewModel.pinRecord)
-                    viewModel.isChartPinButton[viewModel.chartRowId] = false
-                    viewModel.isPinButton[viewModel.recordId] = false
-                },
-                secondaryButton: .cancel(Text("취소"))
-            )
-        }
-
-//        .alert(isPresented: $viewModel.isRecord) {
-//            Alert(
-//                title: Text("이미 등록된 차트입니다."),
-//                dismissButton: .default(Text("취소")) {
-//                    print("test")
-//                    
-//                    viewModel.isChartPinButton[viewModel.chartRowId] = false
-//                    //                    viewModel.isEllipsisOnOff[viewModel.recordId] = false
-//                    viewModel.isPinButton[viewModel.recordId] = false
-//                    viewModel.showPin = false
-//                    viewModel.isRecord = false
-//                }
-//            )
-//        }
+       
+    }
+    
+    private func removePinRecord(for startTime: Date) {
+        var pinRecords = UserDefaults.standard.stringArray(forKey: "pinRecord") ?? []
+        let convertDate = DateFormatterManager.shared.convertDateToString(date: startTime)
         
+        if let index = pinRecords.firstIndex(of: convertDate) {
+            pinRecords.remove(at: index)
+            UserDefaults.standard.set(pinRecords, forKey: "pinRecord")
+            print("Removed pin for Date: \(convertDate)")
+        }
     }
-    // 기록 삭제 함수
-    func deleteRecord(item: SurfingRecordOne) {
-        modelContext.delete(item)
-        try? modelContext.save()
-    }
-    
-    
 }

@@ -1,7 +1,6 @@
 import SwiftUI
 import SwiftData
 
-
 class RecordChartViewModel: ObservableObject {
     @Published var categoryIndex: Int = 0
     @Published var selectedDate = Date()
@@ -16,62 +15,23 @@ class RecordChartViewModel: ObservableObject {
     @Published var isPinCounter: Int = 0
     @Published var recordId = UUID()
     
-    
-    /// LotationView 변수
+    // LocationView 관련 변수
     @Published var selectedRegion: Region? = nil
     @Published var selectedItem: String = "포항 신항만해변"
     @Published var selectedItemBackgroundColor: Color = Color("backgroundSkyblue")
-    @Published var selectedItemColor: Color = Color("surfBlue")
+    @Published var selectedItemColor = Color("surfBlue")
     @Published var isSelectButton: Bool = true
     @Published var showPin = false
     @Published var rowTime = ""
     @Published var pinRecord = Date()
     @Published var isRecord = false
     
-    
+    // RecordChart에서 필터링된 데이터를 반환하는 함수
     func filteredRecordChart(charts: [ChartRow], recordOne: SurfingRecordOne) -> [ChartRow] {
-        var 필터된데이터: [ChartRow] = []
-        
-        for chartRow in charts {
-            if let associatedRecord = chartRow.surfingRecordStartTime {
-                if associatedRecord == recordOne.surfingStartTime {
-                    필터된데이터.append(chartRow)
-                }
-            }
-        }
-        
-        for test in 필터된데이터{
-            //            print("필터:\(test.time)")
-        }
-        //        print("필터된 데이터:\(필터된데이터.first?.time)")
-        return 필터된데이터
+        return charts.filter { $0.surfingRecordStartTime == recordOne.surfingStartTime }
     }
-    
-    var chartCounter: Int {
-        var counter: Int = 1
-        if stopHour > startHour {
-            counter = (stopHour - startHour) + 1
-        }
-        return counter
-    }
-    
-    var startHour: Int {
-        let calendar = Calendar.current
-        return calendar.component(.hour, from: startTime)
-    }
-    
-    var stopHour: Int {
-        let calendar = Calendar.current
-        return calendar.component(.hour, from: stopTime)
-    }
-    
-    func date(from date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "ko_kr")
-        formatter.dateFormat = "MM월 dd일 (E)"
-        return formatter.string(from: date)
-    }
-    
+
+    // 평가 텍스트를 반환하는 함수
     func evaluationText(for value: Int) -> String {
         switch value {
             case 1: return "별로예요"
@@ -81,45 +41,50 @@ class RecordChartViewModel: ObservableObject {
             default: return "최고예요"
         }
     }
-    
+
+    // Ellipsis 상태 업데이트 함수
     func updateEllipsisState(for id: UUID) {
         for key in isEllipsisOnOff.keys {
             if key != id {
                 isEllipsisOnOff[key] = false
-                
             }
         }
         isEllipsisOnOff[id, default: false].toggle()
-        
     }
-    // UserDefaults에 row.time을 추가하는 함수
-    func savePinTime(_ time: String,_ date: Date) {
+
+    // Pin Time 저장 함수
+    func savePinTime(_ time: String, _ date: Date) {
         var pinTimes = UserDefaults.standard.stringArray(forKey: "pinTime") ?? []
-        
-        var pinRecord = UserDefaults.standard.stringArray(forKey: "pinRecord") ?? []
-        var convertDate = DateFormatterManager.shared.convertDateToString(date: date)
-        if !pinRecord.contains(convertDate) {
-            pinRecord.append(convertDate)
-            UserDefaults.standard.set(pinRecord, forKey: "pinRecord")
-            print("들어갔음record:\(convertDate)")
+        var pinRecords = UserDefaults.standard.stringArray(forKey: "pinRecord") ?? []
+
+        let convertDate = DateFormatterManager.shared.convertDateToString(date: date)
+        if !pinRecords.contains(convertDate) {
+            pinRecords.append(convertDate)
             pinTimes.append(time)
+            UserDefaults.standard.set(pinRecords, forKey: "pinRecord")
             UserDefaults.standard.set(pinTimes, forKey: "pinTime")
-            print("들어갔음time:\(time)")
-        }
-        
-        
-    }
-    func confirm(_ time: String,_ date: Date){
-        var pinTimes = UserDefaults.standard.stringArray(forKey: "pinTime") ?? []
-        
-        var pinRecord = UserDefaults.standard.stringArray(forKey: "pinRecord") ?? []
-        var convertDate = DateFormatterManager.shared.convertDateToString(date: date)
-        if pinRecord.contains(convertDate) {
-            isRecord = true
+            print("Pin saved - Date: \(convertDate), Time: \(time)")
         }
     }
-    func deleteRecord(item: SurfingRecordOne,modelContext:ModelContext) {
-        modelContext.delete(item) // Delete the SurfingRecordOne object from the context
-        try? modelContext.save()  // Save the context to persist changes
+
+    // 기록이 이미 존재하는지 확인하는 함수
+    @MainActor
+    func confirmPin(_ time: String, _ date: Date) {
+        let pinRecords = UserDefaults.standard.stringArray(forKey: "pinRecord") ?? []
+        let convertDate = DateFormatterManager.shared.convertDateToString(date: date)
+        
+        if pinRecords.contains(convertDate) {
+            self.isRecord = true
+            print("변경isRecord")
+        } else {
+            
+            self.showPin = true
+            print("변경showPin")
+            
+        }
     }
+
+    
 }
+
+

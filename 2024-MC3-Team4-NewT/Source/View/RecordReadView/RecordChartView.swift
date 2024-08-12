@@ -55,7 +55,7 @@ struct RecordChartView: View {
                         ScrollView {
                             let pinnedRecords = getPinnedRecords()
                             ForEach(pinnedRecords, id: \.id) { item in
-                                RecordItemView(item: item, viewModel: viewModel)
+                                RecordItemView2(item: item, viewModel: viewModel)
                             }
                             Spacer()
                                 .frame(height: 60)

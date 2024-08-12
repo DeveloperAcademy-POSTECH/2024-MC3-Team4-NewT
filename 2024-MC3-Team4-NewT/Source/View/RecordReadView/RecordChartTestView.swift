@@ -1,7 +1,6 @@
 import Foundation
 import SwiftUI
 import SwiftData
-
 struct RecordChartTestView: View {
     @Query private var surfingRecordOneData: [SurfingRecordOne]
     @ObservedObject var viewModel: RecordChartViewModel
@@ -9,8 +8,7 @@ struct RecordChartTestView: View {
     var recordOne: SurfingRecordOne
     @EnvironmentObject var myObject: MyObservableObject
     @State private var selectedItem: ChartRow?
-    
-    
+    @State var kkk = false
     var body: some View {
         VStack(spacing: 0) {
             let data = viewModel.filteredRecordChart(charts: chartRow, recordOne: recordOne)
@@ -47,31 +45,14 @@ struct RecordChartTestView: View {
                                             selectedItem = row
                                             
                                             viewModel.isChartPinButton[row.id, default: false].toggle()
-                                            viewModel.rowTime=row.time
-                                            // UserDefaults에 pinTime 저장
+                                            viewModel.rowTime = row.time
                                             viewModel.pinRecord = row.surfingRecordStartTime ?? Date()
-                                            viewModel.confirm(row.time, row.surfingRecordStartTime ?? Date())
-                                            print("isRecord:\(viewModel.isRecord)")
-                                            viewModel.chartRowId = row.id
-                                            if viewModel.isRecord == false{
-                                                viewModel.showPin = true
+                                            viewModel.confirmPin(row.time, row.surfingRecordStartTime ?? Date())
+                                            viewModel.isRecord = true
+                                            if viewModel.isRecord == false {
+                                                kkk = true
                                             }
-                                            else{
-                                                //                                                viewModel.isChartPinButotn[row.id] = false
-                                            }
-                                            
-                                            //                                            viewModel.isChartPinButotn[row.id] = false
-                                            //                                            if viewModel.isChartPinButotn[row.id] == true && viewModel.isPinCounter < 3 {
-                                            //                                                viewModel.isPinCounter += 1
-                                            //                                            } else if viewModel.isChartPinButotn[row.id] == false {
-                                            //                                                viewModel.isPinCounter -= 1
-                                            //                                                viewModel.isChartPinButotn[row.id] = false
-                                            //                                                removePinTime(row.time) // Pin 해제 시 UserDefaults에서 제거
-                                            //                                            } else {
-                                            //                                                viewModel.isChartPinButotn[row.id] = false
-                                            //                                            }
-                                            
-                                            
+                                        
                                         } label: {
                                             Image(systemName: "checkmark.circle.fill")
                                                 .frame(width: 20)
@@ -117,24 +98,26 @@ struct RecordChartTestView: View {
                                 .padding(.horizontal, 10)
                             }
                         }
-                        .onAppear{
-                            print ("****row: \(row.id)")
-                        }
                         
                     }
                 }
             }
+            
         }
+        .alert(isPresented: $kkk) {
+            Alert(
+                title: Text("차트를 고정하시겠습니까?"),
+                primaryButton: .default(Text("네")) {
+                    print("Pin saved.")
+                    viewModel.savePinTime(viewModel.rowTime, viewModel.pinRecord)
+                    viewModel.isChartPinButton[viewModel.chartRowId] = false
+                    viewModel.isPinButton[viewModel.recordId] = false
+                },
+                secondaryButton: .cancel(Text("취소"))
+            )
+        }
+        
+        
     }
     
-    
-    
-    // UserDefaults에서 row.time을 제거하는 함수
-    private func removePinTime(_ time: String) {
-        var pinTimes = UserDefaults.standard.stringArray(forKey: "pinTime") ?? []
-        if let index = pinTimes.firstIndex(of: time) {
-            pinTimes.remove(at: index)
-            UserDefaults.standard.set(pinTimes, forKey: "pinTime")
-        }
-    }
 }
