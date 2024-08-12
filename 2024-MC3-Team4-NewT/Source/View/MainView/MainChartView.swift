@@ -39,10 +39,7 @@ struct MainChartView: View {
                     ForEach(fbo.groupedByDate(chartRow: chartRow), id: \.key) { (key, charts) in
                         VStack(alignment: .leading, spacing: 0) {
                             // 각 날짜별 차트 헤더
-                            Text(key)
-                                .font(.SubheadingBold)
-                                .foregroundColor(.surfBlue)
-                                .padding(.top)
+                            EmptyView()
                                 .background(
                                     GeometryReader { geo in
                                         Color.clear.onChange(of: geo.frame(in: .global).minY) { _ in
@@ -97,8 +94,8 @@ struct MainChartView: View {
                                         
                                         VStack(alignment: .center, spacing: 2) {
                                             Text("\(chart.surfingValues.waterTemperature, specifier: "%.0f")°C")
-                                                .font(.Body1Medium)
-                                            Image("waterTemperate")
+                                                .font(.caption)
+                                            //                                            Image("waterTemperate")
                                         }
                                         .frame(width: 60)
                                         
@@ -109,16 +106,23 @@ struct MainChartView: View {
                                         }
                                         .frame(maxWidth: .infinity, alignment: .leading)
                                     }
-                                    .frame(height: 50)
+                                    .frame(height: 60)
                                 }
                             }
+                            .padding(.horizontal)
+                            Divider()
+                                .frame(minHeight: 5)
+                                .overlay(.backgroundGray)
+                                .edgesIgnoringSafeArea(.horizontal)
+                            
                         }
                         .id(key) // 날짜를 식별자로 사용
+                        
                     }
                 }
                 .padding(.bottom, 80) //탭 바 여백 남겨둠
             }
-            .padding(.horizontal)
+            
         }
         .frame(maxWidth: .infinity)
         .background(.white.opacity(0.8))

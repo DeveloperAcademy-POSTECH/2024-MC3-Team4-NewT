@@ -17,13 +17,7 @@ class FirebaseObservable {
     
     func fetchFirebase(modelContext: ModelContext, collectionName: String, chartRow: [ChartRow]) {
         let db = Firestore.firestore()
-//        for item in chartRow {
-//            if let aa = item.surfingRecordStartTime {
-//                print("\(aa):통과")
-//            } else {
-//                modelContext.delete(item)
-//            }
-//        }
+
         
         db.collection(collectionName).getDocuments { snapshot, error in
             if let error = error {
@@ -64,6 +58,7 @@ class FirebaseObservable {
                         let surfingValues = SurfingValues(
                             waveDirection: Float.random(in: 180.0...240.0),
                             waveHeight: Float(wavesHeight),
+                            
                             wavePeriod: Float.random(in: 3.0...3.5), // waves_period 데이터가 없으므로 기본값 사용
                             windDirection: Float(windDirection),
                             windSpeed: Float(windSpeed),
@@ -71,6 +66,7 @@ class FirebaseObservable {
                             airTemperature: Float(temp),
                             waterTemperature: Float(seaTemp)
                         )
+                        print("파고:\(wavesHeight)")
                         modelContext.insert(surfingValues)
                         
                         // 타임스탬프를 yyyyMMddHHmm 형식에서 Date로 변환
