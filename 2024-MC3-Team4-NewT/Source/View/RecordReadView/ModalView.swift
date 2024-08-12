@@ -41,7 +41,7 @@ struct ModalView: View {
                                 Text(viewModel.evaluationText(for: item.evaluationValue))
                                     .font(.Body2Medium)
                                     .foregroundColor(.black.opacity(0.7))
-                               
+                                
                             }
                             .padding(5)
                             .background(Color("backgroundSkyblue"))
@@ -59,7 +59,7 @@ struct ModalView: View {
                         RecordChartTestView(viewModel: viewModel, recordOne: item)
                         
                     }.padding(.horizontal)
-//                        .overlay(.yellow.opacity(0.3))
+                    //                        .overlay(.yellow.opacity(0.3))
                         .padding(.vertical, 30)
                     
                 }

@@ -156,7 +156,7 @@ struct RecordItemView: View {
             Alert(
                 title: Text("기록을 삭제하시겠습니까?"),
                 primaryButton: .destructive(Text("삭제")) {
-                    deleteRecord(item: item)
+                    viewModel.deleteRecord(item: item, modelContext: modelContext)
                 },
                 secondaryButton: .cancel(Text("취소"))
             )
@@ -178,16 +178,13 @@ struct RecordItemView: View {
                     print("test")
                     
                     viewModel.isChartPinButton[viewModel.chartRowId] = false
-//                    viewModel.isEllipsisOnOff[viewModel.recordId] = false
+                    //                    viewModel.isEllipsisOnOff[viewModel.recordId] = false
                     viewModel.isPinButton[viewModel.recordId] = false
                 }
             )
         }
-
+        
     }
     
-    private func deleteRecord(item: SurfingRecordOne) {
-        modelContext.delete(item) // Delete the SurfingRecordOne object from the context
-        try? modelContext.save()  // Save the context to persist changes
-    }
+    
 }

@@ -3,7 +3,7 @@ import SwiftData
 
 
 class RecordChartViewModel: ObservableObject {
-    @Published var categories: Int = 0
+    @Published var categoryIndex: Int = 0
     @Published var selectedDate = Date()
     @Published var startTime = Date()
     @Published var stopTime = Date()
@@ -27,6 +27,7 @@ class RecordChartViewModel: ObservableObject {
     @Published var rowTime = ""
     @Published var pinRecord = Date()
     @Published var isRecord = false
+    
     
     func filteredRecordChart(charts: [ChartRow], recordOne: SurfingRecordOne) -> [ChartRow] {
         var 필터된데이터: [ChartRow] = []
@@ -94,7 +95,7 @@ class RecordChartViewModel: ObservableObject {
     // UserDefaults에 row.time을 추가하는 함수
     func savePinTime(_ time: String,_ date: Date) {
         var pinTimes = UserDefaults.standard.stringArray(forKey: "pinTime") ?? []
-       
+        
         var pinRecord = UserDefaults.standard.stringArray(forKey: "pinRecord") ?? []
         var convertDate = DateFormatterManager.shared.convertDateToString(date: date)
         if !pinRecord.contains(convertDate) {
@@ -110,11 +111,15 @@ class RecordChartViewModel: ObservableObject {
     }
     func confirm(_ time: String,_ date: Date){
         var pinTimes = UserDefaults.standard.stringArray(forKey: "pinTime") ?? []
-       
+        
         var pinRecord = UserDefaults.standard.stringArray(forKey: "pinRecord") ?? []
         var convertDate = DateFormatterManager.shared.convertDateToString(date: date)
         if pinRecord.contains(convertDate) {
             isRecord = true
         }
+    }
+    func deleteRecord(item: SurfingRecordOne,modelContext:ModelContext) {
+        modelContext.delete(item) // Delete the SurfingRecordOne object from the context
+        try? modelContext.save()  // Save the context to persist changes
     }
 }

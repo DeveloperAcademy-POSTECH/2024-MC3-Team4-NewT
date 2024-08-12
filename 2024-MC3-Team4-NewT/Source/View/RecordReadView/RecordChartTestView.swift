@@ -52,24 +52,24 @@ struct RecordChartTestView: View {
                                             viewModel.pinRecord = row.surfingRecordStartTime ?? Date()
                                             viewModel.confirm(row.time, row.surfingRecordStartTime ?? Date())
                                             print("isRecord:\(viewModel.isRecord)")
-                                                viewModel.chartRowId = row.id
+                                            viewModel.chartRowId = row.id
                                             if viewModel.isRecord == false{
                                                 viewModel.showPin = true
                                             }
                                             else{
-//                                                viewModel.isChartPinButotn[row.id] = false
+                                                //                                                viewModel.isChartPinButotn[row.id] = false
                                             }
                                             
-//                                            viewModel.isChartPinButotn[row.id] = false
-//                                            if viewModel.isChartPinButotn[row.id] == true && viewModel.isPinCounter < 3 {
-//                                                viewModel.isPinCounter += 1
-//                                            } else if viewModel.isChartPinButotn[row.id] == false {
-//                                                viewModel.isPinCounter -= 1
-//                                                viewModel.isChartPinButotn[row.id] = false
-//                                                removePinTime(row.time) // Pin 해제 시 UserDefaults에서 제거
-//                                            } else {
-//                                                viewModel.isChartPinButotn[row.id] = false
-//                                            }
+                                            //                                            viewModel.isChartPinButotn[row.id] = false
+                                            //                                            if viewModel.isChartPinButotn[row.id] == true && viewModel.isPinCounter < 3 {
+                                            //                                                viewModel.isPinCounter += 1
+                                            //                                            } else if viewModel.isChartPinButotn[row.id] == false {
+                                            //                                                viewModel.isPinCounter -= 1
+                                            //                                                viewModel.isChartPinButotn[row.id] = false
+                                            //                                                removePinTime(row.time) // Pin 해제 시 UserDefaults에서 제거
+                                            //                                            } else {
+                                            //                                                viewModel.isChartPinButotn[row.id] = false
+                                            //                                            }
                                             
                                             
                                         } label: {
