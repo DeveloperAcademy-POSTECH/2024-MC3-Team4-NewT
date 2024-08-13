@@ -80,4 +80,7 @@ class DateFormatterManager {
     func timeToHourFormatter(_ date: Date?) -> String {
             return formatDate(date, format: "HH'시'")
     }
+    func convertDateToString(date: Date) -> String {
+        return longDateFormatter.string(from: date)
+    }
 }

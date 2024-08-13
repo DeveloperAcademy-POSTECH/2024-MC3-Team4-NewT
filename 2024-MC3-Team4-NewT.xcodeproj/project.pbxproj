@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		21353F612C6786570095CA6D /* BeachMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21353F602C6786570095CA6D /* BeachMapper.swift */; };
 		21353F632C6873380095CA6D /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21353F622C6873380095CA6D /* OnboardingView.swift */; };
+		21353F672C6AE0230095CA6D /* RecordItemView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21353F662C6AE0230095CA6D /* RecordItemView2.swift */; };
 		213A4A742C605E3F00786C97 /* RecordReadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213A4A732C605E3F00786C97 /* RecordReadView.swift */; };
 		213A4A762C60609600786C97 /* ChartHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213A4A752C60609600786C97 /* ChartHeaderView.swift */; };
 		21588AFD2C5C75E6003E3489 /* FirebaseSDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588AFC2C5C75E6003E3489 /* FirebaseSDView.swift */; };
@@ -76,6 +77,7 @@
 /* Begin PBXFileReference section */
 		21353F602C6786570095CA6D /* BeachMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeachMapper.swift; sourceTree = "<group>"; };
 		21353F622C6873380095CA6D /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		21353F662C6AE0230095CA6D /* RecordItemView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordItemView2.swift; sourceTree = "<group>"; };
 		213A4A732C605E3F00786C97 /* RecordReadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordReadView.swift; sourceTree = "<group>"; };
 		213A4A752C60609600786C97 /* ChartHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHeaderView.swift; sourceTree = "<group>"; };
 		21588AFC2C5C75E6003E3489 /* FirebaseSDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSDView.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				719EA9CC2C5A56730090BAB5 /* RecordChartView.swift */,
 				712B07632C631EC8001DC52C /* RecordItemView.swift */,
 				213A4A732C605E3F00786C97 /* RecordReadView.swift */,
+				21353F662C6AE0230095CA6D /* RecordItemView2.swift */,
 			);
 			path = RecordReadView;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 				719EA9C52C57729E0090BAB5 /* Font.swift in Sources */,
 				21588B082C5CC2CA003E3489 /* DateFormatterManager.swift in Sources */,
 				7159C18E2C60C549007300D6 /* RecordChartViewModel.swift in Sources */,
+				21353F672C6AE0230095CA6D /* RecordItemView2.swift in Sources */,
 				21588B142C600CAA003E3489 /* TabBarButton.swift in Sources */,
 				712B07642C631EC8001DC52C /* RecordItemView.swift in Sources */,
 				715BA4CC2C6111FF00477938 /* ModalView.swift in Sources */,

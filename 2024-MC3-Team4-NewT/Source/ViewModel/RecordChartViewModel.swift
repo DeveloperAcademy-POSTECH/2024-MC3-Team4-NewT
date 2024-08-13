@@ -3,7 +3,7 @@ import SwiftData
 
 
 class RecordChartViewModel: ObservableObject {
-    @Published var categories: Int = 0
+    @Published var categoryIndex: Int = 0
     @Published var selectedDate = Date()
     @Published var startTime = Date()
     @Published var stopTime = Date()
@@ -16,6 +16,8 @@ class RecordChartViewModel: ObservableObject {
     @Published var isPinCounter: Int = 0
     @Published var chartRow: [ChartRow] = []
     @Published var surfingRecords: [SurfingRecordOne] = []
+    @Published var showPin = false
+    
     
     
     /// LotationView 변수
@@ -24,7 +26,12 @@ class RecordChartViewModel: ObservableObject {
     @Published var selectedItemBackgroundColor: Color = Color("backgroundSkyblue")
     @Published var selectedItemColor: Color = Color("surfBlue")
     @Published var isSelectButton: Bool = true
-    
+    @Published var rowTime = ""
+    @Published var pinRecord = Date()
+    @Published var isRecord = false
+    @Published var recordId = UUID()
+    @Published var chartRowId: UUID = UUID()
+    @Published var isChartPinButton: [UUID: Bool] = [:]
     
     func filteredRecordChart(charts: [ChartRow], recordOne: SurfingRecordOne) -> [ChartRow] {
         var 필터된데이터: [ChartRow] = []
@@ -101,4 +108,36 @@ class RecordChartViewModel: ObservableObject {
         guard let startTime = chartRow.surfingRecordStartTime else { return nil }
         return surfingRecords.first { $0.surfingStartTime == startTime }?.evaluationValue
     }
+    // Pin Time 저장 함수
+    func savePinTime(_ time: String, _ date: Date) {
+        var pinTimes = UserDefaults.standard.stringArray(forKey: "pinTime") ?? []
+        var pinRecords = UserDefaults.standard.stringArray(forKey: "pinRecord") ?? []
+
+        let convertDate = DateFormatterManager.shared.convertDateToString(date: date)
+        if !pinRecords.contains(convertDate) {
+            pinRecords.append(convertDate)
+            pinTimes.append(time)
+            UserDefaults.standard.set(pinRecords, forKey: "pinRecord")
+            UserDefaults.standard.set(pinTimes, forKey: "pinTime")
+            print("Pin saved - Date: \(convertDate), Time: \(time)")
+        }
+    }
+    // 기록이 이미 존재하는지 확인하는 함수
+    @MainActor
+    func confirmPin(_ time: String, _ date: Date) {
+        let pinRecords = UserDefaults.standard.stringArray(forKey: "pinRecord") ?? []
+        let convertDate = DateFormatterManager.shared.convertDateToString(date: date)
+        
+        if pinRecords.contains(convertDate) {
+            self.isRecord = true
+            print("변경isRecord")
+        } else {
+            
+            self.showPin = true
+            print("변경showPin")
+            
+        }
+    }
+
 }
+
