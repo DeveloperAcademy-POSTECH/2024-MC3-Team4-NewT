@@ -43,6 +43,7 @@ struct MainChartView: View {
                                 .font(.SubheadingBold)
                                 .foregroundColor(.surfBlue)
                                 .padding(.top)
+                                .padding(.leading, 16)
                                 .background(
                                     GeometryReader { geo in
                                         Color.clear.onChange(of: geo.frame(in: .global).minY) { _ in
@@ -97,8 +98,8 @@ struct MainChartView: View {
                                         
                                         VStack(alignment: .center, spacing: 2) {
                                             Text("\(chart.surfingValues.waterTemperature, specifier: "%.0f")°C")
-                                                .font(.caption)
-                                            //                                            Image("waterTemperate")
+                                                .font(.Body1Medium)
+                                            Image("waterTemperate")
                                         }
                                         .frame(width: 60)
                                         
