@@ -7,59 +7,139 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0CAF4CFD2C52B29D0054D347 /* SurfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAF4CFC2C52B29D0054D347 /* SurfModel.swift */; };
+		21353F612C6786570095CA6D /* BeachMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21353F602C6786570095CA6D /* BeachMapper.swift */; };
+		21353F632C6873380095CA6D /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21353F622C6873380095CA6D /* OnboardingView.swift */; };
+		21353F672C6AE0230095CA6D /* RecordItemView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21353F662C6AE0230095CA6D /* RecordItemView2.swift */; };
+		213A4A742C605E3F00786C97 /* RecordReadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213A4A732C605E3F00786C97 /* RecordReadView.swift */; };
+		213A4A762C60609600786C97 /* ChartHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213A4A752C60609600786C97 /* ChartHeaderView.swift */; };
+		21588AFD2C5C75E6003E3489 /* FirebaseSDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588AFC2C5C75E6003E3489 /* FirebaseSDView.swift */; };
+		21588AFF2C5C760C003E3489 /* OldFirebaseObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588AFE2C5C760C003E3489 /* OldFirebaseObservable.swift */; };
+		21588B012C5C7621003E3489 /* FirebaseTestObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B002C5C7621003E3489 /* FirebaseTestObservable.swift */; };
+		21588B032C5C7632003E3489 /* SwiftDataObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B022C5C7632003E3489 /* SwiftDataObservable.swift */; };
+		21588B052C5C7652003E3489 /* SDCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B042C5C7652003E3489 /* SDCheckView.swift */; };
+		21588B082C5CC2CA003E3489 /* DateFormatterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B072C5CC2CA003E3489 /* DateFormatterManager.swift */; };
+		21588B0A2C5D594F003E3489 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B092C5D594F003E3489 /* ContentView.swift */; };
+		21588B0C2C5D5D30003E3489 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B0B2C5D5D30003E3489 /* CustomTabBar.swift */; };
+		21588B102C5E201F003E3489 /* ChartRecordObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B0F2C5E201F003E3489 /* ChartRecordObservable.swift */; };
+		21588B122C6009AF003E3489 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B112C6009AF003E3489 /* ChartView.swift */; };
+		21588B142C600CAA003E3489 /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B132C600CAA003E3489 /* TabBarButton.swift */; };
+		21588B1D2C601239003E3489 /* RecordCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B1C2C601239003E3489 /* RecordCreateView.swift */; };
+		21588B1F2C6012B8003E3489 /* TimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B1E2C6012B8003E3489 /* TimePickerView.swift */; };
+		21588B212C601412003E3489 /* EvaluationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B202C601412003E3489 /* EvaluationView.swift */; };
+		21588B242C6015BC003E3489 /* RecordButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B232C6015BC003E3489 /* RecordButtonView.swift */; };
+		21588B262C6017C0003E3489 /* TabBarBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B252C6017C0003E3489 /* TabBarBackup.swift */; };
+		21588B282C601902003E3489 /* OldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B272C601902003E3489 /* OldModel.swift */; };
+		21588B2A2C601E21003E3489 /* RecordCreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588B292C601E21003E3489 /* RecordCreateViewModel.swift */; };
 		21B0802D2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */; };
 		21B080312C4D0836007BC655 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B080302C4D0836007BC655 /* Assets.xcassets */; };
 		21B080342C4D0836007BC655 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21B080332C4D0836007BC655 /* Preview Assets.xcassets */; };
 		21B0803B2C4D087F007BC655 /* PiriView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0803A2C4D087F007BC655 /* PiriView.swift */; };
-		21B0803D2C4D0888007BC655 /* JaneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0803C2C4D0888007BC655 /* JaneView.swift */; };
+		21B0803D2C4D0888007BC655 /* MainChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0803C2C4D0888007BC655 /* MainChartView.swift */; };
 		21B0803F2C4D089F007BC655 /* SisiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0803E2C4D089F007BC655 /* SisiView.swift */; };
-		21B080412C4D08B2007BC655 /* NadaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B080402C4D08B2007BC655 /* NadaView.swift */; };
 		21B080432C4D08C2007BC655 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B080422C4D08C2007BC655 /* TestView.swift */; };
 		21B0806E2C516248007BC655 /* FindSpotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0806D2C516248007BC655 /* FindSpotView.swift */; };
 		21B080702C52844C007BC655 /* EmbededView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0806F2C52844C007BC655 /* EmbededView.swift */; };
 		21B080722C52890A007BC655 /* WindyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B080712C52890A007BC655 /* WindyView.swift */; };
 		21B080742C56DB7A007BC655 /* WindFinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B080732C56DB7A007BC655 /* WindFinderView.swift */; };
-		21B080762C578BC6007BC655 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21B080752C578BC6007BC655 /* GoogleService-Info.plist */; };
 		21B080792C578CAB007BC655 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 21B080782C578CAB007BC655 /* FirebaseAnalytics */; };
 		21B0807B2C578CAB007BC655 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 21B0807A2C578CAB007BC655 /* FirebaseFirestore */; };
 		21B0807D2C57C68D007BC655 /* FirebaseTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0807C2C57C68D007BC655 /* FirebaseTestView.swift */; };
 		21B0807F2C587D3C007BC655 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B0807E2C587D3C007BC655 /* DummyData.swift */; };
 		21B080812C588261007BC655 /* WaveObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B080802C588261007BC655 /* WaveObservable.swift */; };
+		21BA39682C641DDD00571A27 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21BA39672C641DDD00571A27 /* GoogleService-Info.plist */; };
+		21BA396A2C65984100571A27 /* WeatherAPITestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA39692C65984100571A27 /* WeatherAPITestView.swift */; };
+		21EDE2412C5B1B2B00F973C0 /* ModelContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EDE2402C5B1B2B00F973C0 /* ModelContext.swift */; };
+		21EDE2432C5B1C1D00F973C0 /* SDTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EDE2422C5B1C1D00F973C0 /* SDTestView.swift */; };
+		21F36C4D2C66770600988438 /* FirebaseObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F36C4C2C66770600988438 /* FirebaseObservable.swift */; };
+		712B07642C631EC8001DC52C /* RecordItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712B07632C631EC8001DC52C /* RecordItemView.swift */; };
+		71449BF22C5E1E7700801E50 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 71449BF12C5E1E7200801E50 /* Pretendard-SemiBold.otf */; };
+		71449BF42C5E1E7E00801E50 /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 89A63A142C58982A00787DC4 /* Pretendard-ExtraLight.otf */; };
+		71449BF52C5E1E8000801E50 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 89A63A152C58983700787DC4 /* Pretendard-Medium.otf */; };
+		7159C18C2C5F4F89007300D6 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7159C18B2C5F4F89007300D6 /* Pretendard-SemiBold.otf */; };
+		7159C18E2C60C549007300D6 /* RecordChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7159C18D2C60C549007300D6 /* RecordChartViewModel.swift */; };
+		715BA4CC2C6111FF00477938 /* ModalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715BA4CB2C6111FF00477938 /* ModalView.swift */; };
+		715BA4CE2C6115BC00477938 /* RecordChartTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715BA4CD2C6115BC00477938 /* RecordChartTestView.swift */; };
+		715BA4D02C611DE600477938 /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715BA4CF2C611DE600477938 /* CategoriesView.swift */; };
+		717594132C5C614700F28BA1 /* RecordChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EA9CC2C5A56730090BAB5 /* RecordChartView.swift */; };
+		717594152C5C656700F28BA1 /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717594142C5C656700F28BA1 /* LocationView.swift */; };
 		719EA9C02C5768580090BAB5 /* FitChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EA9BF2C5768580090BAB5 /* FitChartView.swift */; };
 		719EA9C32C5770660090BAB5 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 719EA9C22C5770660090BAB5 /* Pretendard-Bold.otf */; };
 		719EA9C52C57729E0090BAB5 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719EA9C42C57729E0090BAB5 /* Font.swift */; };
-		719EA9C72C57745A0090BAB5 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 719EA9C62C57745A0090BAB5 /* Pretendard-SemiBold.otf */; };
 		719EA9CA2C57B13C0090BAB5 /* SF-Pro-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 719EA9C82C57B13C0090BAB5 /* SF-Pro-Italic.ttf */; };
 		719EA9CB2C57B13C0090BAB5 /* SF-Pro.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 719EA9C92C57B13C0090BAB5 /* SF-Pro.ttf */; };
+		89A63A182C59B7D100787DC4 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A63A172C59B7D100787DC4 /* MainView.swift */; };
+		89A63A1B2C59E4B800787DC4 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A63A1A2C59E4B800787DC4 /* StatisticsView.swift */; };
+		89A63A1D2C59E4F200787DC4 /* RecentChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A63A1C2C59E4F200787DC4 /* RecentChartsView.swift */; };
+		89A63A1F2C59E53100787DC4 /* PinChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A63A1E2C59E53100787DC4 /* PinChartsView.swift */; };
+		89A63A242C5C7AE800787DC4 /* SurfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A63A232C5C7AE800787DC4 /* SurfModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0CAF4CFC2C52B29D0054D347 /* SurfModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfModel.swift; sourceTree = SOURCE_ROOT; };
+		21353F602C6786570095CA6D /* BeachMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeachMapper.swift; sourceTree = "<group>"; };
+		21353F622C6873380095CA6D /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		21353F662C6AE0230095CA6D /* RecordItemView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordItemView2.swift; sourceTree = "<group>"; };
+		213A4A732C605E3F00786C97 /* RecordReadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordReadView.swift; sourceTree = "<group>"; };
+		213A4A752C60609600786C97 /* ChartHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHeaderView.swift; sourceTree = "<group>"; };
+		21588AFC2C5C75E6003E3489 /* FirebaseSDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSDView.swift; sourceTree = "<group>"; };
+		21588AFE2C5C760C003E3489 /* OldFirebaseObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldFirebaseObservable.swift; sourceTree = "<group>"; };
+		21588B002C5C7621003E3489 /* FirebaseTestObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTestObservable.swift; sourceTree = "<group>"; };
+		21588B022C5C7632003E3489 /* SwiftDataObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataObservable.swift; sourceTree = "<group>"; };
+		21588B042C5C7652003E3489 /* SDCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDCheckView.swift; sourceTree = "<group>"; };
+		21588B072C5CC2CA003E3489 /* DateFormatterManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatterManager.swift; sourceTree = "<group>"; };
+		21588B092C5D594F003E3489 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		21588B0B2C5D5D30003E3489 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		21588B0F2C5E201F003E3489 /* ChartRecordObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRecordObservable.swift; sourceTree = "<group>"; };
+		21588B112C6009AF003E3489 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
+		21588B132C600CAA003E3489 /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
+		21588B1C2C601239003E3489 /* RecordCreateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCreateView.swift; sourceTree = "<group>"; };
+		21588B1E2C6012B8003E3489 /* TimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerView.swift; sourceTree = "<group>"; };
+		21588B202C601412003E3489 /* EvaluationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationView.swift; sourceTree = "<group>"; };
+		21588B232C6015BC003E3489 /* RecordButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButtonView.swift; sourceTree = "<group>"; };
+		21588B252C6017C0003E3489 /* TabBarBackup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarBackup.swift; sourceTree = "<group>"; };
+		21588B272C601902003E3489 /* OldModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldModel.swift; sourceTree = "<group>"; };
+		21588B292C601E21003E3489 /* RecordCreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCreateViewModel.swift; sourceTree = "<group>"; };
 		21B080292C4D0834007BC655 /* 2024-MC3-Team4-NewT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "2024-MC3-Team4-NewT.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _024_MC3_Team4_NewTApp.swift; sourceTree = "<group>"; };
 		21B080302C4D0836007BC655 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21B080332C4D0836007BC655 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		21B0803A2C4D087F007BC655 /* PiriView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiriView.swift; sourceTree = "<group>"; };
-		21B0803C2C4D0888007BC655 /* JaneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JaneView.swift; sourceTree = "<group>"; };
+		21B0803C2C4D0888007BC655 /* MainChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainChartView.swift; sourceTree = "<group>"; };
 		21B0803E2C4D089F007BC655 /* SisiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SisiView.swift; sourceTree = "<group>"; };
-		21B080402C4D08B2007BC655 /* NadaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NadaView.swift; sourceTree = "<group>"; };
 		21B080422C4D08C2007BC655 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		21B0806D2C516248007BC655 /* FindSpotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindSpotView.swift; sourceTree = "<group>"; };
 		21B0806F2C52844C007BC655 /* EmbededView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbededView.swift; sourceTree = "<group>"; };
 		21B080712C52890A007BC655 /* WindyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindyView.swift; sourceTree = "<group>"; };
 		21B080732C56DB7A007BC655 /* WindFinderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindFinderView.swift; sourceTree = "<group>"; };
-		21B080752C578BC6007BC655 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		21B0807C2C57C68D007BC655 /* FirebaseTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTestView.swift; sourceTree = "<group>"; };
 		21B0807E2C587D3C007BC655 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		21B080802C588261007BC655 /* WaveObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveObservable.swift; sourceTree = "<group>"; };
+		21BA39672C641DDD00571A27 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		21BA39692C65984100571A27 /* WeatherAPITestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPITestView.swift; sourceTree = "<group>"; };
+		21EDE2402C5B1B2B00F973C0 /* ModelContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContext.swift; sourceTree = "<group>"; };
+		21EDE2422C5B1C1D00F973C0 /* SDTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDTestView.swift; sourceTree = "<group>"; };
+		21F36C4C2C66770600988438 /* FirebaseObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseObservable.swift; sourceTree = "<group>"; };
+		712B07632C631EC8001DC52C /* RecordItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordItemView.swift; sourceTree = "<group>"; };
+		71449BF12C5E1E7200801E50 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		7159C18B2C5F4F89007300D6 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		7159C18D2C60C549007300D6 /* RecordChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordChartViewModel.swift; sourceTree = "<group>"; };
+		715BA4CB2C6111FF00477938 /* ModalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalView.swift; sourceTree = "<group>"; };
+		715BA4CD2C6115BC00477938 /* RecordChartTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordChartTestView.swift; sourceTree = "<group>"; };
+		715BA4CF2C611DE600477938 /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
+		717594142C5C656700F28BA1 /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		719EA9BF2C5768580090BAB5 /* FitChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitChartView.swift; sourceTree = "<group>"; };
 		719EA9C12C576EA20090BAB5 /* -024-MC3-Team4-NewT-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "-024-MC3-Team4-NewT-Info.plist"; sourceTree = SOURCE_ROOT; };
 		719EA9C22C5770660090BAB5 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		719EA9C42C57729E0090BAB5 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
-		719EA9C62C57745A0090BAB5 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		719EA9C82C57B13C0090BAB5 /* SF-Pro-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Italic.ttf"; sourceTree = "<group>"; };
 		719EA9C92C57B13C0090BAB5 /* SF-Pro.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro.ttf"; sourceTree = "<group>"; };
+		719EA9CC2C5A56730090BAB5 /* RecordChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordChartView.swift; sourceTree = "<group>"; };
+		89A63A142C58982A00787DC4 /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
+		89A63A152C58983700787DC4 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		89A63A172C59B7D100787DC4 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		89A63A1A2C59E4B800787DC4 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
+		89A63A1C2C59E4F200787DC4 /* RecentChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentChartsView.swift; sourceTree = "<group>"; };
+		89A63A1E2C59E53100787DC4 /* PinChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinChartsView.swift; sourceTree = "<group>"; };
+		89A63A232C5C7AE800787DC4 /* SurfModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +155,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		213A4A722C605E2600786C97 /* RecordReadView */ = {
+			isa = PBXGroup;
+			children = (
+				715BA4CF2C611DE600477938 /* CategoriesView.swift */,
+				715BA4CB2C6111FF00477938 /* ModalView.swift */,
+				715BA4CD2C6115BC00477938 /* RecordChartTestView.swift */,
+				719EA9CC2C5A56730090BAB5 /* RecordChartView.swift */,
+				712B07632C631EC8001DC52C /* RecordItemView.swift */,
+				213A4A732C605E3F00786C97 /* RecordReadView.swift */,
+				21353F662C6AE0230095CA6D /* RecordItemView2.swift */,
+			);
+			path = RecordReadView;
+			sourceTree = "<group>";
+		};
+		21588B062C5CC29A003E3489 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				21588B072C5CC2CA003E3489 /* DateFormatterManager.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		21B080202C4D0834007BC655 = {
 			isa = PBXGroup;
 			children = (
@@ -114,17 +216,14 @@
 		21B080442C4D08D3007BC655 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				21B0806F2C52844C007BC655 /* EmbededView.swift */,
-				21B0806D2C516248007BC655 /* FindSpotView.swift */,
-				719EA9BF2C5768580090BAB5 /* FitChartView.swift */,
-				21B0803C2C4D0888007BC655 /* JaneView.swift */,
-				21B080402C4D08B2007BC655 /* NadaView.swift */,
-				21B0803A2C4D087F007BC655 /* PiriView.swift */,
-				21B0803E2C4D089F007BC655 /* SisiView.swift */,
+				89A63A252C5C7AF200787DC4 /* MainView */,
+				89A63A262C5C7C1300787DC4 /* RecordCreateView */,
+				213A4A722C605E2600786C97 /* RecordReadView */,
+				89A63A212C5C7A3800787DC4 /* LocationView */,
+				89A63A222C5C7A8600787DC4 /* SwiftData */,
+				89A63A202C5C7A1500787DC4 /* BackEnd */,
 				21B080422C4D08C2007BC655 /* TestView.swift */,
-				21B080732C56DB7A007BC655 /* WindFinderView.swift */,
-				21B080712C52890A007BC655 /* WindyView.swift */,
-				21B0807C2C57C68D007BC655 /* FirebaseTestView.swift */,
+				21353F622C6873380095CA6D /* OnboardingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -132,8 +231,8 @@
 		21B080452C4D08DB007BC655 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				21B0807E2C587D3C007BC655 /* DummyData.swift */,
-				0CAF4CFC2C52B29D0054D347 /* SurfModel.swift */,
+				21588B272C601902003E3489 /* OldModel.swift */,
+				89A63A232C5C7AE800787DC4 /* SurfModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -141,16 +240,16 @@
 		21B080462C4D08E2007BC655 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				21588B0F2C5E201F003E3489 /* ChartRecordObservable.swift */,
+				21F36C4C2C66770600988438 /* FirebaseObservable.swift */,
+				21588B002C5C7621003E3489 /* FirebaseTestObservable.swift */,
+				21588AFE2C5C760C003E3489 /* OldFirebaseObservable.swift */,
+				7159C18D2C60C549007300D6 /* RecordChartViewModel.swift */,
+				21588B292C601E21003E3489 /* RecordCreateViewModel.swift */,
+				21588B022C5C7632003E3489 /* SwiftDataObservable.swift */,
 				21B080802C588261007BC655 /* WaveObservable.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		21B080662C4F3433007BC655 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extension;
 			sourceTree = "<group>";
 		};
 		21B080672C4F345D007BC655 /* Resource */ = {
@@ -158,7 +257,8 @@
 			children = (
 				21B080302C4D0836007BC655 /* Assets.xcassets */,
 				21B0806B2C4F355A007BC655 /* Constant */,
-				21B080662C4F3433007BC655 /* Extension */,
+				21EDE23F2C5B1B1B00F973C0 /* Extension */,
+				21588B062C5CC29A003E3489 /* Utils */,
 				21B0806A2C4F354D007BC655 /* Font */,
 			);
 			path = Resource;
@@ -187,7 +287,10 @@
 			children = (
 				719EA9C42C57729E0090BAB5 /* Font.swift */,
 				719EA9C22C5770660090BAB5 /* Pretendard-Bold.otf */,
-				719EA9C62C57745A0090BAB5 /* Pretendard-SemiBold.otf */,
+				89A63A152C58983700787DC4 /* Pretendard-Medium.otf */,
+				89A63A142C58982A00787DC4 /* Pretendard-ExtraLight.otf */,
+				7159C18B2C5F4F89007300D6 /* Pretendard-SemiBold.otf */,
+				71449BF12C5E1E7200801E50 /* Pretendard-SemiBold.otf */,
 				719EA9C82C57B13C0090BAB5 /* SF-Pro-Italic.ttf */,
 				719EA9C92C57B13C0090BAB5 /* SF-Pro.ttf */,
 			);
@@ -197,6 +300,8 @@
 		21B0806B2C4F355A007BC655 /* Constant */ = {
 			isa = PBXGroup;
 			children = (
+				21353F602C6786570095CA6D /* BeachMapper.swift */,
+				21B0807E2C587D3C007BC655 /* DummyData.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -204,10 +309,81 @@
 		21B0806C2C4F358D007BC655 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				21B080752C578BC6007BC655 /* GoogleService-Info.plist */,
+				21BA39672C641DDD00571A27 /* GoogleService-Info.plist */,
 				21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		21EDE23F2C5B1B1B00F973C0 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				21EDE2402C5B1B2B00F973C0 /* ModelContext.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		89A63A202C5C7A1500787DC4 /* BackEnd */ = {
+			isa = PBXGroup;
+			children = (
+				21588B092C5D594F003E3489 /* ContentView.swift */,
+				21B0806F2C52844C007BC655 /* EmbededView.swift */,
+				21588AFC2C5C75E6003E3489 /* FirebaseSDView.swift */,
+				21B0807C2C57C68D007BC655 /* FirebaseTestView.swift */,
+				21B0803A2C4D087F007BC655 /* PiriView.swift */,
+				21588B252C6017C0003E3489 /* TabBarBackup.swift */,
+				21BA39692C65984100571A27 /* WeatherAPITestView.swift */,
+				21B080732C56DB7A007BC655 /* WindFinderView.swift */,
+				21B080712C52890A007BC655 /* WindyView.swift */,
+			);
+			path = BackEnd;
+			sourceTree = "<group>";
+		};
+		89A63A212C5C7A3800787DC4 /* LocationView */ = {
+			isa = PBXGroup;
+			children = (
+				21B0806D2C516248007BC655 /* FindSpotView.swift */,
+				717594142C5C656700F28BA1 /* LocationView.swift */,
+			);
+			path = LocationView;
+			sourceTree = "<group>";
+		};
+		89A63A222C5C7A8600787DC4 /* SwiftData */ = {
+			isa = PBXGroup;
+			children = (
+				21588B042C5C7652003E3489 /* SDCheckView.swift */,
+				21EDE2422C5B1C1D00F973C0 /* SDTestView.swift */,
+			);
+			path = SwiftData;
+			sourceTree = "<group>";
+		};
+		89A63A252C5C7AF200787DC4 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				21588B0B2C5D5D30003E3489 /* CustomTabBar.swift */,
+				719EA9BF2C5768580090BAB5 /* FitChartView.swift */,
+				21B0803C2C4D0888007BC655 /* MainChartView.swift */,
+				89A63A172C59B7D100787DC4 /* MainView.swift */,
+				89A63A1E2C59E53100787DC4 /* PinChartsView.swift */,
+				89A63A1C2C59E4F200787DC4 /* RecentChartsView.swift */,
+				89A63A1A2C59E4B800787DC4 /* StatisticsView.swift */,
+				21588B132C600CAA003E3489 /* TabBarButton.swift */,
+			);
+			path = MainView;
+			sourceTree = "<group>";
+		};
+		89A63A262C5C7C1300787DC4 /* RecordCreateView */ = {
+			isa = PBXGroup;
+			children = (
+				213A4A752C60609600786C97 /* ChartHeaderView.swift */,
+				21588B112C6009AF003E3489 /* ChartView.swift */,
+				21588B202C601412003E3489 /* EvaluationView.swift */,
+				21588B232C6015BC003E3489 /* RecordButtonView.swift */,
+				21588B1C2C601239003E3489 /* RecordCreateView.swift */,
+				21B0803E2C4D089F007BC655 /* SisiView.swift */,
+				21588B1E2C6012B8003E3489 /* TimePickerView.swift */,
+			);
+			path = RecordCreateView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,11 +453,14 @@
 			files = (
 				21B080342C4D0836007BC655 /* Preview Assets.xcassets in Resources */,
 				719EA9CB2C57B13C0090BAB5 /* SF-Pro.ttf in Resources */,
+				7159C18C2C5F4F89007300D6 /* Pretendard-SemiBold.otf in Resources */,
+				71449BF42C5E1E7E00801E50 /* Pretendard-ExtraLight.otf in Resources */,
+				71449BF22C5E1E7700801E50 /* Pretendard-SemiBold.otf in Resources */,
 				719EA9C32C5770660090BAB5 /* Pretendard-Bold.otf in Resources */,
 				21B080312C4D0836007BC655 /* Assets.xcassets in Resources */,
-				21B080762C578BC6007BC655 /* GoogleService-Info.plist in Resources */,
-				719EA9C72C57745A0090BAB5 /* Pretendard-SemiBold.otf in Resources */,
+				21BA39682C641DDD00571A27 /* GoogleService-Info.plist in Resources */,
 				719EA9CA2C57B13C0090BAB5 /* SF-Pro-Italic.ttf in Resources */,
+				71449BF52C5E1E8000801E50 /* Pretendard-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,20 +471,57 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21588B212C601412003E3489 /* EvaluationView.swift in Sources */,
+				21F36C4D2C66770600988438 /* FirebaseObservable.swift in Sources */,
+				21588B1F2C6012B8003E3489 /* TimePickerView.swift in Sources */,
+				21588B032C5C7632003E3489 /* SwiftDataObservable.swift in Sources */,
+				21353F612C6786570095CA6D /* BeachMapper.swift in Sources */,
 				21B080742C56DB7A007BC655 /* WindFinderView.swift in Sources */,
 				719EA9C02C5768580090BAB5 /* FitChartView.swift in Sources */,
 				21B080432C4D08C2007BC655 /* TestView.swift in Sources */,
+				89A63A242C5C7AE800787DC4 /* SurfModel.swift in Sources */,
+				213A4A762C60609600786C97 /* ChartHeaderView.swift in Sources */,
+				21EDE2432C5B1C1D00F973C0 /* SDTestView.swift in Sources */,
 				21B0807F2C587D3C007BC655 /* DummyData.swift in Sources */,
-				21B080412C4D08B2007BC655 /* NadaView.swift in Sources */,
+				89A63A1F2C59E53100787DC4 /* PinChartsView.swift in Sources */,
 				21B0803F2C4D089F007BC655 /* SisiView.swift in Sources */,
+				21588B012C5C7621003E3489 /* FirebaseTestObservable.swift in Sources */,
 				21B0802D2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift in Sources */,
+				21588B0A2C5D594F003E3489 /* ContentView.swift in Sources */,
+				21EDE2412C5B1B2B00F973C0 /* ModelContext.swift in Sources */,
+				21588B2A2C601E21003E3489 /* RecordCreateViewModel.swift in Sources */,
 				21B080812C588261007BC655 /* WaveObservable.swift in Sources */,
-				0CAF4CFD2C52B29D0054D347 /* SurfModel.swift in Sources */,
+				21588AFD2C5C75E6003E3489 /* FirebaseSDView.swift in Sources */,
 				21B0807D2C57C68D007BC655 /* FirebaseTestView.swift in Sources */,
 				719EA9C52C57729E0090BAB5 /* Font.swift in Sources */,
-				21B0803D2C4D0888007BC655 /* JaneView.swift in Sources */,
+				21588B082C5CC2CA003E3489 /* DateFormatterManager.swift in Sources */,
+				7159C18E2C60C549007300D6 /* RecordChartViewModel.swift in Sources */,
+				21353F672C6AE0230095CA6D /* RecordItemView2.swift in Sources */,
+				21588B142C600CAA003E3489 /* TabBarButton.swift in Sources */,
+				712B07642C631EC8001DC52C /* RecordItemView.swift in Sources */,
+				715BA4CC2C6111FF00477938 /* ModalView.swift in Sources */,
+				21588B102C5E201F003E3489 /* ChartRecordObservable.swift in Sources */,
+				89A63A182C59B7D100787DC4 /* MainView.swift in Sources */,
+				21B0803D2C4D0888007BC655 /* MainChartView.swift in Sources */,
+				21588B0C2C5D5D30003E3489 /* CustomTabBar.swift in Sources */,
+				89A63A1B2C59E4B800787DC4 /* StatisticsView.swift in Sources */,
 				21B080702C52844C007BC655 /* EmbededView.swift in Sources */,
+				21BA396A2C65984100571A27 /* WeatherAPITestView.swift in Sources */,
+				715BA4D02C611DE600477938 /* CategoriesView.swift in Sources */,
 				21B0803B2C4D087F007BC655 /* PiriView.swift in Sources */,
+				21353F632C6873380095CA6D /* OnboardingView.swift in Sources */,
+				21588B052C5C7652003E3489 /* SDCheckView.swift in Sources */,
+				21588B1D2C601239003E3489 /* RecordCreateView.swift in Sources */,
+				213A4A742C605E3F00786C97 /* RecordReadView.swift in Sources */,
+				21588B122C6009AF003E3489 /* ChartView.swift in Sources */,
+				717594152C5C656700F28BA1 /* LocationView.swift in Sources */,
+				21588B262C6017C0003E3489 /* TabBarBackup.swift in Sources */,
+				21588B282C601902003E3489 /* OldModel.swift in Sources */,
+				21588AFF2C5C760C003E3489 /* OldFirebaseObservable.swift in Sources */,
+				89A63A1D2C59E4F200787DC4 /* RecentChartsView.swift in Sources */,
+				717594132C5C614700F28BA1 /* RecordChartView.swift in Sources */,
+				715BA4CE2C6115BC00477938 /* RecordChartTestView.swift in Sources */,
+				21588B242C6015BC003E3489 /* RecordButtonView.swift in Sources */,
 				21B0806E2C516248007BC655 /* FindSpotView.swift in Sources */,
 				21B080722C52890A007BC655 /* WindyView.swift in Sources */,
 			);
@@ -454,8 +670,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ADA.-024-MC3-Team4-NewT";
+				MARKETING_VERSION = 1.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ADA.NewT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -484,8 +700,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ADA.-024-MC3-Team4-NewT";
+				MARKETING_VERSION = 1.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ADA.NewT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
