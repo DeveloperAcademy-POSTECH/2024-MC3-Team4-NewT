@@ -1,7 +1,7 @@
-# 안녕하세요.New-T입니다.
+# 안녕하세요. 오전 4팀 New-T입니다.
 ![image](https://github.com/user-attachments/assets/51308ebc-3b10-4194-9b27-e0c564a3e1d2)
 
-# :iphone: [Project/App Name]
+# :iphone: [나에게 맞는 차트 수치를 찾아서 / Do Surf! 🌊 : 두섭이]
 [Logo/Cover Image]
 
 [App statement]
@@ -32,4 +32,4 @@ ex) <img src="https://img.shields.io/badge/Swift-FA7343?style=flat&logo=Swift&lo
 
 ## :people_hugging: Authors
 
-@username, @username, @username, @username, @username, @username
+@SSSiye, @piriram, @username, @username, @username, @username
