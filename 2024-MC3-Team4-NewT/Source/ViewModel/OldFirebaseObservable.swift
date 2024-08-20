@@ -15,11 +15,11 @@ class OldFirebaseObservable {
     var items: [ChartRow] = []
     var container = try? ModelContainer(for:
                                             DailyWeatherOld.self,
-                                        SurfingValues.self,
+                                        OldSurfingValues.self,
                                         ChartRow.self,
-                                        DailyWeather.self,
-                                        SurfingRecordOne.self,
-                                        Statistics.self
+                                        OldDailyWeather.self,
+                                        OldSurfingRecordOne.self,
+                                        OldStatistics.self
     )
     // Firebase에서 데이터를 가져와서 주어진 ChartRow 배열을 업데이트하는 함수
     func fetchFirebase(modelContext: ModelContext, collectionName: String, chartRow: [ChartRow]) {
@@ -63,7 +63,7 @@ class OldFirebaseObservable {
                    let windNorth = data["wind_north"] as? Double {
                     
                     // SurfingValues2 객체를 동일한 컨텍스트에서 생성하여 데이터 저장
-                    let surfingValues = SurfingValues(
+                    let surfingValues = OldSurfingValues(
                         waveDirection: Float(wavesDirection),
                         waveHeight: Float(wavesHeight),
                         wavePeriod: Float(wavesPeriod),

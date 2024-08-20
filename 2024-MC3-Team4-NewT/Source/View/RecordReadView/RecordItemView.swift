@@ -2,7 +2,7 @@ import SwiftUI
 import SwiftData
 
 struct RecordItemView: View {
-    var item: SurfingRecordOne
+    var item: OldSurfingRecordOne
     @ObservedObject var viewModel: RecordChartViewModel
     @Environment(\.modelContext) var modelContext
     @State private var showDeleteConfirmation = false
@@ -193,7 +193,7 @@ struct RecordItemView: View {
         
     }
     // 기록 삭제 함수
-    func deleteRecord(item: SurfingRecordOne) {
+    func deleteRecord(item: OldSurfingRecordOne) {
         modelContext.delete(item)
         try? modelContext.save()
     }

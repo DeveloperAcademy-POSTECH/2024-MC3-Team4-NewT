@@ -5,7 +5,7 @@ struct RecentChartsView: View {
 //    @Environment(\.modelContext) var modelContext
     @StateObject private var viewModel = RecordChartViewModel()
     @Query(sort: \ChartRow.time) var chartRows: [ChartRow]
-    @Query(sort: \SurfingRecordOne.surfingStartTime) var surfingRecords: [SurfingRecordOne]
+    @Query(sort: \OldSurfingRecordOne.surfingStartTime) var surfingRecords: [OldSurfingRecordOne]
     @State private var evaluationValue: Int?
     
     var body: some View {

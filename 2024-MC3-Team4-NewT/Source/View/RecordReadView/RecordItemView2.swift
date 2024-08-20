@@ -8,7 +8,7 @@ import SwiftUI
 import SwiftData
 
 struct RecordItemView2: View {
-    var item: SurfingRecordOne
+    var item: OldSurfingRecordOne
     @ObservedObject var viewModel: RecordChartViewModel
     @Environment(\.modelContext) var modelContext
     @State private var showDeleteConfirmation = false

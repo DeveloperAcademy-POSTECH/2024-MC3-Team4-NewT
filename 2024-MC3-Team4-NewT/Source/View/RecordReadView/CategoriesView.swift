@@ -2,7 +2,7 @@ import SwiftUI
 import SwiftData
 
 struct CategoriesView: View {
-    @Query private var surfingRecordOneData: [SurfingRecordOne]
+    @Query private var surfingRecordOneData: [OldSurfingRecordOne]
     @ObservedObject var viewModel = RecordChartViewModel()
     
     var body: some View {

@@ -2,7 +2,7 @@ import SwiftUI
 import SwiftData
 
 struct FitChartView: View {
-    @Query var statistics: [Statistics]
+    @Query var statistics: [OldStatistics]
     var body: some View {
         VStack(spacing: 0){
             //MARK: 메인뷰 상단 메뉴

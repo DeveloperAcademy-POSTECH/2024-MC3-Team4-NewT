@@ -15,13 +15,13 @@ class RecordChartViewModel: ObservableObject {
     @Published var isMemoCheckingButton: [UUID: Bool] = [:]
     @Published var isPinCounter: Int = 0
     @Published var chartRow: [ChartRow] = []
-    @Published var surfingRecords: [SurfingRecordOne] = []
+    @Published var surfingRecords: [OldSurfingRecordOne] = []
     @Published var showPin = false
     
     
     
     /// LotationView 변수
-    @Published var selectedRegion: Region? = nil
+    @Published var selectedRegion: OldRegion? = nil
     @Published var selectedItem: String = "포항 신항만해변"
     @Published var selectedItemBackgroundColor: Color = Color("backgroundSkyblue")
     @Published var selectedItemColor: Color = Color("surfBlue")
@@ -33,7 +33,7 @@ class RecordChartViewModel: ObservableObject {
     @Published var chartRowId: UUID = UUID()
     @Published var isChartPinButton: [UUID: Bool] = [:]
     
-    func filteredRecordChart(charts: [ChartRow], recordOne: SurfingRecordOne) -> [ChartRow] {
+    func filteredRecordChart(charts: [ChartRow], recordOne: OldSurfingRecordOne) -> [ChartRow] {
         var 필터된데이터: [ChartRow] = []
         
         for chartRow in charts {

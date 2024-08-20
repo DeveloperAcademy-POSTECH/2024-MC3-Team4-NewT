@@ -2,7 +2,7 @@ import SwiftUI
 import SwiftData
 
 struct ModalView: View {
-    @Query private var surfingRecordOneData: [SurfingRecordOne]
+    @Query private var surfingRecordOneData: [OldSurfingRecordOne]
     @ObservedObject var viewModel : RecordChartViewModel
     @Environment(\.dismiss) private var dismiss
     var body: some View {

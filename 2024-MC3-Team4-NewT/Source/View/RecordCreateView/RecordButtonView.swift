@@ -10,7 +10,7 @@ import SwiftData
 
 struct RecordButtonView: View {
     @Query(sort: \ChartRow.time) var chartRows: [ChartRow]
-    @Query(sort: \SurfingRecordOne.surfingStartTime) var surfingRecords: [SurfingRecordOne]
+    @Query(sort: \OldSurfingRecordOne.surfingStartTime) var surfingRecords: [OldSurfingRecordOne]
     @Environment(\.modelContext) var modelContext
     @ObservedObject var viewModel: RecordCreateViewModel
     var observable: ChartRecordObservable
@@ -20,7 +20,7 @@ struct RecordButtonView: View {
     var body: some View {
         Button {
             let evaluationValue = Int(viewModel.isScore + 1)
-            let record = SurfingRecordOne(surfingStartTime: viewModel.startTime, surfingEndTime: viewModel.stopTime, charts: [], evaluationValue: evaluationValue, evaluationText: viewModel.isScoreText, memo: viewModel.memo)
+            let record = OldSurfingRecordOne(surfingStartTime: viewModel.startTime, surfingEndTime: viewModel.stopTime, charts: [], evaluationValue: evaluationValue, evaluationText: viewModel.isScoreText, memo: viewModel.memo)
             
             if viewModel.isMemo {
                 viewModel.heightSize = 322.0
@@ -33,7 +33,7 @@ struct RecordButtonView: View {
             
             for aa in observable.필터된차트 {
                 let tmp2 = aa.surfingValues
-                let tmp1 = SurfingValues(waveDirection: tmp2.waveDirection, waveHeight: tmp2.waveHeight, wavePeriod: tmp2.wavePeriod, windDirection: tmp2.waveDirection, windSpeed: tmp2.windSpeed, weather: tmp2.weather, airTemperature: tmp2.airTemperature, waterTemperature: tmp2.waterTemperature)
+                let tmp1 = OldSurfingValues(waveDirection: tmp2.waveDirection, waveHeight: tmp2.waveHeight, wavePeriod: tmp2.wavePeriod, windDirection: tmp2.waveDirection, windSpeed: tmp2.windSpeed, weather: tmp2.weather, airTemperature: tmp2.airTemperature, waterTemperature: tmp2.waterTemperature)
                 modelContext.insert(tmp1)
                 let tmp = ChartRow(time: aa.time, surfingValues: tmp1, isHighTide: aa.isHighTide, isLowTide: aa.isLowTide)
                 tmp.surfingRecordStartTime = viewModel.startTime
@@ -100,12 +100,12 @@ struct RecordButtonView: View {
         let averageWindDirection = Float(totalWindDirection / count)
         let averageWindSpeed = Float(totalWindSpeed / count)
         
-        let descriptor = FetchDescriptor<Statistics>()
-        let statistics: Statistics
+        let descriptor = FetchDescriptor<OldStatistics>()
+        let statistics: OldStatistics
         if let fetchedStatistics = try? modelContext.fetch(descriptor).first {
             statistics = fetchedStatistics
         } else {
-            statistics = Statistics()
+            statistics = OldStatistics()
             modelContext.insert(statistics)
         }
         

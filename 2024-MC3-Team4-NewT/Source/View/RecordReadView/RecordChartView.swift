@@ -4,7 +4,7 @@ import SwiftData
 
 struct RecordChartView: View {
     @Environment(\.modelContext) var modelContext
-    @Query private var surfingRecordOneData: [SurfingRecordOne]
+    @Query private var surfingRecordOneData: [OldSurfingRecordOne]
     @ObservedObject var viewModel = RecordChartViewModel()
     @State var isLocationSelected = false
     private let selectionKey = "selectionKey"
@@ -100,7 +100,7 @@ struct RecordChartView: View {
     }
     
     // UserDefaults에서 pinRecord를 불러와 필터링된 Record 배열 반환
-    func getPinnedRecords() -> [SurfingRecordOne] {
+    func getPinnedRecords() -> [OldSurfingRecordOne] {
         guard let pinnedStartTimesStrings = UserDefaults.standard.array(forKey: "pinRecord") as? [String] else {
             return []
         }

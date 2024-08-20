@@ -2,10 +2,10 @@ import Foundation
 import SwiftUI
 import SwiftData
 struct RecordChartTestView: View {
-    @Query private var surfingRecordOneData: [SurfingRecordOne]
+    @Query private var surfingRecordOneData: [OldSurfingRecordOne]
     @ObservedObject var viewModel: RecordChartViewModel
     @Query(sort: \ChartRow.time) var chartRow: [ChartRow]
-    var recordOne: SurfingRecordOne
+    var recordOne: OldSurfingRecordOne
     @EnvironmentObject var myObject: MyObservableObject
     @State private var selectedItem: ChartRow?
     @State var kkk = false

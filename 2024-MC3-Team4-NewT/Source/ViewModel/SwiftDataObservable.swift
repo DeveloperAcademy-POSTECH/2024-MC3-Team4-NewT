@@ -12,10 +12,10 @@ import SwiftUI
 class SwiftDataObservable {
     
     var selectedDate: Date = Date()
-    var dailyWeathers: [DailyWeather] = []
+    var dailyWeathers: [OldDailyWeather] = []
     
     // SurfingValues2 전체 모델을 인자로 받아 생성하는 함수
-    func createSurfingValues2(modelContext: ModelContext, surfingValues: SurfingValues) {
+    func createSurfingValues2(modelContext: ModelContext, surfingValues: OldSurfingValues) {
         modelContext.insert(surfingValues)
     }
     
@@ -25,17 +25,17 @@ class SwiftDataObservable {
     }
     
     // DailyWeather2 전체 모델을 인자로 받아 생성하는 함수
-    func createDailyWeather2(modelContext: ModelContext, dailyWeather: DailyWeather) {
+    func createDailyWeather2(modelContext: ModelContext, dailyWeather: OldDailyWeather) {
         modelContext.insert(dailyWeather)
     }
     
     // SurfingRecordOne 전체 모델을 인자로 받아 생성하는 함수
-    func createSurfingRecordOne(modelContext: ModelContext, surfingRecord: SurfingRecordOne) {
+    func createSurfingRecordOne(modelContext: ModelContext, surfingRecord: OldSurfingRecordOne) {
         modelContext.insert(surfingRecord)
     }
     
     // Statistics 전체 모델을 인자로 받아 생성하는 함수
-    func createStatistics(modelContext: ModelContext, statistics: Statistics) {
+    func createStatistics(modelContext: ModelContext, statistics: OldStatistics) {
         modelContext.insert(statistics)
     }
 }

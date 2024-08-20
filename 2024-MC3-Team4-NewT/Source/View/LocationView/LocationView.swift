@@ -8,7 +8,7 @@ struct LocationView: View {
     // UserDefaults 키 상수
     private let selectionKey = "selectionKey" // 선택된 지역과 항목을 함께 저장하기 위한 UserDefaults 키
     
-    @State private var selectedRegion: Region? // 선택된 지역을 저장하기 위한 상태 변수
+    @State private var selectedRegion: OldRegion? // 선택된 지역을 저장하기 위한 상태 변수
     @State private var selectedRegionItem: String? // 선택된 지역 내 항목을 저장하기 위한 상태 변수
     @Binding var isLocationSelected: Bool
     
@@ -32,7 +32,7 @@ struct LocationView: View {
                 HStack(spacing: 0) {
                     // 왼쪽 지역 목록 (순서가 고정됨)
                     VStack(alignment: .leading, spacing: 0) {
-                        ForEach(regions) { region in
+                        ForEach(oldRegions) { region in
                             HStack(spacing: 0) {
                                 Button {
                                     // 지역을 선택했을 때 해당 지역을 상태 변수에 저장하고 UserDefaults에 저장
@@ -177,7 +177,7 @@ struct LocationView: View {
             if components.count == 2 {
                 let itemName = String(components[1])
                 
-                selectedRegion = regions.first(where: { $0.items.contains(itemName) })
+                selectedRegion = oldRegions.first(where: { $0.items.contains(itemName) })
                 selectedRegionItem = itemName
                 print("불러온 값: \(combinedValue)")
             }

@@ -49,7 +49,7 @@ class FirebaseTestObservable {
                    let windNorth = data["wind_north"] as? Double {
                     
                     // SurfingValues2 객체를 생성하여 데이터 저장
-                    let surfingValues = SurfingValues(
+                    let surfingValues = OldSurfingValues(
                         waveDirection: Float(wavesDirection),
                         waveHeight: Float(wavesHeight),
                         wavePeriod: Float(wavesPeriod),

@@ -8,11 +8,11 @@ class FirebaseObservable {
     var items: [ChartRow] = []
     var container = try? ModelContainer(for:
                                             DailyWeatherOld.self,
-                                        SurfingValues.self,
+                                        OldSurfingValues.self,
                                         ChartRow.self,
-                                        DailyWeather.self,
-                                        SurfingRecordOne.self,
-                                        Statistics.self
+                                        OldDailyWeather.self,
+                                        OldSurfingRecordOne.self,
+                                        OldStatistics.self
     )
     
     func fetchFirebase(modelContext: ModelContext, collectionName: String, chartRow: [ChartRow]) {
@@ -55,7 +55,7 @@ class FirebaseObservable {
                         let windSpeed = sqrt(pow(windSpeedEastWest, 2) + pow(windSpeedNorthSouth, 2))
                         
                         // SurfingValues 인스턴스 생성
-                        let surfingValues = SurfingValues(
+                        let surfingValues = OldSurfingValues(
                             waveDirection: Float.random(in: 180.0...240.0),
                             waveHeight: Float(wavesHeight),
                             

@@ -10,6 +10,7 @@
 		21353F612C6786570095CA6D /* BeachMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21353F602C6786570095CA6D /* BeachMapper.swift */; };
 		21353F632C6873380095CA6D /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21353F622C6873380095CA6D /* OnboardingView.swift */; };
 		21353F672C6AE0230095CA6D /* RecordItemView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21353F662C6AE0230095CA6D /* RecordItemView2.swift */; };
+		21353F692C742A180095CA6D /* NewSurfModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21353F682C742A180095CA6D /* NewSurfModel.swift */; };
 		213A4A742C605E3F00786C97 /* RecordReadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213A4A732C605E3F00786C97 /* RecordReadView.swift */; };
 		213A4A762C60609600786C97 /* ChartHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213A4A752C60609600786C97 /* ChartHeaderView.swift */; };
 		21588AFD2C5C75E6003E3489 /* FirebaseSDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21588AFC2C5C75E6003E3489 /* FirebaseSDView.swift */; };
@@ -78,6 +79,7 @@
 		21353F602C6786570095CA6D /* BeachMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeachMapper.swift; sourceTree = "<group>"; };
 		21353F622C6873380095CA6D /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		21353F662C6AE0230095CA6D /* RecordItemView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordItemView2.swift; sourceTree = "<group>"; };
+		21353F682C742A180095CA6D /* NewSurfModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSurfModel.swift; sourceTree = "<group>"; };
 		213A4A732C605E3F00786C97 /* RecordReadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordReadView.swift; sourceTree = "<group>"; };
 		213A4A752C60609600786C97 /* ChartHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartHeaderView.swift; sourceTree = "<group>"; };
 		21588AFC2C5C75E6003E3489 /* FirebaseSDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseSDView.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 		21B080452C4D08DB007BC655 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				21353F682C742A180095CA6D /* NewSurfModel.swift */,
 				21588B272C601902003E3489 /* OldModel.swift */,
 				89A63A232C5C7AE800787DC4 /* SurfModel.swift */,
 			);
@@ -505,6 +508,7 @@
 				21B0803D2C4D0888007BC655 /* MainChartView.swift in Sources */,
 				21588B0C2C5D5D30003E3489 /* CustomTabBar.swift in Sources */,
 				89A63A1B2C59E4B800787DC4 /* StatisticsView.swift in Sources */,
+				21353F692C742A180095CA6D /* NewSurfModel.swift in Sources */,
 				21B080702C52844C007BC655 /* EmbededView.swift in Sources */,
 				21BA396A2C65984100571A27 /* WeatherAPITestView.swift in Sources */,
 				715BA4D02C611DE600477938 /* CategoriesView.swift in Sources */,

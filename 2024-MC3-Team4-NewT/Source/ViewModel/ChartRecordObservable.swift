@@ -11,7 +11,7 @@ import SwiftUI
 @Observable
 class ChartRecordObservable {
     var 필터된차트: [ChartRow] = []
-    func test(charts: [ChartRow], recordOne: SurfingRecordOne) -> [ChartRow] {
+    func test(charts: [ChartRow], recordOne: OldSurfingRecordOne) -> [ChartRow] {
         var 필터된데이터: [ChartRow] = []
         
         for chartRow in charts {

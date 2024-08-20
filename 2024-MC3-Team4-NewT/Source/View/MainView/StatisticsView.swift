@@ -7,7 +7,7 @@ func FloatToDouble(_ value: Float) -> Double {
 
 struct StatisticsView: View {
     @Environment(\.modelContext) private var modelContext: ModelContext
-    @Query private var statistics: [Statistics]
+    @Query private var statistics: [OldStatistics]
     @State private var sheetPop: Bool = false
 
     var body: some View {
