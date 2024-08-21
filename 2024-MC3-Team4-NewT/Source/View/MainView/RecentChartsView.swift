@@ -4,7 +4,7 @@ import SwiftData
 struct RecentChartsView: View {
 //    @Environment(\.modelContext) var modelContext
     @StateObject private var viewModel = RecordChartViewModel()
-    @Query(sort: \ChartRow.time) var chartRows: [ChartRow]
+    @Query(sort: \OldChartRow.time) var chartRows: [OldChartRow]
     @Query(sort: \OldSurfingRecordOne.surfingStartTime) var surfingRecords: [OldSurfingRecordOne]
     @State private var evaluationValue: Int?
     
@@ -121,7 +121,7 @@ struct RecentChartsView: View {
 }
 
 extension RecentChartsView {
-    private func evaluationValue(for row: ChartRow) -> Int? {
+    private func evaluationValue(for row: OldChartRow) -> Int? {
         // ChartRow의 id를 사용하여 관련 SurfingRecordOne을 찾기
         for record in surfingRecords {
             if let matchingChartRow = record.charts.first(where: { $0.id == row.id }) {

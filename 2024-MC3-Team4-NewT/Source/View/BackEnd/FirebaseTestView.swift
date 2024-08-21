@@ -8,7 +8,7 @@ import SwiftUI
 import FirebaseFirestore
 
 struct FirebaseTestView: View {
-    @State private var items: [ChartRowTmp] = []
+    @State private var items: [OldChartRowTmp] = []
     
     var body: some View {
         NavigationView {
@@ -50,7 +50,7 @@ struct FirebaseTestView: View {
                 return
             }
             
-            var fetchedItems: [ChartRowTmp] = []
+            var fetchedItems: [OldChartRowTmp] = []
             
             for document in documents {
                 let data = document.data()
@@ -62,7 +62,7 @@ struct FirebaseTestView: View {
                    let wavesPeriod = data["waves_period"] as? Double,
                    let windNorth = data["wind_north"] as? Double {
                     
-                    let surfingValues = SurfingValuesOne(
+                    let surfingValues = OldSurfingValuesOne(
                         waveDirection: Float(wavesDirection),
                         waveHeight: Float(wavesHeight),
                         wavePeriod: Float(wavesPeriod),
@@ -73,7 +73,7 @@ struct FirebaseTestView: View {
                         waterTemperature: Float(temp)
                     )
                     
-                    let item = ChartRowTmp(
+                    let item = OldChartRowTmp(
                         day: timestamp.dateValue(),
                         surfingValues: surfingValues,
                         isHighTide: false,

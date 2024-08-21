@@ -12,17 +12,17 @@ import SwiftUI
 @Observable
 class OldFirebaseObservable {
     // ChartRow 타입의 데이터를 저장하는 배열
-    var items: [ChartRow] = []
+    var items: [OldChartRow] = []
     var container = try? ModelContainer(for:
-                                            DailyWeatherOld.self,
+                                            OldDailyWeatherOld.self,
                                         OldSurfingValues.self,
-                                        ChartRow.self,
+                                        OldChartRow.self,
                                         OldDailyWeather.self,
                                         OldSurfingRecordOne.self,
                                         OldStatistics.self
     )
     // Firebase에서 데이터를 가져와서 주어진 ChartRow 배열을 업데이트하는 함수
-    func fetchFirebase(modelContext: ModelContext, collectionName: String, chartRow: [ChartRow]) {
+    func fetchFirebase(modelContext: ModelContext, collectionName: String, chartRow: [OldChartRow]) {
         // Firestore DB 접근위한 인스턴스 생성
         let db = Firestore.firestore()
         for item in chartRow{
@@ -82,7 +82,7 @@ class OldFirebaseObservable {
                     //                    print("파이어베이스 time:\(formattedDate)")
                     
                     // 새 ChartRow 객체를 동일한 컨텍스트에서 생성
-                    let newItem = ChartRow(
+                    let newItem = OldChartRow(
                         time: formattedDate,
                         surfingValues: surfingValues,
                         isHighTide: false,
@@ -99,7 +99,7 @@ class OldFirebaseObservable {
     }
     
     // 날짜별로 그룹화하여 [(String, [ChartRow])] 형태의 배열로 반환하는 함수
-    func groupedByDate(chartRow: [ChartRow]) -> [(key: String, value: [ChartRow])] {
+    func groupedByDate(chartRow: [OldChartRow]) -> [(key: String, value: [OldChartRow])] {
         let inputFormatter = DateFormatter()
         inputFormatter.dateFormat = "yyyy-MM-dd"
         

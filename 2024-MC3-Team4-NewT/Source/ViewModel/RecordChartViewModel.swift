@@ -14,7 +14,7 @@ class RecordChartViewModel: ObservableObject {
     @Published var isChartPinButotn: [UUID: Bool] = [:]
     @Published var isMemoCheckingButton: [UUID: Bool] = [:]
     @Published var isPinCounter: Int = 0
-    @Published var chartRow: [ChartRow] = []
+    @Published var chartRow: [OldChartRow] = []
     @Published var surfingRecords: [OldSurfingRecordOne] = []
     @Published var showPin = false
     
@@ -33,8 +33,8 @@ class RecordChartViewModel: ObservableObject {
     @Published var chartRowId: UUID = UUID()
     @Published var isChartPinButton: [UUID: Bool] = [:]
     
-    func filteredRecordChart(charts: [ChartRow], recordOne: OldSurfingRecordOne) -> [ChartRow] {
-        var 필터된데이터: [ChartRow] = []
+    func filteredRecordChart(charts: [OldChartRow], recordOne: OldSurfingRecordOne) -> [OldChartRow] {
+        var 필터된데이터: [OldChartRow] = []
         
         for chartRow in charts {
             if let associatedRecord = chartRow.surfingRecordStartTime {
@@ -97,14 +97,14 @@ class RecordChartViewModel: ObservableObject {
     
     
     
-    func latestCharts(limit: Int = 3) -> [ChartRow] {
+    func latestCharts(limit: Int = 3) -> [OldChartRow] {
         return chartRow
             .sorted { ($0.surfingRecordStartTime ?? Date.distantPast) > ($1.surfingRecordStartTime ?? Date.distantPast) }
             .prefix(limit)
             .map { $0 }
     }
     
-    func evaluationValue(for chartRow: ChartRow) -> Int? {
+    func evaluationValue(for chartRow: OldChartRow) -> Int? {
         guard let startTime = chartRow.surfingRecordStartTime else { return nil }
         return surfingRecords.first { $0.surfingStartTime == startTime }?.evaluationValue
     }

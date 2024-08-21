@@ -19,10 +19,10 @@ struct MainView: View {
     private let selectionKey = "selectionKey" // 선택된 지역과 항목을 함께 저장하기 위한 UserDefaults 키
     private let defaultItem = "포항 월포해변" // 기본 항목
     var fbo = FirebaseObservable()
-    @Query(filter:#Predicate<ChartRow>{ item in
+    @Query(filter:#Predicate<OldChartRow>{ item in
         item.surfingRecordStartTime == nil
         
-    },sort: \ChartRow.time) var chartRow: [ChartRow]
+    },sort: \OldChartRow.time) var chartRow: [OldChartRow]
     @Environment(\.modelContext) private var modelContext
 
     var body: some View {

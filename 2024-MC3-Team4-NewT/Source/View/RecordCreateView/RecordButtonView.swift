@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct RecordButtonView: View {
-    @Query(sort: \ChartRow.time) var chartRows: [ChartRow]
+    @Query(sort: \OldChartRow.time) var chartRows: [OldChartRow]
     @Query(sort: \OldSurfingRecordOne.surfingStartTime) var surfingRecords: [OldSurfingRecordOne]
     @Environment(\.modelContext) var modelContext
     @ObservedObject var viewModel: RecordCreateViewModel
@@ -35,7 +35,7 @@ struct RecordButtonView: View {
                 let tmp2 = aa.surfingValues
                 let tmp1 = OldSurfingValues(waveDirection: tmp2.waveDirection, waveHeight: tmp2.waveHeight, wavePeriod: tmp2.wavePeriod, windDirection: tmp2.waveDirection, windSpeed: tmp2.windSpeed, weather: tmp2.weather, airTemperature: tmp2.airTemperature, waterTemperature: tmp2.waterTemperature)
                 modelContext.insert(tmp1)
-                let tmp = ChartRow(time: aa.time, surfingValues: tmp1, isHighTide: aa.isHighTide, isLowTide: aa.isLowTide)
+                let tmp = OldChartRow(time: aa.time, surfingValues: tmp1, isHighTide: aa.isHighTide, isLowTide: aa.isLowTide)
                 tmp.surfingRecordStartTime = viewModel.startTime
                 modelContext.insert(tmp)
             }

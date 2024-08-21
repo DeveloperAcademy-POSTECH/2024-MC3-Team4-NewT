@@ -4,9 +4,9 @@ import SwiftData
 struct MainChartView: View {
     @Environment(\.modelContext) private var modelContext
     var fbo = OldFirebaseObservable()
-    @Query(filter:#Predicate<ChartRow>{ item in
+    @Query(filter:#Predicate<OldChartRow>{ item in
         item.surfingRecordStartTime == nil
-    },sort: \ChartRow.time) var chartRow: [ChartRow]
+    },sort: \OldChartRow.time) var chartRow: [OldChartRow]
     @Binding var isHeaderVisible: Bool // 헤더 가시성 상태 변수
     @State private var topDate: String = Date.formattedDate(Date())()
     

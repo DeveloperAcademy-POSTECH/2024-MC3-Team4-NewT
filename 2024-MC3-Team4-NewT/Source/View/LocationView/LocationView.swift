@@ -12,10 +12,10 @@ struct LocationView: View {
     @State private var selectedRegionItem: String? // 선택된 지역 내 항목을 저장하기 위한 상태 변수
     @Binding var isLocationSelected: Bool
     
-    @Query(filter:#Predicate<ChartRow>{ item in
+    @Query(filter:#Predicate<OldChartRow>{ item in
         item.surfingRecordStartTime == nil
         
-    },sort: \ChartRow.time) var chartRow: [ChartRow]
+    },sort: \OldChartRow.time) var chartRow: [OldChartRow]
     @Environment(\.modelContext) private var modelContext
     var fbo = FirebaseObservable()
     @State private var mappedItem: String = ""

@@ -13,10 +13,10 @@ import SwiftUI
 @Observable
 class FirebaseTestObservable {
     // ChartRow 타입의 데이터를 저장하는 배열
-    var items: [ChartRow] = []
+    var items: [OldChartRow] = []
     
     // Firebase에서 데이터를 가져와서 주어진 ChartRow 배열을 업데이트하는 함수
-    func fetchFirebase(modelContext: ModelContext, collectionName: String, chartRow: [ChartRow]) -> [ChartRow] {
+    func fetchFirebase(modelContext: ModelContext, collectionName: String, chartRow: [OldChartRow]) -> [OldChartRow] {
         
         let db = Firestore.firestore() // Firebase Firestore 데이터베이스에 접근하기 위한 인스턴스 생성
         var updatedChartRows = chartRow // 매개변수로 받은 chartRow 배열을 복사하여 작업에 사용할 배열로 선언
@@ -68,7 +68,7 @@ class FirebaseTestObservable {
                     print("파이어베이스 time:\(formattedDate)") // 변환된 시간 출력
                     
                     // 새 ChartRow 객체 생성
-                    let newItem = ChartRow(
+                    let newItem = OldChartRow(
                         time: formattedDate, // 변환된 시간 문자열을 time에 저장
                         surfingValues: surfingValues,
                         isHighTide: false, // 만조 여부는 false로 설정

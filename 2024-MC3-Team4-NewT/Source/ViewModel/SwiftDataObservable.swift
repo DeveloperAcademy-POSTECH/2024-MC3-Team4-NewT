@@ -20,7 +20,7 @@ class SwiftDataObservable {
     }
     
     // ChartRow 전체 모델을 인자로 받아 생성하는 함수
-    func createChartRow(modelContext: ModelContext, chartRow: ChartRow) {
+    func createChartRow(modelContext: ModelContext, chartRow: OldChartRow) {
         modelContext.insert(chartRow)
     }
     

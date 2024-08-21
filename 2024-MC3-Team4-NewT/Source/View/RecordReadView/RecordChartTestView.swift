@@ -4,10 +4,10 @@ import SwiftData
 struct RecordChartTestView: View {
     @Query private var surfingRecordOneData: [OldSurfingRecordOne]
     @ObservedObject var viewModel: RecordChartViewModel
-    @Query(sort: \ChartRow.time) var chartRow: [ChartRow]
+    @Query(sort: \OldChartRow.time) var chartRow: [OldChartRow]
     var recordOne: OldSurfingRecordOne
-    @EnvironmentObject var myObject: MyObservableObject
-    @State private var selectedItem: ChartRow?
+    @EnvironmentObject var myObject: OldMyObservableObject
+    @State private var selectedItem: OldChartRow?
     @State var kkk = false
     var body: some View {
         VStack(spacing: 0) {

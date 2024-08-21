@@ -10,7 +10,7 @@ import SwiftData
 struct SDTestView: View {
     @Environment(\.modelContext) private var modelContext
     @State private var selectedDate: Date = Date() // 뷰 내부에서 관리할 State 변수
-    @Query var chartRow:[ChartRow]
+    @Query var chartRow:[OldChartRow]
     var viewModel = SwiftDataObservable()
     
     var body: some View {

@@ -7,13 +7,13 @@
 import SwiftData
 import SwiftUI
 import Foundation
-class MyObservableObject: ObservableObject {
+class OldMyObservableObject: ObservableObject {
     @Published var isOn = false
-    @Published var pinChart:[ChartRow] = []
+    @Published var pinChart:[OldChartRow] = []
     @Published var isChartPinButotn: [UUID: Bool] = [:]
 }
 //MARK: 여기서부턴 코드 초안 옮겨놓은 것
-struct SurfingValuesOne: Codable, Hashable {
+struct OldSurfingValuesOne: Codable, Hashable {
     var waveDirection: Float
     var waveHeight: Float
     var wavePeriod: Float
@@ -24,26 +24,26 @@ struct SurfingValuesOne: Codable, Hashable {
     var waterTemperature: Float
 }
 
-struct ChartRowTmp: Codable, Hashable, Identifiable{
+struct OldChartRowTmp: Codable, Hashable, Identifiable{
     var id = UUID()
     var day: Date
-    var surfingValues: SurfingValuesOne
+    var surfingValues: OldSurfingValuesOne
     var isHighTide: Bool = false
     var isLowTide: Bool = false
 }
 
 
 @Model
-final class DailyWeatherOld{ // 일간 기상 데이터
+final class OldDailyWeatherOld{ // 일간 기상 데이터
     @Attribute(.unique) var day: String
-    var chartCollection: [ChartRowTmp]
+    var chartCollection: [OldChartRowTmp]
     
-    init(day: String, chartCollection: [ChartRowTmp]) {
+    init(day: String, chartCollection: [OldChartRowTmp]) {
         self.day = day
         self.chartCollection = chartCollection
     }
 }
-enum ModelType: String, CaseIterable {
+enum OldModelType: String, CaseIterable {
     case surfingValues2 = "SurfingValues2"
     case chartRow = "ChartRow"
     case dailyWeather2 = "DailyWeather2"

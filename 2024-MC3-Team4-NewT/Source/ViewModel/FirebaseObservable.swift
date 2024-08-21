@@ -5,17 +5,17 @@ import SwiftUI
 
 @Observable
 class FirebaseObservable {
-    var items: [ChartRow] = []
+    var items: [OldChartRow] = []
     var container = try? ModelContainer(for:
-                                            DailyWeatherOld.self,
+                                            OldDailyWeatherOld.self,
                                         OldSurfingValues.self,
-                                        ChartRow.self,
+                                        OldChartRow.self,
                                         OldDailyWeather.self,
                                         OldSurfingRecordOne.self,
                                         OldStatistics.self
     )
     
-    func fetchFirebase(modelContext: ModelContext, collectionName: String, chartRow: [ChartRow]) {
+    func fetchFirebase(modelContext: ModelContext, collectionName: String, chartRow: [OldChartRow]) {
         let db = Firestore.firestore()
 
         
@@ -76,7 +76,7 @@ class FirebaseObservable {
                             let formattedDate = DateFormatterManager.shared.longDateFormatter.string(from: date)
                             
                             // ChartRow 인스턴스 생성
-                            let newItem = ChartRow(
+                            let newItem = OldChartRow(
                                 time: formattedDate,
                                 surfingValues: surfingValues,
                                 isHighTide: false,
@@ -92,7 +92,7 @@ class FirebaseObservable {
         }
     }
     
-    func groupedByDate(chartRow: [ChartRow]) -> [(key: String, value: [ChartRow])] {
+    func groupedByDate(chartRow: [OldChartRow]) -> [(key: String, value: [OldChartRow])] {
         let inputFormatter = DateFormatter()
         inputFormatter.dateFormat = "yyyy-MM-dd"
         

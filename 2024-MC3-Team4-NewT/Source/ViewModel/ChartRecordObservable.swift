@@ -10,9 +10,9 @@ import SwiftUI
 
 @Observable
 class ChartRecordObservable {
-    var 필터된차트: [ChartRow] = []
-    func test(charts: [ChartRow], recordOne: OldSurfingRecordOne) -> [ChartRow] {
-        var 필터된데이터: [ChartRow] = []
+    var 필터된차트: [OldChartRow] = []
+    func test(charts: [OldChartRow], recordOne: OldSurfingRecordOne) -> [OldChartRow] {
+        var 필터된데이터: [OldChartRow] = []
         
         for chartRow in charts {
             if let associatedRecord = chartRow.surfingRecordStartTime {
@@ -25,7 +25,7 @@ class ChartRecordObservable {
         return 필터된데이터
     }
 
-    func filterChartRows(_ rows: [ChartRow], startTime: Date, stopTime: Date) -> [ChartRow] {
+    func filterChartRows(_ rows: [OldChartRow], startTime: Date, stopTime: Date) -> [OldChartRow] {
         let calendar = Calendar.current
         
         // 시작 시간에 가장 가까운 3시간 간격을 찾습니다.

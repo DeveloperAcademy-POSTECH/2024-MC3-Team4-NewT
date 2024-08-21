@@ -10,10 +10,10 @@ import SwiftData
 
 struct SDCheckView: View {
     @Environment(\.modelContext) private var modelContext
-    @State private var selectedModel: ModelType = .surfingValues2
+    @State private var selectedModel: OldModelType = .surfingValues2
     
     @Query private var surfingValues2Data: [OldSurfingValues]
-    @Query(sort:\ChartRow.time) private var chartRowData: [ChartRow]
+    @Query(sort:\OldChartRow.time) private var chartRowData: [OldChartRow]
     @Query private var dailyWeather2Data: [OldDailyWeather]
     @Query private var surfingRecordOneData: [OldSurfingRecordOne]
     @Query private var statisticsData: [OldStatistics]
@@ -21,7 +21,7 @@ struct SDCheckView: View {
     var body: some View {
         VStack {
             Picker("Select Model", selection: $selectedModel) {
-                ForEach(ModelType.allCases, id: \.self) { model in
+                ForEach(OldModelType.allCases, id: \.self) { model in
                     Text(model.rawValue).tag(model)
                 }
             }

@@ -25,9 +25,9 @@ struct _024_MC3_Team4_NewTApp: App {
         
         let sharedModelContainer: ModelContainer = {
             let schema = Schema([
-                DailyWeatherOld.self,
+                OldDailyWeatherOld.self,
                 OldSurfingValues.self,
-                ChartRow.self,
+                OldChartRow.self,
                 OldDailyWeather.self,
                 OldSurfingRecordOne.self,
                 OldStatistics.self
