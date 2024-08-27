@@ -7,6 +7,7 @@
 import SwiftUI
 
 struct NewMainView: View {
+    @State var isHeaderVisible: Bool = true
     var body: some View {
         NavigationStack {
             ZStack {
@@ -14,6 +15,7 @@ struct NewMainView: View {
                 VStack {
                     MainRegionChoice()
                     MainTopView()
+                    NewMainChartView()
                 }
                
             }

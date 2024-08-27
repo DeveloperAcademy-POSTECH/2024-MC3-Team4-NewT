@@ -53,6 +53,8 @@
 		21C11E2B2C7DA7CF002A7411 /* MainBackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E2A2C7DA7CF002A7411 /* MainBackgroundImage.swift */; };
 		21C11E2D2C7DAF2F002A7411 /* MainRegionChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E2C2C7DAF2F002A7411 /* MainRegionChoice.swift */; };
 		21C11E2F2C7DB0E6002A7411 /* MainTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E2E2C7DB0E6002A7411 /* MainTopView.swift */; };
+		21C11E312C7DB263002A7411 /* PersonalTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E302C7DB263002A7411 /* PersonalTabView.swift */; };
+		21C11E332C7DC342002A7411 /* NewMainChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E322C7DC342002A7411 /* NewMainChartView.swift */; };
 		21EDE2412C5B1B2B00F973C0 /* ModelContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EDE2402C5B1B2B00F973C0 /* ModelContext.swift */; };
 		21EDE2432C5B1C1D00F973C0 /* SDTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EDE2422C5B1C1D00F973C0 /* SDTestView.swift */; };
 		21F36C4D2C66770600988438 /* FirebaseObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F36C4C2C66770600988438 /* FirebaseObservable.swift */; };
@@ -125,6 +127,8 @@
 		21C11E2A2C7DA7CF002A7411 /* MainBackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBackgroundImage.swift; sourceTree = "<group>"; };
 		21C11E2C2C7DAF2F002A7411 /* MainRegionChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRegionChoice.swift; sourceTree = "<group>"; };
 		21C11E2E2C7DB0E6002A7411 /* MainTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopView.swift; sourceTree = "<group>"; };
+		21C11E302C7DB263002A7411 /* PersonalTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalTabView.swift; sourceTree = "<group>"; };
+		21C11E322C7DC342002A7411 /* NewMainChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMainChartView.swift; sourceTree = "<group>"; };
 		21EDE2402C5B1B2B00F973C0 /* ModelContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContext.swift; sourceTree = "<group>"; };
 		21EDE2422C5B1C1D00F973C0 /* SDTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDTestView.swift; sourceTree = "<group>"; };
 		21F36C4C2C66770600988438 /* FirebaseObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseObservable.swift; sourceTree = "<group>"; };
@@ -334,6 +338,8 @@
 				21C11E2C2C7DAF2F002A7411 /* MainRegionChoice.swift */,
 				21C11E2E2C7DB0E6002A7411 /* MainTopView.swift */,
 				21C11E282C7DA439002A7411 /* NewMainView.swift */,
+				21C11E302C7DB263002A7411 /* PersonalTabView.swift */,
+				21C11E322C7DC342002A7411 /* NewMainChartView.swift */,
 			);
 			path = NewView;
 			sourceTree = "<group>";
@@ -495,6 +501,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21588B212C601412003E3489 /* EvaluationView.swift in Sources */,
+				21C11E312C7DB263002A7411 /* PersonalTabView.swift in Sources */,
 				21F36C4D2C66770600988438 /* FirebaseObservable.swift in Sources */,
 				21588B1F2C6012B8003E3489 /* TimePickerView.swift in Sources */,
 				21C11E2D2C7DAF2F002A7411 /* MainRegionChoice.swift in Sources */,
@@ -534,6 +541,7 @@
 				21B080702C52844C007BC655 /* EmbededView.swift in Sources */,
 				21BA396A2C65984100571A27 /* WeatherAPITestView.swift in Sources */,
 				715BA4D02C611DE600477938 /* CategoriesView.swift in Sources */,
+				21C11E332C7DC342002A7411 /* NewMainChartView.swift in Sources */,
 				21B0803B2C4D087F007BC655 /* PiriView.swift in Sources */,
 				21353F632C6873380095CA6D /* OnboardingView.swift in Sources */,
 				21588B052C5C7652003E3489 /* SDCheckView.swift in Sources */,

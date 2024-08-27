@@ -9,11 +9,17 @@ import SwiftUI
 
 struct MainTopView: View {
     @State var selectedTab: Int = 0
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        VStack {
+            FitChartView()
+            
+        }
+        
     }
 }
 
 #Preview {
-    MainTopView()
+    NewMainView()
 }
