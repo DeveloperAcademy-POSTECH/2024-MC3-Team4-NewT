@@ -12,7 +12,9 @@ struct OnboardingView: View {
     
     var body: some View {
         if isActive {
-            MainView() // MainView로 전환
+//            MainView() // MainView로 전환
+            NewMainView()
+            
         } else {
             VStack {
                 Image("Onboarding") // "Onboarding" 이미지

@@ -12,7 +12,6 @@ import SwiftData
 final class DailySurfingValues { // daliy -> 시간지나면 삭제됨
     @Attribute(.unique) var id: UUID
     var time: String
-//    var 지역: String
     var waveDirection: Float
     var waveHeight: Float
     var wavePeriod: Float

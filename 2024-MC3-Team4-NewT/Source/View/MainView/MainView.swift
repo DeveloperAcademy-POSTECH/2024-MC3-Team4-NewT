@@ -9,13 +9,15 @@ import SwiftUI
 import SwiftData
 
 struct MainView: View {
+    @State var selectedTab: Int = 0
+    
     @State private var scrollOffset: CGFloat = 0 // 스크롤 오프셋 상태 변수
     @State var isHeaderVisible: Bool = true // 헤더 가시성 상태 변수
-    @State var selectedTab: Int = 0
+    
     @State private var selectedItem: String = "" // 선택된 항목을 저장하기 위한 상태 변수
     @State private var mappedItem: String = "" // 매핑된 항목을 저장하기 위한 상태 변수
     @State var isLocationChanged = false
-//    private let selectedItemKey = "selectedItem" // UserDefaults 키 상수
+    //    private let selectedItemKey = "selectedItem" // UserDefaults 키 상수
     private let selectionKey = "selectionKey" // 선택된 지역과 항목을 함께 저장하기 위한 UserDefaults 키
     private let defaultItem = "포항 월포해변" // 기본 항목
     var fbo = FirebaseObservable()
@@ -24,7 +26,7 @@ struct MainView: View {
         
     },sort: \OldChartRow.time) var chartRow: [OldChartRow]
     @Environment(\.modelContext) private var modelContext
-
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -45,9 +47,11 @@ struct MainView: View {
                                 }
                                 .opacity(0.7)
                                 Spacer()
-                            }.padding(.vertical, 6)
-                        }.padding(.horizontal)
-
+                            }
+                            .padding(.vertical, 6)
+                        }
+                        .padding(.horizontal)
+                        
                         FitChartView()
                             .padding(.horizontal)
                         MainChartView(isHeaderVisible: $isHeaderVisible)
@@ -62,24 +66,26 @@ struct MainView: View {
                     CustomTabBar(selectedTab: $selectedTab)
                         .ignoresSafeArea(edges: .bottom)
                 }
-            }.background {
-                Image("MainViewBG")
-                    .edgesIgnoringSafeArea(.all)
             }
+            //            백그라운드 이미지는 왜 또 넣으신건가요?
+            //            .background {
+            //                Image("MainViewBG")
+            //                    .edgesIgnoringSafeArea(.all)
+            //            }
         }
         .ignoresSafeArea(edges: .bottom)
         .onAppear {
             loadSelectedItem() // 뷰가 나타날 때 UserDefaults에서 선택된 항목을 불러옴
-//            for item in chartRow {
-//                if let aa = item.surfingRecordStartTime {
-//                    print("\(aa):통과")
-//                } else {
-//                    modelContext.delete(item)
-//                }
-//            }
+            //            for item in chartRow {
+            //                if let aa = item.surfingRecordStartTime {
+            //                    print("\(aa):통과")
+            //                } else {
+            //                    modelContext.delete(item)
+            //                }
+            //            }
             
             
-//            fbo.fetchFirebase(modelContext: modelContext, collectionName: mappedItem, chartRow: chartRow)
+            //            fbo.fetchFirebase(modelContext: modelContext, collectionName: mappedItem, chartRow: chartRow)
         }
         .onChange(of:isLocationChanged){
             loadSelectedItem()
@@ -94,7 +100,7 @@ struct MainView: View {
             if components.count == 2 {
                 let regionName = String(components[0])
                 let itemName = String(components[1])
-
+                
                 
                 
                 selectedItem = itemName

@@ -49,6 +49,10 @@
 		21B080812C588261007BC655 /* WaveObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B080802C588261007BC655 /* WaveObservable.swift */; };
 		21BA39682C641DDD00571A27 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 21BA39672C641DDD00571A27 /* GoogleService-Info.plist */; };
 		21BA396A2C65984100571A27 /* WeatherAPITestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21BA39692C65984100571A27 /* WeatherAPITestView.swift */; };
+		21C11E292C7DA439002A7411 /* NewMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E282C7DA439002A7411 /* NewMainView.swift */; };
+		21C11E2B2C7DA7CF002A7411 /* MainBackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E2A2C7DA7CF002A7411 /* MainBackgroundImage.swift */; };
+		21C11E2D2C7DAF2F002A7411 /* MainRegionChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E2C2C7DAF2F002A7411 /* MainRegionChoice.swift */; };
+		21C11E2F2C7DB0E6002A7411 /* MainTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E2E2C7DB0E6002A7411 /* MainTopView.swift */; };
 		21EDE2412C5B1B2B00F973C0 /* ModelContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EDE2402C5B1B2B00F973C0 /* ModelContext.swift */; };
 		21EDE2432C5B1C1D00F973C0 /* SDTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EDE2422C5B1C1D00F973C0 /* SDTestView.swift */; };
 		21F36C4D2C66770600988438 /* FirebaseObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F36C4C2C66770600988438 /* FirebaseObservable.swift */; };
@@ -117,6 +121,10 @@
 		21B080802C588261007BC655 /* WaveObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveObservable.swift; sourceTree = "<group>"; };
 		21BA39672C641DDD00571A27 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		21BA39692C65984100571A27 /* WeatherAPITestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPITestView.swift; sourceTree = "<group>"; };
+		21C11E282C7DA439002A7411 /* NewMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMainView.swift; sourceTree = "<group>"; };
+		21C11E2A2C7DA7CF002A7411 /* MainBackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBackgroundImage.swift; sourceTree = "<group>"; };
+		21C11E2C2C7DAF2F002A7411 /* MainRegionChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRegionChoice.swift; sourceTree = "<group>"; };
+		21C11E2E2C7DB0E6002A7411 /* MainTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopView.swift; sourceTree = "<group>"; };
 		21EDE2402C5B1B2B00F973C0 /* ModelContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContext.swift; sourceTree = "<group>"; };
 		21EDE2422C5B1C1D00F973C0 /* SDTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDTestView.swift; sourceTree = "<group>"; };
 		21F36C4C2C66770600988438 /* FirebaseObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseObservable.swift; sourceTree = "<group>"; };
@@ -218,6 +226,7 @@
 		21B080442C4D08D3007BC655 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				21C11E272C7D9CB7002A7411 /* NewView */,
 				89A63A252C5C7AF200787DC4 /* MainView */,
 				89A63A262C5C7C1300787DC4 /* RecordCreateView */,
 				213A4A722C605E2600786C97 /* RecordReadView */,
@@ -316,6 +325,17 @@
 				21B0802C2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		21C11E272C7D9CB7002A7411 /* NewView */ = {
+			isa = PBXGroup;
+			children = (
+				21C11E2A2C7DA7CF002A7411 /* MainBackgroundImage.swift */,
+				21C11E2C2C7DAF2F002A7411 /* MainRegionChoice.swift */,
+				21C11E2E2C7DB0E6002A7411 /* MainTopView.swift */,
+				21C11E282C7DA439002A7411 /* NewMainView.swift */,
+			);
+			path = NewView;
 			sourceTree = "<group>";
 		};
 		21EDE23F2C5B1B1B00F973C0 /* Extension */ = {
@@ -477,7 +497,9 @@
 				21588B212C601412003E3489 /* EvaluationView.swift in Sources */,
 				21F36C4D2C66770600988438 /* FirebaseObservable.swift in Sources */,
 				21588B1F2C6012B8003E3489 /* TimePickerView.swift in Sources */,
+				21C11E2D2C7DAF2F002A7411 /* MainRegionChoice.swift in Sources */,
 				21588B032C5C7632003E3489 /* SwiftDataObservable.swift in Sources */,
+				21C11E2B2C7DA7CF002A7411 /* MainBackgroundImage.swift in Sources */,
 				21353F612C6786570095CA6D /* BeachMapper.swift in Sources */,
 				21B080742C56DB7A007BC655 /* WindFinderView.swift in Sources */,
 				719EA9C02C5768580090BAB5 /* FitChartView.swift in Sources */,
@@ -515,9 +537,11 @@
 				21B0803B2C4D087F007BC655 /* PiriView.swift in Sources */,
 				21353F632C6873380095CA6D /* OnboardingView.swift in Sources */,
 				21588B052C5C7652003E3489 /* SDCheckView.swift in Sources */,
+				21C11E292C7DA439002A7411 /* NewMainView.swift in Sources */,
 				21588B1D2C601239003E3489 /* RecordCreateView.swift in Sources */,
 				213A4A742C605E3F00786C97 /* RecordReadView.swift in Sources */,
 				21588B122C6009AF003E3489 /* ChartView.swift in Sources */,
+				21C11E2F2C7DB0E6002A7411 /* MainTopView.swift in Sources */,
 				717594152C5C656700F28BA1 /* LocationView.swift in Sources */,
 				21588B262C6017C0003E3489 /* TabBarBackup.swift in Sources */,
 				21588B282C601902003E3489 /* OldModel.swift in Sources */,
