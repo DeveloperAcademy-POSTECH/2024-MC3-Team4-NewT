@@ -15,7 +15,7 @@ struct NewMainView: View {
                 VStack {
                     MainRegionChoice()
                     MainTopView()
-                    NewMainChartView()
+                    SDMainChartView()
                 }
                
             }

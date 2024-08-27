@@ -1,29 +1,19 @@
 //
-//  NewMainChartView.swift
+//  SDMainChartView.swift
 //  2024-MC3-Team4-NewT
 //
 //  Created by ram on 8/27/24.
 //
+
 import SwiftUI
 
-struct WeatherData: Identifiable {
-    let id = UUID()
-    let time: String
-    let windSpeedValue: String
-    let waveHeightValue: String
-    let wavePeriodValue: String
-    let waterTempValue: String
-    let airTempValue: String
-    let weatherIcon: String
-}
-
-struct NewMainChartView: View {
-    // State variables for width management
-    @State private var timeColumnWidth: CGFloat = 30
-    @State private var windColumnWidth: CGFloat = 80
-    @State private var waveColumnWidth: CGFloat = 80
-    @State private var waterTempColumnWidth: CGFloat = 80
-    @State private var weatherColumnWidth: CGFloat = 40
+struct SDMainChartView: View {
+    @State var timeWidth = 40.0
+    @State var windWidth = 80.0
+    @State var waveWidth = 60.0
+    @State var waterWidth = 40.0
+    @State var weatherWidth = 70.0
+    
     
     var body: some View {
         GeometryReader { geometry in
@@ -35,45 +25,15 @@ struct NewMainChartView: View {
                 Grid(alignment: .center, horizontalSpacing: 1, verticalSpacing: 10) {
                     GridRow {
                         Text("시간")
-                            .frame(width: timeColumnWidth, alignment: .leading)
-                            .background(GeometryReader { geo -> Color in
-                                DispatchQueue.main.async {
-                                    self.timeColumnWidth = geo.size.width
-                                }
-                                return Color.clear
-                            })
+                            .frame(width:timeWidth,alignment: .center)
                         Text("바람")
-                            .frame(width: windColumnWidth, alignment: .leading)
-                            .background(GeometryReader { geo -> Color in
-                                DispatchQueue.main.async {
-                                    self.windColumnWidth = geo.size.width
-                                }
-                                return Color.clear
-                            })
+                            .frame(minWidth: windWidth, maxWidth: .infinity, alignment: .center)
                         Text("파도")
-                            .frame(width: waveColumnWidth, alignment: .leading)
-                            .background(GeometryReader { geo -> Color in
-                                DispatchQueue.main.async {
-                                    self.waveColumnWidth = geo.size.width
-                                }
-                                return Color.clear
-                            })
+                            .frame(minWidth: waveWidth, maxWidth: .infinity, alignment: .center)
                         Text("수온")
-                            .frame(width: waterTempColumnWidth, alignment: .leading)
-                            .background(GeometryReader { geo -> Color in
-                                DispatchQueue.main.async {
-                                    self.waterTempColumnWidth = geo.size.width
-                                }
-                                return Color.clear
-                            })
+                            .frame(minWidth: waterWidth, maxWidth: .infinity, alignment: .center)
                         Text("날씨")
-                            .frame(width: weatherColumnWidth, alignment: .leading)
-                            .background(GeometryReader { geo -> Color in
-                                DispatchQueue.main.async {
-                                    self.weatherColumnWidth = geo.size.width
-                                }
-                                return Color.clear
-                            })
+                            .frame(width:weatherWidth,alignment: .center)
                     }
                     .font(.subheadline)
                     .bold()
@@ -81,8 +41,9 @@ struct NewMainChartView: View {
                     
                     ForEach(data) { item in
                         GridRow {
-                            Text(item.time)
-                                .frame(width: timeColumnWidth, alignment: .leading)
+                            Text("\(item.time)시")
+                                .font(.system(size:13))
+                                .frame(width:timeWidth,alignment: .center)
                             
                             HStack {
                                 Image("waveDirectionIcon2")
@@ -95,12 +56,13 @@ struct NewMainChartView: View {
                                         .font(.footnote)
                                 }
                             }
-                            .frame(width: windColumnWidth, alignment: .leading)
+                            .frame(minWidth: windWidth, maxWidth: .infinity, alignment: .center)
                             
+                            // 파도
                             HStack {
                                 Image("swellDirectionIcon")
                                     .rotationEffect(Angle(degrees: Double(330.0)))
-                                VStack(alignment: .leading, spacing: 2) {
+                                VStack(alignment: .center, spacing: 2) {
                                     HStack(alignment: .firstTextBaseline, spacing: 0) {
                                         Text(item.waveHeightValue)
                                             .font(.system(size: 15))
@@ -115,8 +77,9 @@ struct NewMainChartView: View {
                                     }
                                 }
                             }
-                            .frame(width: waveColumnWidth, alignment: .leading)
+                            .frame(minWidth: waveWidth, maxWidth: .infinity, alignment: .center)
                             
+                            // 수온
                             VStack(alignment: .center) {
                                 HStack(alignment: .firstTextBaseline, spacing: 0) {
                                     Text(item.waterTempValue)
@@ -126,7 +89,7 @@ struct NewMainChartView: View {
                                 }
                                 Image("waterTemperate")
                             }
-                            .frame(width: waterTempColumnWidth, alignment: .leading)
+                            .frame(minWidth: waterWidth, maxWidth: .infinity, alignment: .center)
                             
                             HStack {
                                 Image(systemName: item.weatherIcon)
@@ -137,7 +100,7 @@ struct NewMainChartView: View {
                                         .font(.footnote)
                                 }
                             }
-                            .frame(width: weatherColumnWidth, alignment: .leading)
+                            .frame(width:weatherWidth,alignment: .center)
                         }
                     }
                 }
@@ -154,5 +117,8 @@ struct NewMainChartView: View {
 }
 
 #Preview {
-    NewMainChartView()
+    NewMainView()
 }
+
+
+
