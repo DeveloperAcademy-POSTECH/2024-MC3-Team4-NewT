@@ -105,7 +105,7 @@ struct RecordChartView: View {
             return []
         }
         
-        let pinnedStartTimes = pinnedStartTimesStrings.compactMap { DateFormatterManager.shared.longDateFormatter.date(from: $0) }
+        let pinnedStartTimes = pinnedStartTimesStrings.compactMap { DateFormatterManager.shared.longDateFormatter2.date(from: $0) }
         
         print("핀시작:\(pinnedStartTimes)")
         for item in surfingRecordOneData {
@@ -114,7 +114,7 @@ struct RecordChartView: View {
         
         let filteredRecords = surfingRecordOneData.filter { item in
             pinnedStartTimes.contains { pinnedTime in
-                DateFormatterManager.shared.longDateFormatter.string(from: pinnedTime) == DateFormatterManager.shared.longDateFormatter.string(from: item.surfingStartTime)
+                DateFormatterManager.shared.longDateFormatter2.string(from: pinnedTime) == DateFormatterManager.shared.longDateFormatter2.string(from: item.surfingStartTime)
             }
         }
         

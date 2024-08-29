@@ -73,7 +73,7 @@ class FirebaseObservable {
                         let dateFormatter = DateFormatter()
                         dateFormatter.dateFormat = "yyyyMMddHHmm"
                         if let date = dateFormatter.date(from: timestampString) {
-                            let formattedDate = DateFormatterManager.shared.longDateFormatter.string(from: date)
+                            let formattedDate = DateFormatterManager.shared.longDateFormatter2.string(from: date)
                             
                             // ChartRow 인스턴스 생성
                             let newItem = OldChartRow(

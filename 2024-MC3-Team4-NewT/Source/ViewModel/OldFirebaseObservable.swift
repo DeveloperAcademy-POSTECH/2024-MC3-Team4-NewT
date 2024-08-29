@@ -76,7 +76,7 @@ class OldFirebaseObservable {
                     modelContext.insert(surfingValues)
                     
                     // 타임스탬프(timestamp)를 yyyy-MM-dd HH:mm:ss로 변환(싱글톤 패턴 사용)
-                    let formattedDate = DateFormatterManager.shared.longDateFormatter.string(from: timestamp.dateValue())
+                    let formattedDate = DateFormatterManager.shared.longDateFormatter2.string(from: timestamp.dateValue())
                     
                     // 테스트용 로그 찍기
                     //                    print("파이어베이스 time:\(formattedDate)")

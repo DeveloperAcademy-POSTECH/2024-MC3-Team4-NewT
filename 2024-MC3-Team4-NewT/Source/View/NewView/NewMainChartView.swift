@@ -79,7 +79,7 @@ struct NewMainChartView: View {
                     .bold()
                     .background(Color(UIColor.systemGray6))
                     
-                    ForEach(data) { item in
+                    ForEach(chartDummy) { item in
                         GridRow {
                             Text(item.time)
                                 .frame(width: timeColumnWidth, alignment: .leading)

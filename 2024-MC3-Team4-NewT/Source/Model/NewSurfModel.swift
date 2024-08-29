@@ -22,8 +22,9 @@ final class DailySurfingValues { // daliy -> 시간지나면 삭제됨
     var waterTemperature: Float
     var isHighTide: Bool
     var isLowTide: Bool
+    var location: String
     
-    init(time: String, waveDirection: Float, waveHeight: Float, wavePeriod: Float, windDirection: Float, windSpeed: Float, weather: String, airTemperature: Float, waterTemperature: Float, isHighTide: Bool, isLowTide: Bool) {
+    init(time: String, waveDirection: Float, waveHeight: Float, wavePeriod: Float, windDirection: Float, windSpeed: Float, weather: String, airTemperature: Float, waterTemperature: Float, isHighTide: Bool, isLowTide: Bool, location: String) {
         self.id = UUID()
         self.time = time
         self.waveDirection = waveDirection
@@ -36,8 +37,11 @@ final class DailySurfingValues { // daliy -> 시간지나면 삭제됨
         self.waterTemperature = waterTemperature
         self.isHighTide = isHighTide
         self.isLowTide = isLowTide
+        self.location = location
     }
 }
+
+// TODO: 지역을 어떻게 넣을지 결정(Enum,String)
 @Model
 final class RecordSurfingValues { // 기록용 -> 저장
     @Attribute(.unique) var id: UUID

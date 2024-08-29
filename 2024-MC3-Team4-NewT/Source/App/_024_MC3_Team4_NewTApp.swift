@@ -25,12 +25,13 @@ struct _024_MC3_Team4_NewTApp: App {
         
         let sharedModelContainer: ModelContainer = {
             let schema = Schema([
-                OldDailyWeatherOld.self,
+                
                 OldSurfingValues.self,
                 OldChartRow.self,
                 OldDailyWeather.self,
                 OldSurfingRecordOne.self,
-                OldStatistics.self
+                OldStatistics.self,
+                DailySurfingValues.self,
             ])
             let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
             

@@ -13,6 +13,10 @@ struct SDMainChartView: View {
     @State var waveWidth = 60.0
     @State var waterWidth = 40.0
     @State var weatherWidth = 70.0
+    @State var mappedItem = "wolpo"
+    @Environment(\.modelContext) private var modelContext
+    @ObservedObject var nfvm = NewFirebaseViewModel()
+    
     
     
     var body: some View {
@@ -39,7 +43,7 @@ struct SDMainChartView: View {
                     .bold()
                     .background(Color(UIColor.systemGray6))
                     
-                    ForEach(data) { item in
+                    ForEach(chartDummy) { item in
                         GridRow {
                             Text("\(item.time)시")
                                 .font(.system(size:13))
@@ -113,12 +117,9 @@ struct SDMainChartView: View {
             .background(Color.white.opacity(0.8))
             .cornerRadius(24)
         }
+        .onAppear{
+            print("SDMainCHartView")
+            nfvm.fetchFirebase(modelContext: modelContext, collectionName: mappedItem)
+        }
     }
 }
-
-#Preview {
-    NewMainView()
-}
-
-
-
