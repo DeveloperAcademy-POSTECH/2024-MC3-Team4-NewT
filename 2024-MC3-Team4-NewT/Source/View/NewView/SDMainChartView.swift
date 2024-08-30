@@ -47,7 +47,6 @@ struct SDMainChartView: View {
                                 
                                 HStack {
                                     Image("waveDirectionIcon2")
-//                                        .frame(width: 14, height: 18)
                                         .rotationEffect(Angle(degrees: Double(item.windDirection)))
                                     HStack(alignment: .top, spacing: 0) {
                                         Text("\(item.windSpeed, specifier: "%.1f")")
@@ -115,7 +114,7 @@ struct SDMainChartView: View {
         }
         .onAppear {
             print("SDMainCHartView")
-            nfvm.fetchFirebase(modelContext: modelContext, collectionName: mappedItem)
+            nfvm.fetchFirebaseDailyChart(modelContext: modelContext, collectionName: mappedItem)
         }
     }
 }

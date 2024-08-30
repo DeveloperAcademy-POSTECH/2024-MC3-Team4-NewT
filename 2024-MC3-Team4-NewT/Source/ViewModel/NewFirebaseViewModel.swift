@@ -14,7 +14,7 @@ class NewFirebaseViewModel: ObservableObject {
     
     private let lastUpdateDateKey = "lastFirebaseUpdateDate" // UserDefaults 키
     
-    func fetchFirebase(modelContext: ModelContext, collectionName: String) {
+    func fetchFirebaseDailyChart(modelContext: ModelContext, collectionName: String) {
         
         do {
             let descriptor = FetchDescriptor<DailySurfingValues>(sortBy: [SortDescriptor(\.time)])
@@ -116,8 +116,6 @@ class NewFirebaseViewModel: ObservableObject {
             UserDefaults.standard.set(currentDateString, forKey: self.lastUpdateDateKey)
             print("Firebase 데이터를 성공적으로 업데이트하였습니다.")
             
-            // Sort the updated array
-            self.SDDailySurfingValues.sort { $0.time > $1.time }
         }
     }
 }
