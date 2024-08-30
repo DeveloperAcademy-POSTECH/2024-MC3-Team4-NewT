@@ -6,118 +6,114 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct SDMainChartView: View {
-    @State var timeWidth = 40.0
-    @State var windWidth = 80.0
-    @State var waveWidth = 60.0
-    @State var waterWidth = 40.0
-    @State var weatherWidth = 70.0
     @State var mappedItem = "wolpo"
     @Environment(\.modelContext) private var modelContext
     @ObservedObject var nfvm = NewFirebaseViewModel()
-    
-    
+    @StateObject var chartViewModel = ChartViewModel()
     
     var body: some View {
         GeometryReader { geometry in
-            VStack {
-                Text("7월 25일 목요일")
-                    .font(.headline)
-                    .padding(.top)
-                
-                Grid(alignment: .center, horizontalSpacing: 1, verticalSpacing: 10) {
-                    GridRow {
-                        Text("시간")
-                            .frame(width:timeWidth,alignment: .center)
-                        Text("바람")
-                            .frame(minWidth: windWidth, maxWidth: .infinity, alignment: .center)
-                        Text("파도")
-                            .frame(minWidth: waveWidth, maxWidth: .infinity, alignment: .center)
-                        Text("수온")
-                            .frame(minWidth: waterWidth, maxWidth: .infinity, alignment: .center)
-                        Text("날씨")
-                            .frame(width:weatherWidth,alignment: .center)
-                    }
-                    .font(.subheadline)
-                    .bold()
-                    .background(Color(UIColor.systemGray6))
+            ScrollView {
+                VStack {
+                    Text("7월 25일 목요일")
+                        .font(.headline)
+                        .padding(.top)
                     
-                    ForEach(chartDummy) { item in
+                    Grid(alignment: .center, horizontalSpacing: 1, verticalSpacing: 10) {
                         GridRow {
-                            Text("\(item.time)시")
-                                .font(.system(size:13))
-                                .frame(width:timeWidth,alignment: .center)
-                            
-                            HStack {
-                                Image("waveDirectionIcon2")
-                                    .frame(width: 14, height: 18)
-                                    .rotationEffect(Angle(degrees: Double(10.0)))
-                                HStack(alignment: .top, spacing: 0) {
-                                    Text(item.windSpeedValue)
-                                        .font(.system(size: 15))
-                                    Text("m/s")
-                                        .font(.footnote)
-                                }
-                            }
-                            .frame(minWidth: windWidth, maxWidth: .infinity, alignment: .center)
-                            
-                            // 파도
-                            HStack {
-                                Image("swellDirectionIcon")
-                                    .rotationEffect(Angle(degrees: Double(330.0)))
-                                VStack(alignment: .center, spacing: 2) {
-                                    HStack(alignment: .firstTextBaseline, spacing: 0) {
-                                        Text(item.waveHeightValue)
+                            Text("시간")
+                                .frame(width: chartViewModel.timeWidth, alignment: .center)
+                            Text("바람")
+                                .frame(minWidth: chartViewModel.windWidth, maxWidth: .infinity, alignment: .center)
+                            Text("파도")
+                                .frame(minWidth: chartViewModel.waveWidth, maxWidth: .infinity, alignment: .center)
+                            Text("수온")
+                                .frame(minWidth: chartViewModel.waterWidth, maxWidth: .infinity, alignment: .center)
+                            Text("날씨")
+                                .frame(width: chartViewModel.weatherWidth, alignment: .center)
+                        }
+                        .font(.subheadline)
+                        .bold()
+                        .background(Color(UIColor.systemGray6))
+                        
+                        ForEach(nfvm.SDDailySurfingValues, id: \.id) { item in
+                            GridRow {
+                                Text("\(DateFormatterManager.shared.timeToHourFormatter(item.time))")
+                                    .font(.system(size: 13))
+                                    .frame(width: chartViewModel.timeWidth, alignment: .center)
+                                
+                                HStack {
+                                    Image("waveDirectionIcon2")
+//                                        .frame(width: 14, height: 18)
+                                        .rotationEffect(Angle(degrees: Double(item.windDirection)))
+                                    HStack(alignment: .top, spacing: 0) {
+                                        Text("\(item.windSpeed, specifier: "%.1f")")
                                             .font(.system(size: 15))
-                                        Text("m")
-                                            .font(.footnote)
-                                    }
-                                    HStack(alignment: .firstTextBaseline, spacing: 0) {
-                                        Text(item.wavePeriodValue)
-                                            .font(.system(size: 15))
-                                        Text("s")
+                                        Text("m/s")
                                             .font(.footnote)
                                     }
                                 }
-                            }
-                            .frame(minWidth: waveWidth, maxWidth: .infinity, alignment: .center)
-                            
-                            // 수온
-                            VStack(alignment: .center) {
-                                HStack(alignment: .firstTextBaseline, spacing: 0) {
-                                    Text(item.waterTempValue)
-                                        .font(.system(size: 15))
-                                    Text("℃")
-                                        .font(.footnote)
+                                .frame(minWidth: chartViewModel.windWidth, maxWidth: .infinity, alignment: .center)
+                                
+                                // 파도
+                                HStack {
+                                    Image("swellDirectionIcon")
+                                        .rotationEffect(Angle(degrees: Double(item.waveDirection)))
+                                    VStack(alignment: .center, spacing: 2) {
+                                        HStack(alignment: .firstTextBaseline, spacing: 0) {
+                                            Text("\(item.waveHeight, specifier: "%.1f")")
+                                                .font(.system(size: 15))
+                                            Text("m")
+                                                .font(.footnote)
+                                        }
+                                        HStack(alignment: .firstTextBaseline, spacing: 0) {
+                                            Text("\(item.wavePeriod, specifier: "%.1f")")
+                                                .font(.system(size: 15))
+                                            Text("s")
+                                                .font(.footnote)
+                                        }
+                                    }
                                 }
-                                Image("waterTemperate")
-                            }
-                            .frame(minWidth: waterWidth, maxWidth: .infinity, alignment: .center)
-                            
-                            HStack {
-                                Image(systemName: item.weatherIcon)
-                                HStack(alignment: .firstTextBaseline, spacing: 0) {
-                                    Text(item.airTempValue)
-                                        .font(.system(size: 15))
-                                    Text("℃")
-                                        .font(.footnote)
+                                .frame(minWidth: chartViewModel.waveWidth, maxWidth: .infinity, alignment: .center)
+                                
+                                // 수온
+                                VStack(alignment: .center) {
+                                    HStack(alignment: .firstTextBaseline, spacing: 0) {
+                                        Text("\(item.waterTemperature, specifier: "%.1f")")
+                                            .font(.system(size: 15))
+                                        Text("℃")
+                                            .font(.footnote)
+                                    }
+                                    Image("waterTemperate")
                                 }
+                                .frame(minWidth: chartViewModel.waterWidth, maxWidth: .infinity, alignment: .center)
+                                
+                                HStack {
+                                    Image(item.weather)
+                                    HStack(alignment: .firstTextBaseline, spacing: 0) {
+                                        Text("\(item.airTemperature, specifier: "%.1f")")
+                                            .font(.system(size: 12))
+                                        Text("℃")
+                                            .font(.system(size:12))
+                                    }
+                                }
+                                .frame(width: chartViewModel.weatherWidth, alignment: .center)
                             }
-                            .frame(width:weatherWidth,alignment: .center)
                         }
                     }
+                    
+                    Spacer()
                 }
-                
-                Spacer()
-                
             }
             .padding(.horizontal)
             .frame(width: geometry.size.width)
             .background(Color.white.opacity(0.8))
             .cornerRadius(24)
         }
-        .onAppear{
+        .onAppear {
             print("SDMainCHartView")
             nfvm.fetchFirebase(modelContext: modelContext, collectionName: mappedItem)
         }

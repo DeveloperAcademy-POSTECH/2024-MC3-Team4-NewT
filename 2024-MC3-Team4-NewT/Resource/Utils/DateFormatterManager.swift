@@ -14,7 +14,7 @@ class DateFormatterManager {
     private init() {}
     
     // Firebase 날짜 형식
-    let longDateFormatter2: DateFormatter = {
+    let detailedDateTimeFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         formatter.timeZone = TimeZone(identifier: "Asia/Seoul")
@@ -28,10 +28,16 @@ class DateFormatterManager {
         return formatter
     }()
     
+    let compactDateFormatter: DateFormatter = {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyyMMdd"
+            return formatter
+        }()
+
     ///'@@시 (24시제)'로 표시해주는 Formatter
     let timeFormatter: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "HH시"
+        formatter.dateFormat = "d-HH"
         formatter.locale = Locale(identifier: "ko_kr")
         return formatter
     }()
@@ -46,7 +52,7 @@ class DateFormatterManager {
     
     /// 주어진 시간 문자열을 "HH시" 형식으로 변환하는 함수
     func timeToHourFormatter(_ timeString: String) -> String {
-        if let date = longDateFormatter2.date(from: timeString) {
+        if let date = detailedDateTimeFormatter.date(from: timeString) {
             return timeFormatter.string(from: date)
         }
         return timeString // 파싱 실패 시 원본 문자열 반환
@@ -81,6 +87,6 @@ class DateFormatterManager {
             return formatDate(date, format: "HH'시'")
     }
     func convertDateToString(date: Date) -> String {
-        return longDateFormatter2.string(from: date)
+        return detailedDateTimeFormatter.string(from: date)
     }
 }

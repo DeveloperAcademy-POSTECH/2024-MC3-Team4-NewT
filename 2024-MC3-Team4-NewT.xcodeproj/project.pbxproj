@@ -58,6 +58,8 @@
 		21C11E3B2C7E1A9D002A7411 /* NewDummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E3A2C7E1A9D002A7411 /* NewDummyData.swift */; };
 		21C11E3D2C7E1B0F002A7411 /* SupportingFileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E3C2C7E1B0F002A7411 /* SupportingFileTest.swift */; };
 		21C11E3F2C7E23DB002A7411 /* NewFirebaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E3E2C7E23DB002A7411 /* NewFirebaseViewModel.swift */; };
+		21C11E432C80B945002A7411 /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E422C80B945002A7411 /* ChartViewModel.swift */; };
+		21C11E452C80BA65002A7411 /* NewCustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E442C80BA65002A7411 /* NewCustomTabBar.swift */; };
 		21EDE2412C5B1B2B00F973C0 /* ModelContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EDE2402C5B1B2B00F973C0 /* ModelContext.swift */; };
 		21EDE2432C5B1C1D00F973C0 /* SDTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21EDE2422C5B1C1D00F973C0 /* SDTestView.swift */; };
 		21F36C4D2C66770600988438 /* FirebaseObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F36C4C2C66770600988438 /* FirebaseObservable.swift */; };
@@ -135,6 +137,8 @@
 		21C11E3A2C7E1A9D002A7411 /* NewDummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDummyData.swift; sourceTree = "<group>"; };
 		21C11E3C2C7E1B0F002A7411 /* SupportingFileTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SupportingFileTest.swift; path = "2024-MC3-Team4-NewT/Resource/Constant/SupportingFileTest.swift"; sourceTree = SOURCE_ROOT; };
 		21C11E3E2C7E23DB002A7411 /* NewFirebaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewFirebaseViewModel.swift; sourceTree = "<group>"; };
+		21C11E422C80B945002A7411 /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
+		21C11E442C80BA65002A7411 /* NewCustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCustomTabBar.swift; sourceTree = "<group>"; };
 		21EDE2402C5B1B2B00F973C0 /* ModelContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelContext.swift; sourceTree = "<group>"; };
 		21EDE2422C5B1C1D00F973C0 /* SDTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDTestView.swift; sourceTree = "<group>"; };
 		21F36C4C2C66770600988438 /* FirebaseObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseObservable.swift; sourceTree = "<group>"; };
@@ -350,6 +354,7 @@
 				21C11E302C7DB263002A7411 /* PersonalTabView.swift */,
 				21C11E372C7E19D5002A7411 /* SDMainChartView.swift */,
 				21C11E392C7E1A0F002A7411 /* SwiftData */,
+				21C11E442C80BA65002A7411 /* NewCustomTabBar.swift */,
 			);
 			path = NewView;
 			sourceTree = "<group>";
@@ -357,6 +362,7 @@
 		21C11E392C7E1A0F002A7411 /* SwiftData */ = {
 			isa = PBXGroup;
 			children = (
+				21C11E422C80B945002A7411 /* ChartViewModel.swift */,
 			);
 			path = SwiftData;
 			sourceTree = "<group>";
@@ -540,6 +546,7 @@
 				21588B012C5C7621003E3489 /* FirebaseTestObservable.swift in Sources */,
 				21B0802D2C4D0834007BC655 /* _024_MC3_Team4_NewTApp.swift in Sources */,
 				21588B0A2C5D594F003E3489 /* ContentView.swift in Sources */,
+				21C11E452C80BA65002A7411 /* NewCustomTabBar.swift in Sources */,
 				21EDE2412C5B1B2B00F973C0 /* ModelContext.swift in Sources */,
 				21588B2A2C601E21003E3489 /* RecordCreateViewModel.swift in Sources */,
 				21C11E382C7E19D5002A7411 /* SDMainChartView.swift in Sources */,
@@ -562,6 +569,7 @@
 				21BA396A2C65984100571A27 /* WeatherAPITestView.swift in Sources */,
 				715BA4D02C611DE600477938 /* CategoriesView.swift in Sources */,
 				21C11E332C7DC342002A7411 /* NewMainChartView.swift in Sources */,
+				21C11E432C80B945002A7411 /* ChartViewModel.swift in Sources */,
 				21B0803B2C4D087F007BC655 /* PiriView.swift in Sources */,
 				21353F632C6873380095CA6D /* OnboardingView.swift in Sources */,
 				21588B052C5C7652003E3489 /* SDCheckView.swift in Sources */,

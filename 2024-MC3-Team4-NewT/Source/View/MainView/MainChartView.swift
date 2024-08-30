@@ -6,7 +6,7 @@ struct MainChartView: View {
     var fbo = OldFirebaseObservable()
     @Query(filter:#Predicate<OldChartRow>{ item in
         item.surfingRecordStartTime == nil
-    },sort: \OldChartRow.time) var chartRow: [OldChartRow]
+    },sort: \OldChartRow.time) var chartData: [OldChartRow]
     @Binding var isHeaderVisible: Bool // 헤더 가시성 상태 변수
     @State private var topDate: String = Date.formattedDate(Date())()
     
@@ -35,7 +35,7 @@ struct MainChartView: View {
             
             ScrollView {
                 LazyVStack(spacing: 0) {
-                    ForEach(fbo.groupedByDate(chartRow: chartRow), id: \.key) { (key, charts) in
+                    ForEach(fbo.groupedByDate(chartRow: chartData), id: \.key) { (key, charts) in
                         VStack(alignment: .leading, spacing: 0) {
                             // 각 날짜별 차트 헤더
                             Text(key)
@@ -133,7 +133,7 @@ struct MainChartView: View {
         .background(.white.opacity(0.8))
         .cornerRadius(24)
         .onAppear {
-            if let firstSection = fbo.groupedByDate(chartRow: chartRow).first?.key {
+            if let firstSection = fbo.groupedByDate(chartRow: chartData).first?.key {
                 print("First Section Key: \(firstSection)")
                 
                 let initialDate = DateFormatterManager.shared.shortDateFormatter.date(from: firstSection)
