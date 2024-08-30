@@ -26,7 +26,7 @@ struct MC3_Team4_NewTApp: App {
         }
         .modelContainer(for: [
             DailySurfingValues.self,
-            OldSurfingValues.self,
+            
             OldChartRow.self,
             OldDailyWeather.self,
             OldSurfingRecordOne.self,

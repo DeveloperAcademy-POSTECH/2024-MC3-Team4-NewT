@@ -10,16 +10,17 @@ import SwiftData
 struct NewRecordCreateChartView: View {
     @ObservedObject var oldViewModel: RecordCreateViewModel
     @ObservedObject var newViewModel: NewRecordCreateViewModel
-    
+    @Query var chartData: [DailySurfingValues]
+
     var body: some View {
         ZStack(alignment: .top) {
             Color.white
             VStack(spacing: 0) {
                 ScrollView {
                     VStack(spacing: 0) {
-                        // newViewModel의 데이터를 사용하여 차트 행 생성
-                        ForEach(newViewModel.SDDailySurfingValues.indices, id: \.self) { index in
-                            let row = newViewModel.SDDailySurfingValues[index]
+                        // chartData를 사용하여 차트 행 생성
+                        ForEach(chartData.indices, id: \.self) { index in
+                            let row = chartData[index]
                             ZStack {
                                 Color.white.opacity(0.8)
                                     .frame(height: 58)
@@ -71,28 +72,29 @@ struct NewRecordCreateChartView: View {
                                             .font(.Body2Medium)
                                     }
                                 }
-                                
-                                // Divider 설정: 행 간 구분선 추가
-                                if (newViewModel.SDDailySurfingValues.count > 3) {
-                                    if (index < newViewModel.SDDailySurfingValues.count - 1) {
-                                        Divider()
-                                            .background(Color("surfBlue"))
-                                            .padding(.top, 58)
-                                    }
-                                } else {
-                                    if (index == 0 || index == 1) {
-                                        Divider()
-                                            .background(Color("surfBlue"))
-                                            .padding(.top, 58)
-                                    }
-                                }
+//                                
+//                                // Divider 설정: 행 간 구분선 추가
+//                                if (chartData.count > 3) {
+//                                    if (index < chartData.count - 1) {
+//                                        Divider()
+//                                            .background(Color("surfBlue"))
+//                                            .padding(.top, 58)
+//                                    }
+//                                } else {
+//                                    if (index == 0 || index == 1) {
+//                                        Divider()
+//                                            .background(Color("surfBlue"))
+//                                            .padding(.top, 58)
+//                                    }
+//                                }
                             }
                         }
                     }
                 }
-                .scrollDisabled(oldViewModel.isChartScroll)
+//                .scrollDisabled(oldViewModel.isChartScroll)
             }
         }
+        
         .frame(height: 174)
     }
 }
