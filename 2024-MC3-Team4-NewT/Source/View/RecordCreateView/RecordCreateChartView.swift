@@ -7,7 +7,7 @@
 import SwiftUI
 import SwiftData
 
-struct ChartView: View {
+struct RecordCreateChartView: View {
     @ObservedObject var viewModel: RecordCreateViewModel
     @Query(filter:#Predicate<OldChartRow>{ item in
         item.surfingRecordStartTime == nil

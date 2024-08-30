@@ -113,6 +113,7 @@ struct SDMainChartView: View {
             .cornerRadius(24)
         }
         .onAppear {
+            print(modelContext.sqliteCommand)
             print("SDMainCHartView")
             nfvm.fetchFirebaseDailyChart(modelContext: modelContext, collectionName: mappedItem)
         }

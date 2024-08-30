@@ -48,7 +48,7 @@ struct NewCustomTabBar: View {
                 .frame(height: 0.5) // 선의 두께, 0.33은 반영을 안해줘서 0.5로 설정
                 .foregroundColor(.black.opacity(0.3))
                 
-            NavigationLink(destination: RecordCreateView()) {
+            NavigationLink(destination: NewRecordCreateView()) {
                 ZStack {
                     Circle()
                         .fill(Color(.surfBlue))

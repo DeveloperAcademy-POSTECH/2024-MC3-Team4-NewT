@@ -17,33 +17,48 @@ class NewFirebaseViewModel: ObservableObject {
     func fetchFirebaseDailyChart(modelContext: ModelContext, collectionName: String) {
         
         do {
+            // DailySurfingValues를 로컬 데이터베이스에서 가져옴
             let descriptor = FetchDescriptor<DailySurfingValues>(sortBy: [SortDescriptor(\.time)])
             self.SDDailySurfingValues = try modelContext.fetch(descriptor)
+            print("로컬 데이터베이스에서 데이터를 성공적으로 불러왔습니다.")
+            
         } catch {
-            print("Error fetching DailySurfingValues: \(error)")
-        }
-        // 마지막 업데이트 날짜 가져오기
-        let lastUpdateDate = UserDefaults.standard.string(forKey: lastUpdateDateKey)
-        
-        // 현재 날짜 가져오기
-        let currentDateString = DateFormatterManager.shared.compactDateFormatter.string(from: Date())
-        
-        // 날짜가 바뀌었는지 확인
-        if lastUpdateDate == currentDateString {
-            print("오늘 이미 데이터를 가져왔습니다. 마지막 업데이트 날짜: \(lastUpdateDate ?? "Unknown")")
-            return
+            print("DailySurfingValues를 로컬에서 가져오는 동안 오류 발생: \(error)")
         }
         
+        // SDDailySurfingValues가 비어 있을 때 무조건 Firebase에서 데이터를 가져오도록 설정
+        if SDDailySurfingValues.isEmpty {
+            print("로컬 데이터가 비어 있습니다. Firebase에서 데이터를 불러옵니다.")
+            fetchFromFirebase(modelContext: modelContext, collectionName: collectionName)
+        } else {
+            // 마지막 업데이트 날짜 가져오기
+            let lastUpdateDate = UserDefaults.standard.string(forKey: lastUpdateDateKey)
+            
+            // 현재 날짜 가져오기
+            let currentDateString = DateFormatterManager.shared.compactDateFormatter.string(from: Date())
+            
+            // 날짜가 바뀌었는지 확인
+            if lastUpdateDate == currentDateString {
+                print("오늘 이미 데이터를 가져왔습니다. 마지막 업데이트 날짜: \(lastUpdateDate ?? "Unknown")")
+                return
+            }
+            
+            // Firebase에서 데이터를 가져오는 조건 만족 시 호출
+            fetchFromFirebase(modelContext: modelContext, collectionName: collectionName)
+        }
+    }
+    
+    private func fetchFromFirebase(modelContext: ModelContext, collectionName: String) {
         // Firebase에서 데이터 가져오기
         let db = Firestore.firestore()
         db.collection(collectionName).getDocuments { snapshot, error in
             if let error = error {
-                print("Error getting documents: \(error.localizedDescription)")
+                print("Firebase에서 문서를 가져오는 동안 오류 발생: \(error.localizedDescription)")
                 return
             }
             
             guard let documents = snapshot?.documents else {
-                print("No documents found")
+                print("Firebase에서 문서를 찾을 수 없습니다.")
                 return
             }
             
@@ -73,9 +88,9 @@ class NewFirebaseViewModel: ObservableObject {
                         if let date = dateFormatter.date(from: timestampString) {
                             let formattedDate = DateFormatterManager.shared.detailedDateTimeFormatter.string(from: date)
                             
-                            // Check if an instance with the same time already exists
+                            // 동일한 시간의 데이터가 이미 있는지 확인
                             if let existingIndex = self.SDDailySurfingValues.firstIndex(where: { $0.time == formattedDate }) {
-                                // Update existing instance
+                                // 기존 데이터를 업데이트
                                 let existingValue = self.SDDailySurfingValues[existingIndex]
                                 existingValue.waveHeight = Float(wavesHeight)
                                 existingValue.windDirection = Float(windDirection)
@@ -86,9 +101,9 @@ class NewFirebaseViewModel: ObservableObject {
                                 existingValue.location = collectionName
                                 
                                 modelContext.insert(existingValue)
-                                print("update")
+                                print("로컬 데이터 업데이트 완료")
                             } else {
-                                // Create new instance
+                                // 새 데이터를 생성
                                 let newSurfingValues = DailySurfingValues(
                                     time: formattedDate,
                                     waveDirection: Float.random(in: 180.0...240.0),
@@ -105,7 +120,7 @@ class NewFirebaseViewModel: ObservableObject {
                                 )
                                 modelContext.insert(newSurfingValues)
                                 self.SDDailySurfingValues.append(newSurfingValues)
-                                print("insert")
+                                print("Firebase 데이터 삽입 완료")
                             }
                         }
                     }
@@ -113,9 +128,9 @@ class NewFirebaseViewModel: ObservableObject {
             }
             
             // 업데이트 날짜 기록
+            let currentDateString = DateFormatterManager.shared.compactDateFormatter.string(from: Date())
             UserDefaults.standard.set(currentDateString, forKey: self.lastUpdateDateKey)
             print("Firebase 데이터를 성공적으로 업데이트하였습니다.")
-            
         }
     }
 }

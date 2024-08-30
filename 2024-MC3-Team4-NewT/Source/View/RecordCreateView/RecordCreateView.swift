@@ -27,7 +27,7 @@ struct RecordCreateView: View {
                                     .padding(.leading)
                                 ChartHeaderView(viewModel: viewModel)
                                 
-                                ChartView(
+                                RecordCreateChartView(
                                     viewModel: viewModel,
                                     observable: cro
                                 )
