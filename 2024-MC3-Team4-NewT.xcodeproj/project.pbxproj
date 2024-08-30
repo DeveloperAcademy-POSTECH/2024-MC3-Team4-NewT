@@ -52,7 +52,7 @@
 		21C11E2B2C7DA7CF002A7411 /* MainBackgroundImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E2A2C7DA7CF002A7411 /* MainBackgroundImage.swift */; };
 		21C11E2D2C7DAF2F002A7411 /* MainRegionChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E2C2C7DAF2F002A7411 /* MainRegionChoice.swift */; };
 		21C11E2F2C7DB0E6002A7411 /* MainTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E2E2C7DB0E6002A7411 /* MainTopView.swift */; };
-		21C11E312C7DB263002A7411 /* PersonalTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E302C7DB263002A7411 /* PersonalTabView.swift */; };
+		21C11E312C7DB263002A7411 /* NewPersonalRecommandation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E302C7DB263002A7411 /* NewPersonalRecommandation.swift */; };
 		21C11E332C7DC342002A7411 /* NewMainChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E322C7DC342002A7411 /* NewMainChartView.swift */; };
 		21C11E382C7E19D5002A7411 /* SDMainChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E372C7E19D5002A7411 /* SDMainChartView.swift */; };
 		21C11E3B2C7E1A9D002A7411 /* NewDummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C11E3A2C7E1A9D002A7411 /* NewDummyData.swift */; };
@@ -134,7 +134,7 @@
 		21C11E2A2C7DA7CF002A7411 /* MainBackgroundImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBackgroundImage.swift; sourceTree = "<group>"; };
 		21C11E2C2C7DAF2F002A7411 /* MainRegionChoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRegionChoice.swift; sourceTree = "<group>"; };
 		21C11E2E2C7DB0E6002A7411 /* MainTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTopView.swift; sourceTree = "<group>"; };
-		21C11E302C7DB263002A7411 /* PersonalTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalTabView.swift; sourceTree = "<group>"; };
+		21C11E302C7DB263002A7411 /* NewPersonalRecommandation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPersonalRecommandation.swift; sourceTree = "<group>"; };
 		21C11E322C7DC342002A7411 /* NewMainChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMainChartView.swift; sourceTree = "<group>"; };
 		21C11E372C7E19D5002A7411 /* SDMainChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDMainChartView.swift; sourceTree = "<group>"; };
 		21C11E3A2C7E1A9D002A7411 /* NewDummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDummyData.swift; sourceTree = "<group>"; };
@@ -358,11 +358,11 @@
 				21C11E442C80BA65002A7411 /* NewCustomTabBar.swift */,
 				21C11E322C7DC342002A7411 /* NewMainChartView.swift */,
 				21C11E282C7DA439002A7411 /* NewMainView.swift */,
+				21C11E302C7DB263002A7411 /* NewPersonalRecommandation.swift */,
+				21C11E4C2C817C28002A7411 /* NewRecordCreateChartView.swift */,
 				21C11E462C816E8C002A7411 /* NewRecordCreateView.swift */,
-				21C11E302C7DB263002A7411 /* PersonalTabView.swift */,
 				21C11E372C7E19D5002A7411 /* SDMainChartView.swift */,
 				21C11E392C7E1A0F002A7411 /* SwiftData */,
-				21C11E4C2C817C28002A7411 /* NewRecordCreateChartView.swift */,
 			);
 			path = NewView;
 			sourceTree = "<group>";
@@ -534,7 +534,7 @@
 			files = (
 				21588B212C601412003E3489 /* EvaluationView.swift in Sources */,
 				21C11E3D2C7E1B0F002A7411 /* SupportingFileTest.swift in Sources */,
-				21C11E312C7DB263002A7411 /* PersonalTabView.swift in Sources */,
+				21C11E312C7DB263002A7411 /* NewPersonalRecommandation.swift in Sources */,
 				21F36C4D2C66770600988438 /* FirebaseObservable.swift in Sources */,
 				21588B1F2C6012B8003E3489 /* TimePickerView.swift in Sources */,
 				21C11E2D2C7DAF2F002A7411 /* MainRegionChoice.swift in Sources */,

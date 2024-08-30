@@ -4,7 +4,6 @@
 //
 //  Created by ram on 8/27/24.
 //
-
 import SwiftUI
 import SwiftData
 
@@ -13,6 +12,7 @@ struct SDMainChartView: View {
     @Environment(\.modelContext) private var modelContext
     @ObservedObject var nfvm = NewFirebaseViewModel()
     @StateObject var chartViewModel = ChartViewModel()
+    @Query(sort: \DailySurfingValues.time) var chartData: [DailySurfingValues]
     
     var body: some View {
         GeometryReader { geometry in
@@ -39,7 +39,7 @@ struct SDMainChartView: View {
                         .bold()
                         .background(Color(UIColor.systemGray6))
                         
-                        ForEach(nfvm.SDDailySurfingValues, id: \.id) { item in
+                        ForEach(chartData, id: \.id) { item in
                             GridRow {
                                 Text("\(DateFormatterManager.shared.timeToHourFormatter(item.time))")
                                     .font(.system(size: 13))
@@ -114,7 +114,7 @@ struct SDMainChartView: View {
         }
         .onAppear {
             print(modelContext.sqliteCommand)
-            print("SDMainCHartView")
+            print("SDMainChartView")
             nfvm.fetchFirebaseDailyChart(modelContext: modelContext, collectionName: mappedItem)
         }
     }

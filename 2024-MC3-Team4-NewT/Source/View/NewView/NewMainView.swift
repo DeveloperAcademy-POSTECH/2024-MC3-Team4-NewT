@@ -7,7 +7,6 @@
 import SwiftUI
 
 struct NewMainView: View {
-    @State var isHeaderVisible: Bool = true
     @State var selectedTab = 0
     var body: some View {
         NavigationStack {

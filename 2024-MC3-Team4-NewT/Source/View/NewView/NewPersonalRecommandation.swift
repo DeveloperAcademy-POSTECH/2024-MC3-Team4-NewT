@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-struct PersonalTabView: View {
+struct NewPersonalRecommandation: View {
     
     var body: some View {
         VStack(spacing: 0){
@@ -31,5 +31,5 @@ struct PersonalTabView: View {
 
 
 #Preview {
-    PersonalTabView()
+    NewPersonalRecommandation()
 }

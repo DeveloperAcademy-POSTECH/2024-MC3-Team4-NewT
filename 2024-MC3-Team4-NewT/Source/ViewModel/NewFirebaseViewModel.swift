@@ -100,7 +100,7 @@ class NewFirebaseViewModel: ObservableObject {
                                 existingValue.waterTemperature = Float(seaTemp)
                                 existingValue.location = collectionName
                                 
-                                modelContext.insert(existingValue)
+                                
                                 print("로컬 데이터 업데이트 완료")
                             } else {
                                 // 새 데이터를 생성
