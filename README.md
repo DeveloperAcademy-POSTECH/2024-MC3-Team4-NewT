@@ -1,8 +1,7 @@
 # 안녕하세요. 오전 4팀 New-T입니다.
-![image](https://github.com/user-attachments/assets/51308ebc-3b10-4194-9b27-e0c564a3e1d2)
-
 # :iphone: [나에게 맞는 차트 수치를 찾아서 / Do Surf! 🌊 : 두섭이]
 [Logo/Cover Image]
+<img width="1920" alt="MC3-깃허브-표지" src="https://github.com/user-attachments/assets/3fa8aa18-d407-4f19-a8dd-4260491237a3">
 
 [App statement]
 
