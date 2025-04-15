@@ -1,34 +1,94 @@
-# 안녕하세요. 오전 4팀 New-T입니다.
-# :iphone: [나에게 맞는 차트 수치를 찾아서 / Do Surf! 🌊 : 두섭이]
-[Logo/Cover Image]
-<img width="1920" alt="MC3-깃허브-표지" src="https://github.com/user-attachments/assets/3fa8aa18-d407-4f19-a8dd-4260491237a3">
+# 🏄‍♀️ New-T | 나에게 맞는 파도를 알려주는 서핑 차트 해석 앱
 
-[App statement]
+---
 
-## :fireworks: Screenshots
+## 🌊 프로젝트 개요
 
-Attach photos if you are available
+> **"서퍼들의 문화를 탐구하고, 그들이 겪는 문제를 직접 해결해보자!"**
 
-## :framed_picture: Demo (optional)
+New-T는 서핑 입문자 또는 초보 서퍼들이 **복잡한 서핑 차트를 스스로 읽기 어려워하는 문제**에서 출발했습니다.  
+우리는 포항의 서핑샵 직원과의 인터뷰, 데스크 리서치, 설문조사를 통해  
+**“서퍼들은 기록을 잘 남기지 않고, 특히 비기너는 파도 차트를 읽는 데 큰 어려움을 겪는다”** 는 점을 발견했습니다.
 
-Attach videos if you are available
+이에 따라, New-T는 사용자가 **차트를 쉽게 이해하고**,  
+**나에게 맞는 서핑 조건을 스스로 발견**할 수 있도록 돕는 앱입니다.
 
-## PR은 Diff 200줄 이상
-## :pushpin: Features
+---
 
-- Feature 1
-- Feature 2
-- Feature 3
+## 🎯 Refined Challenge
+
+> **“서핑 차트를 스스로 읽기 어려워하는 서퍼들을 도와주자.”**
+
+---
+
+## 💡 솔루션 컨셉
+
+- 차트에 나오는 **각 수치를 쉽게 설명**해줍니다.  
+- 나의 서핑 기록을 기반으로 **어떤 조건이 나에게 맞는 파도였는지 통계적으로 알려줍니다.**
+
+---
+
+## 🛠 핵심 기능 (MVP)
+
+1. **차트 조회**  
+   - 시각적, 직관적으로 구성된 차트를 통해 복잡함은 줄이고, 이해도는 높였습니다.
+
+2. **기록 생성**  
+   - 오늘의 파도는 어땠는지 간단하게 평가하고 메모를 남길 수 있습니다.
+
+3. **기록 조회**  
+   - 나의 과거 서핑 경험을 한눈에 확인할 수 있습니다.
+
+4. **기록 통계**  
+   - 내가 ‘좋았다고 평가한 날’의 파도 수치를 기반으로,  
+     **나에게 맞는 서핑 조건을 수치로 정리해 제공합니다.**
+
+---
+
+## ⚙️ 사용 기술 (Tech Stack)
+
+- **SwiftUI**  
+- **SwiftData**  
+- **Firebase**
 
 
-## :sparkles: Skills & Tech Stack
+---
 
-ex) <img src="https://img.shields.io/badge/Swift-FA7343?style=flat&logo=Swift&logoColor=white"/>, SwiftUI
+## 👥 팀원 소개
 
-위와 같이 배지를 사용하여 더 풍성한 Readme를 만들 수 있습니다.
-[참조](https://shields.io/)
+| 이름     | 역할            |
+|----------|-----------------|
+| Hedy     | UI/UX 디자인|
+| Jane     | 메인뷰 차트 개발 |
+| Nada     | PM|
+| Sisi     | 차트 생성뷰 개발|
+| Piri   | SwiftUI 개발, 기상처 API 연동 |
 
+<!--
+---
 
-## :people_hugging: Authors
+## 📸 스크린샷
 
-@SSSiye, @piriram, @darongzzang, @헤디, @나다
+> **🖼 아래는 앱 주요 화면 스크린샷입니다.**
+
+| 차트 조회 화면 | 기록 작성 화면 | 통계 화면 |
+|----------------|----------------|-----------|
+| | ![record-view](./screenshots/record-view.png) | ![stats-view](./screenshots/stats-view.png) |
+
+---
+
+## 🔗 프로젝트 링크
+
+- [👉 GitHub Repository](https://github.com/your-team/new-t)
+- [📝 Figma 디자인 링크 (선택사항)](https://figma.com/project-link)
+
+---
+
+## 💬 향후 발전 방향
+
+- 알림 기능을 통해 서핑 가능한 날 자동 추천  
+- 더 많은 차트 데이터 API 연동  
+- 친구와 기록 공유 기능
+
+---
+-->
